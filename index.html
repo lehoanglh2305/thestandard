@@ -21,6 +21,8 @@
   --oxblood-fill:#7a232e;
   --oxblood-fill-light:#9c3947;
   --oxblood-text:#c06d79;
+  --oxblood-shine-light:#f2c6ca;
+  --oxblood-shine-dark:#7c3d47;
   --parchment:#f2ead9;
   --parchment-dim:#b8ab8e;
   --font-display:'Bitter',Georgia,serif;
@@ -55,6 +57,14 @@ body::after{
   inset:0;
   z-index:-2;
   background:linear-gradient(115deg,transparent 28%,rgba(255,232,196,0.05) 44%,rgba(255,232,196,0.10) 50%,rgba(255,232,196,0.05) 56%,transparent 72%);
+  background-size:200% 200%;
+  animation:bgSheen 22s ease-in-out infinite;
+}
+
+@keyframes bgSheen{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
 }
 
 .grain{
@@ -126,7 +136,17 @@ a{color:inherit;text-decoration:none;}
 }
 
 .oxblood-text{
-  color:var(--oxblood-text);
+  background:linear-gradient(120deg,var(--oxblood-shine-light) 0%,var(--oxblood-text) 35%,var(--oxblood-shine-dark) 55%,var(--oxblood-text) 75%,var(--oxblood-shine-light) 100%);
+  background-size:220% 220%;
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+.hero .oxblood-text{animation:sweepOnce 2.2s ease-out 0.2s both;}
+
+.nav-brand:hover .oxblood-text{
+  animation:sweepLoop 1.4s ease infinite;
 }
 
 .reveal{
@@ -152,6 +172,14 @@ a{color:inherit;text-decoration:none;}
 .contact-section .inner.is-visible .seal,
 .footer-mark.is-visible .seal{
   animation:stampIn 0.55s cubic-bezier(.22,.61,.36,1) both;
+}
+
+.contact-section .inner.is-visible h2{
+  animation:sweepOnce 1.8s ease-out 0.1s both;
+}
+
+.footer-mark.is-visible .oxblood-text{
+  animation:sweepOnce 1.6s ease-out 0.1s both;
 }
 
 svg.defs-only{position:absolute;width:0;height:0;overflow:hidden;}
@@ -655,6 +683,146 @@ section{
   gap:0.6rem;
 }
 
+.apply-intro{
+  max-width:640px;
+  margin:0 auto 2.2rem;
+  text-align:center;
+  color:var(--parchment-dim);
+  font-size:1.05rem;
+  transition:opacity 0.6s ease,transform 0.5s cubic-bezier(.22,.61,.36,1);
+}
+
+.apply-form{
+  max-width:680px;
+  margin:0 auto;
+  display:flex;
+  flex-direction:column;
+  gap:1.3rem;
+  background:linear-gradient(155deg,var(--steel-3) 0%,var(--steel-4) 100%);
+  border-top:3px solid var(--brass-2);
+  border-radius:2px;
+  padding:2.2rem clamp(1.5rem,4vw,2.6rem);
+  box-shadow:0 12px 26px rgba(0,0,0,0.35);
+  transition:opacity 0.6s ease,transform 0.5s cubic-bezier(.22,.61,.36,1);
+}
+
+.form-grid-2{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1.3rem;
+}
+
+@media (max-width:600px){
+  .form-grid-2{grid-template-columns:1fr;}
+}
+
+.form-row{
+  display:flex;
+  flex-direction:column;
+  gap:0.45rem;
+}
+
+.form-row label{
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:0.78rem;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  color:var(--brass-1);
+}
+
+.form-row input,
+.form-row select,
+.form-row textarea{
+  font-family:var(--font-body);
+  font-size:1rem;
+  color:var(--parchment);
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(204,159,79,0.3);
+  border-radius:2px;
+  padding:0.7rem 0.9rem;
+  transition:border-color 0.25s ease,background 0.25s ease;
+}
+
+.form-row textarea{
+  resize:vertical;
+  min-height:90px;
+  line-height:1.5;
+}
+
+.form-row input:focus,
+.form-row select:focus,
+.form-row textarea:focus{
+  outline:none;
+  border-color:var(--brass-2);
+  background:rgba(255,255,255,0.07);
+}
+
+.form-row input::placeholder,
+.form-row textarea::placeholder{
+  color:var(--parchment-dim);
+  opacity:0.6;
+}
+
+button.cta{
+  appearance:none;
+  -webkit-appearance:none;
+  cursor:pointer;
+}
+
+.apply-form button.cta{
+  align-self:center;
+  margin-top:0.4rem;
+}
+
+.form-confirm{
+  display:none;
+  text-align:center;
+  border:1px solid var(--brass-2);
+  border-radius:2px;
+  padding:1.8rem 1.6rem;
+  background:rgba(204,159,79,0.07);
+}
+
+.form-confirm.show{
+  display:block;
+  animation:confirmIn 0.6s cubic-bezier(.22,.61,.36,1) both;
+}
+
+@keyframes confirmIn{
+  0%{opacity:0;transform:translateY(14px) scale(0.97);}
+  100%{opacity:1;transform:translateY(0) scale(1);}
+}
+
+.confirm-mark{
+  width:52px;height:52px;
+  margin:0 auto 0.9rem;
+  display:block;
+  animation:stampIn 0.6s cubic-bezier(.22,.61,.36,1) 0.15s both;
+}
+
+.confirm-title{
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:1.15rem;
+  letter-spacing:0.04em;
+  text-transform:uppercase;
+  color:var(--brass-1);
+  margin-bottom:0.5rem;
+}
+
+.confirm-text{
+  font-size:0.95rem;
+  color:var(--parchment-dim);
+  max-width:440px;
+  margin:0 auto;
+}
+
+.confirm-text a{
+  color:var(--brass-1);
+  text-decoration:underline;
+}
+
 .tag{
   border:1px solid var(--brass-3);
   border-radius:20px;
@@ -747,6 +915,22 @@ footer p{
   font-size:0.8rem;
   color:var(--parchment-dim);
   letter-spacing:0.05em;
+}
+
+.footer-contact{
+  margin-bottom:0.6rem;
+}
+
+.footer-contact a{
+  color:var(--brass-1);
+  text-decoration:underline;
+  text-decoration-color:rgba(236,201,120,0.4);
+  transition:color 0.25s ease,text-decoration-color 0.25s ease;
+}
+
+.footer-contact a:hover,.footer-contact a:focus-visible{
+  color:var(--parchment);
+  text-decoration-color:var(--parchment);
 }
 
 @media (prefers-reduced-motion:reduce){
@@ -1065,13 +1249,92 @@ footer p{
     </span>
     <h2 class="brass-text">Let&rsquo;s Set the Standard</h2>
     <p class="lede">Available for university lecturing, private tutoring, and exam preparation work in Ho Chi Minh City.</p>
-    <div class="contact-links">
-      <a href="mailto:lehoang.lh2305@gmail.com">lehoang.lh2305@gmail.com</a>
-      <span class="sep">&middot;</span>
-      <a href="tel:0382308059">0382308059</a>
-      <span class="sep">&middot;</span>
-      <span>Ho Chi Minh City, Vietnam</span>
-    </div>
+
+    <p class="apply-intro reveal" style="transition-delay:0.1s">Ready to start? Share a few details below and your application will be ready to send.</p>
+
+    <form class="apply-form reveal" id="applyForm" style="transition-delay:0.18s">
+      <div class="form-grid-2">
+        <div class="form-row">
+          <label for="appName">Full Name</label>
+          <input type="text" id="appName" name="appName" required>
+        </div>
+        <div class="form-row">
+          <label for="appEmail">Email</label>
+          <input type="email" id="appEmail" name="appEmail" required>
+        </div>
+      </div>
+
+      <div class="form-grid-2">
+        <div class="form-row">
+          <label for="appPhone">Phone</label>
+          <input type="tel" id="appPhone" name="appPhone" placeholder="Optional">
+        </div>
+        <div class="form-row">
+          <label for="appAge">Age</label>
+          <input type="text" id="appAge" name="appAge" placeholder="e.g. 24">
+        </div>
+      </div>
+
+      <div class="form-grid-2">
+        <div class="form-row">
+          <label for="appLevel">Current English Level</label>
+          <select id="appLevel" name="appLevel" required>
+            <option value="" disabled selected>Select a level</option>
+            <option>Beginner</option>
+            <option>Elementary</option>
+            <option>Intermediate</option>
+            <option>Upper Intermediate</option>
+            <option>Advanced</option>
+            <option>Not sure, need assessment</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label for="appFocus">What Would You Like to Learn</label>
+          <select id="appFocus" name="appFocus" required>
+            <option value="" disabled selected>Select a focus</option>
+            <option>IELTS Preparation</option>
+            <option>TOEIC Preparation</option>
+            <option>Academic / General English</option>
+            <option>Business English</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <label for="appGoals">Desired Learning Outcomes</label>
+        <textarea id="appGoals" name="appGoals" placeholder="e.g. Reach IELTS band 7, feel confident presenting at work" required></textarea>
+      </div>
+
+      <div class="form-grid-2">
+        <div class="form-row">
+          <label for="appDuration">Duration of Study</label>
+          <select id="appDuration" name="appDuration" required>
+            <option value="" disabled selected>Select a duration</option>
+            <option>Less than 1 month</option>
+            <option>1 to 3 months</option>
+            <option>3 to 6 months</option>
+            <option>6 to 12 months</option>
+            <option>Ongoing / Flexible</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label for="appBudget">Budget</label>
+          <input type="text" id="appBudget" name="appBudget" placeholder="Approximate budget, any currency" required>
+        </div>
+      </div>
+
+      <button type="submit" class="cta">Send Application</button>
+
+      <div class="form-confirm" id="formConfirm" role="status" aria-live="polite">
+        <svg class="confirm-mark" viewBox="0 0 60 60" aria-hidden="true">
+          <circle cx="30" cy="30" r="27" fill="none" stroke="var(--brass-2)" stroke-width="3"/>
+          <path d="M18 31 L26 39 L42 21" fill="none" stroke="var(--brass-1)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <p class="confirm-title">Application Ready</p>
+        <p class="confirm-text">Your email app should now have opened with everything filled in. Just hit send to submit your application. If nothing opened, <a href="mailto:lehoang.lh2305@gmail.com">click here to send it directly</a>.</p>
+      </div>
+    </form>
   </div>
 </section>
 
@@ -1086,7 +1349,8 @@ footer p{
     </span>
     <span class="oxblood-text">THE STANDARD</span>
   </div>
-  <p>&copy; 2026 L&ecirc; Ho&agrave;ng. All rights reserved.</p>
+  <p class="footer-contact">If needed, please contact via this Gmail: <a href="mailto:lehoang.lh2305@gmail.com">lehoang.lh2305@gmail.com</a></p>
+  <p>&copy; 2026 The Standard. All rights reserved.</p>
 </footer>
 
 <script>
@@ -1194,6 +1458,51 @@ function updateTimelineFill(){
 window.addEventListener('scroll', updateTimelineFill, {passive:true});
 window.addEventListener('resize', updateTimelineFill);
 updateTimelineFill();
+
+/* Application form -> pre-filled email */
+var applyForm = document.getElementById('applyForm');
+var formConfirm = document.getElementById('formConfirm');
+if(applyForm){
+  applyForm.addEventListener('submit', function(e){
+    e.preventDefault();
+
+    var name = document.getElementById('appName').value.trim();
+    var email = document.getElementById('appEmail').value.trim();
+    var phone = document.getElementById('appPhone').value.trim();
+    var age = document.getElementById('appAge').value.trim();
+    var level = document.getElementById('appLevel').value;
+    var focus = document.getElementById('appFocus').value;
+    var goals = document.getElementById('appGoals').value.trim();
+    var duration = document.getElementById('appDuration').value;
+    var budget = document.getElementById('appBudget').value.trim();
+
+    var subject = 'New learner application: ' + name;
+    var bodyLines = [
+      'New learner application from The Standard website.',
+      '',
+      'Name: ' + name,
+      'Email: ' + email,
+      'Phone: ' + (phone || 'Not provided'),
+      'Age: ' + (age || 'Not provided'),
+      'Current English level: ' + level,
+      'Wants to learn: ' + focus,
+      'Desired learning outcomes: ' + goals,
+      'Duration of study: ' + duration,
+      'Budget: ' + budget
+    ];
+    var body = bodyLines.join('\n');
+    var mailto = 'mailto:lehoang.lh2305@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+
+    window.location.href = mailto;
+
+    if(formConfirm){
+      formConfirm.classList.remove('show');
+      void formConfirm.offsetWidth;
+      formConfirm.classList.add('show');
+      formConfirm.scrollIntoView({behavior:'smooth', block:'center'});
+    }
+  });
+}
 </script>
 
 </body>
