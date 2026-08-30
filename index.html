@@ -32,7 +32,7 @@
 
 *{box-sizing:border-box;margin:0;padding:0;}
 
-html{scroll-behavior:smooth;font-size:17.5px;}
+html{scroll-behavior:smooth;font-size:17.5px;color-scheme:dark;}
 
 body{
   font-family:var(--font-body);
@@ -54,17 +54,20 @@ body::before{
 body::after{
   content:"";
   position:fixed;
-  inset:0;
+  top:-25%;
+  left:-25%;
+  width:150%;
+  height:150%;
   z-index:-2;
   background:linear-gradient(115deg,transparent 28%,rgba(255,232,196,0.05) 44%,rgba(255,232,196,0.10) 50%,rgba(255,232,196,0.05) 56%,transparent 72%);
-  background-size:200% 200%;
+  will-change:transform;
   animation:bgSheen 22s ease-in-out infinite;
 }
 
 @keyframes bgSheen{
-  0%{background-position:0% 50%;}
-  50%{background-position:100% 50%;}
-  100%{background-position:0% 50%;}
+  0%{transform:translate3d(-4%,-2%,0);}
+  50%{transform:translate3d(4%,2%,0);}
+  100%{transform:translate3d(-4%,-2%,0);}
 }
 
 .grain{
@@ -764,6 +767,15 @@ section{
   opacity:0.6;
 }
 
+.form-row select option{
+  background-color:var(--steel-4);
+  color:var(--parchment);
+}
+
+.form-row select option:disabled{
+  color:var(--parchment-dim);
+}
+
 button.cta{
   appearance:none;
   -webkit-appearance:none;
@@ -1404,9 +1416,6 @@ function checkReveal(){
     return true;
   });
 }
-window.addEventListener('scroll', checkReveal, {passive:true});
-window.addEventListener('resize', checkReveal);
-checkReveal();
 
 /* Scrollspy nav */
 var spySections = document.querySelectorAll('section[id]');
@@ -1437,8 +1446,6 @@ function handleNavScroll(){
     wasScrolled = scrolled;
   }
 }
-window.addEventListener('scroll', handleNavScroll, {passive:true});
-handleNavScroll();
 
 /* Timeline brass connector fill */
 var timelineEl = document.querySelector('.timeline');
@@ -1455,9 +1462,26 @@ function updateTimelineFill(){
   progress = Math.max(0, Math.min(1, progress));
   timelineFill.style.height = (progress * 100) + '%';
 }
-window.addEventListener('scroll', updateTimelineFill, {passive:true});
-window.addEventListener('resize', updateTimelineFill);
-updateTimelineFill();
+
+/* Single scroll listener, batched into one frame each tick instead of
+   three separate handlers each forcing their own layout reads per raw
+   scroll event. This is what was causing the choppy scrolling. */
+var scrollTicking = false;
+function onScrollFrame(){
+  checkReveal();
+  handleNavScroll();
+  updateTimelineFill();
+  scrollTicking = false;
+}
+function onScroll(){
+  if(!scrollTicking){
+    scrollTicking = true;
+    window.requestAnimationFrame(onScrollFrame);
+  }
+}
+window.addEventListener('scroll', onScroll, {passive:true});
+window.addEventListener('resize', onScroll);
+onScrollFrame();
 
 /* Application form -> pre-filled email */
 var applyForm = document.getElementById('applyForm');
