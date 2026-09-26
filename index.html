@@ -472,7 +472,7 @@ section{
 
 .plaque-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  grid-template-columns:repeat(4,minmax(0,1fr));
   gap:1.5rem;
 }
 
@@ -507,6 +507,15 @@ section{
 
 .plaque-grid .plaque:nth-child(2){transition-delay:0.1s;}
 .plaque-grid .plaque:nth-child(3){transition-delay:0.2s;}
+.plaque-grid .plaque:nth-child(4){transition-delay:0.3s;}
+
+@media (max-width:1000px){
+  .plaque-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+}
+
+@media (max-width:600px){
+  .plaque-grid{grid-template-columns:minmax(0,1fr);}
+}
 
 .plaque h3{
   font-family:var(--font-display);
@@ -1055,153 +1064,128 @@ circle.travel-dot[cx="694.2"]{animation-delay:4.5s;animation-duration:5s;}
   gap:0.6rem;
 }
 
-.apply-intro{
-  max-width:640px;
-  margin:0 auto 2.2rem;
+.enrol-card{
+  max-width:720px;
+  margin:0 auto 2.4rem;
+  padding:2.2rem clamp(1.4rem,4vw,2.6rem) 1.8rem;
   text-align:center;
-  color:var(--parchment-dim);
-  font-size:1.05rem;
-  transition:opacity 0.6s ease,transform 0.5s cubic-bezier(.22,.61,.36,1);
-}
-
-.apply-form{
-  max-width:680px;
-  margin:0 auto;
-  display:flex;
-  flex-direction:column;
-  gap:1.3rem;
   background:linear-gradient(155deg,var(--steel-3) 0%,var(--steel-4) 100%);
   border-top:3px solid var(--brass-2);
   border-radius:2px;
-  padding:2.2rem clamp(1.5rem,4vw,2.6rem);
   box-shadow:0 12px 26px rgba(0,0,0,0.35);
   transition:opacity 0.6s ease,transform 0.5s cubic-bezier(.22,.61,.36,1);
 }
 
-.form-grid-2{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:1.3rem;
-}
-
-@media (max-width:600px){
-  .form-grid-2{grid-template-columns:1fr;}
-}
-
-.form-row{
-  display:flex;
-  flex-direction:column;
-  gap:0.45rem;
-}
-
-.form-row label{
+.enrol-eyebrow{
   font-family:var(--font-display);
   font-weight:700;
   font-size:0.78rem;
-  letter-spacing:0.1em;
+  letter-spacing:0.14em;
   text-transform:uppercase;
   color:var(--brass-1);
+  margin-bottom:0.6rem;
 }
 
-.form-row input,
-.form-row select,
-.form-row textarea{
-  font-family:var(--font-body);
-  font-size:1rem;
-  color:var(--parchment);
-  background:rgba(255,255,255,0.03);
-  border:1px solid rgba(204,159,79,0.3);
-  border-radius:2px;
-  padding:0.7rem 0.9rem;
-  transition:border-color 0.25s ease,background 0.25s ease;
-}
-
-.form-row textarea{
-  resize:vertical;
-  min-height:90px;
-  line-height:1.5;
-}
-
-.form-row input:focus,
-.form-row select:focus,
-.form-row textarea:focus{
-  outline:none;
-  border-color:var(--brass-2);
-  background:rgba(255,255,255,0.07);
-}
-
-.form-row input::placeholder,
-.form-row textarea::placeholder{
-  color:var(--parchment-dim);
-  opacity:0.6;
-}
-
-.form-row select option{
-  background-color:var(--steel-4);
-  color:var(--parchment);
-}
-
-.form-row select option:disabled{
-  color:var(--parchment-dim);
-}
-
-button.cta{
-  appearance:none;
-  -webkit-appearance:none;
-  cursor:pointer;
-}
-
-.apply-form button.cta{
-  align-self:center;
-  margin-top:0.4rem;
-}
-
-.form-confirm{
-  display:none;
-  text-align:center;
-  border:1px solid var(--brass-2);
-  border-radius:2px;
-  padding:1.8rem 1.6rem;
-  background:rgba(204,159,79,0.07);
-}
-
-.form-confirm.show{
-  display:block;
-  animation:confirmIn 0.6s cubic-bezier(.22,.61,.36,1) both;
-}
-
-@keyframes confirmIn{
-  0%{opacity:0;transform:translateY(14px) scale(0.97);}
-  100%{opacity:1;transform:translateY(0) scale(1);}
-}
-
-.confirm-mark{
-  width:52px;height:52px;
-  margin:0 auto 0.9rem;
-  display:block;
-  animation:stampIn 0.6s cubic-bezier(.22,.61,.36,1) 0.15s both;
-}
-
-.confirm-title{
+.enrol-title{
   font-family:var(--font-display);
   font-weight:700;
-  font-size:1.15rem;
-  letter-spacing:0.04em;
+  font-size:clamp(1.2rem,2.4vw,1.45rem);
+  color:var(--parchment);
+  margin-bottom:0.8rem;
+}
+
+.enrol-text{
+  font-size:1.05rem;
+  color:var(--parchment-dim);
+  max-width:560px;
+  margin:0 auto 1.4rem;
+}
+
+.enrol-courses{
+  list-style:none;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:0.6rem;
+  margin-bottom:1.8rem;
+}
+
+.enrol-courses li{
+  border:1px solid var(--brass-3);
+  border-radius:2px;
+  padding:0.35rem 1rem;
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:0.8rem;
+  letter-spacing:0.12em;
   text-transform:uppercase;
   color:var(--brass-1);
-  margin-bottom:0.5rem;
+  background:rgba(204,159,79,0.06);
 }
 
-.confirm-text{
-  font-size:0.95rem;
+.enrol-actions{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  align-items:center;
+  gap:0.9rem 1.2rem;
+}
+
+.enrol-actions .cta{
+  margin-top:0;
+}
+
+.cta-ghost{
+  appearance:none;
+  -webkit-appearance:none;
+  background:transparent;
+  border:1px solid var(--brass-3);
+  border-radius:2px;
+  padding:0.95rem 1.8rem;
+  font-family:var(--font-body);
+  font-size:0.84rem;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
   color:var(--parchment-dim);
-  max-width:440px;
-  margin:0 auto;
+  cursor:pointer;
+  transition:color 0.25s ease,border-color 0.25s ease,transform 0.2s ease;
 }
 
-.confirm-text a{
+.cta-ghost:hover,.cta-ghost:focus-visible{
   color:var(--brass-1);
-  text-decoration:underline;
+  border-color:var(--brass-1);
+}
+
+.cta-ghost:active,.cta:active{
+  transform:scale(0.97);
+}
+
+.enrol-embed{
+  margin-top:1.8rem;
+  border:1px solid rgba(204,159,79,0.3);
+  border-radius:2px;
+  overflow:hidden;
+  background:var(--parchment);
+}
+
+.enrol-embed iframe{
+  display:block;
+  width:100%;
+  height:1150px;
+  border:0;
+}
+
+@media (max-width:600px){
+  .enrol-embed iframe{height:1350px;}
+  .enrol-actions{flex-direction:column;}
+  .enrol-actions .cta,.cta-ghost{width:100%;text-align:center;padding-left:1rem;padding-right:1rem;letter-spacing:0.12em;}
+}
+
+.enrol-note{
+  margin-top:1.4rem;
+  font-size:0.9rem;
+  font-style:italic;
+  color:var(--parchment-dim);
 }
 
 .tag{
@@ -1384,7 +1368,7 @@ footer p{
   </span>
   <h1 class="oxblood-text">THE STANDARD</h1>
   <p class="subtitle">English Instructor &middot; <span class="brass-text">L&ecirc; Ho&agrave;ng</span></p>
-  <p class="subjects">IELTS &middot; TOEIC &middot; Academic English</p>
+  <p class="subjects">IELTS &middot; TOEIC &middot; APTIS &middot; Foundation</p>
   <a href="#contact" class="cta">Get in touch</a>
   <p class="scroll-hint">Scroll to read the full record</p>
 </section>
@@ -1426,12 +1410,16 @@ footer p{
         <p>Skills coaching and exam strategy for candidates working toward target bands, drawn from first hand experience holding an IELTS 7.5 score.</p>
       </div>
       <div class="plaque reveal">
-        <h3>TOEIC &amp; Communication</h3>
-        <p>Practical English communication and TOEIC test preparation for university students and working professionals, informed by a TOEIC score of 965.</p>
+        <h3>TOEIC Preparation</h3>
+        <p>Listening and Reading test preparation for university students and working professionals, informed by a TOEIC score of 965.</p>
       </div>
       <div class="plaque reveal">
-        <h3>Academic &amp; General English</h3>
-        <p>University level instruction, curriculum and syllabus design, and student centred lessons across all four English skills.</p>
+        <h3>APTIS Preparation</h3>
+        <p>Preparation for the APTIS test with a B2 target, for university exit requirements, postgraduate study, or work.</p>
+      </div>
+      <div class="plaque reveal">
+        <h3>Foundation English</h3>
+        <p>Rebuilds grammar, vocabulary, and pronunciation for learners starting over, or getting ready before an IELTS course.</p>
       </div>
     </div>
   </div>
@@ -1670,93 +1658,27 @@ footer p{
       </svg>
     </span>
     <h2 class="brass-text">Let&rsquo;s Set the Standard</h2>
-    <p class="lede">Available for university lecturing, private tutoring, and exam preparation work in Ho Chi Minh City.</p>
+    <p class="lede">Available for 1 on 1 online tutoring and exam preparation, alongside university lecturing in Ho Chi Minh City.</p>
 
-    <p class="apply-intro reveal" style="transition-delay:0.1s">Ready to start? Share a few details below and your application will be ready to send.</p>
-
-    <form class="apply-form reveal" id="applyForm" style="transition-delay:0.18s">
-      <div class="form-grid-2">
-        <div class="form-row">
-          <label for="appName">Full Name</label>
-          <input type="text" id="appName" name="appName" required>
-        </div>
-        <div class="form-row">
-          <label for="appEmail">Email</label>
-          <input type="email" id="appEmail" name="appEmail" required>
-        </div>
+    <div class="enrol-card reveal" style="transition-delay:0.1s">
+      <div class="enrol-eyebrow">Enrolment</div>
+      <h3 class="enrol-title">Apply for a 1 on 1 online course</h3>
+      <p class="enrol-text">A short form covers your current level, your target score, and when you can study, so the Standard can suggest a study path that fits you. It takes about three minutes and is written in Vietnamese.</p>
+      <ul class="enrol-courses" aria-label="Courses offered">
+        <li>IELTS</li>
+        <li>TOEIC</li>
+        <li>APTIS</li>
+        <li>Foundation</li>
+      </ul>
+      <div class="enrol-actions">
+        <a class="cta" href="https://docs.google.com/forms/d/e/1FAIpQLSfGWEipEsZr5GRUIIRxdKu7-KlHfduLwIL8_TNK8G9FbY0_YA/viewform?usp=pp_url&amp;entry.249182866=__other_option__&amp;entry.249182866.other_option_response=Website" target="_blank" rel="noopener">Open the application form</a>
+        <button type="button" class="cta-ghost" id="enrolEmbedToggle" aria-expanded="false" aria-controls="enrolEmbed">Fill it in on this page</button>
       </div>
-
-      <div class="form-grid-2">
-        <div class="form-row">
-          <label for="appPhone">Phone</label>
-          <input type="tel" id="appPhone" name="appPhone" placeholder="Optional">
-        </div>
-        <div class="form-row">
-          <label for="appAge">Age</label>
-          <input type="text" id="appAge" name="appAge" placeholder="e.g. 24">
-        </div>
+      <div class="enrol-embed" id="enrolEmbed" hidden>
+        <iframe title="Course application form" data-src="https://docs.google.com/forms/d/e/1FAIpQLSfGWEipEsZr5GRUIIRxdKu7-KlHfduLwIL8_TNK8G9FbY0_YA/viewform?embedded=true&amp;usp=pp_url&amp;entry.249182866=__other_option__&amp;entry.249182866.other_option_response=Website"></iframe>
       </div>
-
-      <div class="form-grid-2">
-        <div class="form-row">
-          <label for="appLevel">Current English Level</label>
-          <select id="appLevel" name="appLevel" required>
-            <option value="" disabled selected>Select a level</option>
-            <option>Beginner</option>
-            <option>Elementary</option>
-            <option>Intermediate</option>
-            <option>Upper Intermediate</option>
-            <option>Advanced</option>
-            <option>Not sure, need assessment</option>
-          </select>
-        </div>
-        <div class="form-row">
-          <label for="appFocus">What Would You Like to Learn</label>
-          <select id="appFocus" name="appFocus" required>
-            <option value="" disabled selected>Select a focus</option>
-            <option>IELTS Preparation</option>
-            <option>TOEIC Preparation</option>
-            <option>Academic / General English</option>
-            <option>Business English</option>
-            <option>Other</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="form-row">
-        <label for="appGoals">Desired Learning Outcomes</label>
-        <textarea id="appGoals" name="appGoals" placeholder="e.g. Reach IELTS band 7, feel confident presenting at work" required></textarea>
-      </div>
-
-      <div class="form-grid-2">
-        <div class="form-row">
-          <label for="appDuration">Duration of Study</label>
-          <select id="appDuration" name="appDuration" required>
-            <option value="" disabled selected>Select a duration</option>
-            <option>Less than 1 month</option>
-            <option>1 to 3 months</option>
-            <option>3 to 6 months</option>
-            <option>6 to 12 months</option>
-            <option>Ongoing / Flexible</option>
-          </select>
-        </div>
-        <div class="form-row">
-          <label for="appBudget">Budget</label>
-          <input type="text" id="appBudget" name="appBudget" placeholder="Approximate budget, any currency" required>
-        </div>
-      </div>
-
-      <button type="submit" class="cta">Send Application</button>
-
-      <div class="form-confirm" id="formConfirm" role="status" aria-live="polite">
-        <svg class="confirm-mark" viewBox="0 0 60 60" aria-hidden="true">
-          <circle cx="30" cy="30" r="27" fill="none" stroke="var(--brass-2)" stroke-width="3"/>
-          <path d="M18 31 L26 39 L42 21" fill="none" stroke="var(--brass-1)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        <p class="confirm-title">Application Ready</p>
-        <p class="confirm-text">Your email app should now have opened with everything filled in. Just hit send to submit your application. If nothing opened, <a href="mailto:lehoang.lh2305@gmail.com">click here to send it directly</a>.</p>
-      </div>
-    </form>
+      <p class="enrol-note">After you submit, the Standard will contact you by phone or Zalo to talk through a study plan.</p>
+    </div>
   </div>
 </section>
 
@@ -2005,47 +1927,22 @@ window.addEventListener('scroll', onScroll, {passive:true});
 window.addEventListener('resize', onScroll);
 onScrollFrame();
 
-/* Application form -> pre-filled email */
-var applyForm = document.getElementById('applyForm');
-var formConfirm = document.getElementById('formConfirm');
-if(applyForm){
-  applyForm.addEventListener('submit', function(e){
-    e.preventDefault();
-
-    var name = document.getElementById('appName').value.trim();
-    var email = document.getElementById('appEmail').value.trim();
-    var phone = document.getElementById('appPhone').value.trim();
-    var age = document.getElementById('appAge').value.trim();
-    var level = document.getElementById('appLevel').value;
-    var focus = document.getElementById('appFocus').value;
-    var goals = document.getElementById('appGoals').value.trim();
-    var duration = document.getElementById('appDuration').value;
-    var budget = document.getElementById('appBudget').value.trim();
-
-    var subject = 'New learner application: ' + name;
-    var bodyLines = [
-      'New learner application from The Standard website.',
-      '',
-      'Name: ' + name,
-      'Email: ' + email,
-      'Phone: ' + (phone || 'Not provided'),
-      'Age: ' + (age || 'Not provided'),
-      'Current English level: ' + level,
-      'Wants to learn: ' + focus,
-      'Desired learning outcomes: ' + goals,
-      'Duration of study: ' + duration,
-      'Budget: ' + budget
-    ];
-    var body = bodyLines.join('\n');
-    var mailto = 'mailto:lehoang.lh2305@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-
-    window.location.href = mailto;
-
-    if(formConfirm){
-      formConfirm.classList.remove('show');
-      void formConfirm.offsetWidth;
-      formConfirm.classList.add('show');
-      formConfirm.scrollIntoView({behavior:'smooth', block:'center'});
+/* Application form: optional inline embed of the Google Form.
+   The iframe only loads when asked for, so it does not slow the page. */
+var enrolToggle = document.getElementById('enrolEmbedToggle');
+var enrolEmbed = document.getElementById('enrolEmbed');
+if(enrolToggle && enrolEmbed){
+  enrolToggle.addEventListener('click', function(){
+    var frame = enrolEmbed.querySelector('iframe');
+    var opening = enrolEmbed.hidden;
+    if(opening && frame && !frame.getAttribute('src')){
+      frame.setAttribute('src', frame.getAttribute('data-src'));
+    }
+    enrolEmbed.hidden = !opening;
+    enrolToggle.setAttribute('aria-expanded', opening ? 'true' : 'false');
+    enrolToggle.textContent = opening ? 'Hide the form' : 'Fill it in on this page';
+    if(opening){
+      enrolEmbed.scrollIntoView({behavior:'smooth', block:'start'});
     }
   });
 }
