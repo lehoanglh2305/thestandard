@@ -286,6 +286,25 @@ dialog.closing::backdrop{opacity:0; transition:opacity 170ms ease-in}
   .stats{gap:12px 28px}
   .stat b{font-size:30px}
 }
+/* short screens (phones held sideways): full screen sheet, header scrolls away */
+@media (max-height:520px){
+  dialog{width:100vw; max-width:100vw; height:100dvh; max-height:100dvh; border-radius:0; margin:0}
+  .shead{position:static; padding-top:12px}
+  .shead h3{font-size:24px; margin:6px 0 2px}
+  .shead .sub{margin-bottom:6px}
+  #sheetOwl{display:none}
+  .sbody{padding-top:16px}
+  .sfoot{padding-block:8px}
+  .fcin{min-height:240px}
+}
+/* touch screens: larger targets */
+@media (pointer:coarse){
+  .tick{width:30px; height:30px; border-radius:8px}
+  .chk input{width:20px; height:20px}
+  .tabs button{padding:10px 14px}
+  .stabs button{padding:12px 14px}
+  .x{width:40px; height:40px}
+}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after,dialog::backdrop{transition:none!important; animation:none!important}}
 
 /* site menu, website build */
@@ -308,6 +327,7 @@ dialog.closing::backdrop{opacity:0; transition:opacity 170ms ease-in}
   .sitenav a.navapply{margin:6px 0 0; text-align:center}
   .navtoggle{display:inline-grid; place-items:center}
 }
+@media (min-width:1101px) and (max-width:1320px){ .sitebar{gap:12px} .sitenav ul{gap:2px} .sitenav a{padding:8px 9px} .themeb{font-size:0; gap:0; padding:8px 10px} .themeb svg{width:16px; height:16px} }
 @media (max-width:420px){ .themeb{padding:8px 10px; font-size:0; gap:0} .themeb svg{width:16px; height:16px} }
 @media (max-width:360px){ .sitebar{gap:8px} .navtoggle{width:36px; height:36px} .themeb{padding:8px} .lang button{padding:6px 9px} }
 </style>
@@ -323,6 +343,7 @@ dialog.closing::backdrop{opacity:0; transition:opacity 170ms ease-in}
         <li><a href="./#education" data-i="navEdu">Education</a></li>
         <li><a href="./#skills" data-i="navSkills">Skills</a></li>
         <li><a href="route-map.html" aria-current="page" data-i="navRoute">Route map</a></li>
+        <li><a href="learning-hub.html" data-i="navHub">Learning hub</a></li>
         <li><a href="./#contact" data-i="navContact">Contact</a></li>
         <li><a href="./#contact" class="navapply" data-i="navApply">Apply</a></li>
       </ul>
@@ -613,7 +634,7 @@ const UI = {
   copy:"Copy backup code", restoreOpen:"Restore from code", reset:"Reset progress", code:"Backup code", restore:"Restore",
   resetQ:"This clears every tick and quiz result on this device.", resetYes:"Yes, reset", cancel:"Cancel", refs:"References",
   copied:"Backup code copied.", copyManual:"Copy the code shown above.", restored:"Progress restored.", badCode:"That code could not be read. Paste the full code exactly as copied.", cleared:"Progress cleared.",
-  navAbout:"About", navExp:"Experience", navEdu:"Education", navSkills:"Skills", navRoute:"Route map", navContact:"Contact", navApply:"Apply", navMenu:"Open menu", navClose:"Close menu",
+  navAbout:"About", navExp:"Experience", navEdu:"Education", navSkills:"Skills", navRoute:"Route map", navHub:"Learning hub", navContact:"Contact", navApply:"Apply", navMenu:"Open menu", navClose:"Close menu",
   owl:"Chiioo the owl", themes:{auto:"Auto", light:"Light", dark:"Dark"}, themeL:"Colour theme"},
  vi:{eyebrow:"Lộ trình tiếng Anh · A1 đến C2", h1:"Từng bước từ A1 đến C2",
   lede:"85 điểm ngữ pháp và 30 mục tiêu cho nghe, đọc, nói, viết và phát âm, sắp xếp theo khung CEFR. Học từng điểm, tự kiểm tra, và đánh dấu khi bạn đã nắm vững.",
@@ -645,7 +666,7 @@ const UI = {
   copy:"Sao chép mã sao lưu", restoreOpen:"Khôi phục từ mã", reset:"Xóa tiến độ", code:"Mã sao lưu", restore:"Khôi phục",
   resetQ:"Thao tác này xóa mọi dấu đã học và kết quả kiểm tra trên thiết bị này.", resetYes:"Đồng ý xóa", cancel:"Hủy", refs:"Tài liệu tham khảo",
   copied:"Đã sao chép mã sao lưu.", copyManual:"Hãy sao chép mã hiển thị phía trên.", restored:"Đã khôi phục tiến độ.", badCode:"Không đọc được mã này. Hãy dán đầy đủ mã như khi sao chép.", cleared:"Đã xóa tiến độ.",
-  navAbout:"Giới thiệu", navExp:"Kinh nghiệm", navEdu:"Học vấn", navSkills:"Kỹ năng", navRoute:"Lộ trình", navContact:"Liên hệ", navApply:"Đăng ký", navMenu:"Mở menu", navClose:"Đóng menu",
+  navAbout:"Giới thiệu", navExp:"Kinh nghiệm", navEdu:"Học vấn", navSkills:"Kỹ năng", navRoute:"Lộ trình", navHub:"Góc học tập", navContact:"Liên hệ", navApply:"Đăng ký", navMenu:"Mở menu", navClose:"Đóng menu",
   owl:"Cú Chiioo", themes:{auto:"Tự động", light:"Sáng", dark:"Tối"}, themeL:"Giao diện"}
 };
 
@@ -826,10 +847,27 @@ function row(d){
       el("span",{class:"dots", "aria-hidden":"true"}, d.quiz.map((_,i)=>el("i",{class:res[i]===1?"ok":res[i]===0?"no":""}))),
       el("span",{class:"chev", "aria-hidden":"true", text:"›"})));
 }
+let lvTok = 0;
 function renderLevels(){
-  const main=$("#levels"); main.textContent=""; const doAnim = levelsAnim; levelsAnim = false;
+  const main=$("#levels"); const doAnim = levelsAnim; levelsAnim = false; const tok = ++lvTok;
   const lvs = view.level==="All" ? LEVELS : LEVELS.filter(l=>l.id===view.level);
-  for (const Lv of lvs){
+  // same levels already on the page: rebuild the ones in view now and the rest just after, so clicks feel instant
+  const kids = [...main.children];
+  if (!doAnim && kids.length===lvs.length && lvs.every((Lv,i)=>kids[i].id==="lv-"+Lv.id)){
+    const vh = innerHeight, later = [];
+    const swap = (old, Lv) => { const h = old.offsetHeight, n = levelSection(Lv); if (h) n.style.containIntrinsicSize = `auto ${h}px`; old.replaceWith(n); };
+    lvs.forEach((Lv,i) => { const r = kids[i].getBoundingClientRect(); if (r.bottom > -300 && r.top < vh+300) swap(kids[i], Lv); else later.push(Lv); });
+    const go = () => { if (tok!==lvTok || !later.length) return; const Lv = later.shift(), s = document.getElementById("lv-"+Lv.id); if (s) swap(s, Lv); setTimeout(go, 0); };
+    if (later.length) setTimeout(go, 0);
+    return;
+  }
+  const heights = Object.fromEntries(kids.map(k=>[k.id, k.offsetHeight]));
+  main.textContent="";
+  for (const Lv of lvs){ const sec = levelSection(Lv); if (heights["lv-"+Lv.id]) sec.style.containIntrinsicSize = `auto ${heights["lv-"+Lv.id]}px`; main.append(sec);
+    if (doAnim && main.children.length<=3) rise(sec, (main.children.length-1)*60, 10, 300); }
+}
+function levelSection(Lv){
+  {
     const its = DATA.filter(d=>d.level===Lv.id && matches(d));
     const gram = its.filter(d=>d.strand==="Grammar"), sk = its.filter(d=>d.strand!=="Grammar");
     const all = DATA.filter(d=>d.level===Lv.id), dn = all.filter(d=>state.done[d.id]).length;
@@ -849,8 +887,7 @@ function renderLevels(){
       gram.length ? el("ul",{class:"list"}, gram.map(row)) : el("div",{class:"list"}, el("p",{class:"empty", text:L().noG}))));
     if (showS) body.append(el("div",{class:"group"}, el("div",{class:"ghead"}, el("span",{class:"eyebrow", text:L().skills}), el("span",{class:"eyebrow num", text:L().shown(sk.length)})),
       sk.length ? el("ul",{class:"list"}, sk.map(row)) : el("div",{class:"list"}, el("p",{class:"empty", text:L().noS}))));
-    const sec = el("section",{class:"level", id:"lv-"+Lv.id, "aria-labelledby":"h-"+Lv.id}, side, body); main.append(sec);
-    if (doAnim && main.children.length<=3) rise(sec, (main.children.length-1)*60, 10, 300);
+    return el("section",{class:"level", id:"lv-"+Lv.id, "aria-labelledby":"h-"+Lv.id}, side, body);
   }
 }
 function renderAll(){ paintStatic(); renderSummary(); renderTrack(); renderFilters(); renderLevels(); }
@@ -1006,7 +1043,22 @@ $("#revBtn").onclick = () => startRunner("review");
 $("#cat").onchange = e => { view.cat=e.target.value; if (view.cat!=="All" && !["All","Grammar"].includes(view.strand)) view.strand="All"; saveView(); levelsAnim=true; renderAll(); };
 let qt; $("#q").oninput = e => { clearTimeout(qt); qt=setTimeout(()=>{ view.q=e.target.value.trim(); renderLevels(); }, 150); };
 $("#hideDone").onchange = e => { view.hideDone=e.target.checked; saveView(); levelsAnim=true; renderLevels(); };
-function setLang(l){ if (navT) setTimeout(()=>{ navT.setAttribute("aria-label", navL.classList.contains("open")?L().navClose:L().navMenu); syncNavH(); }); view.lang=l; saveView(); store.set("ts-lang", l); levelsAnim=true; renderAll(); applyTheme(); ["#heroText","#nextCard"].forEach(s=>rise($(s),0,4,260)); if ($("#sheet").open){ sheetAnim=0; paintSheet(); } heroOwl.el.setAttribute("aria-label", L().owl); }
+/* keep the reader's place when a language switch rebuilds the page */
+function placeOf(sel){ const bar=document.querySelector(".sitebar"), b0=bar?bar.offsetHeight:0, off=b0+Math.min(100,(innerHeight-b0)*0.3), list=[...document.querySelectorAll(sel)];
+  if (scrollY<40) return null; let i=-1;
+  list.forEach((n,k)=>{ const r=n.getBoundingClientRect(); if (r.top<=off && r.bottom>off) i=k; });
+  if (i<0) i=list.findIndex(n=>n.getBoundingClientRect().top>off); if (i<0) return null;
+  const top=list[i].getBoundingClientRect().top; return top<innerHeight*0.6 ? {sel, i, top} : null; }
+function keepPlace(a){ if (!a) return; const n=document.querySelectorAll(a.sel)[a.i]; if (n) window.scrollTo({top:scrollY + n.getBoundingClientRect().top - a.top, behavior:"instant"}); }
+function holdPlace(ms){ // after a rebuild, sections settle to their real height over the next frames; keep the reading line still meanwhile
+  const bar=document.querySelector(".sitebar"), b0=bar?bar.offsetHeight:0, ref=scrollY>40 ? document.elementFromPoint(innerWidth/2, b0+Math.min(100,(innerHeight-b0)*0.3)) : null;
+  if (!ref || ref===document.documentElement || ref===document.body) return;
+  const t=ref.getBoundingClientRect().top, root=document.documentElement; root.style.overflowAnchor="none";
+  const stop=()=>{ ro.disconnect(); root.style.overflowAnchor=""; ["wheel","touchstart","keydown","pointerdown"].forEach(e=>removeEventListener(e, stop, true)); };
+  const ro=new ResizeObserver(()=>{ if (!ref.isConnected) return stop(); const d=ref.getBoundingClientRect().top-t; if (Math.abs(d)>0.5) window.scrollTo({top:scrollY+d, behavior:"instant"}); });
+  ro.observe(document.body); ["wheel","touchstart","keydown","pointerdown"].forEach(e=>addEventListener(e, stop, {capture:true, passive:true})); setTimeout(stop, ms||900);
+}
+function setLang(l){ const place=placeOf("#levels .level, #levels .item"); if (navT) setTimeout(()=>{ navT.setAttribute("aria-label", navL.classList.contains("open")?L().navClose:L().navMenu); syncNavH(); }); view.lang=l; saveView(); store.set("ts-lang", l); renderAll(); applyTheme(); keepPlace(place); holdPlace(); ["#heroText","#nextCard"].forEach(s=>rise($(s),0,4,260)); if ($("#sheet").open){ sheetAnim=0; paintSheet(); } heroOwl.el.setAttribute("aria-label", L().owl); }
 $("#lnEN").onclick = () => setLang("en"); $("#lnVI").onclick = () => setLang("vi");
 
 const msg = t => { $("#bkMsg").textContent = t; };
@@ -1059,6 +1111,7 @@ if (!matchMedia("(prefers-reduced-motion: reduce)").matches){
 }
 
 const h=(location.hash||"").slice(1).toUpperCase(); if (LEVELS.some(l=>l.id===h)) view.level=h;
+addEventListener("hashchange", () => { const x=(location.hash||"").slice(1).toUpperCase(); if (LEVELS.some(l=>l.id===x)) setLevel(x); });
 applyTheme();
 levelsAnim = true;
 renderAll();
