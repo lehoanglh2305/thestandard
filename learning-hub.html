@@ -3,11 +3,24 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Learning hub · The Standard</title>
+<!-- share tags -->
 <meta name="description" content="Learning hub by The Standard: sentence structure practice from A1 to C1, the twelve English tenses on one timeline, and class tools for speaking lessons. English and Vietnamese.">
-<meta property="og:title" content="Learning hub · The Standard">
-<meta property="og:description" content="Sentence structure practice, a tense timeline with quizzes, and speaking tools for teachers. English and Vietnamese.">
+<link rel="canonical" href="https://lehoanglh2305.github.io/thestandard/learning-hub.html">
+<meta property="og:site_name" content="The Standard">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://lehoanglh2305.github.io/thestandard/learning-hub.html">
+<meta property="og:title" content="Learning hub · The Standard">
+<meta property="og:description" content="Góc học tập miễn phí: 28 chủ đề cấu trúc câu, 12 thì trên một dòng thời gian có câu đố, và công cụ lớp học cho giáo viên. Free, in English and Vietnamese.">
+<meta property="og:image" content="https://lehoanglh2305.github.io/thestandard/og-learning-hub.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Practise the building blocks of English. Sentence structure, tense timeline and class tools.">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:locale:alternate" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<!-- /share tags -->
+<title>Learning hub · The Standard</title>
 <meta name="theme-color" content="#f0eee6" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#141413" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 11'%3E%3Cpath fill='%23d97757' d='M2 0h1v1h5V0h1v2h1v1h1v4h1v2h-1v1H1V9H0V7h1V3h1z'/%3E%3Crect x='3' y='4' width='2' height='2' fill='%23faf9f5'/%3E%3Crect x='7' y='4' width='2' height='2' fill='%23faf9f5'/%3E%3Crect x='5' y='7' width='2' height='1' fill='%23e8a55a'/%3E%3C/svg%3E">
@@ -18,7 +31,7 @@
 <style>
 /* Chiioo lesson design system: one deliberate cream look */
 :root{
-  --coral:#d97757; --coral-active:#c6613f; --coral-text:#b65436; --teal:#5db8a6; --amber:#e8a55a;
+  --coral:#d97757; --coral-active:#a44a2e; --coral-text:#ad4f31; --coral-fill:#b65436; --on-cream:#5f5d58; --teal:#5db8a6; --amber:#e8a55a;
   --ink:#141413; --body-strong:#252523; --body:#3d3d3a; --muted:#6c6a64; --muted-soft:#87867f;
   --canvas:#f0eee6; --surface-soft:#f5e3c7; --surface-card:#faf9f5; --cream-strong:#e3dacc;
   --hairline:#cccbc8; --hairline-soft:#e3dacc;
@@ -34,6 +47,7 @@
   color-scheme:light;
 }
 @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]){
+  --on-cream:#a09d96;
   --ink:#faf9f5; --body-strong:#e8e6df; --body:#cfccc3; --muted:#a09d96; --muted-soft:#8e8b82;
   --canvas:#141413; --surface-soft:#2d2620; --surface-card:#1f1e1c; --cream-strong:#33312d;
   --hairline:#4a4843; --hairline-soft:#33312d; --coral-text:#e8906f;
@@ -42,6 +56,7 @@
   color-scheme:dark;
 } }
 :root[data-theme="dark"]{
+  --on-cream:#a09d96;
   --ink:#faf9f5; --body-strong:#e8e6df; --body:#cfccc3; --muted:#a09d96; --muted-soft:#8e8b82;
   --canvas:#141413; --surface-soft:#2d2620; --surface-card:#1f1e1c; --cream-strong:#33312d;
   --hairline:#4a4843; --hairline-soft:#33312d; --coral-text:#e8906f;
@@ -63,7 +78,7 @@ button{cursor:pointer}
 .coral{color:var(--coral-text)}
 
 /* buttons */
-.btn{display:inline-flex; align-items:center; justify-content:center; gap:8px; height:40px; padding:0 18px; border-radius:0 0 8px 8px; border:1px solid var(--coral); background:var(--coral); color:var(--on-primary); font:500 14px/1 var(--sans); white-space:nowrap; transition:background 120ms var(--ease)}
+.btn{display:inline-flex; align-items:center; justify-content:center; gap:8px; height:40px; padding:0 18px; border-radius:0 0 8px 8px; border:1px solid var(--coral-fill); background:var(--coral-fill); color:var(--on-primary); font:500 14px/1 var(--sans); white-space:nowrap; transition:background 120ms var(--ease)}
 .btn:active{background:var(--coral-active); border-color:var(--coral-active)}
 .btn.sec{background:var(--canvas); color:var(--ink); border-color:var(--hairline); border-radius:12px}
 .btn.sec:active{background:var(--surface-soft)}
@@ -79,7 +94,7 @@ button{cursor:pointer}
 @media (max-width:360px){.mark{font-size:20px}.themeb{padding:8px 10px}.lang button{padding:6px 10px}.top{gap:8px}}
 .mark b{color:var(--coral); font-weight:400}
 .lang{display:inline-flex; background:var(--cream-strong); border-radius:9999px; padding:3px}
-.lang button{border:0; background:transparent; border-radius:9999px; padding:6px 14px; font:500 13px/1 var(--sans); color:var(--muted); letter-spacing:.5px}
+.lang button{border:0; background:transparent; border-radius:9999px; padding:6px 14px; font:500 13px/1 var(--sans); color:var(--on-cream); letter-spacing:.5px}
 .lang button[aria-pressed="true"]{background:var(--surface-card); color:var(--ink)}
 .themeb{display:inline-flex; align-items:center; gap:6px; border:0; background:var(--cream-strong); color:var(--ink); border-radius:9999px; padding:8px 14px; font:500 13px/1 var(--sans)}
 .themeb svg{width:14px; height:14px}
@@ -114,7 +129,7 @@ button{cursor:pointer}
 .pacehead output{font:400 28px/1 var(--serif); letter-spacing:-.4px; color:var(--coral-text)}
 @media (max-width:420px){.pacehead{flex-direction:column; gap:6px}.pacehead output{font-size:24px}}
 #pace{width:100%; margin:14px 0 4px; accent-color:var(--coral); height:24px; cursor:pointer}
-.paceticks{display:flex; justify-content:space-between; font-size:12px; color:var(--muted-soft)}
+.paceticks{display:flex; justify-content:space-between; font-size:12px; color:var(--muted)}
 .proj{margin-top:12px; font-size:15px; color:var(--body-strong)}
 .proj b{font-weight:600}
 .stop .hrs{font-size:12.5px; color:var(--coral-text); margin-top:6px; font-weight:500}
@@ -167,7 +182,7 @@ input.field{width:200px}
 .item:first-child{border-top:0}
 .tick{flex:none; width:24px; height:24px; border-radius:6px; border:1.5px solid var(--hairline); background:var(--canvas); display:grid; place-items:center; padding:0}
 .tick svg{opacity:0}
-.tick[aria-checked="true"]{background:var(--coral); border-color:var(--coral)}
+.tick[aria-checked="true"]{background:var(--coral-fill); border-color:var(--coral-fill)}
 .tick[aria-checked="true"] svg{opacity:1}
 .open{flex:1; min-width:0; display:flex; align-items:center; gap:12px; text-align:left; background:none; border:0; padding:14px 16px 14px 0}
 .open .t{display:block; font-weight:500; color:var(--ink); line-height:1.35}
@@ -186,7 +201,7 @@ dialog::backdrop{background:var(--backdrop)}
 .shead{position:sticky; top:0; z-index:2; background:var(--surface-card); padding:22px 28px 0; border-bottom:1px solid var(--hairline-soft)}
 .shead .row{display:flex; align-items:flex-start; gap:16px}
 .shead .meta{display:flex; flex-wrap:wrap; gap:8px; align-items:center}
-.pill{display:inline-flex; align-items:center; padding:4px 12px; border-radius:9999px; background:var(--coral); color:var(--on-primary); font:500 12px/1.4 var(--sans); letter-spacing:1.5px; text-transform:uppercase}
+.pill{display:inline-flex; align-items:center; padding:4px 12px; border-radius:9999px; background:var(--coral-fill); color:var(--on-primary); font:500 12px/1.4 var(--sans); letter-spacing:1.5px; text-transform:uppercase}
 .pill.out{background:transparent; color:var(--muted); box-shadow:inset 0 0 0 1px var(--hairline); letter-spacing:.3px; text-transform:none; font-size:13px}
 .shead h3{font-size:clamp(26px,4vw,34px); line-height:1.15; letter-spacing:-.5px; margin:12px 0 4px}
 .shead .sub{font-size:14px; color:var(--muted); margin-bottom:12px}
@@ -256,6 +271,46 @@ textarea{width:100%; min-height:72px; border:1px solid var(--hairline); border-r
 .row8{display:flex; flex-wrap:wrap; gap:8px; margin-top:12px}
 .msg{font-size:14px; color:var(--coral-text); min-height:1.3em; margin-top:8px}
 
+/* route timeline motion: draw in when seen, owl walks to your level, live feedback */
+.tlscroll{position:relative}
+.stop .code,.stop .nm,.stop .ct,.stop .hrs{transition:transform 200ms var(--ease), opacity 200ms var(--ease)}
+.stop .dot{transition:transform 200ms var(--ease), background 200ms var(--ease), border-color 200ms var(--ease)}
+.seg.done{transform-origin:left center}
+@media (hover:hover){ .stop:hover .code{transform:translateY(-3px)} .stop:hover .dot{transform:scale(1.12)} }
+.stop:active .dot{transform:scale(.92)}
+.track.tl-pre .code,.track.tl-pre .nm,.track.tl-pre .ct,.track.tl-pre .hrs{opacity:0; transform:translateY(8px)}
+.track.tl-pre .dot{transform:scale(0)}
+.track.tl-pre .seg.done{transform:scaleX(0)}
+.track.tl-pre .mini i{width:0!important}
+.track.tl-in .nm{transition:opacity 420ms var(--ease) calc(var(--i)*80ms), transform 420ms var(--ease) calc(var(--i)*80ms)}
+.track.tl-in .code{transition:opacity 420ms var(--ease) calc(60ms + var(--i)*80ms), transform 420ms var(--ease) calc(60ms + var(--i)*80ms)}
+.track.tl-in .dot{transition:transform 380ms var(--ease) calc(120ms + var(--i)*110ms)}
+.track.tl-in .seg.done{transition:transform 520ms var(--ease) calc(160ms + var(--i)*110ms)}
+.track.tl-in .ct,.track.tl-in .hrs{transition:opacity 420ms var(--ease) calc(240ms + var(--i)*80ms), transform 420ms var(--ease) calc(240ms + var(--i)*80ms)}
+.track.tl-in .mini i{transition:width 700ms var(--ease) calc(300ms + var(--i)*90ms)}
+.routeowl{position:absolute; left:0; top:0; z-index:2; pointer-events:none; opacity:0; transition:opacity 300ms var(--ease)}
+.routeowl.on{opacity:1}
+.routeowl .ro-in{transform-origin:50% 100%}
+
+/* listen, links, placement */
+.say{display:inline-grid; place-items:center; width:30px; height:30px; margin-left:8px; vertical-align:-8px; border:0; border-radius:50%; background:var(--cream-strong); color:var(--ink); padding:0; flex:none; transition:background 200ms var(--ease), color 200ms var(--ease)}
+.say svg{width:15px; height:15px}
+.say.on{background:var(--coral-fill); color:var(--on-primary)}
+.no-tts .say{display:none!important}
+.fix .r .say{margin-left:auto}
+.face.back .say{background:rgba(250,249,245,.14); color:var(--on-panel)}
+.xlinks{display:flex; flex-wrap:wrap; gap:8px}
+.xlink{display:inline-flex; align-items:center; gap:8px; min-height:40px; padding:8px 14px; border-radius:12px; border:1px solid var(--hairline); background:var(--canvas); color:var(--ink); text-decoration:none; font:500 14px/1.3 var(--sans); transition:background 200ms var(--ease)}
+.xlink b{font-weight:500; color:var(--coral-text)}
+.plist{list-style:none; margin:16px 0 0; padding:0; display:grid; gap:6px}
+.plist li{display:flex; justify-content:space-between; gap:12px; padding:10px 14px; border-radius:10px; background:var(--canvas); font-size:15px; color:var(--body-strong)}
+.plist li.pl-pass b{color:var(--ok-text)} .plist li.pl-fail b{color:var(--err-text)}
+.plist b{font-weight:600}
+.confirm{margin-top:14px; padding:14px 16px; border-radius:12px; background:var(--canvas)}
+.unsure{height:auto; padding:6px 0; margin-top:10px; text-decoration:underline; text-underline-offset:3px; color:var(--muted)}
+.opt.picked{border-color:var(--ink); background:var(--cream-strong)}
+@media (pointer:coarse){ .say{width:40px; height:40px; vertical-align:-12px} }
+
 /* motion: calm and short; everything is skipped when reduced motion is on */
 @keyframes backdrop-in{from{opacity:0}to{opacity:1}}
 dialog[open]::backdrop{animation:backdrop-in 240ms var(--ease)}
@@ -316,7 +371,7 @@ dialog.closing::backdrop{opacity:0; transition:opacity 170ms ease-in}
 .sitenav a{display:block; padding:8px 12px; border-radius:8px; font:500 14px/1.2 var(--sans); color:var(--muted); text-decoration:none; white-space:nowrap; transition:background 200ms var(--ease), color 200ms var(--ease)}
 .sitenav a:hover{color:var(--ink); background:var(--cream-strong)}
 .sitenav a[aria-current="page"]{color:var(--ink); background:var(--surface-card); box-shadow:inset 0 0 0 1px var(--hairline-soft)}
-.sitenav a.navapply{background:var(--coral); color:var(--on-primary); border-radius:0 0 8px 8px; margin-left:6px}
+.sitenav a.navapply{background:var(--coral-fill); color:var(--on-primary); border-radius:0 0 8px 8px; margin-left:6px}
 .sitenav a.navapply:hover{background:var(--coral-active); color:var(--on-primary)}
 .navtoggle{display:none; width:40px; height:40px; border-radius:9999px; border:0; background:var(--cream-strong); color:var(--ink); font-size:18px; line-height:1}
 @media (max-width:1100px){
@@ -394,8 +449,8 @@ dialog.closing::backdrop{opacity:0; transition:opacity 170ms ease-in}
 .tah span{font-size:13px; color:var(--muted); line-height:1.4}
 .ico{width:18px; height:18px; flex:none}
 .ico .f{fill:var(--coral)} .ico .s{fill:none; stroke:var(--coral); stroke-width:2.6}
-.tcard{grid-column:var(--c); grid-row:var(--r); display:flex; flex-direction:column; align-items:flex-start; gap:6px; text-align:left; min-width:0; min-height:112px; background:var(--surface-card); border:1px solid var(--hairline-soft); border-radius:16px; padding:14px 16px; color:var(--body); transition:opacity 240ms var(--ease), border-color 200ms var(--ease), box-shadow 200ms var(--ease), transform 120ms var(--ease)}
-.tcard:active{transform:scale(.99)}
+.tcard{grid-column:var(--c); grid-row:var(--r); display:flex; flex-direction:column; align-items:flex-start; gap:6px; text-align:left; min-width:0; min-height:112px; background:var(--surface-card); border:1px solid var(--hairline-soft); border-radius:16px; padding:14px 16px; color:var(--body); transition:opacity 240ms var(--ease), border-color 200ms var(--ease), box-shadow 200ms var(--ease), transform 200ms var(--ease)}
+.tcard:active{transform:scale(.99); transition-duration:240ms,200ms,200ms,100ms}
 .tcard .asp{display:flex; align-items:center; gap:6px; font-size:12.5px; color:var(--muted)}
 .tcard .nm{font:400 19px/1.2 var(--serif); letter-spacing:-.2px; color:var(--ink)}
 .tcard .en{font-size:12.5px; color:var(--muted); margin-top:-2px}
@@ -406,6 +461,23 @@ dialog.closing::backdrop{opacity:0; transition:opacity 170ms ease-in}
 .tcard.dim{opacity:.3}
 .tcard.hit{border-color:var(--coral); box-shadow:0 0 0 3px rgba(217,119,87,.18)}
 .ttstatus{font-size:14.5px; color:var(--body-strong); min-height:1.5em; margin-top:16px}
+/* tense timeline motion: draw in once, calm hover, NOW pulse */
+.tline::before{transform-origin:left center}
+.tnow::after{content:""; position:absolute; inset:0; border-radius:inherit; box-shadow:0 0 0 2px var(--coral); opacity:0; pointer-events:none; animation:nowPulse 3.2s var(--ease) 1.6s infinite}
+@keyframes nowPulse{0%{opacity:.5; transform:scale(1)} 60%,100%{opacity:0; transform:scale(1.18,1.6)}}
+.tgrid.tg-pre .tline::before{transform:scaleX(0)}
+.tgrid.tg-pre .tline::after{opacity:0}
+.tgrid.tg-pre .tnow{opacity:0; transform:translate(-50%,-50%) scale(.7)}
+.tgrid.tg-pre .tzh,.tgrid.tg-pre .tah{opacity:0; transform:translateY(8px)}
+.tgrid.tg-pre .tcard{opacity:0; transform:translateY(10px)}
+.tgrid.tg-in .tline::before{transition:transform 700ms var(--ease)}
+.tgrid.tg-in .tline::after{transition:opacity 240ms var(--ease) 560ms}
+.tgrid.tg-in .tnow{transition:opacity 300ms var(--ease) 360ms, transform 380ms var(--ease) 360ms}
+.tgrid.tg-in .tzh{transition:opacity 420ms var(--ease) calc((var(--c) - 2)*90ms), transform 420ms var(--ease) calc((var(--c) - 2)*90ms)}
+.tgrid.tg-in .tah{transition:opacity 420ms var(--ease) calc(80ms + (var(--r) - 3)*70ms), transform 420ms var(--ease) calc(80ms + (var(--r) - 3)*70ms)}
+.tgrid.tg-in .tcard{transition:opacity 440ms var(--ease) calc(220ms + (var(--c) - 2)*90ms + (var(--r) - 3)*60ms), transform 440ms var(--ease) calc(220ms + (var(--c) - 2)*90ms + (var(--r) - 3)*60ms)}
+@media (hover:hover){ .tcard:hover{transform:translateY(-2px); border-color:var(--hairline); box-shadow:0 6px 18px rgba(20,20,19,.06)} .tcard.hit:hover{border-color:var(--coral); box-shadow:0 0 0 3px rgba(217,119,87,.18), 0 6px 18px rgba(20,20,19,.06)} }
+.tdia .dg-dot,.tdia .dg-now{transform-box:fill-box; transform-origin:center}
 .tdia{background:var(--canvas); border-radius:12px; padding:6px 8px; margin-bottom:6px}
 .tdia svg{display:block; width:100%; height:auto}
 .dg-ax{stroke:var(--muted-soft); stroke-width:2} .dg-axh{fill:var(--muted-soft)}
@@ -414,7 +486,7 @@ dialog.closing::backdrop{opacity:0; transition:opacity 170ms ease-in}
 .dg-t{font:500 13px var(--sans); fill:var(--muted)} .dg-tn{font:600 13px var(--sans); fill:var(--ink)}
 .chipset{display:flex; flex-wrap:wrap; gap:6px}
 .chipb{border:1px solid var(--hairline); background:var(--canvas); color:var(--ink); border-radius:9999px; padding:7px 12px; font:400 14px/1 var(--mono); transition:background 200ms var(--ease), color 200ms var(--ease)}
-.chipb[aria-pressed="true"]{background:var(--coral); border-color:var(--coral); color:var(--on-primary)}
+.chipb[aria-pressed="true"]{background:var(--coral-fill); border-color:var(--coral-fill); color:var(--on-primary)}
 .rel{border-left:4px solid var(--rc); padding:4px 0 4px 14px; margin:16px 0}
 .rel p{margin-top:6px; color:var(--body-strong)}
 .relk{display:flex; flex-wrap:wrap; align-items:center; gap:8px; font:500 12px/1.4 var(--sans); letter-spacing:1px; text-transform:uppercase; color:var(--muted)}
@@ -433,7 +505,7 @@ dialog.closing::backdrop{opacity:0; transition:opacity 170ms ease-in}
 .cpanel{display:grid; gap:18px; min-width:0}
 .crow{display:flex; flex-wrap:wrap; align-items:center; gap:10px 12px}
 .segb{display:inline-flex; flex-wrap:wrap; background:var(--cream-strong); border-radius:20px; padding:3px}
-.segb button{border:0; background:transparent; border-radius:9999px; padding:8px 14px; font:500 14px/1.2 var(--sans); color:var(--muted)}
+.segb button{border:0; background:transparent; border-radius:9999px; padding:8px 14px; font:500 14px/1.2 var(--sans); color:var(--on-cream)}
 .segb button[aria-pressed="true"]{background:var(--surface-card); color:var(--ink)}
 .chk2{display:inline-flex; align-items:center; gap:8px; font-size:15px; color:var(--body)}
 .chk2 input{accent-color:var(--coral); width:18px; height:18px}
@@ -551,7 +623,45 @@ body.present .lock{display:none}
   .sg{padding:3px 9px}
   .lg{padding:9px 12px}
 }
+
+/* class bar: one list of names for speaking pairs and the seat plan */
+.clsbar{display:flex; flex-wrap:wrap; align-items:center; gap:10px 12px; margin-top:20px; padding:12px 14px; border-radius:16px; background:var(--surface-card); border:1px solid var(--hairline-soft)}
+.clslbl{font:500 12px/1.4 var(--sans); letter-spacing:1.5px; text-transform:uppercase; color:var(--muted)}
+#clsSel{min-width:min(260px,100%); max-width:100%; font-size:15px}
+.clsacts{margin-left:auto; gap:6px}
+.clssample{margin-top:10px}
+.clsedit{margin-top:14px}
+.clsedit textarea{font:400 15px/1.45 var(--sans); min-height:180px; resize:vertical; color:var(--ink)}
+#clsDelBox{margin-top:14px}
+@media (max-width:600px){ .clsacts{margin-left:0} #clsSel{flex:1} }
+
+/* printed and saved pages */
+#printArea{display:none}
+@media print{
+  body > *:not(#printArea){display:none!important}
+  html,body{background:#fff!important}
+  #printArea{display:block!important; color:#141413; font-family:var(--sans)}
+}
+#printArea h1{font:400 24pt/1.1 var(--serif); margin:0 0 4pt; color:#141413}
+#printArea .psub{font-size:11pt; color:#555; margin:0 0 14pt}
+#printArea .pgrid{display:grid; grid-template-columns:repeat(3,1fr); gap:8pt}
+#printArea .pcard{border:1px solid #b9b7b0; border-radius:8pt; padding:8pt 10pt; break-inside:avoid}
+#printArea .pt{font:600 8.5pt/1.4 var(--sans); letter-spacing:1pt; text-transform:uppercase; color:#8a3a22}
+#printArea .pn{font:400 14pt/1.3 var(--serif); color:#141413}
+#printArea .ptp{font-size:10pt; color:#444; margin-top:4pt}
+#printArea .pboard{background:#141413; color:#fff; text-align:center; padding:6pt; border-radius:6pt; font:600 10pt/1.4 var(--sans); letter-spacing:2pt; text-transform:uppercase; margin-bottom:10pt; -webkit-print-color-adjust:exact; print-color-adjust:exact}
+#printArea .pseats{display:grid; gap:6pt}
+#printArea .pseat{border:1px solid #8f8d87; border-radius:6pt; min-height:46pt; padding:6pt 8pt; font:400 12pt/1.25 var(--serif); display:flex; align-items:center; break-inside:avoid; overflow-wrap:anywhere}
+#printArea .pseat.e{border-style:dashed; color:#9a9893; font:9pt/1.2 var(--sans)}
+#printArea .pseat.lk{border:1.5pt solid #8a3a22}
+#printArea .prow{font:9pt/1.2 var(--sans); color:#666; align-self:center; white-space:nowrap}
+#printArea .pfoot{margin-top:14pt; font:9pt/1.4 var(--sans); color:#777}
+.clsedit input.field{max-width:420px; width:100%}
 </style>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-title" content="The Standard">
+<style>.installbox{margin-top:22px; padding:16px 18px; border-radius:16px; background:var(--surface-card); border:1px solid var(--hairline-soft)} .installbox h3{font-size:20px; letter-spacing:-.2px} .installbox p{margin-top:6px; font-size:14.5px} .installbox .row8{margin-top:10px} .cfnote{margin-top:16px}</style>
 </head>
 <body>
 <div class="wrap">
@@ -566,7 +676,7 @@ body.present .lock{display:none}
         <li><a href="route-map.html" data-i="navRoute">Route map</a></li>
         <li><a href="learning-hub.html" aria-current="page" data-i="navHub">Learning hub</a></li>
         <li><a href="./#contact" data-i="navContact">Contact</a></li>
-        <li><a href="./#contact" class="navapply" data-i="navApply">Apply</a></li>
+        <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfGWEipEsZr5GRUIIRxdKu7-KlHfduLwIL8_TNK8G9FbY0_YA/viewform?usp=pp_url&amp;entry.249182866=__other_option__&amp;entry.249182866.other_option_response=Website" class="navapply" target="_blank" rel="noopener" data-i="navApply">Apply</a></li>
       </ul>
     </nav>
     <div style="display:flex;gap:6px;align-items:center;flex:none">
@@ -671,6 +781,32 @@ body.present .lock{display:none}
       </div>
     </div>
 
+    <div class="clsbar" id="clsBar" hidden>
+      <label for="clsSel" class="clslbl" data-i="clsLabel"></label>
+      <select class="field" id="clsSel"></select>
+      <span class="chint num" id="clsInfo"></span>
+      <div class="crow clsacts">
+        <button type="button" class="btn sec sm" id="clsEdit" data-i="clsEdit"></button>
+        <button type="button" class="btn sec sm" id="clsNew" data-i="clsNew"></button>
+        <button type="button" class="btn txt sm" id="clsDel" data-i="clsDel"></button>
+      </div>
+    </div>
+    <p class="cnote clssample" id="clsSample" hidden></p>
+    <div class="confirm" id="clsDelBox" hidden>
+      <p id="clsDelQ"></p>
+      <div class="row8"><button type="button" class="btn" id="clsDelYes" data-i="clsDelYes"></button><button type="button" class="btn sec" id="clsDelNo" data-i="cancel"></button></div>
+    </div>
+    <section class="ctcard clsedit" id="clsEditor" hidden aria-labelledby="clsEdT">
+      <h4 id="clsEdT"></h4>
+      <label class="hint" for="clsName" data-i="clsName"></label>
+      <input class="field" type="text" id="clsName" maxlength="60" autocomplete="off">
+      <label class="hint" for="clsNames" data-i="clsNamesL"></label>
+      <textarea class="field" id="clsNames" rows="10" spellcheck="false"></textarea>
+      <p class="hint" id="clsPreview" aria-live="polite"></p>
+      <div class="crow"><button type="button" class="btn" id="clsSave"></button><button type="button" class="btn sec" id="clsCancel" data-i="cancel"></button></div>
+      <p class="cnote" id="clsMsg" aria-live="polite"></p>
+    </section>
+
     <section id="ct-wheel" role="tabpanel" aria-labelledby="ctb-wheel">
       <div class="ct-head"><h3 data-i="wName"></h3><p data-i="wDesc"></p></div>
       <div class="ct-stage">
@@ -721,21 +857,15 @@ body.present .lock{display:none}
           <div class="hmeta"><h4 data-i="students"></h4><span id="pCount"></span></div>
           <div class="crow"><button type="button" class="btn sec sm" id="pAll" data-i="pAll"></button></div>
           <ul class="roster" id="pRoster"></ul>
-          <details>
-            <summary data-i="pChange"></summary>
-            <p class="hint" data-i="pChangeHelp"></p>
-            <textarea id="pNames" rows="10" aria-label="One student name per line"></textarea>
-            <div class="crow" style="margin-top:8px">
-              <button type="button" class="btn sec sm" id="pNew" data-i="pNew"></button>
-              <button type="button" class="btn sec sm" id="pApply" data-i="applyNames"></button>
-            </div>
-          </details>
+          <p class="hint" data-i="pEditHint"></p>
         </aside>
         <div class="cpanel">
           <div class="crow">
             <button type="button" class="btn" id="pShuffle" data-i="pShuffle"></button>
             <button type="button" class="btn sec" id="pLock" data-i="pLock"></button>
             <button type="button" class="btn sec" id="pCopy" data-i="pCopy"></button>
+            <button type="button" class="btn sec" id="pPic" data-i="pic"></button>
+            <button type="button" class="btn sec" id="pPrint" data-i="print"></button>
           </div>
           <div class="crow">
             <label class="chk2"><input type="checkbox" id="pTopics"> <span data-i="pTopics"></span></label>
@@ -759,6 +889,8 @@ body.present .lock{display:none}
             <button type="button" class="btn sec" id="sClear" data-i="sClear"></button>
             <button type="button" class="btn sec" id="sCopy" data-i="sCopy"></button>
             <button type="button" class="btn sec" id="sPresent" data-i="sPresent"></button>
+            <button type="button" class="btn sec" id="sPic" data-i="pic"></button>
+            <button type="button" class="btn sec" id="sPrint" data-i="print"></button>
           </div>
           <div class="crow toolbar sizes">
             <label><span data-i="sRows"></span> <input class="field num" type="number" id="sRows" min="1" max="8" value="4"></label>
@@ -771,14 +903,8 @@ body.present .lock{display:none}
         </div>
         <aside class="side cpanel">
           <section class="ctcard">
-            <h4 data-i="students"></h4>
-            <p class="hint" data-i="sNamesHelp"></p>
-            <textarea class="field" id="sNames" aria-label="Student names, one per line"></textarea>
-            <div class="crow">
-              <button type="button" class="btn sec sm" id="sApply" data-i="applyNames"></button>
-              <button type="button" class="btn sec sm" id="sExample" data-i="sExample"></button>
-            </div>
             <h4 id="sUnseatedT"></h4>
+            <p class="hint" data-i="sFromClass"></p>
             <div class="schips" id="sUnseated"></div>
           </section>
           <section class="ctcard">
@@ -852,6 +978,10 @@ body.present .lock{display:none}
   <div class="sfoot" id="sFoot"></div>
 </dialog>
 
+<div id="printArea" aria-hidden="true"></div>
+<style id="pageSize"></style>
+
+<script id="xlinks" type="application/json">{"tenses/present-simple":[["a1-pres","A1","Present simple and frequency adverbs","Hiện tại đơn và trạng từ chỉ tần suất"]],"tenses/present-continuous":[["a1-prog","A1","Present continuous","Hiện tại tiếp diễn"],["a2-future","A2","will, going to and present continuous for the future","will, going to và hiện tại tiếp diễn cho tương lai"]],"tenses/past-simple":[["a1-past","A1","Past simple","Quá khứ đơn"],["a2-past","A2","Past questions and time phrases","Câu hỏi quá khứ và cụm từ chỉ thời gian"],["b1-ppvps","B1","Present perfect or past simple","Hiện tại hoàn thành hay quá khứ đơn"]],"tenses/future-simple":[["a1-goingto","A1","going to for plans","going to cho kế hoạch"],["a2-future","A2","will, going to and present continuous for the future","will, going to và hiện tại tiếp diễn cho tương lai"],["b1-futpred","B1","Prediction and future continuous","Dự đoán và tương lai tiếp diễn"]],"structure/el-dummy":[["a1-there","A1","there is, there are","there is, there are"]],"structure/cl-pron-prep":[["a1-pron","A1","Pronouns and possessives","Đại từ và sở hữu"],["a1-prep","A1","in, on, at for time and place","in, on, at chỉ thời gian và nơi chốn"],["a2-posspron","A2","Possessive pronouns","Đại từ sở hữu"]],"structure/cl-conj-det":[["a1-art","A1","Plurals and a, an, the","Danh từ số nhiều và a, an, the"],["a1-demo","A1","this, that, these, those","this, that, these, those"],["a1-quant","A1","some, any, a lot of, how much, how many","some, any, a lot of, how much, how many"],["a2-quant","A2","much, many, a few, a little, enough","much, many, a few, a little, enough"],["a2-art","A2","Articles with countable and uncountable nouns","Mạo từ với danh từ đếm được và không đếm được"],["b1-det","B1","all, most, both, either, neither","all, most, both, either, neither"]],"structure/cl-aux-modal":[["a1-can","A1","can and can't","can và can't"],["a2-modals","A2","could, might, must, have to, should","could, might, must, have to, should"],["b1-deduc","B1","Deduction and possibility","Suy luận và khả năng"],["b1-oblig","B1","Obligation and necessity","Sự bắt buộc và sự cần thiết"]],"structure/cl-verb-pattern":[["a1-like","A1","like, love, hate + ing and I'd like","like, love, hate + ing và I'd like"],["a2-verbpat","A2","Gerunds, to infinitives and purpose","Danh động từ, to + động từ và chỉ mục đích"]],"structure/ty-compound":[["a1-link","A1","and, but, because · very, really","and, but, because · very, really"],["b1-link","B1","Linkers for contrast and result","Từ nối chỉ đối lập và kết quả"]],"tenses/past-continuous":[["a2-pastcont","A2","Past continuous","Quá khứ tiếp diễn"],["b1-narr","B1","Narrative tenses and past perfect","Các thì kể chuyện và quá khứ hoàn thành"]],"tenses/present-perfect":[["a2-presperf","A2","Present perfect","Hiện tại hoàn thành"],["b1-ppvps","B1","Present perfect or past simple","Hiện tại hoàn thành hay quá khứ đơn"]],"structure/ty-complex":[["a2-cond01","A2","Zero and first conditionals","Câu điều kiện loại 0 và loại 1"],["b1-cond23","B1","Second and third conditionals","Câu điều kiện loại 2 và loại 3"],["b1-link","B1","Linkers for contrast and result","Từ nối chỉ đối lập và kết quả"],["b2-contrast","B2","although, despite, in spite of, whereas","although, despite, in spite of, whereas"]],"structure/wf-ly":[["a2-adv","A2","Adverbs of manner and word order","Trạng từ chỉ cách thức và trật tự từ"]],"structure/ty-relative":[["a2-rel","A2","Basic relative clauses","Mệnh đề quan hệ cơ bản"],["b1-reldef","B1","Defining relative clauses with where and whose","Mệnh đề quan hệ xác định với where và whose"],["b2-relnd","B2","Non defining and reduced relative clauses","Mệnh đề quan hệ không xác định và mệnh đề rút gọn"]],"tenses/past-perfect":[["b1-narr","B1","Narrative tenses and past perfect","Các thì kể chuyện và quá khứ hoàn thành"]],"tenses/present-perfect-continuous":[["b1-ppc","B1","Present perfect continuous","Hiện tại hoàn thành tiếp diễn"]],"tenses/future-continuous":[["b1-futpred","B1","Prediction and future continuous","Dự đoán và tương lai tiếp diễn"]],"tenses/past-perfect-continuous":[["b2-ppc","B2","Past perfect continuous","Quá khứ hoàn thành tiếp diễn"]],"tenses/future-perfect":[["b2-futperf","B2","Future perfect and future perfect continuous","Tương lai hoàn thành và tương lai hoàn thành tiếp diễn"]],"tenses/future-perfect-continuous":[["b2-futperf","B2","Future perfect and future perfect continuous","Tương lai hoàn thành và tương lai hoàn thành tiếp diễn"]],"structure/ty-participle":[["b2-relnd","B2","Non defining and reduced relative clauses","Mệnh đề quan hệ không xác định và mệnh đề rút gọn"],["c1-partcl","C1","Participle and non finite clauses","Mệnh đề phân từ và mệnh đề không chia"]],"structure/el-inversion":[["c1-inv","C1","Inversion after negative adverbials","Đảo ngữ sau trạng từ phủ định"],["c2-inv","C2","Inversion with hardly, no sooner, only, little","Đảo ngữ với hardly, no sooner, only, little"]],"structure/ty-cleft":[["c1-cleft","C1","Cleft sentences","Câu chẻ"],["c2-focus","C2","Advanced focus structures","Cấu trúc nhấn mạnh nâng cao"]],"structure/wf-family":[["c1-nominal","C1","Nominalisation","Danh từ hóa"]]}</script>
 <script id="ssData" type="application/json">{"C":{"tiers":{"A":{"en":"Basic (A1 to A2)","vi":"Cơ bản (A1 đến A2)"},"B":{"en":"Intermediate (B1 to B2)","vi":"Trung cấp (B1 đến B2)"},"C":{"en":"Advanced (C1)","vi":"Nâng cao (C1)"}},"areas":[{"id":"elements","en":"Sentence elements","vi":"Thành phần câu","topics":[{"id":"el-sv","tier":"A","src":"bc-clause","title":{"en":"Subject and verb","vi":"Chủ ngữ và động từ"},"explain":{"en":"A clause needs a subject and a verb. The subject is the noun phrase that does the action. The verb is the action or state.","vi":"Một mệnh đề cần có chủ ngữ và động từ. Chủ ngữ là cụm danh từ thực hiện hành động. Động từ là hành động hoặc trạng thái."},"examples":[[["The children","S"],["laughed","V"]],[["Birds","S"],["fly","V"]]],"exercise":{"type":"label","prompt":{"en":"Tap the subject.","vi":"Chạm vào chủ ngữ."},"sample":"The dog barked. Answer: The dog"}},{"id":"el-svo","tier":"A","src":"bc-clause","title":{"en":"Object (S V O)","vi":"Tân ngữ (S V O)"},"explain":{"en":"The object receives the action. It follows a transitive verb.","vi":"Tân ngữ nhận hành động. Nó đứng sau ngoại động từ."},"examples":[[["John","S"],["wanted","V"],["a new bicycle","O"]],[["She","S"],["reads","V"],["books","O"]]],"exercise":{"type":"build","prompt":{"en":"Drag the parts into the correct order.","vi":"Kéo các phần vào đúng thứ tự."},"sample":"Parts: books / my sister / loves. Answer: My sister loves books."}},{"id":"el-svca","tier":"A","src":"bc-clause","title":{"en":"Complement and adverbial (S V C, S V A)","vi":"Bổ ngữ và trạng ngữ (S V C, S V A)"},"explain":{"en":"A complement describes the subject after a linking verb. An adverbial shows time, place or manner.","vi":"Bổ ngữ mô tả chủ ngữ sau động từ nối. Trạng ngữ chỉ thời gian, nơi chốn hoặc cách thức."},"examples":[[["This soup","S"],["tastes","V"],["awful","C"]],[["Mary and her family","S"],["were driving","V"],["to Madrid","A"]]],"exercise":{"type":"label","prompt":{"en":"Label each part: S, V, C or A.","vi":"Gắn nhãn từng phần: S, V, C hoặc A."},"sample":"The room (S) felt (V) cold (C)."}},{"id":"el-svoo","tier":"B","src":"std","title":{"en":"Two objects and object complement (S V O O, S V O C)","vi":"Hai tân ngữ và bổ ngữ cho tân ngữ (S V O O, S V O C)"},"explain":{"en":"Some verbs take an indirect object and a direct object. Others take an object and a complement that describes the object.","vi":"Một số động từ nhận tân ngữ gián tiếp và tân ngữ trực tiếp. Số khác nhận một tân ngữ và một bổ ngữ mô tả tân ngữ đó."},"examples":[[["She","S"],["gave","V"],["me","IO"],["a book","DO"]],[["They","S"],["made","V"],["him","O"],["captain","OC"]]],"exercise":{"type":"label","prompt":{"en":"Tap the indirect object.","vi":"Chạm vào tân ngữ gián tiếp."},"sample":"He sent his teacher an email. Answer: his teacher"}},{"id":"el-dummy","tier":"C","src":"bc-clause","title":{"en":"Dummy subjects: it and there","vi":"Chủ ngữ giả: it và there"},"explain":{"en":"English clauses always have a subject, except commands. When there is no other subject, use it or there.","vi":"Mệnh đề tiếng Anh luôn có chủ ngữ, trừ câu mệnh lệnh. Khi không có chủ ngữ khác, dùng it hoặc there."},"examples":[[["There","S"],["were","V"],["twenty people","S2"],["at the meeting","A"]],[["It","S"],["is","V"],["a lovely day","C"]]],"exercise":{"type":"fill","prompt":{"en":"Choose it or there.","vi":"Chọn it hoặc there."},"sample":"___ is raining. Answer: It"}},{"id":"el-clause-subject","tier":"C","src":"std","title":{"en":"A clause as the subject","vi":"Mệnh đề làm chủ ngữ"},"explain":{"en":"A whole clause can be the subject. It often starts with what, that or whether.","vi":"Cả một mệnh đề có thể làm chủ ngữ. Nó thường bắt đầu bằng what, that hoặc whether."},"examples":[[["What she said","S"],["surprised","V"],["everyone","O"]],[["Whether we win","S"],["does not matter","V"]]],"exercise":{"type":"build","prompt":{"en":"Drag the parts into the correct order.","vi":"Kéo các phần vào đúng thứ tự."},"sample":"Parts: shocked / what he did / us. Answer: What he did shocked us."}},{"id":"el-inversion","tier":"C","src":"bc-emphasis","title":{"en":"Inversion after negative adverbials","vi":"Đảo ngữ sau trạng từ phủ định"},"explain":{"en":"Put a negative adverbial such as never, rarely or not only at the start. Then put the auxiliary before the subject. If there is no auxiliary, add do, does or did.","vi":"Đặt trạng từ phủ định như never, rarely hoặc not only ở đầu câu. Sau đó đặt trợ động từ trước chủ ngữ. Nếu không có trợ động từ, thêm do, does hoặc did."},"examples":[[["Rarely","A"],["have","AUX"],["I","S"],["read","V"],["such an original story","O"]],[["Not only","A"],["do","AUX"],["they","S"],["have","V"],["live reptiles","O"]]],"exercise":{"type":"build","prompt":{"en":"Drag the parts into the correct order.","vi":"Kéo các phần vào đúng thứ tự."},"sample":"Parts: seen / I / have / never / such a film. Answer: Never have I seen such a film."}}]},{"id":"types","en":"Sentence types","vi":"Các loại câu","topics":[{"id":"ty-clause","tier":"A","src":"purdue","title":{"en":"Clause and phrase","vi":"Mệnh đề và cụm từ"},"explain":{"en":"An independent clause forms a complete sentence on its own. A dependent clause needs another clause to make a complete sentence. A phrase is a group of words without its own subject and verb.","vi":"Mệnh đề độc lập tự tạo thành một câu hoàn chỉnh. Mệnh đề phụ thuộc cần một mệnh đề khác để thành câu hoàn chỉnh. Cụm từ là nhóm từ không có chủ ngữ và động từ riêng."},"examples":[[["I missed the bus","IC"]],[["because I woke up late","DC"]],[["after school","PHRASE"]]],"exercise":{"type":"classify","prompt":{"en":"Choose: independent clause, dependent clause or phrase.","vi":"Chọn: mệnh đề độc lập, mệnh đề phụ thuộc hoặc cụm từ."},"sample":"when the bell rang. Answer: dependent clause"}},{"id":"ty-simple","tier":"A","src":"purdue","title":{"en":"Simple sentence","vi":"Câu đơn"},"explain":{"en":"A simple sentence has one independent clause and no dependent clauses. It can still have more than one subject or verb.","vi":"Câu đơn có một mệnh đề độc lập và không có mệnh đề phụ thuộc. Câu vẫn có thể có nhiều chủ ngữ hoặc nhiều động từ."},"examples":[[["My aunt enjoyed taking the hayride with you","IC"]],[["Tom and Mai sing and dance","IC"]]],"exercise":{"type":"classify","prompt":{"en":"Does the sentence have one clause? Choose yes or no.","vi":"Câu có đúng một mệnh đề không? Chọn có hoặc không."},"sample":"The cat slept on the sofa. Answer: yes, it is a simple sentence"}},{"id":"ty-compound","tier":"B","src":"purdue","title":{"en":"Compound sentence","vi":"Câu ghép"},"explain":{"en":"A compound sentence has two or more independent clauses and no dependent clauses. Join them with a comma and a coordinating conjunction (for, and, nor, but, or, yet, so), or with a semicolon.","vi":"Câu ghép có hai hoặc nhiều mệnh đề độc lập và không có mệnh đề phụ thuộc. Nối bằng dấu phẩy và liên từ đẳng lập (for, and, nor, but, or, yet, so), hoặc bằng dấu chấm phẩy."},"examples":[[["The clown frightened the little girl","IC"],[", and","CONJ"],["she ran off screaming","IC"]],[["I missed the bus","IC"],[", so","CONJ"],["I walked to school","IC"]]],"exercise":{"type":"fill","prompt":{"en":"Choose the conjunction that fits.","vi":"Chọn liên từ phù hợp."},"sample":"She was tired, ___ she kept working. Answer: yet (or but)"}},{"id":"ty-complex","tier":"B","src":"purdue","title":{"en":"Complex sentence","vi":"Câu phức"},"explain":{"en":"A complex sentence has one independent clause and at least one dependent clause. A subordinating conjunction such as because, although, when or if starts the dependent clause. Use a comma when the dependent clause comes first.","vi":"Câu phức có một mệnh đề độc lập và ít nhất một mệnh đề phụ thuộc. Liên từ phụ thuộc như because, although, when hoặc if mở đầu mệnh đề phụ thuộc. Dùng dấu phẩy khi mệnh đề phụ thuộc đứng trước."},"examples":[[["After Mary added up all the sales","DC"],[",",""],["she discovered that the lemonade stand was 32 cents short","IC"]],[["I missed the bus","IC"],["because I woke up late","DC"]]],"exercise":{"type":"label","prompt":{"en":"Tap the dependent clause.","vi":"Chạm vào mệnh đề phụ thuộc."},"sample":"We stayed home because it rained. Answer: because it rained"}},{"id":"ty-relative","tier":"B","src":"bc-relative","title":{"en":"Relative clauses","vi":"Mệnh đề quan hệ"},"explain":{"en":"A defining relative clause says which person or thing, and has no commas. A non defining clause adds extra information and uses commas. You can leave out the pronoun in a defining clause when it is the object. You cannot use that in a non defining clause.","vi":"Mệnh đề quan hệ xác định cho biết người hoặc vật nào, và không dùng dấu phẩy. Mệnh đề không xác định thêm thông tin phụ và dùng dấu phẩy. Có thể bỏ đại từ trong mệnh đề xác định khi nó là tân ngữ. Không dùng that trong mệnh đề không xác định."},"examples":[[["Marie Curie is the woman","IC"],["who discovered radium","DC"]],[["Lord Thompson","S"],[", who is 76,","DC"],["has just retired","V"]]],"exercise":{"type":"fill","prompt":{"en":"Choose who, which, that or whose.","vi":"Chọn who, which, that hoặc whose."},"sample":"The woman ___ car was stolen called the police. Answer: whose"}},{"id":"ty-sorter","tier":"B","src":"purdue","title":{"en":"Sentence type sorter","vi":"Phân loại câu theo cấu trúc"},"explain":{"en":"Count the independent and dependent clauses. One independent clause and no dependent clause is simple. Two or more independent clauses and no dependent clause is compound. One independent clause and at least one dependent clause is complex.","vi":"Đếm mệnh đề độc lập và mệnh đề phụ thuộc. Một mệnh đề độc lập và không có mệnh đề phụ thuộc là câu đơn. Hai hoặc nhiều mệnh đề độc lập và không có mệnh đề phụ thuộc là câu ghép. Một mệnh đề độc lập và ít nhất một mệnh đề phụ thuộc là câu phức."},"examples":[[["I missed the bus.","SIMPLE"]],[["I missed the bus, and I walked to school.","COMPOUND"]],[["I missed the bus because I woke up late.","COMPLEX"]]],"exercise":{"type":"sort","prompt":{"en":"Choose: simple, compound or complex.","vi":"Chọn: câu đơn, câu ghép hoặc câu phức."},"sample":"When it rains, we stay inside. Answer: complex"}},{"id":"ty-compound-complex","tier":"C","src":"purdue","title":{"en":"Compound complex sentence","vi":"Câu phức ghép"},"explain":{"en":"A compound complex sentence has two or more independent clauses and at least one dependent clause.","vi":"Câu phức ghép có hai hoặc nhiều mệnh đề độc lập và ít nhất một mệnh đề phụ thuộc."},"examples":[[["Although she was tired","DC"],[",",""],["she finished the report","IC"],[", and","CONJ"],["she sent it to her manager","IC"]],[["I called Nam","IC"],[", but","CONJ"],["he did not answer","IC"],["because his phone was off","DC"]]],"exercise":{"type":"sort","prompt":{"en":"Choose: simple, compound, complex or compound complex.","vi":"Chọn: câu đơn, câu ghép, câu phức hoặc câu phức ghép."},"sample":"Because it was late, we left, and they stayed. Answer: compound complex"}},{"id":"ty-participle","tier":"C","src":"test-english","title":{"en":"Reduced relative and participle clauses","vi":"Rút gọn mệnh đề quan hệ và mệnh đề phân từ"},"explain":{"en":"A past participle clause can replace a passive relative clause. An ing clause can replace an active clause. When a participle clause starts the sentence, its subject must be the same as the subject of the main clause.","vi":"Mệnh đề phân từ quá khứ có thể thay mệnh đề quan hệ bị động. Mệnh đề V ing có thể thay mệnh đề chủ động. Khi mệnh đề phân từ đứng đầu câu, chủ ngữ của nó phải trùng với chủ ngữ của mệnh đề chính."},"examples":[[["The briefcase, which was found in a litter bin, contained classified information.","FULL"]],[["Found in a litter bin, the briefcase contained classified information.","REDUCED"]]],"exercise":{"type":"build","prompt":{"en":"Reduce the relative clause.","vi":"Rút gọn mệnh đề quan hệ."},"sample":"The man who is standing by the door is my uncle. Answer: The man standing by the door is my uncle."}},{"id":"ty-cleft","tier":"C","src":"bc-emphasis","title":{"en":"Cleft sentences","vi":"Câu chẻ"},"explain":{"en":"A cleft sentence puts one part in focus. An it cleft uses it, be and the focus, then a clause. A what cleft starts with a what clause.","vi":"Câu chẻ đặt một phần câu vào tiêu điểm. Câu chẻ với it dùng it, be, phần nhấn mạnh, rồi một mệnh đề. Câu chẻ với what mở đầu bằng một mệnh đề what."},"examples":[[["It was you","FOCUS"],["who invited me to the party","DC"]],[["What I like best about going to the cinema","WH"],["is talking about the film afterwards","IC"]]],"exercise":{"type":"build","prompt":{"en":"Rewrite with an it cleft.","vi":"Viết lại bằng câu chẻ với it."},"sample":"Sam broke the window. Answer: It was Sam who broke the window."}}]},{"id":"classes","en":"Word classes","vi":"Từ loại","topics":[{"id":"cl-basic","tier":"A","src":"bc-adj","title":{"en":"Noun, verb, adjective, adverb","vi":"Danh từ, động từ, tính từ, trạng từ"},"explain":{"en":"A noun names a person, place or thing. A verb shows action or state. An adjective gives more information about a noun or pronoun. An adverb gives more information about a verb, an adjective or another adverb.","vi":"Danh từ gọi tên người, nơi chốn hoặc vật. Động từ chỉ hành động hoặc trạng thái. Tính từ cho thêm thông tin về danh từ hoặc đại từ. Trạng từ cho thêm thông tin về động từ, tính từ hoặc trạng từ khác."},"examples":[[["The","DET"],["quick","ADJ"],["dog","N"],["runs","V"],["fast","ADV"]],[["She","PRON"],["bought","V"],["a","DET"],["new","ADJ"],["car","N"]]],"exercise":{"type":"classify","prompt":{"en":"Choose the word class of the underlined word.","vi":"Chọn từ loại của từ được gạch chân."},"sample":"They walked slowly. (slowly) Answer: adverb"}},{"id":"cl-pron-prep","tier":"A","src":"std","title":{"en":"Pronoun and preposition","vi":"Đại từ và giới từ"},"explain":{"en":"A pronoun replaces a noun. A preposition shows the link between a noun and another word, such as place, time or direction.","vi":"Đại từ thay thế danh từ. Giới từ cho biết mối liên hệ giữa danh từ và từ khác, như nơi chốn, thời gian hoặc hướng."},"examples":[[["She","PRON"],["gave","V"],["it","PRON"],["to","PREP"],["him","PRON"]],[["The book","N"],["is","V"],["on","PREP"],["the table","N"]]],"exercise":{"type":"classify","prompt":{"en":"Choose: pronoun or preposition.","vi":"Chọn: đại từ hoặc giới từ."},"sample":"We met in the park. (in) Answer: preposition"}},{"id":"cl-conj-det","tier":"B","src":"bc-conj","title":{"en":"Conjunction and determiner","vi":"Liên từ và từ hạn định"},"explain":{"en":"A conjunction joins words or clauses, for example and, but, because, although. A determiner comes before a noun, for example a, the, some, this, my.","vi":"Liên từ nối từ hoặc mệnh đề, ví dụ and, but, because, although. Từ hạn định đứng trước danh từ, ví dụ a, the, some, this, my."},"examples":[[["She would like to go","IC"],["but","CONJ"],["she cannot","IC"]],[["Although","CONJ"],["he does not like camping","DC"],[",",""],["he goes to lots of music festivals","IC"]]],"exercise":{"type":"classify","prompt":{"en":"Choose: conjunction or determiner.","vi":"Chọn: liên từ hoặc từ hạn định."},"sample":"I stayed because it was late. (because) Answer: conjunction"}},{"id":"cl-aux-modal","tier":"B","src":"std","title":{"en":"Auxiliary and modal verbs","vi":"Trợ động từ và động từ khuyết thiếu"},"explain":{"en":"Auxiliary verbs (be, do, have) help form tenses, questions and negatives. Modal verbs (can, must, should, might) show ability, obligation or possibility and are followed by the base verb.","vi":"Trợ động từ (be, do, have) giúp tạo thì, câu hỏi và câu phủ định. Động từ khuyết thiếu (can, must, should, might) chỉ khả năng, nghĩa vụ hoặc khả năng xảy ra và đi với động từ nguyên mẫu."},"examples":[[["They","S"],["have","AUX"],["finished","V"]],[["She","S"],["can","MODAL"],["swim","V"]]],"exercise":{"type":"classify","prompt":{"en":"Choose: auxiliary or modal.","vi":"Chọn: trợ động từ hoặc động từ khuyết thiếu."},"sample":"You must wear a helmet. (must) Answer: modal"}},{"id":"cl-conversion","tier":"C","src":"std","title":{"en":"One word, different classes","vi":"Một từ, nhiều từ loại"},"explain":{"en":"Some words keep the same form but change class. The context tells you the class.","vi":"Một số từ giữ nguyên dạng nhưng đổi từ loại. Ngữ cảnh cho biết từ loại."},"examples":[[["Water","N"],["is essential.",""]],[["Please",""],["water","V"],["the plants.",""]]],"exercise":{"type":"classify","prompt":{"en":"Choose the word class in this sentence.","vi":"Chọn từ loại của từ trong câu này."},"sample":"We need to book a table. (book) Answer: verb"}},{"id":"cl-verb-pattern","tier":"C","src":"std","title":{"en":"Verb patterns: V ing or to V","vi":"Mẫu động từ: V ing hoặc to V"},"explain":{"en":"After some verbs we use the ing form. After others we use to and the base verb. A few verbs take both with a change in meaning.","vi":"Sau một số động từ ta dùng dạng ing. Sau số khác ta dùng to và động từ nguyên mẫu. Vài động từ dùng được cả hai nhưng nghĩa đổi."},"examples":[[["I","S"],["enjoy","V"],["reading","V ing"]],[["I","S"],["want","V"],["to read","to V"]]],"exercise":{"type":"fill","prompt":{"en":"Choose the correct form.","vi":"Chọn dạng đúng."},"sample":"She decided ___ abroad. Answer: to study"}}]},{"id":"words","en":"Word formation","vi":"Cấu tạo từ","topics":[{"id":"wf-endings","tier":"A","src":"std","title":{"en":"Endings: s, es, ed, ing","vi":"Đuôi từ: s, es, ed, ing"},"explain":{"en":"Add s or es for plural nouns and for he, she, it in the present simple. Add ed for regular past forms. Add ing for the continuous.","vi":"Thêm s hoặc es cho danh từ số nhiều và cho he, she, it ở thì hiện tại đơn. Thêm ed cho dạng quá khứ có quy tắc. Thêm ing cho thì tiếp diễn."},"examples":[[["cat","BASE"],["cats","s"]],[["watch","BASE"],["watches","es"]],[["walk","BASE"],["walked","ed"],["walking","ing"]]],"exercise":{"type":"fill","prompt":{"en":"Write the correct form.","vi":"Viết dạng đúng."},"sample":"She ___ (watch) TV every night. Answer: watches"}},{"id":"wf-ly","tier":"A","src":"bc-wf","title":{"en":"Adverbs with ly","vi":"Trạng từ với ly"},"explain":{"en":"Many adverbs are made by adding ly to an adjective.","vi":"Nhiều trạng từ được tạo bằng cách thêm ly vào tính từ."},"examples":[[["quick","ADJ"],["quickly","ADV"]],[["careful","ADJ"],["carefully","ADV"]]],"exercise":{"type":"fill","prompt":{"en":"Choose the adjective or the adverb.","vi":"Chọn tính từ hoặc trạng từ."},"sample":"He drives very ___. (careful) Answer: carefully"}},{"id":"wf-suffix","tier":"B","src":"bc-wf","title":{"en":"Suffixes by word class","vi":"Hậu tố theo từ loại"},"explain":{"en":"A suffix at the end of a word often shows its class. Nouns: ment, ion, ness, ity. Person nouns: er, or, ist, ian. Adjectives: able, ible, ive, al, ic. Verbs: ise, ate, en. Adverbs: ly.","vi":"Hậu tố ở cuối từ thường cho biết từ loại. Danh từ: ment, ion, ness, ity. Danh từ chỉ người: er, or, ist, ian. Tính từ: able, ible, ive, al, ic. Động từ: ise, ate, en. Trạng từ: ly."},"examples":[[["decide","V"],["decision","N"],["decisive","ADJ"]],[["sing","V"],["singer","N person"]]],"exercise":{"type":"fill","prompt":{"en":"Change the word to fit the gap.","vi":"Đổi dạng từ cho vừa chỗ trống."},"sample":"The ___ was very nervous. (sing) Answer: singer"}},{"id":"wf-prefix","tier":"B","src":"bc-wf","title":{"en":"Negative prefixes","vi":"Tiền tố phủ định"},"explain":{"en":"Prefixes un, im, in and dis make a word negative. The right prefix depends on the word, so learn them together.","vi":"Tiền tố un, im, in và dis làm từ mang nghĩa phủ định. Tiền tố đúng phụ thuộc vào từ, nên hãy học chúng cùng từ."},"examples":[[["happy","BASE"],["unhappy","un"]],[["polite","BASE"],["impolite","im"]],[["experienced","BASE"],["inexperienced","in"]],[["honest","BASE"],["dishonest","dis"]]],"exercise":{"type":"fill","prompt":{"en":"Choose the correct negative form.","vi":"Chọn dạng phủ định đúng."},"sample":"It is ___ to talk during a film. (polite) Answer: impolite"}},{"id":"wf-family","tier":"C","src":"bc-wf","title":{"en":"Word families across classes","vi":"Họ từ qua các từ loại"},"explain":{"en":"A word family groups words that share a root. Check the gap in the sentence to decide the class, then choose the form.","vi":"Họ từ gồm các từ có chung gốc. Hãy xem chỗ trống trong câu để xác định từ loại, rồi chọn dạng từ."},"examples":[[["decide","V"],["decision","N"],["decisive","ADJ"],["decisively","ADV"]],[["create","V"],["creation","N"],["creative","ADJ"],["creatively","ADV"]]],"exercise":{"type":"fill","prompt":{"en":"Choose the form that fits the gap.","vi":"Chọn dạng từ phù hợp với chỗ trống."},"sample":"She made a ___ choice. (decide) Answer: decisive"}},{"id":"wf-compound","tier":"C","src":"std","title":{"en":"Compound words","vi":"Từ ghép"},"explain":{"en":"Two words can join to make one new word. It may be written as one word, as two words, or with a hyphen, so check a dictionary.","vi":"Hai từ có thể ghép thành một từ mới. Từ ghép có thể viết liền, viết rời hoặc có gạch nối, nên cần tra từ điển."},"examples":[[["tooth","N"],["brush","N"],["toothbrush","COMPWORD"]],[["black","ADJ"],["board","N"],["blackboard","COMPWORD"]]],"exercise":{"type":"fill","prompt":{"en":"Join the two words.","vi":"Ghép hai từ."},"sample":"sun + flower. Answer: sunflower"}}]}],"sources":{"purdue":{"apa":"Purdue Online Writing Lab. (n.d.). Sentence types. Purdue University. https://owl.purdue.edu/owl/general_writing/academic_writing/sentence_variety/sentence_types.html","note":"Definitions and examples of the four sentence types come from this page."},"bc-clause":{"apa":"British Council. (n.d.). Clause structure and verb patterns. LearnEnglish. https://learnenglish.britishcouncil.org/grammar/english-grammar-reference/clause-structure-verb-patterns","note":"Subject, verb, object, complement, adverbial and dummy subjects."},"bc-relative":{"apa":"British Council. (n.d.). Relative pronouns and relative clauses. LearnEnglish. https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/relative-pronouns-relative-clauses","note":"Defining and non defining clauses, omission of the pronoun."},"bc-conj":{"apa":"British Council. (n.d.). Conjunctions: and, or, but, so, because and although. LearnEnglish Teens. https://learnenglishteens.britishcouncil.org/grammar/a1-a2-grammar/conjunctions-or-so-because-although","note":"Uses and examples of common conjunctions."},"bc-emphasis":{"apa":"British Council. (n.d.). Emphasis: cleft sentences, inversion and auxiliaries. LearnEnglish. https://learnenglish.britishcouncil.org/free-resources/grammar/c1/emphasis-cleft-sentences-inversion-auxiliaries","note":"Cleft sentences and inversion after negative adverbials."},"bc-wf":{"apa":"British Council. (n.d.). Word formation. LearnEnglish Teens. https://learnenglishteens.britishcouncil.org/exams/grammar-vocabulary-exams/word-formation","note":"Suffix and prefix lists and the singer example."},"bc-adj":{"apa":"British Council. (n.d.). Adjectives. LearnEnglish. https://learnenglish.britishcouncil.org/grammar/english-grammar-reference/adjectives","note":"Definition of adjectives."},"test-english":{"apa":"Test English. (n.d.). Participle clauses. https://test-english.com/explanation/b2/participle-clauses/","note":"Participle clauses and the same subject rule. This is not a British Council page."},"std":{"apa":"","note":"Standard teaching grammar. I could not confirm this item on a page I fetched, so please check it."}}},"EX":{"el-sv":{"type":"label","prompt":{"en":"Tap the correct part of the sentence.","vi":"Chạm vào đúng phần của câu."},"items":[{"ask":"subject","chunks":["My teacher","smiled"],"answer":0},{"ask":"verb","chunks":["The children","laughed","loudly"],"answer":1},{"ask":"subject","chunks":["The old man","walks","every morning"],"answer":0},{"ask":"verb","chunks":["Birds","fly"],"answer":1}]},"el-svo":{"type":"build","prompt":{"en":"Put the parts in the correct order.","vi":"Sắp xếp các phần theo đúng thứ tự."},"items":[{"pieces":["My sister","loves","books."]},{"pieces":["The boy","kicked","the ball."]},{"pieces":["Students","read","many books."]}]},"el-svca":{"type":"label","prompt":{"en":"Tap the correct part of the sentence.","vi":"Chạm vào đúng phần của câu."},"items":[{"ask":"complement","chunks":["The room","felt","cold","at night"],"answer":2},{"ask":"adverbial","chunks":["She","lives","in Hue"],"answer":2},{"ask":"complement","chunks":["The soup","smells","delicious"],"answer":2},{"ask":"adverbial","chunks":["We","arrived","at noon"],"answer":2}]},"el-svoo":{"type":"label","prompt":{"en":"Tap the correct part of the sentence.","vi":"Chạm vào đúng phần của câu."},"items":[{"ask":"indirect object","chunks":["He","sent","his teacher","an email"],"answer":2},{"ask":"direct object","chunks":["She","gave","me","a book"],"answer":3},{"ask":"object complement","chunks":["They","made","him","captain"],"answer":3},{"ask":"indirect object","chunks":["Mai","showed","her mother","the photo"],"answer":2}]},"el-dummy":{"type":"choice","prompt":{"en":"Choose it or there.","vi":"Chọn it hoặc there."},"items":[{"q":"___ is raining.","options":["it","there"],"answer":0},{"q":"___ are three books on the desk.","options":["it","there"],"answer":1},{"q":"___ was late when we arrived.","options":["it","there"],"answer":0},{"q":"___ is a cafe near my house.","options":["it","there"],"answer":1}]},"el-clause-subject":{"type":"build","prompt":{"en":"Put the parts in the correct order.","vi":"Sắp xếp các phần theo đúng thứ tự."},"items":[{"pieces":["What he did","shocked","us."]},{"pieces":["Whether we win","does not","matter."]},{"pieces":["What she said","surprised","everyone."]},{"pieces":["That he left early","worried","his mother."]}]},"el-inversion":{"type":"build","prompt":{"en":"Put the parts in the correct order.","vi":"Sắp xếp các phần theo đúng thứ tự."},"items":[{"pieces":["Never","have I","seen","such a film."]},{"pieces":["Rarely","do we","eat","out."]},{"pieces":["Not only","did he forget","the keys,","but he also lost his phone."]}]},"ty-clause":{"type":"choice","prompt":{"en":"Choose: independent clause, dependent clause or phrase.","vi":"Chọn: mệnh đề độc lập, mệnh đề phụ thuộc hoặc cụm từ."},"items":[{"q":"[[I missed the bus]]","options":["independent clause","dependent clause","phrase"],"answer":0},{"q":"[[because I woke up late]]","options":["independent clause","dependent clause","phrase"],"answer":1},{"q":"[[after school]]","options":["independent clause","dependent clause","phrase"],"answer":2},{"q":"[[when the bell rang]]","options":["independent clause","dependent clause","phrase"],"answer":1},{"q":"[[The students laughed]]","options":["independent clause","dependent clause","phrase"],"answer":0}]},"ty-simple":{"type":"choice","prompt":{"en":"Does the sentence have only one clause?","vi":"Câu có đúng một mệnh đề không?"},"items":[{"q":"The cat slept on the sofa.","options":["oneClause","manyClauses"],"answer":0},{"q":"Tom and Mai sing and dance.","options":["oneClause","manyClauses"],"answer":0},{"q":"I was tired, so I went to bed.","options":["oneClause","manyClauses"],"answer":1},{"q":"My aunt enjoyed taking the hayride with you.","options":["oneClause","manyClauses"],"answer":0}]},"ty-compound":{"type":"choice","prompt":{"en":"Choose the conjunction that fits.","vi":"Chọn liên từ phù hợp."},"items":[{"q":"She was tired, ___ she kept working.","options":["but","so","because"],"answer":0},{"q":"It was raining, ___ we stayed inside.","options":["but","so","or"],"answer":1},{"q":"You can take the bus, ___ you can walk.","options":["and","so","or"],"answer":2},{"q":"He studied hard, ___ he passed the exam.","options":["and","but","or"],"answer":0}]},"ty-complex":{"type":"label","prompt":{"en":"Tap the dependent clause.","vi":"Chạm vào mệnh đề phụ thuộc."},"items":[{"ask":"dependent clause","chunks":["We stayed home","because it rained"],"answer":1},{"ask":"dependent clause","chunks":["Although he was tired","he finished the work"],"answer":0},{"ask":"dependent clause","chunks":["I will call you","when I arrive"],"answer":1},{"ask":"dependent clause","chunks":["If you study hard","you will pass"],"answer":0}]},"ty-relative":{"type":"choice","prompt":{"en":"Choose the correct relative pronoun.","vi":"Chọn đại từ quan hệ đúng."},"items":[{"q":"The woman ___ car was stolen called the police.","options":["who","which","whose"],"answer":2},{"q":"This is the book ___ I told you about.","options":["who","which","whose"],"answer":1},{"q":"The man ___ lives next door is a doctor.","options":["who","which","whose"],"answer":0},{"q":"Lord Thompson, ___ is 76, has just retired.","options":["who","that","which"],"answer":0}]},"ty-sorter":{"type":"choice","prompt":{"en":"Choose: simple, compound or complex.","vi":"Chọn: câu đơn, câu ghép hoặc câu phức."},"items":[{"q":"I missed the bus.","options":["simple","compound","complex"],"answer":0},{"q":"I missed the bus, and I walked to school.","options":["simple","compound","complex"],"answer":1},{"q":"When it rains, we stay inside.","options":["simple","compound","complex"],"answer":2},{"q":"She likes tea, but he likes coffee.","options":["simple","compound","complex"],"answer":1},{"q":"The students who study hard usually pass.","options":["simple","compound","complex"],"answer":2}]},"ty-compound-complex":{"type":"choice","prompt":{"en":"Choose the sentence type.","vi":"Chọn loại câu."},"items":[{"q":"Because it was late, we left, and they stayed.","options":["simple","compound","complex","compound complex"],"answer":3},{"q":"I called Nam, but he did not answer because his phone was off.","options":["simple","compound","complex","compound complex"],"answer":3},{"q":"She smiled.","options":["simple","compound","complex","compound complex"],"answer":0},{"q":"We stayed home because it rained.","options":["simple","compound","complex","compound complex"],"answer":2},{"q":"I like tea, and she likes coffee.","options":["simple","compound","complex","compound complex"],"answer":1}]},"ty-participle":{"type":"choice","prompt":{"en":"Choose the correct reduced sentence.","vi":"Chọn câu rút gọn đúng."},"items":[{"q":"The man who is standing by the door is my uncle.","options":["The man standing by the door is my uncle.","The man stood by the door is my uncle.","The man who standing by the door is my uncle."],"answer":0},{"q":"The books that were written by Orwell are famous.","options":["The books writing by Orwell are famous.","The books written by Orwell are famous.","The books wrote by Orwell are famous."],"answer":1},{"q":"The girl who is wearing a red dress is my cousin.","options":["The girl wore a red dress is my cousin.","The girl worn a red dress is my cousin.","The girl wearing a red dress is my cousin."],"answer":2}]},"ty-cleft":{"type":"build","prompt":{"en":"Put the parts in the correct order.","vi":"Sắp xếp các phần theo đúng thứ tự."},"items":[{"pieces":["It was","Sam","who","broke the window."]},{"pieces":["What I need","is","a long holiday."]},{"pieces":["It was","yesterday","that","we met."]},{"pieces":["What she wants","is","more time."]}]},"cl-basic":{"type":"choice","prompt":{"en":"Choose the word class of the underlined word.","vi":"Chọn từ loại của từ được gạch chân."},"items":[{"q":"They walked [[slowly]].","options":["noun","verb","adjective","adverb"],"answer":3},{"q":"The [[quick]] dog runs.","options":["noun","verb","adjective","adverb"],"answer":2},{"q":"She bought a new [[car]].","options":["noun","verb","adjective","adverb"],"answer":0},{"q":"Birds [[fly]] south.","options":["noun","verb","adjective","adverb"],"answer":1}]},"cl-pron-prep":{"type":"choice","prompt":{"en":"Choose: pronoun or preposition.","vi":"Chọn: đại từ hoặc giới từ."},"items":[{"q":"We met [[in]] the park.","options":["pronoun","preposition"],"answer":1},{"q":"[[She]] gave it to him.","options":["pronoun","preposition"],"answer":0},{"q":"The book is [[on]] the table.","options":["pronoun","preposition"],"answer":1},{"q":"I saw [[them]] yesterday.","options":["pronoun","preposition"],"answer":0}]},"cl-conj-det":{"type":"choice","prompt":{"en":"Choose: conjunction or determiner.","vi":"Chọn: liên từ hoặc từ hạn định."},"items":[{"q":"I stayed [[because]] it was late.","options":["conjunction","determiner"],"answer":0},{"q":"[[Some]] students were late.","options":["conjunction","determiner"],"answer":1},{"q":"She wanted to go, [[but]] she was ill.","options":["conjunction","determiner"],"answer":0},{"q":"[[My]] brother plays football.","options":["conjunction","determiner"],"answer":1}]},"cl-aux-modal":{"type":"choice","prompt":{"en":"Choose: auxiliary verb or modal verb.","vi":"Chọn: trợ động từ hoặc động từ khuyết thiếu."},"items":[{"q":"You [[must]] wear a helmet.","options":["auxiliary","modal"],"answer":1},{"q":"They [[have]] finished.","options":["auxiliary","modal"],"answer":0},{"q":"She [[can]] swim.","options":["auxiliary","modal"],"answer":1},{"q":"He [[does]] not like tea.","options":["auxiliary","modal"],"answer":0}]},"cl-conversion":{"type":"choice","prompt":{"en":"Choose the word class in this sentence.","vi":"Chọn từ loại của từ trong câu này."},"items":[{"q":"We need to [[book]] a table.","options":["noun","verb","adjective"],"answer":1},{"q":"I read a good [[book]].","options":["noun","verb","adjective"],"answer":0},{"q":"Please [[water]] the plants.","options":["noun","verb","adjective"],"answer":1},{"q":"[[Water]] is essential.","options":["noun","verb","adjective"],"answer":0},{"q":"The room is [[light]].","options":["noun","verb","adjective"],"answer":2}]},"cl-verb-pattern":{"type":"choice","prompt":{"en":"Choose the correct form.","vi":"Chọn dạng đúng."},"items":[{"q":"She decided ___ abroad.","options":["to study","studying"],"answer":0},{"q":"I enjoy ___ to music.","options":["listening","to listen"],"answer":0},{"q":"He wants ___ a doctor.","options":["to be","being"],"answer":0},{"q":"They finished ___ the report.","options":["writing","to write"],"answer":0}]},"wf-endings":{"type":"choice","prompt":{"en":"Choose the correct form.","vi":"Chọn dạng đúng."},"items":[{"q":"She ___ TV every night. (watch)","options":["watchs","watches","watching"],"answer":1},{"q":"They ___ to school yesterday. (walk)","options":["walk","walked","walking"],"answer":1},{"q":"Two ___ are on the table. (box)","options":["boxs","boxes","boxies"],"answer":1},{"q":"He is ___ now. (run)","options":["runing","running","runned"],"answer":1}]},"wf-ly":{"type":"choice","prompt":{"en":"Choose the adjective or the adverb.","vi":"Chọn tính từ hoặc trạng từ."},"items":[{"q":"He drives very ___. (careful)","options":["careful","carefully","carefulness"],"answer":1},{"q":"She speaks ___. (quick)","options":["quick","quickly","quickness"],"answer":1},{"q":"It was a ___ answer. (quick)","options":["quick","quickly","quickness"],"answer":0}]},"wf-suffix":{"type":"choice","prompt":{"en":"Change the word to fit the gap.","vi":"Đổi dạng từ cho vừa chỗ trống."},"items":[{"q":"The ___ was very nervous. (sing)","options":["singer","singist","singment"],"answer":0},{"q":"Her ___ surprised everyone. (decide)","options":["decision","decisive","decided"],"answer":0},{"q":"We need to ___ the system. (modern)","options":["modernise","modernment","modernly"],"answer":0},{"q":"He is a famous ___. (science)","options":["scientist","scientor","scienceer"],"answer":0}]},"wf-prefix":{"type":"choice","prompt":{"en":"Choose the correct negative form.","vi":"Chọn dạng phủ định đúng."},"items":[{"q":"It is ___ to talk during a film. (polite)","options":["unpolite","impolite","dispolite"],"answer":1},{"q":"She felt ___ about the test. (happy)","options":["unhappy","inhappy","imhappy"],"answer":0},{"q":"It was ___ to lie about it. (honest)","options":["unhonest","dishonest","inhonest"],"answer":1},{"q":"The new teacher was ___. (experienced)","options":["unexperienced","inexperienced","disexperienced"],"answer":1}]},"wf-family":{"type":"choice","prompt":{"en":"Choose the form that fits the gap.","vi":"Chọn dạng từ phù hợp với chỗ trống."},"items":[{"q":"She made a ___ choice. (decide)","options":["decide","decision","decisive","decisively"],"answer":2},{"q":"He answered ___. (decide)","options":["decide","decision","decisive","decisively"],"answer":3},{"q":"Her ___ was praised by the critics. (create)","options":["create","creation","creative","creatively"],"answer":1},{"q":"She is a very ___ writer. (create)","options":["create","creation","creative","creatively"],"answer":2}]},"wf-compound":{"type":"choice","prompt":{"en":"Choose the word made by joining the two words.","vi":"Chọn từ được tạo bằng cách ghép hai từ."},"items":[{"q":"sun + flower","options":["sunflower","flowersun","sunning"],"answer":0},{"q":"tooth + brush","options":["brushtooth","toothbrush","toothing"],"answer":1},{"q":"black + board","options":["boardblack","blackening","blackboard"],"answer":2},{"q":"book + shop","options":["bookshop","shopbook","booking"],"answer":0}]}}}</script>
 <script id="ttData" type="application/json">{"DATA":[{"id":"present-simple","name":"Present simple","zone":"present","aspect":"simple","form":"subject + base verb (add s for he, she, it). Negative: do not or does not + base verb.","use":"Habits, facts and fixed schedules.","examples":["The class starts at 8 o'clock every morning.","Water boils at 100 degrees Celsius."],"signals":["always","usually","often","every day","never"],"mistake":{"wrong":"She go to class every day.","right":"She goes to class every day.","why":"With he, she or it, the present simple verb takes s."},"quiz":{"q":"My brother ___ coffee every morning.","options":["drinks","is drinking","drank"],"answer":0,"why":"A daily habit takes the present simple."}},{"id":"present-continuous","name":"Present continuous","zone":"present","aspect":"continuous","form":"am, is or are + verb with ing.","use":"Actions happening now, temporary situations, and arranged future plans.","examples":["The students are writing an essay now.","I am meeting my advisor on Friday."],"signals":["now","at the moment","today","this week","currently"],"mistake":{"wrong":"I am knowing the answer.","right":"I know the answer.","why":"Know is a stative verb, which is not normally used in the continuous."},"quiz":{"q":"Be quiet! The baby ___.","options":["sleeps","is sleeping","slept"],"answer":1,"why":"The action is happening at the moment of speaking."}},{"id":"present-perfect","name":"Present perfect","zone":"present","aspect":"perfect","form":"have or has + past participle.","use":"Life experience, recent actions with a result now, and situations that began in the past and continue now.","examples":["I have visited Da Nang twice.","She has lost her keys, so she cannot get in."],"signals":["ever","never","already","yet","just","so far","recently","for","since"],"mistake":{"wrong":"I have seen him yesterday.","right":"I saw him yesterday.","why":"Yesterday is a finished time, so English uses the past simple."},"quiz":{"q":"She ___ in Hanoi since 2020.","options":["lives","has lived","lived"],"answer":1,"why":"Since links a past start to now."}},{"id":"present-perfect-continuous","name":"Present perfect continuous","zone":"present","aspect":"perfectContinuous","form":"have or has + been + verb with ing.","use":"An activity that continues up to now, or a recent activity with a visible result. It stresses the activity and how long it lasted.","examples":["They have been studying for two hours.","It has been raining, so the ground is wet."],"signals":["for","since","how long","lately","recently","all day"],"mistake":{"wrong":"I am studying English since 2019.","right":"I have been studying English since 2019.","why":"An activity that started in the past and continues now, with since, takes the present perfect continuous."},"quiz":{"q":"Her eyes are red. She ___.","options":["cried","has been crying","will cry"],"answer":1,"why":"A recent activity explains the result we can see now."}},{"id":"past-simple","name":"Past simple","zone":"past","aspect":"simple","form":"subject + past form (ed for regular verbs, special forms for irregular verbs). Negative: did not + base verb.","use":"Finished actions at a finished time.","examples":["We finished the lesson ten minutes ago.","She went to Hue last summer."],"signals":["yesterday","last week","ago","in 2020","when I was a child"],"mistake":{"wrong":"She didn't went to class.","right":"She didn't go to class.","why":"After did not, the main verb stays in the base form."},"quiz":{"q":"They ___ the exam last Friday.","options":["take","took","have taken"],"answer":1,"why":"Last Friday is a finished time."}},{"id":"past-continuous","name":"Past continuous","zone":"past","aspect":"continuous","form":"was or were + verb with ing.","use":"An action in progress at a past moment, often as the background to a shorter action in the past simple.","examples":["I was cooking when the phone rang.","At 8 o'clock last night, we were watching a film."],"signals":["while","when","at that time","at 8 o'clock last night","all evening"],"mistake":{"wrong":"I watched TV when you called.","right":"I was watching TV when you called.","why":"The longer background action takes the past continuous. The interrupting action takes the past simple."},"quiz":{"q":"The students ___ when the fire alarm rang.","options":["study","were studying","have studied"],"answer":1,"why":"The studying was in progress when the alarm interrupted it."}},{"id":"past-perfect","name":"Past perfect","zone":"past","aspect":"perfect","form":"had + past participle.","use":"An action that was completed before another moment or event in the past.","examples":["When I arrived, the lesson had already started.","She had never seen snow before 2019."],"signals":["before","after","by the time","already","just","never before"],"mistake":{"wrong":"When we arrived, the film already started.","right":"When we arrived, the film had already started.","why":"The film started first, so the earlier action takes the past perfect."},"quiz":{"q":"By the time she called, I ___ home.","options":["left","had left","was leaving"],"answer":1,"why":"Leaving happened before the call, so it is the earlier past action."}},{"id":"past-perfect-continuous","name":"Past perfect continuous","zone":"past","aspect":"perfectContinuous","form":"had + been + verb with ing.","use":"An activity that continued up to a moment in the past. It stresses how long the activity lasted.","examples":["He had been waiting for an hour when the bus came.","Her hands were dirty because she had been gardening."],"signals":["for","since","how long","before","until then","by the time"],"mistake":{"wrong":"They were waiting for two hours before the teacher arrived.","right":"They had been waiting for two hours before the teacher arrived.","why":"The duration lasted up to a past moment, so use the past perfect continuous."},"quiz":{"q":"When I met him in 2020, he ___ English for five years.","options":["studied","had been studying","has been studying"],"answer":1,"why":"The studying lasted up to a past moment, 2020."}},{"id":"future-simple","name":"Future simple","zone":"future","aspect":"simple","form":"will + base verb.","use":"Spontaneous decisions, predictions and promises. For plans made before speaking, English often uses be going to instead.","examples":["I think it will rain tomorrow.","I'll help you with your homework."],"signals":["tomorrow","next week","soon","I think","probably","in 2030"],"mistake":{"wrong":"If it will rain tomorrow, we will stay home.","right":"If it rains tomorrow, we will stay home.","why":"After if, when, before and unless, English uses the present simple for the future."},"quiz":{"q":"The phone is ringing. I ___ it.","options":["answered","will answer","have answered"],"answer":1,"why":"A decision made at the moment of speaking takes will."}},{"id":"future-continuous","name":"Future continuous","zone":"future","aspect":"continuous","form":"will + be + verb with ing.","use":"An action that will be in progress at a certain moment in the future.","examples":["This time tomorrow, I will be flying to Seoul.","Next week we will be taking the final exam."],"signals":["this time tomorrow","at 8 o'clock tonight","next week"],"mistake":{"wrong":"This time next week, I will lie on the beach.","right":"This time next week, I will be lying on the beach.","why":"An action in progress at a future moment takes the future continuous."},"quiz":{"q":"Don't call me at 7 tonight. I ___ dinner.","options":["had","will be having","have had"],"answer":1,"why":"Dinner will be in progress at 7."}},{"id":"future-perfect","name":"Future perfect","zone":"future","aspect":"perfect","form":"will + have + past participle.","use":"An action that will be completed before a certain point in the future.","examples":["By Friday, I will have finished the report.","By 2030, she will have worked here for ten years."],"signals":["by","by the time","by next week","before"],"mistake":{"wrong":"By next year, I will study English for ten years.","right":"By next year, I will have studied English for ten years.","why":"A total that is complete by a future point takes the future perfect."},"quiz":{"q":"By the time you wake up, I ___ the house.","options":["leave","will have left","am leaving"],"answer":1,"why":"Leaving will be finished before the future moment."}},{"id":"future-perfect-continuous","name":"Future perfect continuous","zone":"future","aspect":"perfectContinuous","form":"will + have + been + verb with ing.","use":"An activity that will have lasted a certain time by a point in the future. It stresses the duration.","examples":["By June, I will have been teaching for five years.","In March, they will have been living here for a decade."],"signals":["by","by the time","for","in March"],"mistake":{"wrong":"By June, I will be teaching for five years.","right":"By June, I will have been teaching for five years.","why":"Duration up to a future point takes the future perfect continuous."},"quiz":{"q":"By 5 pm, she ___ for six hours.","options":["will study","will have been studying","studies"],"answer":1,"why":"The studying will have lasted six hours by 5 pm."}}],"REL":[{"a":"present-perfect","b":"past-simple","type":"confused","note":"Use the past simple for a finished time, such as yesterday or in 2020. Use the present perfect when the time is not given or still connects to now."},{"a":"present-simple","b":"present-continuous","type":"confused","note":"Use the present simple for habits and facts. Use the present continuous for what is happening now or is temporary."},{"a":"past-simple","b":"past-continuous","type":"confused","note":"Use the past simple for a finished event. Use the past continuous for the action in progress around it."},{"a":"future-simple","b":"future-continuous","type":"confused","note":"Use the future simple for a decision, prediction or promise. Use the future continuous for an action in progress at a future moment."},{"a":"present-perfect","b":"present-perfect-continuous","type":"confused","note":"Use the present perfect for the result or the number done. Use the present perfect continuous for the activity and how long it lasted."},{"a":"past-perfect","b":"past-perfect-continuous","type":"confused","note":"Use the past perfect for an action completed before a past moment. Use the past perfect continuous for an activity that lasted up to that moment."},{"a":"future-perfect","b":"future-perfect-continuous","type":"confused","note":"Use the future perfect for an action finished by a future point. Use the future perfect continuous for how long an activity will have lasted by then."},{"a":"past-perfect","b":"past-simple","type":"order","directed":true,"note":"The past perfect action happened first. The past simple action came after it. When I arrived, the lesson had already started."},{"a":"past-perfect-continuous","b":"past-simple","type":"order","directed":true,"note":"The activity went on up to a later past event. He had been waiting for an hour when the bus came."},{"a":"future-perfect","b":"present-simple","type":"order","directed":true,"note":"The future perfect action will be finished before a later moment. A time clause with by the time takes the present simple. By the time you wake up, I will have left."},{"a":"past-simple","b":"present-simple","type":"aspect","note":"Same aspect, different time. The past form changes to the base form (add s for he, she or it)."},{"a":"present-simple","b":"future-simple","type":"aspect","note":"Same aspect, different time. The future adds will before the base verb."},{"a":"past-continuous","b":"present-continuous","type":"aspect","note":"Same aspect, different time. Was or were becomes am, is or are."},{"a":"present-continuous","b":"future-continuous","type":"aspect","note":"Same aspect, different time. Am, is or are becomes will be."},{"a":"past-perfect","b":"present-perfect","type":"aspect","note":"Same aspect, different time. Had becomes have or has."},{"a":"present-perfect","b":"future-perfect","type":"aspect","note":"Same aspect, different time. Have or has becomes will have."},{"a":"past-perfect-continuous","b":"present-perfect-continuous","type":"aspect","note":"Same aspect, different time. Had been becomes have been or has been."},{"a":"present-perfect-continuous","b":"future-perfect-continuous","type":"aspect","note":"Same aspect, different time. Have been or has been becomes will have been."},{"a":"present-simple","b":"present-continuous","type":"build","directed":true,"note":"Add am, is or are before the verb and add ing to the verb."},{"a":"past-simple","b":"past-continuous","type":"build","directed":true,"note":"Add was or were before the verb and add ing to the verb."},{"a":"future-simple","b":"future-continuous","type":"build","directed":true,"note":"Add be after will and add ing to the verb."},{"a":"present-perfect","b":"present-perfect-continuous","type":"build","directed":true,"note":"Add been after have or has and add ing to the verb."},{"a":"past-perfect","b":"past-perfect-continuous","type":"build","directed":true,"note":"Add been after had and add ing to the verb."},{"a":"future-perfect","b":"future-perfect-continuous","type":"build","directed":true,"note":"Add been after will have and add ing to the verb."}],"VI":{"tenses":{"present-simple":{"name":"Hiện tại đơn","form":"chủ ngữ + động từ nguyên mẫu (thêm s với he, she, it). Phủ định: do not hoặc does not + động từ nguyên mẫu.","use":"Thói quen, sự thật và lịch trình cố định.","mistakeWhy":"Với he, she hoặc it, động từ ở thì hiện tại đơn thêm s.","quizWhy":"Thói quen hằng ngày dùng thì hiện tại đơn."},"present-continuous":{"name":"Hiện tại tiếp diễn","form":"am, is hoặc are + động từ thêm ing.","use":"Hành động đang diễn ra lúc này, tình huống tạm thời và kế hoạch đã sắp xếp cho tương lai.","mistakeWhy":"Know là động từ trạng thái (stative verb), thường không dùng ở dạng tiếp diễn.","quizWhy":"Hành động đang diễn ra ngay lúc nói."},"present-perfect":{"name":"Hiện tại hoàn thành","form":"have hoặc has + quá khứ phân từ.","use":"Kinh nghiệm sống, hành động vừa xảy ra có kết quả ở hiện tại, và tình huống bắt đầu trong quá khứ và còn tiếp tục đến nay.","mistakeWhy":"Yesterday là thời gian đã kết thúc, nên tiếng Anh dùng thì quá khứ đơn.","quizWhy":"Since nối điểm bắt đầu trong quá khứ với hiện tại."},"present-perfect-continuous":{"name":"Hiện tại hoàn thành tiếp diễn","form":"have hoặc has + been + động từ thêm ing.","use":"Hoạt động kéo dài đến hiện tại, hoặc hoạt động vừa xảy ra có kết quả nhìn thấy được. Thì này nhấn mạnh hoạt động và khoảng thời gian kéo dài.","mistakeWhy":"Hoạt động bắt đầu trong quá khứ và còn tiếp tục đến nay, đi với since, dùng thì hiện tại hoàn thành tiếp diễn.","quizWhy":"Hoạt động vừa xảy ra giải thích kết quả ta thấy bây giờ."},"past-simple":{"name":"Quá khứ đơn","form":"chủ ngữ + động từ dạng quá khứ (thêm ed với động từ có quy tắc, dạng đặc biệt với động từ bất quy tắc). Phủ định: did not + động từ nguyên mẫu.","use":"Hành động đã kết thúc tại một thời điểm đã qua.","mistakeWhy":"Sau did not, động từ chính giữ nguyên mẫu.","quizWhy":"Last Friday là thời gian đã kết thúc."},"past-continuous":{"name":"Quá khứ tiếp diễn","form":"was hoặc were + động từ thêm ing.","use":"Hành động đang diễn ra tại một thời điểm trong quá khứ, thường làm bối cảnh cho một hành động ngắn hơn ở thì quá khứ đơn.","mistakeWhy":"Hành động nền kéo dài hơn dùng thì quá khứ tiếp diễn. Hành động xen vào dùng thì quá khứ đơn.","quizWhy":"Việc học đang diễn ra thì chuông báo cháy cắt ngang."},"past-perfect":{"name":"Quá khứ hoàn thành","form":"had + quá khứ phân từ.","use":"Hành động đã hoàn tất trước một thời điểm hoặc sự kiện khác trong quá khứ.","mistakeWhy":"Bộ phim bắt đầu trước, nên hành động xảy ra trước dùng thì quá khứ hoàn thành.","quizWhy":"Việc rời đi xảy ra trước cuộc gọi, nên đó là hành động quá khứ xảy ra trước."},"past-perfect-continuous":{"name":"Quá khứ hoàn thành tiếp diễn","form":"had + been + động từ thêm ing.","use":"Hoạt động kéo dài đến một thời điểm trong quá khứ. Thì này nhấn mạnh hoạt động đó kéo dài bao lâu.","mistakeWhy":"Khoảng thời gian kéo dài đến một thời điểm trong quá khứ, nên dùng thì quá khứ hoàn thành tiếp diễn.","quizWhy":"Việc học kéo dài đến một thời điểm trong quá khứ, năm 2020."},"future-simple":{"name":"Tương lai đơn","form":"will + động từ nguyên mẫu.","use":"Quyết định tức thời, dự đoán và lời hứa. Với kế hoạch đã có trước khi nói, tiếng Anh thường dùng be going to.","mistakeWhy":"Sau if, when, before và unless, tiếng Anh dùng thì hiện tại đơn cho tương lai.","quizWhy":"Quyết định đưa ra ngay lúc nói dùng will."},"future-continuous":{"name":"Tương lai tiếp diễn","form":"will + be + động từ thêm ing.","use":"Hành động sẽ đang diễn ra tại một thời điểm nhất định trong tương lai.","mistakeWhy":"Hành động đang diễn ra tại một thời điểm tương lai dùng thì tương lai tiếp diễn.","quizWhy":"Bữa tối sẽ đang diễn ra lúc 7 giờ."},"future-perfect":{"name":"Tương lai hoàn thành","form":"will + have + quá khứ phân từ.","use":"Hành động sẽ hoàn tất trước một thời điểm nhất định trong tương lai.","mistakeWhy":"Tổng thời gian đã hoàn thành tính đến một thời điểm tương lai dùng thì tương lai hoàn thành.","quizWhy":"Việc rời đi sẽ hoàn tất trước thời điểm trong tương lai."},"future-perfect-continuous":{"name":"Tương lai hoàn thành tiếp diễn","form":"will + have + been + động từ thêm ing.","use":"Hoạt động sẽ kéo dài được một khoảng thời gian nhất định tính đến một thời điểm trong tương lai. Thì này nhấn mạnh khoảng thời gian.","mistakeWhy":"Khoảng thời gian kéo dài đến một thời điểm tương lai dùng thì tương lai hoàn thành tiếp diễn.","quizWhy":"Việc học sẽ kéo dài sáu giờ tính đến 5 giờ chiều."}},"rels":["Dùng quá khứ đơn cho thời gian đã kết thúc, như yesterday hoặc in 2020. Dùng hiện tại hoàn thành khi không nêu thời gian hoặc sự việc còn liên quan đến hiện tại.","Dùng hiện tại đơn cho thói quen và sự thật. Dùng hiện tại tiếp diễn cho việc đang diễn ra lúc này hoặc mang tính tạm thời.","Dùng quá khứ đơn cho sự kiện đã kết thúc. Dùng quá khứ tiếp diễn cho hành động đang diễn ra xung quanh sự kiện đó.","Dùng tương lai đơn cho quyết định, dự đoán hoặc lời hứa. Dùng tương lai tiếp diễn cho hành động đang diễn ra tại một thời điểm trong tương lai.","Dùng hiện tại hoàn thành cho kết quả hoặc số lượng đã làm. Dùng hiện tại hoàn thành tiếp diễn cho hoạt động và khoảng thời gian nó kéo dài.","Dùng quá khứ hoàn thành cho hành động hoàn tất trước một thời điểm trong quá khứ. Dùng quá khứ hoàn thành tiếp diễn cho hoạt động kéo dài đến thời điểm đó.","Dùng tương lai hoàn thành cho hành động xong trước một thời điểm trong tương lai. Dùng tương lai hoàn thành tiếp diễn cho việc hoạt động đã kéo dài bao lâu tính đến lúc đó.","Hành động ở quá khứ hoàn thành xảy ra trước. Hành động ở quá khứ đơn xảy ra sau. When I arrived, the lesson had already started.","Hoạt động kéo dài đến một sự kiện quá khứ xảy ra sau. He had been waiting for an hour when the bus came.","Hành động ở tương lai hoàn thành sẽ xong trước một thời điểm sau đó. Mệnh đề thời gian với by the time dùng hiện tại đơn. By the time you wake up, I will have left.","Cùng dạng, khác thời. Dạng quá khứ chuyển thành dạng nguyên mẫu (thêm s với he, she hoặc it).","Cùng dạng, khác thời. Tương lai thêm will trước động từ nguyên mẫu.","Cùng dạng, khác thời. Was hoặc were chuyển thành am, is hoặc are.","Cùng dạng, khác thời. Am, is hoặc are chuyển thành will be.","Cùng dạng, khác thời. Had chuyển thành have hoặc has.","Cùng dạng, khác thời. Have hoặc has chuyển thành will have.","Cùng dạng, khác thời. Had been chuyển thành have been hoặc has been.","Cùng dạng, khác thời. Have been hoặc has been chuyển thành will have been.","Thêm am, is hoặc are trước động từ và thêm ing vào động từ.","Thêm was hoặc were trước động từ và thêm ing vào động từ.","Thêm be sau will và thêm ing vào động từ.","Thêm been sau have hoặc has và thêm ing vào động từ.","Thêm been sau had và thêm ing vào động từ.","Thêm been sau will have và thêm ing vào động từ."]}}</script>
 <script>
@@ -1030,9 +1160,10 @@ const ASK = {
 const UI = {
  en:{eyebrow:"Learning hub · The Standard", h1:"Practise the building blocks of English",
   lede:"See how sentences are built, place the twelve tenses on one timeline, and run speaking activities in class. Your progress is saved in this browser only.",
-  topLearned:n=>`of ${n} structure topics learned`, tenLearned:n=>`of ${n} tenses learned`, toReview:"answers to review",
+  topLearned:n=>`of ${n} structure topics learned`, tenLearned:n=>`of ${n} tenses learned`, toReview:"answers due for review today",
   continue:"Continue where you left off", allDone:"You have ticked every topic and tense.", allDoneMeta:"Use review mistakes to keep it fresh.",
-  open:"Open", review:n=>`Review mistakes (${n})`,
+  open:"Open", review:n=>`Review due (${n})`, flashDue:n=>`Flashcards (${n} due)`, notYet:"Not yet", listen:"Listen", onMap:"On the route map",
+  laterN:n=>n ? `${n} ${n===1?"answer is":"answers are"} scheduled for later days.` : "",
   ssName:"Sentence structure", ssDesc:n=>`${n} topics on sentence parts, sentence types, word classes and word formation, A1 to C1.`,
   ssEye:"Tool 01 · A1 to C1", ssLede:"Each topic explains one rule, shows coloured examples you can tap, and ends with practice. Tick a topic when you feel sure of it.",
   ttName:"Tense timeline", ttDesc:"The twelve tenses on one timeline, with form, use, common mistakes and a quiz for each.",
@@ -1055,7 +1186,7 @@ const UI = {
   markDone:"Mark as learned", isDone:"Learned ✓", prev:"Previous", next:"Next", close:"Close",
   scoreL:"Your score", good:"Strong result. Tick the topics you are confident about.", weak:"Review the items with a red dot, then try again.",
   seeScore:"See score", nextQ:"Next question", study:"Study this", levelPractice:"Level practice",
-  reviewT:"Review mistakes", reviewEmpty:"No mistakes to review. Every answer you have given is correct.", reviewDone:"Review finished. Correct answers leave the review list.",
+  reviewT:"Review due today", reviewEmpty:"Nothing is due today. A missed answer comes back the same day, then after 1, 3, 7, 14 and 30 days once you get it right.", reviewDone:"Review finished. Answers you got right come back after a longer gap: 1, 3, 7, 14, then 30 days.",
   zones:{All:"All", past:"Past", present:"Present", future:"Future"}, now:"NOW",
   aspects:{simple:"Simple", continuous:"Continuous", perfect:"Perfect", perfectContinuous:"Perfect continuous"},
   aspMean:{simple:"A whole event, habit or fact.", continuous:"In progress, an ongoing action.", perfect:"Completed, linked to another time.", perfectContinuous:"Ongoing, lasting up to a time."},
@@ -1095,6 +1226,13 @@ const UI = {
   pLocked:n=>`Round ${n} is locked. Here is the next round.`, copiedList:"List copied.", copyFail:"Copy did not work. Select the names on screen and copy them by hand.",
   pEnter2:"Enter at least 2 names, one per line.", pLoadedNew:n=>`New class loaded with ${n} students. Locked rounds were cleared.`, pUpdated:n=>`Class list updated with ${n} students.`,
   pGroup3:"Group of 3", pPair:n=>`Pair ${n}`, and:" and ",
+  clsLabel:"Class", clsEdit:"Edit class", clsNew:"New class", clsDel:"Delete class", clsInfo:n=>`${n} students`,
+  clsSampleNote:"This is a sample class. Choose New class to add your own students. You can paste a name column from Excel or Google Sheets.",
+  clsCreate:"Create class", clsSaveB:"Save changes", clsName:"Class name", clsNamesL:"Students, one name per line. You can paste a column or a whole table from Excel or Google Sheets; the name column is found for you.",
+  clsDefault:n=>`Class ${n}`, clsFound:(n,f)=>`${n} names found: ${f}${n>3?" and more":""}.`, clsNeed2:"Add at least 2 names.",
+  clsSaved:(c,n)=>`${c} saved with ${n} students.`, clsDelQ:c=>`Delete ${c}? Its names, locked rounds, seat plan and saved plans will be removed from this browser.`, clsDelYes:"Yes, delete", clsDeleted:c=>`${c} deleted.`,
+  sampleClass:"Sample class", myClass:"My class", seatClass:"Seat plan class", pEditHint:"To change the names, choose Edit class above.", sFromClass:"Names come from the class list. Tap a name, then tap a seat.",
+  pic:"Save picture", print:"Print", picShared:"Picture shared.", picDone:n=>`Picture saved as ${n}.`, picFail:"The picture could not be made in this browser. Try Print instead.",
   sName:"Seat plan", sSummary:(n,s,t)=>`${n} students, ${s} seated, ${t} seats`, sRandom:"Random assign", sClear:"Clear seats", sCopy:"Copy as text", sPresent:"Full screen view", sExit:"Exit full screen",
   sRows:"Rows", sCols:"Seats per row", sAisle:"Aisle", sNone:"None", sAfter:k=>`After seat ${k}`, sBoard:"Board", sRow:n=>`Row ${n}`, sEmpty:"Empty",
   sSeatAria:(r,c,n)=>`Row ${r} seat ${c}: ${n}`, sReserve:n=>`Reserve seat for ${n}`, sUnlock:n=>`Unlock seat of ${n}`, sEmptyL:"empty",
@@ -1113,9 +1251,10 @@ const UI = {
   sTextHead:"Seat plan (board at the front)", sTextEmpty:"(empty)", sTextAisle:"(|| marks the aisle)", student:n=>`Student ${n}`},
  vi:{eyebrow:"Góc học tập · The Standard", h1:"Luyện những viên gạch nền của tiếng Anh",
   lede:"Tìm hiểu cách câu được xây dựng, đặt mười hai thì lên cùng một dòng thời gian, và tổ chức hoạt động nói trên lớp. Tiến độ của bạn chỉ được lưu trong trình duyệt này.",
-  topLearned:n=>`trên ${n} chủ đề cấu trúc câu đã học`, tenLearned:n=>`trên ${n} thì đã học`, toReview:"câu cần ôn lại",
+  topLearned:n=>`trên ${n} chủ đề cấu trúc câu đã học`, tenLearned:n=>`trên ${n} thì đã học`, toReview:"câu cần ôn hôm nay",
   continue:"Học tiếp từ chỗ bạn dừng", allDone:"Bạn đã đánh dấu mọi chủ đề và mọi thì.", allDoneMeta:"Hãy dùng ôn lỗi sai để củng cố kiến thức.",
-  open:"Mở bài", review:n=>`Ôn lỗi sai (${n})`,
+  open:"Mở bài", review:n=>`Ôn bài đến hạn (${n})`, flashDue:n=>`Thẻ ghi nhớ (${n} đến hạn)`, notYet:"Chưa nhớ", listen:"Nghe", onMap:"Trên lộ trình",
+  laterN:n=>n ? `Còn ${n} câu được hẹn ôn vào những ngày sau.` : "",
   ssName:"Cấu trúc câu", ssDesc:n=>`${n} chủ đề về thành phần câu, loại câu, từ loại và cấu tạo từ, từ A1 đến C1.`,
   ssEye:"Công cụ 01 · A1 đến C1", ssLede:"Mỗi chủ đề giải thích một quy tắc, có ví dụ tô màu để bạn chạm vào, và kết thúc bằng phần luyện tập. Hãy đánh dấu chủ đề khi bạn đã chắc chắn.",
   ttName:"Dòng thời gian các thì", ttDesc:"Mười hai thì trên cùng một dòng thời gian, kèm cấu trúc, cách dùng, lỗi thường gặp và câu đố cho từng thì.",
@@ -1138,7 +1277,7 @@ const UI = {
   markDone:"Đánh dấu đã học", isDone:"Đã học ✓", prev:"Trước", next:"Tiếp", close:"Đóng",
   scoreL:"Điểm của bạn", good:"Kết quả tốt. Hãy đánh dấu những chủ đề bạn đã tự tin.", weak:"Hãy ôn lại các câu có chấm đỏ, rồi làm lại.",
   seeScore:"Xem điểm", nextQ:"Câu tiếp theo", study:"Học mục này", levelPractice:"Luyện cả bậc",
-  reviewT:"Ôn lỗi sai", reviewEmpty:"Không có lỗi nào cần ôn. Mọi câu bạn đã trả lời đều đúng.", reviewDone:"Đã ôn xong. Câu trả lời đúng sẽ được bỏ khỏi danh sách ôn.",
+  reviewT:"Ôn bài đến hạn hôm nay", reviewEmpty:"Hôm nay không có câu nào đến hạn. Câu trả lời sai sẽ quay lại ngay trong ngày, rồi sau 1, 3, 7, 14 và 30 ngày khi bạn trả lời đúng.", reviewDone:"Đã ôn xong. Câu trả lời đúng sẽ quay lại sau khoảng cách dài hơn: 1, 3, 7, 14, rồi 30 ngày.",
   zones:{All:"Tất cả", past:"Quá khứ", present:"Hiện tại", future:"Tương lai"}, now:"BÂY GIỜ",
   aspects:{simple:"Đơn", continuous:"Tiếp diễn", perfect:"Hoàn thành", perfectContinuous:"Hoàn thành tiếp diễn"},
   aspMean:{simple:"Một sự kiện trọn vẹn, thói quen hoặc sự thật.", continuous:"Đang diễn ra, hành động kéo dài.", perfect:"Đã hoàn tất, gắn với một thời điểm khác.", perfectContinuous:"Kéo dài liên tục đến một thời điểm."},
@@ -1177,6 +1316,13 @@ const UI = {
   pLocked:n=>`Đã khóa vòng ${n}. Đây là vòng tiếp theo.`, copiedList:"Đã sao chép danh sách.", copyFail:"Không sao chép được. Hãy chọn tên trên màn hình và sao chép thủ công.",
   pEnter2:"Hãy nhập ít nhất 2 tên, mỗi dòng một tên.", pLoadedNew:n=>`Đã tải lớp mới với ${n} học sinh. Các vòng đã khóa được xóa.`, pUpdated:n=>`Đã cập nhật danh sách lớp với ${n} học sinh.`,
   pGroup3:"Nhóm 3 người", pPair:n=>`Cặp ${n}`, and:" và ",
+  clsLabel:"Lớp", clsEdit:"Sửa lớp", clsNew:"Lớp mới", clsDel:"Xóa lớp", clsInfo:n=>`${n} học sinh`,
+  clsSampleNote:"Đây là lớp mẫu. Chọn Lớp mới để thêm học sinh của bạn. Bạn có thể dán cột tên từ Excel hoặc Google Sheets.",
+  clsCreate:"Tạo lớp", clsSaveB:"Lưu thay đổi", clsName:"Tên lớp", clsNamesL:"Học sinh, mỗi dòng một tên. Bạn có thể dán một cột hoặc cả bảng từ Excel hoặc Google Sheets; trang sẽ tự tìm cột tên.",
+  clsDefault:n=>`Lớp ${n}`, clsFound:(n,f)=>`Tìm thấy ${n} tên: ${f}${n>3?" và các tên khác":""}.`, clsNeed2:"Hãy thêm ít nhất 2 tên.",
+  clsSaved:(c,n)=>`Đã lưu ${c} với ${n} học sinh.`, clsDelQ:c=>`Xóa ${c}? Danh sách tên, các vòng đã khóa, sơ đồ chỗ ngồi và các sơ đồ đã lưu của lớp này sẽ bị xóa khỏi trình duyệt.`, clsDelYes:"Đồng ý xóa", clsDeleted:c=>`Đã xóa ${c}.`,
+  sampleClass:"Lớp mẫu", myClass:"Lớp của tôi", seatClass:"Lớp sơ đồ chỗ ngồi", pEditHint:"Để đổi tên học sinh, chọn Sửa lớp ở phía trên.", sFromClass:"Tên lấy từ danh sách lớp. Chạm vào một tên, rồi chạm vào một chỗ ngồi.",
+  pic:"Lưu ảnh", print:"In", picShared:"Đã chia sẻ ảnh.", picDone:n=>`Đã lưu ảnh ${n}.`, picFail:"Trình duyệt này không tạo được ảnh. Hãy thử nút In.",
   sName:"Sơ đồ chỗ ngồi", sSummary:(n,s,t)=>`${n} học sinh, ${s} đã có chỗ, ${t} chỗ ngồi`, sRandom:"Xếp ngẫu nhiên", sClear:"Xóa chỗ ngồi", sCopy:"Sao chép dạng chữ", sPresent:"Xem toàn màn hình", sExit:"Thoát toàn màn hình",
   sRows:"Số hàng", sCols:"Chỗ mỗi hàng", sAisle:"Lối đi", sNone:"Không có", sAfter:k=>`Sau chỗ ${k}`, sBoard:"Bảng", sRow:n=>`Hàng ${n}`, sEmpty:"Trống",
   sSeatAria:(r,c,n)=>`Hàng ${r} chỗ ${c}: ${n}`, sReserve:n=>`Giữ chỗ cho ${n}`, sUnlock:n=>`Bỏ giữ chỗ của ${n}`, sEmptyL:"trống",
@@ -1198,8 +1344,16 @@ const UI = {
 /* ---------- storage (this browser only) ---------- */
 const KEY = "standardHub.v1";
 const store = { get(k){ try { return localStorage.getItem(k); } catch(e){ return null; } }, set(k,v){ try { localStorage.setItem(k,v); } catch(e){} }, del(k){ try { localStorage.removeItem(k); } catch(e){} } };
+/* spaced review: a missed answer is due the same day; each right answer pushes it back 1, 3, 7, 14, then 30 days */
+const INT = [0,1,3,7,14,30];
+function today(){ const d=new Date(); return Math.floor((d.getTime() - d.getTimezoneOffset()*6e4)/864e5); }
+function srsKeyOk(k){ let m;
+  if ((m=/^ss:(.+)#(\d+)$/.exec(k))) return has(EX,m[1]) && +m[2] < EX[m[1]].items.length;
+  if ((m=/^tt:(.+)$/.exec(k))) return has(tenseById,m[1]);
+  if ((m=/^c:(.+)$/.exec(k))) return has(tenseById,m[1]);
+  return false; }
 function clean(p){ // keep only known topics, tenses and valid answers, so bad saved data cannot break the page
-  const out = {ss:{done:{}, res:{}}, tt:{done:{}, quiz:{}}, last:null};
+  const out = {ss:{done:{}, res:{}}, tt:{done:{}, quiz:{}}, last:null, srs:{}};
   if (!p || typeof p!=="object") return out;
   const ss = p.ss && typeof p.ss==="object" ? p.ss : {}, tt = p.tt && typeof p.tt==="object" ? p.tt : {};
   if (ss.done && typeof ss.done==="object") for (const k of Object.keys(ss.done)) if (has(topicById,k) && ss.done[k]) out.ss.done[k]=1;
@@ -1208,8 +1362,22 @@ function clean(p){ // keep only known topics, tenses and valid answers, so bad s
   if (tt.done && typeof tt.done==="object") for (const k of Object.keys(tt.done)) if (has(tenseById,k) && tt.done[k]) out.tt.done[k]=1;
   if (tt.quiz && typeof tt.quiz==="object") for (const k of Object.keys(tt.quiz)) { const v=tt.quiz[k]; if (has(tenseById,k) && (v===1||v===0)) out.tt.quiz[k]=v; }
   const l = p.last; if (l && typeof l==="object" && ((l.tool==="ss" && has(topicById,l.id)) || (l.tool==="tt" && has(tenseById,l.id)))) out.last = {tool:l.tool, id:l.id};
+  if (p.srs && typeof p.srs==="object") for (const k of Object.keys(p.srs)){ const v=p.srs[k];
+    if (Array.isArray(v) && Number.isInteger(v[0]) && v[0]>=0 && v[0]<INT.length && Number.isInteger(v[1]) && srsKeyOk(k)) out.srs[k]=[v[0],v[1]]; }
+  // answers missed before spaced review existed are due now
+  for (const k of Object.keys(out.ss.res)) out.ss.res[k].forEach((r,i)=>{ const key=`ss:${k}#${i}`; if (r===0 && !has(out.srs,key)) out.srs[key]=[0,today()]; });
+  for (const k of Object.keys(out.tt.quiz)) if (out.tt.quiz[k]===0 && !has(out.srs,"tt:"+k)) out.srs["tt:"+k]=[0,today()];
   return out;
 }
+function srsAnswer(key, ok){ const s=state.srs, t=today();
+  if (!ok){ s[key]=[0,t]; return; }
+  if (!has(s,key) || s[key][1] > t) return;
+  const b=s[key][0]+1; if (b>=INT.length) delete s[key]; else s[key]=[b, t+INT[b]]; }
+function srsCard(id, known){ const key="c:"+id, s=state.srs, t=today();
+  if (!known){ s[key]=[0, t+1]; return; }
+  if (!has(s,key)){ s[key]=[1, t+INT[1]]; return; }
+  if (s[key][1] > t) return;
+  const b=s[key][0]+1; if (b>=INT.length) delete s[key]; else s[key]=[b, t+INT[b]]; }
 let state = clean(null);
 try { state = clean(JSON.parse(store.get(KEY)||"null")); } catch(e) {}
 const save = () => store.set(KEY, JSON.stringify(state));
@@ -1265,6 +1433,23 @@ function srcOf(t){
   return L().source + (m ? `${m[1]} (n.d.), ${m[2]}.` : s.apa);
 }
 
+/* ---------- listen: the device's own English voice reads a sentence ---------- */
+const TTS = "speechSynthesis" in window && typeof SpeechSynthesisUtterance!=="undefined";
+let ttsVoice = null, speaking = null;
+function pickVoice(){ if (!TTS) return; const vs=speechSynthesis.getVoices(), en=vs.filter(v=>/^en/i.test(v.lang));
+  ttsVoice = en.find(v=>/en[-_]GB/i.test(v.lang)) || en.find(v=>/en[-_]US/i.test(v.lang)) || en[0] || null;
+  document.documentElement.classList.toggle("no-tts", vs.length>0 && !en.length); }
+if (TTS){ pickVoice(); if (speechSynthesis.addEventListener) speechSynthesis.addEventListener("voiceschanged", pickVoice); } else document.documentElement.classList.add("no-tts");
+const SPEAK_SVG = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h2.5L8 3v10L4.5 10H2z" fill="currentColor"/><path d="M10.5 5.5a3.5 3.5 0 0 1 0 5M12.3 3.7a6 6 0 0 1 0 8.6" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>';
+function stopSpeak(){ if (!TTS) return; speechSynthesis.cancel(); if (speaking){ speaking.classList.remove("on"); speaking.setAttribute("aria-pressed","false"); } speaking=null; }
+function speak(text, b){ const again = speaking===b; stopSpeak(); if (again) return;
+  const u = new SpeechSynthesisUtterance(text); if (ttsVoice) u.voice = ttsVoice; u.lang = ttsVoice ? ttsVoice.lang : "en-GB"; u.rate = .95;
+  const done = () => { b.classList.remove("on"); b.setAttribute("aria-pressed","false"); if (speaking===b) speaking=null; };
+  u.onend = done; u.onerror = done; b.classList.add("on"); b.setAttribute("aria-pressed","true"); speaking=b; speechSynthesis.speak(u); }
+function sayBtn(text){ if (!TTS) return null; const b=el("button",{class:"say", type:"button", "aria-pressed":"false", "aria-label":`${L().listen}: ${text}`, title:L().listen});
+  b.innerHTML = SPEAK_SVG; b.addEventListener("click", e => { e.stopPropagation(); speak(text, b); }); return b; }
+const XL = (() => { const n=document.getElementById("xlinks"); try { return n ? JSON.parse(n.textContent) : {}; } catch(e) { return {}; } })();
+
 /* ---------- static text ---------- */
 function paintStatic(){
   document.documentElement.lang = view.lang;
@@ -1277,12 +1462,14 @@ function paintStatic(){
 }
 
 /* ---------- summary and continue card ---------- */
-function mistakes(){
-  const out=[];
-  for (const t of ssOrdered()) (state.ss.res[t.id]||[]).forEach((r,i)=>{ if (r===0) out.push(["ss",t.id,i]); });
-  for (const d of ORDER) if (state.tt.quiz[d.id]===0) out.push(["tt",d.id]);
+function mistakes(){ // answers due for review today, in route order
+  const t=today(), due = k => has(state.srs,k) && state.srs[k][1]<=t, out=[];
+  for (const tp of ssOrdered()) EX[tp.id].items.forEach((_,i)=>{ if (due(`ss:${tp.id}#${i}`)) out.push(["ss",tp.id,i]); });
+  for (const d of ORDER) if (due("tt:"+d.id)) out.push(["tt",d.id]);
   return out;
 }
+const dueCards = () => { const t=today(); return ORDER.filter(d=>{ const v=state.srs["c:"+d.id]; return v && v[1]<=t; }).map(d=>d.id); };
+const laterQs = () => { const t=today(); return Object.keys(state.srs).filter(k=>!k.startsWith("c:") && state.srs[k][1]>t).length; };
 function nextUp(){
   const lists = {ss:ssOrdered().map(t=>t.id), tt:ORDER.map(d=>d.id)};
   const first = state.last ? state.last.tool : "ss", tools = first==="ss" ? ["ss","tt"] : ["tt","ss"];
@@ -1293,11 +1480,14 @@ function nextUp(){
   }
   return null;
 }
+const prevStat = {};
 function renderSummary(){
   const ssDone = TOPICS.filter(t=>state.ss.done[t.id]).length, ttDone = TENSES.filter(d=>state.tt.done[d.id]).length, miss = mistakes().length;
   $("#stTop").textContent = ssDone; $("#stTopL").textContent = L().topLearned(TOPICS.length);
   $("#stTen").textContent = ttDone; $("#stTenL").textContent = L().tenLearned(TENSES.length);
   $("#stMiss").textContent = miss; $("#stMissL").textContent = L().toReview;
+  if (!firstPaint) [["#stTop",ssDone],["#stTen",ttDone]].forEach(([sel,v]) => { if (prevStat[sel]!=null && v>prevStat[sel]) anim($(sel), [{transform:"translateY(5px)", opacity:.4},{transform:"none", opacity:1}], {duration:320}); });
+  prevStat["#stTop"] = ssDone; prevStat["#stTen"] = ttDone;
   $("#ssCount").textContent = L().countTop(ssDone, TOPICS.length); $("#ttCount").textContent = L().countTen(ttDone, TENSES.length);
   const fillW = ((ssDone+ttDone)/(TOPICS.length+TENSES.length)*100).toFixed(1)+"%";
   if (firstPaint && !RM){ $("#fill").style.width="0"; requestAnimationFrame(()=>requestAnimationFrame(()=>{ $("#fill").style.width=fillW; })); } else $("#fill").style.width = fillW;
@@ -1311,6 +1501,7 @@ function renderSummary(){
     $("#nextOpen").onclick = () => { if (view.tool!==nx.tool) setTool(nx.tool); nx.tool==="ss" ? openSS(nx.id) : openTT(nx.id); };
   } else { $("#nextTitle").textContent = L().allDone; $("#nextMeta").textContent = L().allDoneMeta; $("#nextOpen").hidden = true; }
   $("#revBtn").textContent = L().review(miss); $("#revBtn").disabled = miss===0;
+  const dc = dueCards().length; $("#ttFlash").textContent = dc ? L().flashDue(dc) : L().flash;
 }
 
 /* ---------- tool switcher ---------- */
@@ -1319,7 +1510,7 @@ function setTool(t, focus){ if (view.tool===t) return; view.tool=t; saveView(); 
 function paintTool(animate){
   TOOLS.forEach(t => { const on = view.tool===t, b=$("#tb-"+t); b.setAttribute("aria-selected", String(on)); b.tabIndex = on ? 0 : -1; $("#tool-"+t).hidden = !on; });
   if (view.tool==="ss") renderSS(); else if (view.tool==="tt") renderTT(); else ctShow();
-  try { history.replaceState(null, "", "#" + (view.tool==="ct" ? view.ct : HASH[view.tool])); } catch(e) {}
+  if (!/^#(tenses|structure)\//.test(location.hash)) try { history.replaceState(null, "", "#" + (view.tool==="ct" ? view.ct : HASH[view.tool])); } catch(e) {}
   if (animate){ const p=$("#tool-"+view.tool); rise(p.querySelector(".toolhead"),0,8,280); rise(p.querySelector(".filters"),60,6,260); const third=p.children[2]; if (third) rise(third,110,10,300); }
 }
 TOOLS.forEach((t,i) => { const b=$("#tb-"+t); b.onclick = () => setTool(t);
@@ -1392,6 +1583,8 @@ function exampleRow(t, ei, ex){
     else { const key=ei+"."+si; p.append(el("button",{type:"button", class:"sg k"+lab(code)[2], "data-key":key, "data-code":code, "aria-pressed":String(infoSel[t.id]===key), onclick:()=>pickSeg(t.id,key)}, text)); }
     prev = text;
   });
+  const said = ex.reduce((acc,seg,i)=> acc + (i && !/^[,.]/.test(seg[0]) ? " " : "") + seg[0], "");
+  const sb = sayBtn(said); if (sb) p.append(sb);
   return p;
 }
 function pickSeg(tid, key){
@@ -1414,7 +1607,7 @@ function ssItem(tid, i, runner, onAnswer){
   if (runner) card.append(el("div",{class:"qp", text:ex.prompt[view.lang]}));
   const fb = el("div",{class:"fb", role:"status"});
   const record = ok => {
-    const r = state.ss.res[tid] || Array(n).fill(null); r[i] = ok?1:0; state.ss.res[tid]=r; save();
+    const r = state.ss.res[tid] || Array(n).fill(null); r[i] = ok?1:0; state.ss.res[tid]=r; srsAnswer(`ss:${tid}#${i}`, ok); save();
     owlReact(ok); refreshSSRow(tid); if (onAnswer) onAnswer(ok);
   };
   const feedback = (ok, ans) => { fb.className = "fb "+(ok?"ok":"no");
@@ -1486,12 +1679,29 @@ function tCard(d, zi, ai){
     vi() ? el("span",{class:"en", text:d.name}) : null,
     el("span",{class:"st"}, el("i",{class:q===1?"ok":q===0?"no":"", title: q==null?"":L().quizRes[q]}), done ? el("span",{class:"lrn", text:"✓ "+L().learnedShort}) : null));
 }
+/* the board draws in the first time it scrolls into view; later filter changes fade cards in place */
+let boardDrawn = false, boardIO = null;
+const boardSig = () => view.lang + JSON.stringify([state.tt.done, state.tt.quiz]);
+function watchBoard(){
+  const g=$("#tgrid"); if (boardDrawn || boardIO) return;
+  if (RM || !("IntersectionObserver" in window)){ boardDrawn = true; g.classList.remove("tg-pre"); return; }
+  boardIO = new IntersectionObserver(es => { if (!es.some(e=>e.isIntersecting)) return; boardIO.disconnect(); boardIO = null; drawBoard(); }, {threshold:.2});
+  boardIO.observe(g);
+}
+function drawBoard(){ const g=$("#tgrid"); boardDrawn = true; g.classList.add("tg-in"); void g.offsetWidth; g.classList.remove("tg-pre"); setTimeout(()=>g.classList.remove("tg-in"), 1500); }
 function renderBoard(){
-  const g = $("#tgrid"); g.textContent = "";
-  g.append(el("div",{class:"tline", "aria-hidden":"true"}, el("span",{class:"pill tnow", text:L().now})));
-  ASPECTS.forEach((a,ai) => g.append(el("div",{class:"tah", style:`--r:${ai+3}`}, el("b",{}, aspIcon(a), L().aspects[a]), el("span",{text:L().aspMean[a]}))));
-  ZONES.forEach((z,zi) => { g.append(el("div",{class:"tzh", style:`--c:${zi+2}`, text:L().zones[z]}));
-    ASPECTS.forEach((a,ai) => g.append(tCard(ORDER[zi*4+ai], zi, ai))); });
+  const g = $("#tgrid"), filtered = view.zone!=="All"||view.aspect!=="All"||!!view.word;
+  if (g.dataset.sig===boardSig() && g.querySelector(".tcard")){
+    g.querySelectorAll(".tcard").forEach(b => { const m = ttMatch(tenseById[b.dataset.id]); b.classList.toggle("hit", m && filtered); b.classList.toggle("dim", !m); });
+  } else {
+    g.textContent = ""; g.dataset.sig = boardSig();
+    if (!boardDrawn && !RM && "IntersectionObserver" in window) g.classList.add("tg-pre");
+    g.append(el("div",{class:"tline", "aria-hidden":"true"}, el("span",{class:"pill tnow", text:L().now})));
+    ASPECTS.forEach((a,ai) => g.append(el("div",{class:"tah", style:`--r:${ai+3}`}, el("b",{}, aspIcon(a), L().aspects[a]), el("span",{text:L().aspMean[a]}))));
+    ZONES.forEach((z,zi) => { g.append(el("div",{class:"tzh", style:`--c:${zi+2}`, text:L().zones[z]}));
+      ASPECTS.forEach((a,ai) => g.append(tCard(ORDER[zi*4+ai], zi, ai))); });
+  }
+  watchBoard();
   const shown = ORDER.filter(ttMatch), parts = [];
   if (view.aspect!=="All") parts.push(L().stAspect(L().aspects[view.aspect]));
   if (view.word) parts.push(L().stWord(view.word, shown.map(tName).join(", ")));
@@ -1499,14 +1709,20 @@ function renderBoard(){
   $("#ttStatus").textContent = parts.join(" ");
   $("#ttQuizAll").disabled = !shown.length;
 }
-function refreshTT(id){ renderSummary(); if (view.tool!=="tt") return; const b=document.querySelector(`#tgrid .tcard[data-id="${id}"]`); if (!b) return; const zi=ZONES.indexOf(tenseById[id].zone), ai=ASPECTS.indexOf(tenseById[id].aspect); b.replaceWith(tCard(tenseById[id], zi, ai)); }
+function refreshTT(id){ renderSummary(); if (view.tool!=="tt") return; const b=document.querySelector(`#tgrid .tcard[data-id="${id}"]`); if (!b) return; const zi=ZONES.indexOf(tenseById[id].zone), ai=ASPECTS.indexOf(tenseById[id].aspect);
+  const oldDot = (b.querySelector(".st i")||{}).className, hadTick = !!b.querySelector(".lrn"), nb = tCard(tenseById[id], zi, ai);
+  b.replaceWith(nb); $("#tgrid").dataset.sig = boardSig();
+  const tick = nb.querySelector(".lrn"), dot = nb.querySelector(".st i");
+  if (tick && !hadTick) anim(tick, [{opacity:0, transform:"translateY(4px) scale(.9)"},{opacity:1, transform:"none"}], {duration:320});
+  if (dot && dot.className && dot.className!==oldDot) anim(dot, [{transform:"scale(0)"},{transform:"scale(1.5)", offset:.6},{transform:"none"}], {duration:420});
+}
 function toggleTT(id){ if (state.tt.done[id]) delete state.tt.done[id]; else state.tt.done[id]=1; save(); refreshTT(id); if ($("#sheet").open) paintSheet(); }
 $("#ttQuizAll").onclick = () => startRunner("ttAll");
 $("#ttFlash").onclick = () => startFlash();
 
 function diagram(d){
   const ref = {past:150, present:300, future:450}[d.zone], Y=64, E=36;
-  const wave = (x1,x2) => { let p=`M${x1} ${E}`; for (let x=x1; x+16<=x2; x+=16) p+=" q4 -8 8 0 q4 8 8 0"; return `<path class="dg-ev" d="${p}"/>`; };
+  const wave = (x1,x2) => { let p=`M${x1} ${E}`, n=0; for (let x=x1; x+16<=x2; x+=16){ p+=" q4 -8 8 0 q4 8 8 0"; n++; } return `<path class="dg-ev" data-len="${(n*23.66).toFixed(1)}" d="${p}"/>`; };
   let g = `<line class="dg-ax" x1="20" y1="${Y}" x2="568" y2="${Y}"/><path class="dg-axh" d="M580 ${Y} l-14 -7 v14 z"/>`;
   g += `<line class="dg-now" x1="300" y1="${Y-9}" x2="300" y2="${Y+9}"/>`;
   if (ref!==300) g += `<line class="dg-ref" x1="${ref}" y1="${E-16}" x2="${ref}" y2="${Y}"/>`;
@@ -1517,13 +1733,39 @@ function diagram(d){
   g += `<text class="dg-t" x="120" y="${Y+26}" text-anchor="middle">${L().zones.past}</text><text class="dg-tn" x="300" y="${Y+26}" text-anchor="middle">${L().now}</text><text class="dg-t" x="480" y="${Y+26}" text-anchor="middle">${L().zones.future}</text>`;
   const box = el("div",{class:"tdia"}); box.innerHTML = `<svg viewBox="0 0 600 98" role="img" aria-label="${L().diaL(tName(d))}">${g}</svg>`; return box;
 }
-function fix(w, r){ return el("div",{class:"fix"}, el("div",{class:"w"}, el("b",{"aria-label":"✗", text:"✗"}), el("span",{text:w})), el("div",{class:"r"}, el("b",{"aria-label":"✓", text:"✓"}), el("span",{text:r}))); }
+/* the diagram plays once when a tense opens: axis, then the event line or dots, then labels */
+function playDiagram(box, base){
+  const svg = box.querySelector("svg"); if (RM || !svg || !svg.animate) return;
+  const fade = (n, delay, dur=260) => anim(n, [{opacity:0},{opacity:1}], {delay:base+delay, duration:dur});
+  const pop = (n, delay) => anim(n, [{opacity:0, transform:"scale(0)"},{opacity:1, transform:"scale(1.15)", offset:.7},{opacity:1, transform:"none"}], {delay:base+delay, duration:360});
+  // lengths come from the shape itself, since the sheet may still be closed (not laid out) when this runs
+  const draw = (n, delay, dur) => { let len = +n.dataset.len || 0;
+    if (!len && n.tagName==="line") len = Math.hypot(n.x2.baseVal.value-n.x1.baseVal.value, n.y2.baseVal.value-n.y1.baseVal.value);
+    if (!len) try { len = n.getTotalLength(); } catch(e) {}
+    if (!(len > 0)) return fade(n, delay, dur);
+    n.style.strokeDasharray = len + " " + (len + 20);
+    const a = n.animate([{strokeDashoffset:len, opacity:0},{opacity:1, offset:.1},{strokeDashoffset:0, opacity:1}], {delay:base+delay, duration:dur, easing:EASE, fill:"backwards"});
+    const done = () => { n.style.strokeDasharray = ""; }; a.onfinish = done; a.oncancel = done; return a; };
+  svg.querySelectorAll(".dg-ax").forEach(n => draw(n, 0, 520));
+  svg.querySelectorAll(".dg-axh").forEach(n => fade(n, 420, 200));
+  svg.querySelectorAll(".dg-now").forEach(n => pop(n, 160));
+  svg.querySelectorAll(".dg-t,.dg-tn").forEach((n,i) => fade(n, 220 + i*60, 300));
+  let t = 380;
+  svg.querySelectorAll(".dg-ref,.dg-ev,.dg-dot").forEach(n => {
+    if (n.classList.contains("dg-ref")) fade(n, 300, 300);
+    else if (n.classList.contains("dg-ev")){ const dur = 560; draw(n, t, dur); t += dur * .8; }
+    else { pop(n, t); t += 90; }
+  });
+}
+function fix(w, r){ return el("div",{class:"fix"}, el("div",{class:"w"}, el("b",{"aria-label":"✗", text:"✗"}), el("span",{text:w})), el("div",{class:"r"}, el("b",{"aria-label":"✓", text:"✓"}), el("span",{text:r}), sayBtn(r))); }
+function mapLinks(key){ const xl = XL[key]; if (!xl || !xl.length) return [];
+  return [el("h4",{text:L().onMap}), el("div",{class:"xlinks"}, xl.map(([pid,lv,en,vt]) => el("a",{class:"xlink", href:`route-map.html#point/${pid}`}, el("b",{text:lv}), vi()?vt:en)))]; }
 function ttQuiz(id, runner, onAnswer){
   const d=tenseById[id], q=d.quiz, prev=state.tt.quiz[id];
   const card = el("div",{class:"q"}, el("div",{class:"eyebrow", text: runner ? `${L().zones[d.zone]} · ${tName(d)}` : L().tabQuiz}), el("div",{class:"qq", text:q.q}));
   const opts = el("div",{class:"opts", role:"group"}), fb = el("div",{class:"fb", role:"status"});
   q.options.forEach((o,k) => opts.append(el("button",{class:"opt", type:"button", onclick:()=>{
-    const ok = k===q.answer; state.tt.quiz[id] = ok?1:0; save();
+    const ok = k===q.answer; state.tt.quiz[id] = ok?1:0; srsAnswer("tt:"+id, ok); save();
     [...opts.children].forEach((b,j)=>{ b.disabled=true; if (j===q.answer) b.classList.add("right"); else if (j===k) b.classList.add("wrong"); });
     fb.className="fb "+(ok?"ok":"no"); fb.replaceChildren(el("b",{text: ok?L().right:L().wrong}), ok?"":L().answer(q.options[q.answer]), tf(d,"quizWhy")); rise(fb,60,4,240);
     owlReact(ok); refreshTT(id); if (onAnswer) onAnswer(ok);
@@ -1544,7 +1786,8 @@ function showSheet(){ const d=$("#sheet");
     anim(d, [{opacity:0, transform:"scale(.96) translateY(10px)"},{opacity:1, transform:"none"}], {duration:280});
   }
   $("#sBody").scrollTop=0; d.scrollTop=0; }
-function closeSheet(){ const d=$("#sheet"); if (!d.open || d.classList.contains("closing")) return;
+function closeSheet(){ const d=$("#sheet"); if (!d.open || d.classList.contains("closing")) return; stopSpeak();
+  if (/^#(tenses|structure)\//.test(location.hash)) try { history.replaceState(null, "", "#" + (view.tool==="ct" ? view.ct : HASH[view.tool])); } catch(e) {}
   if (RM || !d.animate){ d.close(); return; }
   d.classList.add("closing");
   const a = d.animate([{opacity:1, transform:"none"},{opacity:0, transform:"scale(.98) translateY(8px)"}], {duration:170, easing:"ease-in", fill:"forwards"});
@@ -1561,7 +1804,7 @@ $("#sTabs").addEventListener("keydown", e => { if (e.key!=="ArrowRight" && e.key
 function remember(tool, id){ state.last = {tool, id}; save(); renderSummary(); }
 function openSS(id, tab="learn", dir){ const wasOpen=$("#sheet").open; cur={mode:"ss", id, tab}; if (wasOpen) sheetAnim = dir||0; remember("ss", id); paintSheet(); showSheet(); }
 function openTT(id, tab="learn", dir){ const wasOpen=$("#sheet").open; cur={mode:"tt", id, tab}; if (wasOpen) sheetAnim = dir||0; remember("tt", id); paintSheet(); showSheet(); }
-function paintSheet(){ paintSheetInner(); if (sheetAnim!==null){ const b=$("#sBody"); if (sheetAnim) slide(b, sheetAnim); else rise(b,0,6,220); sheetAnim=null; } }
+function paintSheet(){ stopSpeak(); paintSheetInner(); if (sheetAnim!==null){ const b=$("#sBody"); if (sheetAnim) slide(b, sheetAnim); else rise(b,0,6,220); sheetAnim=null; } }
 function paintSheetInner(){
   const body=$("#sBody"), foot=$("#sFoot"); body.textContent=""; foot.textContent=""; foot.hidden=false;
   if (cur.mode==="runner") return paintRunner();
@@ -1580,7 +1823,7 @@ function paintSSSheet(body, foot){
   head([[L().tierLvl[t.tier],""],[areaName(t.area),"out"]], tTitle(t), vi()?t.title.en:"", [["learn",L().learn],["practise",L().practise]]);
   if (cur.tab==="learn"){
     body.append(el("h4",{text:L().rule}), el("p",{class:"lead", text:t.explain[view.lang]}), el("h4",{text:L().examples}),
-      ...t.examples.map((e,ei)=>exampleRow(t, ei, e)), el("p",{class:"cap", text:L().tapHint}), legend(t), el("p",{class:"srcline", text:srcOf(t)}));
+      ...t.examples.map((e,ei)=>exampleRow(t, ei, e)), el("p",{class:"cap", text:L().tapHint}), legend(t), ...mapLinks("structure/"+t.id), el("p",{class:"srcline", text:srcOf(t)}));
     const sel = infoSel[t.id]; if (sel){ const c = body.querySelector(`.sg[data-key="${sel}"]`); if (c){ const lg = body.querySelector(`.lg[data-code="${c.dataset.code}"]`); if (lg) lg.classList.add("on"); } }
   } else {
     body.append(el("p",{class:"lead", style:"margin-bottom:16px", text:ex.prompt[view.lang]}), ...ex.items.map((_,i)=>ssItem(t.id, i, false)), el("div",{style:"height:4px"}));
@@ -1592,11 +1835,14 @@ function paintTTSheet(body, foot){
   const d = tenseById[cur.id];
   head([[L().zones[d.zone],""],[L().aspects[d.aspect],"out"]], tFull(d), vi()?d.name:"", [["learn",L().tabLearn],["mistake",L().tabMistake],["quiz",L().tabQuiz],["related",L().tabRel]]);
   if (cur.tab==="learn"){
-    body.append(diagram(d), el("h4",{text:L().form}), el("div",{class:"formula", text:tf(d,"form")}), el("h4",{text:L().use}), el("p",{class:"lead", text:tf(d,"use")}),
-      el("h4",{text:L().examples}), el("ul",{class:"eg"}, d.examples.map(e=>el("li",{text:e}))),
+    const dg = diagram(d), play = !$("#sheet").open || sheetAnim!==null;
+    body.append(dg, el("h4",{text:L().form}), el("div",{class:"formula", text:tf(d,"form")}), el("h4",{text:L().use}), el("p",{class:"lead", text:tf(d,"use")}),
+      el("h4",{text:L().examples}), el("ul",{class:"eg"}, d.examples.map(e=>el("li",{}, e, sayBtn(e)))),
       el("h4",{text:L().sigTap}), el("div",{class:"chipset"}, d.signals.map(w=>el("button",{type:"button", class:"chipb", "aria-pressed":String(view.word===w), onclick:()=>{
         view.word = view.word===w ? "" : w; saveView(); if (view.tool!=="tt") setTool("tt"); renderTT(); closeSheet();
-        setTimeout(()=>{ const s=$("#ttStatus"); if (s){ const bar=document.querySelector(".sitebar"); scrollTo({top:Math.max(0, s.getBoundingClientRect().top+scrollY-(bar?bar.offsetHeight:0)-24), behavior:RM?"auto":"smooth"}); } }, RM?0:180); }}, w))));
+        setTimeout(()=>{ const s=$("#ttStatus"); if (s){ const bar=document.querySelector(".sitebar"); scrollTo({top:Math.max(0, s.getBoundingClientRect().top+scrollY-(bar?bar.offsetHeight:0)-24), behavior:RM?"auto":"smooth"}); } }, RM?0:180); }}, w))),
+      ...mapLinks("tenses/"+d.id));
+    if (play) playDiagram(dg, $("#sheet").open ? 60 : 140);
   } else if (cur.tab==="mistake"){
     body.append(el("h4",{text:L().common}), fix(d.mistake.wrong, d.mistake.right), el("p",{class:"lead", style:"margin-top:14px", text:tf(d,"mistakeWhy")}));
   } else if (cur.tab==="quiz"){
@@ -1625,10 +1871,11 @@ function paintRunner(){
   else if (cur.kind==="ssLevel") head([[L().tierLvl[cur.arg],""],[L().levelPractice,"out"]], `${L().ssName} · ${L().tierName[cur.arg]}`, "", null);
   else head([[String(cur.list.length),""]], L().tenseQuiz, "", null);
   const n = cur.list.length;
-  if (!n){ body.append(el("p",{class:"lead", text:L().reviewEmpty}), el("div",{class:"row8", style:"margin-bottom:20px"}, el("button",{class:"btn sec", type:"button", onclick:()=>closeSheet()}, L().close))); return; }
+  if (!n){ body.append(el("p",{class:"lead", text:L().reviewEmpty}), laterQs() ? el("p",{class:"note", text:L().laterN(laterQs())}) : "", el("div",{class:"row8", style:"margin-bottom:20px"}, el("button",{class:"btn sec", type:"button", onclick:()=>closeSheet()}, L().close))); return; }
   if (cur.pos>=n){
     body.append(el("div",{class:"eyebrow", text:L().scoreL}), el("div",{class:"score num", style:"margin:8px 0 12px", text:`${cur.score} / ${n}`}),
       el("p",{class:"lead", text: cur.kind==="review" ? L().reviewDone : (cur.score/n>=.8 ? L().good : L().weak)}),
+      cur.kind==="review" && laterQs() ? el("p",{class:"note", text:L().laterN(laterQs())}) : null,
       el("div",{class:"row8", style:"margin:20px 0"}, el("button",{class:"btn", type:"button", onclick:()=>startRunner(cur.kind, cur.arg)}, L().again), el("button",{class:"btn sec", type:"button", onclick:()=>closeSheet()}, L().close)));
     if (sheetOwl) sheetOwl.setPose(cur.score/n>=.8 ? "cheer" : "study");
     return;
@@ -1642,21 +1889,24 @@ function paintRunner(){
 }
 
 /* ---------- tense flashcards ---------- */
-function startFlash(){ cur={mode:"flash", list:ORDER.filter(ttMatch).map(d=>d.id), pos:0, flipped:false}; paintSheet(); showSheet(); }
+function startFlash(){ const due=dueCards(); cur={mode:"flash", list: due.length ? due : ORDER.filter(ttMatch).map(d=>d.id), due: due.length>0, pos:0, flipped:false}; paintSheet(); showSheet(); }
 function paintFlash(){
   const body=$("#sBody"), foot=$("#sFoot"), n=cur.list.length;
   if (!n){ head([[L().flashT,""]], L().flashT, "", null); body.append(el("p",{class:"lead", text:L().fcEmpty})); foot.hidden=true; return; }
   const d = tenseById[cur.list[cur.pos]];
-  head([[L().zones[d.zone],""],[L().flashT,"out"]], L().flashT, L().fcOf(cur.pos+1,n), null);
+  head([[L().zones[d.zone],""],[cur.due ? L().flashDue(n) : L().flashT,"out"]], L().flashT, L().fcOf(cur.pos+1,n), null);
   const front = el("div",{class:"face front"}, el("div",{class:"eyebrow", text:`${L().zones[d.zone]} · ${L().aspects[d.aspect]} · ${L().frontLbl}`}),
     el("h3",{text:tFull(d)}), el("p",{class:"lead", text:tf(d,"use")}), el("div",{class:"formula", text:tf(d,"form")}));
-  const back = el("div",{class:"face back", "aria-hidden":String(!cur.flipped)}, el("h4",{text:L().examples}), el("ul",{class:"eg"}, d.examples.map(e=>el("li",{text:e}))), el("h4",{text:L().common}), fix(d.mistake.wrong, d.mistake.right));
+  const back = el("div",{class:"face back", "aria-hidden":String(!cur.flipped)}, el("h4",{text:L().examples}), el("ul",{class:"eg"}, d.examples.map(e=>el("li",{}, e, sayBtn(e)))), el("h4",{text:L().common}), fix(d.mistake.wrong, d.mistake.right));
   front.setAttribute("aria-hidden", String(cur.flipped));
   const card = el("div",{class:"fc"+(cur.flipped?" flip":""), onclick:flipCard}, el("div",{class:"fcin"}, front, back));
   body.append(card, el("p",{class:"fchint", text:L().flipHint}), el("div",{style:"height:16px"}));
   requestAnimationFrame(()=>{ const h=Math.max(front.scrollHeight, back.scrollHeight); card.firstChild.style.minHeight = Math.max(320,h)+"px"; });
   const on = !!state.tt.done[d.id];
-  foot.append(el("button",{class:on?"btn sec":"btn", type:"button", onclick:()=>{ if (!on){ state.tt.done[d.id]=1; save(); refreshTT(d.id); owlReact(true); } if (cur.pos<n-1){ cur.pos++; cur.flipped=false; sheetAnim=1; } paintSheet(); }}, on?L().isDone:L().know),
+  const step = () => { if (cur.pos<n-1){ cur.pos++; cur.flipped=false; sheetAnim=1; } paintSheet(); };
+  foot.append(el("div",{class:"grp"},
+      el("button",{class:on?"btn sec":"btn", type:"button", onclick:()=>{ srsCard(d.id, true); if (!on){ state.tt.done[d.id]=1; owlReact(true); } save(); refreshTT(d.id); step(); }}, on?L().isDone:L().know),
+      el("button",{class:"btn sec", type:"button", onclick:()=>{ srsCard(d.id, false); save(); renderSummary(); step(); }}, L().notYet)),
     el("div",{class:"grp"},
       el("button",{class:"btn sec", type:"button", disabled:cur.pos===0?true:null, onclick:()=>{ cur.pos--; cur.flipped=false; sheetAnim=-1; paintSheet(); }}, L().prev),
       el("button",{class:"btn dk", type:"button", onclick:flipCard}, L().flip),
@@ -1690,7 +1940,6 @@ function copyText(text, ok, fail){
   const fallback = () => { const ta=el("textarea"); ta.value=text; document.body.append(ta); ta.select(); let r=false; try { r=document.execCommand("copy"); } catch(e){} ta.remove(); (r?ok:fail)(); };
   if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(ok, fallback); else fallback();
 }
-function cleanNames(text){ const seen={}, list=[]; String(text).split("\n").forEach(l => { const n=l.replace(/\s+/g," ").trim().slice(0,80); if (n && !seen[n]){ seen[n]=1; list.push(n); } }); return list; }
 
 function ctInit(){
   /* --- speaking wheel --- */
@@ -1734,7 +1983,7 @@ function ctInit(){
   }
   const totalLeft = () => { let c=0; TOPS.forEach(t=>t.qs.forEach((q,qi)=>{ if (!W.used[qkey(t,qi)]) c++; })); return c; };
   function kinds(n){ const k=[]; for (let i=0;i<n;i++){ let c=i%3; if (i===n-1 && i>0) for (let cand=0;cand<3;cand++) if (cand!==k[i-1] && (n===1||cand!==k[0])){ c=cand; break; } k.push(c); } return k; }
-  function colors(){ const s=getComputedStyle(document.documentElement), g=n=>s.getPropertyValue(n).trim(); return {a:g("--coral"), b:g("--panel"), c:g("--cream-strong"), ta:g("--on-primary"), tb:g("--on-panel"), tc:g("--ink"), ring:g("--ink"), hub:g("--surface-card"), font:g("--serif")}; }
+  function colors(){ const s=getComputedStyle(document.documentElement), g=n=>s.getPropertyValue(n).trim(); return {a:g("--coral-fill"), b:g("--panel"), c:g("--cream-strong"), ta:g("--on-primary"), tb:g("--on-panel"), tc:g("--ink"), ring:g("--ink"), hub:g("--surface-card"), font:g("--serif")}; }
   function draw(){
     const w = canvas.clientWidth; if (!w) return;
     const dpr = Math.min(2, window.devicePixelRatio||1); canvas.width=Math.round(w*dpr); canvas.height=Math.round(w*dpr);
@@ -1815,211 +2064,384 @@ function ctInit(){
   const dmq = matchMedia("(prefers-color-scheme: dark)"); if (dmq.addEventListener) dmq.addEventListener("change", draw);
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(draw);
 
-  /* --- speaking pairs (set up when first shown) --- */
-  let P = null;
-  const getP = () => P || (P = (() => {
-    const st = {names:[], absent:{}, history:[], topicsOn:false, groups:[], score:0};
-    const sampleNames = () => Array.from({length:18}, (_,i)=>L().student(i+1));
-    try { const d = JSON.parse(store.get(KEY+".pairs")||"null");
-      if (d && typeof d==="object"){
-        if (Array.isArray(d.names)) st.names = d.names.filter(x=>typeof x==="string" && x.trim()).slice(0,200);
-        if (d.absent && typeof d.absent==="object") for (const k of Object.keys(d.absent)) if (st.names.includes(k) && d.absent[k]) st.absent[k]=true;
-        if (Array.isArray(d.history)) st.history = d.history.filter(r => Array.isArray(r) && r.every(g => Array.isArray(g) && g.every(x=>typeof x==="string"))).slice(-200);
-        st.topicsOn = !!d.topicsOn; } } catch(e) {}
-    let usingSample = st.names.length < 2; if (usingSample){ st.names = sampleNames(); st.absent = {}; }
-    const relabel = n => { const m = usingSample && /^\D+\s(\d+)$/.exec(n); return m ? L().student(+m[1]) : n; };
-    if (usingSample) st.history = st.history.map(r=>r.map(g=>g.map(relabel)));
-    const save = () => { if (!usingSample) store.set(KEY+".pairs", JSON.stringify({names:st.names, absent:st.absent, history:st.history, topicsOn:st.topicsOn})); else store.set(KEY+".pairs", JSON.stringify({names:[], absent:{}, history:st.history, topicsOn:st.topicsOn})); };
-    const shuffle = a => { a=a.slice(); for (let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; };
-    const pk = (a,b) => a<b ? a+"|"+b : b+"|"+a;
-    const present = () => st.names.filter(n=>!st.absent[n]);
-    const topicNames = () => TOPS.map(t=>`Topic ${t.n}. ${t.name}`);
-    function hist(){ const pairs={}, trio={}; st.history.forEach(r=>r.forEach(g=>{ for (let i=0;i<g.length;i++) for (let j=i+1;j<g.length;j++) pairs[pk(g[i],g[j])]=true; if (g.length===3) g.forEach(n=>trio[n]=true); })); return {pairs, trio}; }
-    function chunk(o){ const out=[], n=o.length; if (n%2===1 && n>=3){ for (let i=0;i<n-3;i+=2) out.push([o[i],o[i+1]]); out.push([o[n-3],o[n-2],o[n-1]]); } else for (let k=0;k<n;k+=2) out.push(o.slice(k,k+2)); return out; }
-    function scoreOf(gs,h){ let s=0; gs.forEach(g=>{ for (let i=0;i<g.length;i++) for (let j=i+1;j<g.length;j++) if (h.pairs[pk(g[i],g[j])]) s+=1; if (g.length===3) g.forEach(n=>{ if (h.trio[n]) s+=.25; }); }); return s; }
-    function generate(){ const list=present(), h=hist(); let best=null, bs=Infinity;
-      if (list.length>=2) for (let t=0;t<600;t++){ const g=chunk(shuffle(list)), sc=scoreOf(g,h); if (sc<bs){ bs=sc; best=g; if (sc===0) break; } }
-      const tp=shuffle(topicNames()); st.groups=(best||[]).map((m,i)=>({members:m, topic:tp[i%tp.length]})); st.score=best?bs:0; }
-    const note = t => { $("#pNote").textContent = t; };
-    function render(animate){
-      $("#pTopics").checked = st.topicsOn;
-      const r=$("#pRoster"); r.textContent="";
-      st.names.forEach(name => { const cb=el("input",{type:"checkbox"}); cb.checked=!st.absent[name];
-        cb.onchange = () => { if (cb.checked) delete st.absent[name]; else st.absent[name]=true; save(); generate(); render(true); };
-        r.append(el("li",{class:st.absent[name]?"off":""}, el("label",{}, cb, el("span",{text:name})))); });
-      const n=present().length;
-      $("#pCount").textContent = L().pCount(n, st.names.length); $("#pSummary").textContent = L().pSummary(n);
-      $("#pRound").textContent = L().pRound(st.history.length+1); $("#pHist").textContent = L().pHist(st.history.length);
-      $("#pClear").disabled = !st.history.length; $("#pLock").disabled = !st.groups.length; $("#pCopy").disabled = !st.groups.length; $("#pShuffle").disabled = n<2;
-      const g=$("#pGroups"); g.textContent="";
-      st.groups.forEach((x,i) => { const c = el("div",{class:"pair"+(x.members.length===3?" trio":"")},
-          el("div",{class:"eyebrow", text: x.members.length===3 ? L().pGroup3 : L().pPair(i+1)}), el("ul",{}, x.members.map(m=>el("li",{text:m}))), st.topicsOn ? el("div",{class:"tp", text:x.topic}) : null);
-        g.append(c); if (animate) rise(c, Math.min(i,12)*35, 10, 300); });
-      const msg=[]; if (n<2) msg.push(L().pNeed2); else { if (n%2===1) msg.push(L().pOdd(n)); if (st.score>=1) msg.push(L().pRepeat(Math.floor(st.score))); if (!msg.length) msg.push(L().pAllNew); }
-      note(msg.join(" "));
-    }
-    const asText = () => [L().pRound(st.history.length+1), ...st.groups.map((g,i)=>`${g.members.length===3?L().pGroup3:L().pPair(i+1)}: ${g.members.join(L().and)}` + (st.topicsOn?` (${g.topic})`:""))].join("\n");
-    $("#pShuffle").onclick = () => { generate(); render(true); };
-    $("#pLock").onclick = () => { if (!st.groups.length) return; st.history.push(st.groups.map(g=>g.members.slice())); save(); generate(); render(true); note(L().pLocked(st.history.length)); };
-    $("#pClear").onclick = () => { st.history=[]; save(); generate(); render(true); };
-    $("#pAll").onclick = () => { st.absent={}; save(); generate(); render(true); };
-    $("#pTopics").onchange = e => { st.topicsOn = e.target.checked; save(); render(false); };
-    $("#pCopy").onclick = () => copyText(asText(), ()=>note(L().copiedList), ()=>note(L().copyFail));
-    function applyList(fresh){ const list=cleanNames($("#pNames").value); if (list.length<2){ note(L().pEnter2); return; }
-      st.names=list; usingSample=false; if (fresh){ st.history=[]; st.absent={}; } else Object.keys(st.absent).forEach(k=>{ if (!list.includes(k)) delete st.absent[k]; });
-      save(); generate(); render(true); note(fresh ? L().pLoadedNew(list.length) : L().pUpdated(list.length)); }
-    $("#pApply").onclick = () => applyList(false); $("#pNew").onclick = () => applyList(true);
-    $("#pNames").value = usingSample ? "" : st.names.join("\n"); $("#pNames").placeholder = sampleNames().slice(0,3).join("\n");
-    generate();
-    return { render, lang(){ if (usingSample){ const old=st.names; st.names=sampleNames(); const map=Object.fromEntries(old.map((o,i)=>[o,st.names[i]])); st.history=st.history.map(r=>r.map(g=>g.map(m=>map[m]||m)));
-        st.groups.forEach(g=>{ g.members=g.members.map(m=>map[m]||m); }); const ab={}; Object.keys(st.absent).forEach(k=>{ if (map[k]) ab[map[k]]=true; }); st.absent=ab; $("#pNames").placeholder = st.names.slice(0,3).join("\n"); } },
-      topicsChanged(){ const tp=shuffle(topicNames()); st.groups.forEach((g,i)=>g.topic=tp[i%tp.length]); if (view.ct==="pairs") render(false); } };
-  })());
+  /* --- classes: one list of names, shared by speaking pairs and the seat plan --- */
+  const LOCK_OPEN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 7.5-2"/></svg>';
+  const LOCK_SHUT = '<svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3" fill="none"/></svg>';
+  const clamp8 = v => { v=parseInt(v,10); if (isNaN(v)) v=4; return Math.max(1, Math.min(8, v)); };
+  const midAisle = c => c>1 ? Math.floor(c/2) : 0;
+  const tidy = x => String(x).replace(/\s+/g," ").trim().slice(0,80);
+  const strList = (a, max) => Array.isArray(a) ? [...new Set(a.filter(x=>typeof x==="string" && x.trim()).map(tidy))].slice(0,max) : [];
+  const blankSeat = (rows=4, cols=4) => ({rows, cols, aisle:midAisle(cols), seats:Array(rows*cols).fill(null), locked:Array(rows*cols).fill(false), rules:[]});
+  function cleanSeat(d, names){
+    const set = new Set(names);
+    if (!d || typeof d!=="object" || !Array.isArray(d.seats) || !Array.isArray(d.locked)) return blankSeat();
+    const rows=clamp8(d.rows), cols=clamp8(d.cols); if (d.seats.length!==rows*cols || d.locked.length!==rows*cols) return blankSeat(rows, cols);
+    const ai=parseInt(d.aisle,10), seen={};
+    const seats = d.seats.map(n => (typeof n==="string" && set.has(n) && !seen[n]) ? (seen[n]=1, n) : null);
+    return {rows, cols, aisle: !isNaN(ai) && ai>=0 && ai<cols ? ai : midAisle(cols), seats,
+      locked: d.locked.map((v,i)=>!!v && seats[i]!==null),
+      rules: (Array.isArray(d.rules)?d.rules:[]).filter(r=>r && set.has(r.a) && set.has(r.b) && r.a!==r.b && (r.type==="apart"||r.type==="together")).map(r=>({a:r.a, b:r.b, type:r.type}))};
+  }
+  function cleanClass(c){
+    if (!c || typeof c!=="object" || typeof c.id!=="string" || !c.id) return null;
+    const names = strList(c.names, 200), set = new Set(names);
+    const absent = {}; if (c.absent && typeof c.absent==="object") for (const k of Object.keys(c.absent)) if (set.has(k) && c.absent[k]) absent[k]=true;
+    const history = Array.isArray(c.history) ? c.history.filter(r=>Array.isArray(r) && r.every(g=>Array.isArray(g) && g.every(x=>typeof x==="string"))).slice(-200) : [];
+    const plans = Array.isArray(c.plans) ? c.plans.filter(p=>p && typeof p.name==="string").slice(0,100).map(p=>({name:tidy(p.name).slice(0,60), seat:cleanSeat(p.seat, names)})) : [];
+    return {id:c.id.slice(0,40), name: typeof c.name==="string" && c.name.trim() ? tidy(c.name).slice(0,60) : "Class", sample: !!c.sample, names, absent, history, topicsOn: !!c.topicsOn, seat: cleanSeat(c.seat, names), plans};
+  }
+  const sampleNames = n => Array.from({length:n}, (_,i)=>L().student(i+1));
+  const newId = () => "c" + Date.now().toString(36) + Math.floor(Math.random()*1e4).toString(36);
+  const makeClass = (name, names, sample) => ({id:newId(), name, sample:!!sample, names, absent:{}, history:[], topicsOn:false, seat:blankSeat(), plans:[]});
+  function rename(c, map){ // swap names everywhere in a class (used to translate the sample class)
+    const m = n => map[n] || n;
+    c.names = c.names.map(m); const ab={}; Object.keys(c.absent).forEach(k=>{ ab[m(k)]=true; }); c.absent=ab;
+    c.history = c.history.map(r=>r.map(g=>g.map(m)));
+    c.seat.seats = c.seat.seats.map(n=>n===null?null:m(n)); c.seat.rules.forEach(r=>{ r.a=m(r.a); r.b=m(r.b); });
+    c.plans.forEach(p=>{ p.seat.seats=p.seat.seats.map(n=>n===null?null:m(n)); p.seat.rules.forEach(r=>{ r.a=m(r.a); r.b=m(r.b); }); });
+  }
+  function relabelSample(c){ if (!c.sample) return; const want = sampleNames(c.names.length), map={};
+    c.names.forEach((n,i)=>{ if (n!==want[i]) map[n]=want[i]; }); if (Object.keys(map).length) rename(c, map); c.name = L().sampleClass; }
+  const sameSet = (a,b) => a.length===b.length && a.every(x=>b.includes(x));
+  function migrate(){ // lists saved by the earlier version of this page become classes
+    const out=[]; let pairs=null, seats=null, plans=null;
+    try { pairs=JSON.parse(store.get(KEY+".pairs")||"null"); } catch(e) {}
+    try { seats=JSON.parse(store.get(KEY+".seats")||"null"); } catch(e) {}
+    try { plans=JSON.parse(store.get(KEY+".plans")||"null"); } catch(e) {}
+    const pn = pairs && typeof pairs==="object" ? strList(pairs.names,200) : [], sn = seats && typeof seats==="object" ? strList(seats.roster,200) : [];
+    const oldPlans = names => Array.isArray(plans) ? plans.filter(p=>p && typeof p.name==="string").map(p=>({name:tidy(p.name).slice(0,60), seat:cleanSeat(p, names)})) : [];
+    if (pn.length>=2){ const c = cleanClass(Object.assign(makeClass(L().myClass, pn), {absent:pairs.absent, history:pairs.history, topicsOn:pairs.topicsOn}));
+      if (sn.length && sameSet(sn,pn)){ c.seat=cleanSeat(seats, pn); c.plans=oldPlans(pn); } out.push(c); }
+    if (sn.length && !(out[0] && sameSet(sn, out[0].names))){ const c = makeClass(L().seatClass, sn); c.seat=cleanSeat(seats, sn); c.plans=oldPlans(sn); out.push(c); }
+    return out;
+  }
+  const CL = {list:[], cur:null};
+  try { const d=JSON.parse(store.get(KEY+".classes")||"null"); if (d && Array.isArray(d.list)){ CL.list = d.list.map(cleanClass).filter(Boolean).slice(0,50); CL.cur = typeof d.cur==="string" ? d.cur : null; } } catch(e) {}
+  if (!CL.list.length) CL.list = migrate();
+  if (!CL.list.length) CL.list = [makeClass(L().sampleClass, sampleNames(16), true)];
+  CL.list.forEach(relabelSample);
+  if (!CL.list.some(c=>c.id===CL.cur)) CL.cur = CL.list[0].id;
+  const cls = () => CL.list.find(c=>c.id===CL.cur);
+  const saveCL = () => store.set(KEY+".classes", JSON.stringify({cur:CL.cur, list:CL.list}));
+  saveCL();
 
-  /* --- seat plan (set up when first shown) --- */
-  let S = null;
-  const getS = () => S || (S = (() => {
-    const LOCK_OPEN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 7.5-2"/></svg>';
-    const LOCK_SHUT = '<svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3" fill="none"/></svg>';
-    const st = {rows:4, cols:4, aisle:2, roster:[], seats:[], locked:[], rules:[], sel:null};
-    let plans = [];
-    const midAisle = c => c>1 ? Math.floor(c/2) : 0;
-    const clamp = v => { v=parseInt(v,10); if (isNaN(v)) v=4; return Math.max(1, Math.min(8, v)); };
-    const say = t => { $("#sNote").textContent = t; };
-    function blank(){ st.seats=[]; st.locked=[]; for (let i=0;i<st.rows*st.cols;i++){ st.seats.push(null); st.locked.push(false); } }
-    const snapshot = () => ({rows:st.rows, cols:st.cols, aisle:st.aisle, roster:st.roster.slice(), seats:st.seats.slice(), locked:st.locked.slice(), rules:st.rules.map(r=>({a:r.a, b:r.b, type:r.type}))});
-    function restore(d){
-      if (!d || !Array.isArray(d.roster) || !Array.isArray(d.seats) || !Array.isArray(d.locked)) return false;
-      const rows=clamp(d.rows), cols=clamp(d.cols); if (d.seats.length!==rows*cols || d.locked.length!==rows*cols) return false;
-      st.rows=rows; st.cols=cols; const ai=parseInt(d.aisle,10); st.aisle = !isNaN(ai) && ai>=0 && ai<cols ? ai : midAisle(cols);
-      st.roster = [...new Set(d.roster.filter(n=>typeof n==="string" && n.trim()))].slice(0,200);
-      const seen = {}; st.seats = d.seats.map(n => (typeof n==="string" && st.roster.includes(n) && !seen[n]) ? (seen[n]=1, n) : null);
-      st.locked = d.locked.map((v,i)=>!!v && st.seats[i]!==null);
-      st.rules = (Array.isArray(d.rules)?d.rules:[]).filter(r=>r && st.roster.includes(r.a) && st.roster.includes(r.b) && r.a!==r.b && (r.type==="apart"||r.type==="together")).map(r=>({a:r.a, b:r.b, type:r.type}));
-      st.sel=null; return true;
+  /* names pasted from a list, Excel or Google Sheets: pick the name column, join split surname and first name columns, drop headers and numbers */
+  const HEAD = /^(stt|tt|no\.?|#|số tt|số thứ tự|mã sv|mã số|mã học sinh|mssv|họ và tên|họ tên|họ|tên|họ và tên đệm|họ lót|họ đệm|tên đệm|name|names|full name|first name|last name|given name|surname|student|students|student name|học sinh|sinh viên|giới tính|lớp|class|email|ngày sinh)$/i;
+  const isNameCell = v => (v.match(/\p{L}/gu)||[]).length>=2 && !/\d/.test(v) && !/@/.test(v);
+  function parseNames(text){
+    let rows = String(text).replace(/\r/g,"").split("\n").map(l=>l.split("\t").map(x=>x.replace(/\s+/g," ").trim())).filter(r=>r.some(Boolean));
+    if (rows.length && rows[0].some(v=>HEAD.test(v))) rows = rows.slice(1);
+    if (!rows.length) return [];
+    const ncol = Math.max(...rows.map(r=>r.length));
+    let pick = r => r[0]||"";
+    if (ncol>1){
+      const stats = [...Array(ncol).keys()].map(c => { const vals = rows.map(r=>r[c]||"").filter(Boolean), names = vals.filter(isNameCell);
+        const distinct = new Set(names).size, words = names.length ? names.reduce((s,v)=>s+v.split(" ").length,0)/names.length : 0;
+        const ok = names.length >= Math.max(2, rows.length*.6) && !(rows.length>4 && distinct < names.length*.4);
+        return {c, ok, letters: names.reduce((s,v)=>s+v.length,0), words}; });
+      const good = stats.filter(s=>s.ok);
+      const pair = good.find(s => { const nx = stats[s.c+1]; return nx && nx.ok && nx.words<=1.3 && s.words>=1; });
+      if (pair) pick = r => [r[pair.c]||"", r[pair.c+1]||""].filter(Boolean).join(" ");
+      else if (good.length){ const best = good.sort((a,b)=>b.letters-a.letters)[0]; pick = r => r[best.c]||""; }
     }
-    const save = () => store.set(KEY+".seats", JSON.stringify(snapshot()));
-    const savePlans = () => store.set(KEY+".plans", JSON.stringify(plans));
-    blank();
-    try { const raw=store.get(KEY+".seats"); if (raw && !restore(JSON.parse(raw))) blank(); } catch(e){ blank(); }
-    try { const p=JSON.parse(store.get(KEY+".plans")||"null"); if (Array.isArray(p)) plans = p.filter(x=>x && typeof x.name==="string").slice(0,100); } catch(e) {}
-    const seated = () => st.seats.filter(n=>n!==null);
-    const unseated = () => { const s=seated(); return st.roster.filter(n=>!s.includes(n)); };
-    const pos = i => ({r:Math.floor(i/st.cols), c:i%st.cols});
-    function ruleState(rule, seats){ const ia=seats.indexOf(rule.a), ib=seats.indexOf(rule.b); if (ia<0||ib<0) return "unseated";
-      const pa=pos(ia), pb=pos(ib); const dr=Math.abs(pa.r-pb.r); let dc=Math.abs(pa.c-pb.c);
-      if (st.aisle>0 && (pa.c<st.aisle)!==(pb.c<st.aisle)) dc=99;
-      if (rule.type==="apart") return Math.max(dr,dc)<=1 ? "broken" : "met"; return (dr===0 && dc===1) ? "met" : "broken"; }
-    const brokenCount = seats => st.rules.filter(r=>ruleState(r,seats)==="broken").length;
-    function swapSeats(a,b){ if (a===b) return; if (st.locked[a]||st.locked[b]){ say(L().sReserved); return; } [st.seats[a],st.seats[b]]=[st.seats[b],st.seats[a]]; }
-    function placeName(name,to){ if (st.locked[to]){ say(L().sReservedTo); return; } const from=st.seats.indexOf(name); if (from>-1){ if (st.locked[from]){ say(L().sReserved); return; } st.seats[from]=st.seats[to]; } st.seats[to]=name; }
-    const act = fn => { fn(); st.sel=null; save(); render(); };
-    function randomAssign(){
-      if (!st.roster.length){ say(L().sAddFirst); return; }
-      const keep={}; st.seats.forEach((n,i)=>{ if (st.locked[i] && n!==null) keep[n]=1; });
-      const pool=st.roster.filter(n=>!keep[n]), free=[]; st.seats.forEach((n,i)=>{ if (!(st.locked[i] && n!==null)) free.push(i); });
-      let best=null, bs=Infinity;
-      for (let t=0;t<800;t++){ const o=pool.slice(); for (let i=o.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [o[i],o[j]]=[o[j],o[i]]; }
-        const seats=st.seats.slice(); free.forEach((idx,k)=>{ seats[idx]= k<o.length ? o[k] : null; }); const sc=brokenCount(seats); if (sc<bs){ bs=sc; best=seats; if (!sc) break; } }
-      st.seats=best; st.sel=null; save(); render(true);
-      const left=unseated().length, parts=[]; if (bs>0) parts.push(L().sRulesFail(bs)); else if (st.rules.length) parts.push(L().sRulesOk); if (left>0) parts.push(L().sNoSeat(left));
-      say(parts.join(" ") || L().sAssigned);
-    }
-    function resize(rows, cols){ const oR=st.rows, oC=st.cols, oS=st.seats, oL=st.locked; st.rows=rows; st.cols=cols; blank(); if (cols!==oC) st.aisle=midAisle(cols);
-      for (let r=0;r<Math.min(rows,oR);r++) for (let c=0;c<Math.min(cols,oC);c++){ st.seats[r*cols+c]=oS[r*oC+c]; st.locked[r*cols+c]=oL[r*oC+c]; }
-      st.sel=null; save(); render(); }
-    function applyNames(){ const list=cleanNames($("#sNames").value), set=new Set(list);
-      st.roster=list.slice(0,200); st.seats=st.seats.map(n=>n!==null && set.has(n) ? n : null); st.locked=st.locked.map((v,i)=>v && st.seats[i]!==null);
-      st.rules=st.rules.filter(r=>set.has(r.a) && set.has(r.b)); st.sel=null; save(); render();
-      say(L().sInList(list.length) + (list.length>st.rows*st.cols ? L().sMore : L().sPress)); }
-    function asText(){ const lines=[L().sTextHead];
-      for (let r=0;r<st.rows;r++){ let row=""; for (let c=0;c<st.cols;c++){ const n=st.seats[r*st.cols+c]; if (c>0) row += (st.aisle>0 && c===st.aisle) ? "  ||  " : " | "; row += n===null ? L().sTextEmpty : n; } lines.push(`${L().sRow(r+1)}: ${row}`); }
-      if (st.aisle>0) lines.push(L().sTextAisle); return lines.join("\n"); }
-    function clickSeat(i){
-      if (st.sel===null){ if (st.seats[i]!==null){ st.sel={type:"seat", i}; render(); } return; }
-      if (st.sel.type==="seat"){ if (st.sel.i===i){ st.sel=null; render(); return; } const from=st.sel.i; act(()=>swapSeats(from,i)); }
-      else { const nm=st.sel.name; act(()=>placeName(nm,i)); }
-    }
-    function renderSeats(animate){
-      const g=$("#sSeats"); g.textContent=""; let tpl="auto"; for (let k=0;k<st.cols;k++){ if (st.aisle>0 && k===st.aisle) tpl+=" var(--aisle)"; tpl+=" minmax(0,1fr)"; }
-      g.style.gridTemplateColumns=tpl; g.style.minWidth=`calc(${st.cols} * 92px + 56px${st.aisle>0?" + 56px":""})`;
-      const warn={}; st.rules.forEach(r=>{ if (ruleState(r,st.seats)==="broken"){ warn[st.seats.indexOf(r.a)]=1; warn[st.seats.indexOf(r.b)]=1; } });
-      for (let r=0;r<st.rows;r++){
-        g.append(el("div",{class:"rowlabel", text:L().sRow(r+1)}));
-        for (let c=0;c<st.cols;c++){
-          if (st.aisle>0 && c===st.aisle) g.append(el("div",{class:"aisle", "aria-hidden":"true"}));
-          const i=r*st.cols+c, name=st.seats[i];
-          const d=el("div",{class:"seat"+(name===null?" empty":"")+(st.locked[i]?" locked":"")+(st.sel&&st.sel.type==="seat"&&st.sel.i===i?" sel":"")+(warn[i]?" warn":"")});
-          d.append(el("button",{type:"button", class:"seatbtn", "aria-label":L().sSeatAria(r+1,c+1,name===null?L().sEmptyL:name), onclick:()=>clickSeat(i)}, name===null?L().sEmpty:name));
-          if (name!==null){ const lk=el("button",{type:"button", class:"lock", "aria-label": st.locked[i]?L().sUnlock(name):L().sReserve(name), "aria-pressed":String(!!st.locked[i]), onclick:()=>{ st.locked[i]=!st.locked[i]; save(); render(); }}); lk.innerHTML = st.locked[i]?LOCK_SHUT:LOCK_OPEN; d.append(lk);
-            if (!st.locked[i]){ d.draggable=true; d.addEventListener("dragstart", e=>{ e.dataTransfer.setData("text/plain","seat:"+i); e.dataTransfer.effectAllowed="move"; }); } }
-          d.addEventListener("dragover", e=>{ e.preventDefault(); d.classList.add("over"); });
-          d.addEventListener("dragleave", ()=>d.classList.remove("over"));
-          d.addEventListener("drop", e=>{ e.preventDefault(); d.classList.remove("over"); const data=e.dataTransfer.getData("text/plain")||"";
-            if (data.startsWith("seat:")){ const from=parseInt(data.slice(5),10); if (!isNaN(from) && from>=0 && from<st.seats.length) act(()=>swapSeats(from,i)); }
-            else if (data.startsWith("chip:")){ const nm=data.slice(5); if (st.roster.includes(nm)) act(()=>placeName(nm,i)); } });
-          g.append(d); if (animate && name!==null) rise(d, Math.min(i,24)*18, 6, 260);
-        }
+    const seen = new Set(), out = [];
+    rows.forEach(r => { const v = tidy(pick(r).replace(/^\d+\s*[.)]\s*/,"")); if (!v || HEAD.test(v) || !/\p{L}/u.test(v) || seen.has(v)) return; seen.add(v); out.push(v); });
+    return out.slice(0,200);
+  }
+
+  /* class bar */
+  let editing = null; // null, "new" or "edit"
+  const clsMsg = t => { $("#clsMsg").textContent = t; };
+  function paintClassBar(){
+    const c = cls(), sel=$("#clsSel"); sel.textContent="";
+    CL.list.forEach(x => sel.append(el("option",{value:x.id}, x.name)));
+    sel.value = c.id; $("#clsInfo").textContent = L().clsInfo(c.names.length);
+    $("#clsDel").disabled = CL.list.length===1 && c.sample;
+    $("#clsSample").hidden = !c.sample; $("#clsSample").textContent = L().clsSampleNote;
+  }
+  function openEditor(mode){
+    editing = mode; const c = cls(); $("#clsDelBox").hidden = true;
+    $("#clsEdT").textContent = mode==="new" ? L().clsNew : L().clsEdit;
+    $("#clsSave").textContent = mode==="new" ? L().clsCreate : L().clsSaveB;
+    $("#clsName").value = mode==="new" ? "" : (c.sample ? "" : c.name);
+    $("#clsName").placeholder = L().clsDefault(CL.list.length + (mode==="new"?1:0));
+    $("#clsNames").value = mode==="new" || c.sample ? "" : c.names.join("\n");
+    $("#clsNames").placeholder = sampleNames(3).join("\n");
+    clsMsg(""); preview(); $("#clsEditor").hidden = false; rise($("#clsEditor"),0,6,240);
+    (mode==="new" || c.sample ? $("#clsName") : $("#clsNames")).focus({preventScroll:false});
+  }
+  function closeEditor(){ editing = null; $("#clsEditor").hidden = true; }
+  function preview(){ const n = parseNames($("#clsNames").value); $("#clsPreview").textContent = n.length ? L().clsFound(n.length, n.slice(0,3).join(", ")) : ""; }
+  $("#clsNames").addEventListener("input", preview);
+  $("#clsSel").onchange = e => { if (!CL.list.some(c=>c.id===e.target.value)) return; CL.cur = e.target.value; saveCL(); closeEditor(); $("#clsDelBox").hidden=true; classChanged(true); };
+  $("#clsEdit").onclick = () => editing==="edit" ? closeEditor() : openEditor("edit");
+  $("#clsNew").onclick = () => editing==="new" ? closeEditor() : openEditor("new");
+  $("#clsCancel").onclick = closeEditor;
+  $("#clsSave").onclick = () => {
+    const names = parseNames($("#clsNames").value); if (names.length<2){ clsMsg(L().clsNeed2); return; }
+    const name = (tidy($("#clsName").value) || $("#clsName").placeholder).slice(0,60);
+    if (editing==="new"){ const c = makeClass(name, names); CL.list.push(c); CL.cur = c.id; }
+    else { const c = cls(), set = new Set(names); c.name = name; c.sample = false; c.names = names;
+      Object.keys(c.absent).forEach(k=>{ if (!set.has(k)) delete c.absent[k]; });
+      c.seat = cleanSeat(c.seat, names); c.plans.forEach(p=>{ p.seat = cleanSeat(p.seat, names); }); }
+    // a sample class nobody uses is removed once a real class exists
+    CL.list = CL.list.filter(c => !c.sample || c.id===CL.cur);
+    saveCL(); closeEditor(); classChanged(true); flash(L().clsSaved(name, names.length));
+  };
+  $("#clsDel").onclick = () => { closeEditor(); $("#clsDelQ").textContent = L().clsDelQ(cls().name); $("#clsDelBox").hidden = false; rise($("#clsDelBox"),0,6,220); };
+  $("#clsDelNo").onclick = () => { $("#clsDelBox").hidden = true; };
+  $("#clsDelYes").onclick = () => { const gone = cls().name; CL.list = CL.list.filter(c=>c.id!==CL.cur);
+    if (!CL.list.length) CL.list = [makeClass(L().sampleClass, sampleNames(16), true)];
+    CL.cur = CL.list[0].id; saveCL(); $("#clsDelBox").hidden = true; classChanged(true); flash(L().clsDeleted(gone)); };
+  const flash = t => { if (view.ct==="pairs") $("#pNote").textContent = t; else $("#sNote").textContent = t; };
+
+  /* --- speaking pairs --- */
+  const PG = {groups:[], score:0, cid:null};
+  const shuffle = a => { a=a.slice(); for (let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; };
+  const pk = (a,b) => a<b ? a+"|"+b : b+"|"+a;
+  const present = () => cls().names.filter(n=>!cls().absent[n]);
+  const topicNames = () => TOPS.map(t=>`Topic ${t.n}. ${t.name}`);
+  function hist(){ const pairs={}, trio={}; cls().history.forEach(r=>r.forEach(g=>{ for (let i=0;i<g.length;i++) for (let j=i+1;j<g.length;j++) pairs[pk(g[i],g[j])]=true; if (g.length===3) g.forEach(n=>trio[n]=true); })); return {pairs, trio}; }
+  function chunk(o){ const out=[], n=o.length; if (n%2===1 && n>=3){ for (let i=0;i<n-3;i+=2) out.push([o[i],o[i+1]]); out.push([o[n-3],o[n-2],o[n-1]]); } else for (let k=0;k<n;k+=2) out.push(o.slice(k,k+2)); return out; }
+  function scoreOf(gs,h){ let s=0; gs.forEach(g=>{ for (let i=0;i<g.length;i++) for (let j=i+1;j<g.length;j++) if (h.pairs[pk(g[i],g[j])]) s+=1; if (g.length===3) g.forEach(n=>{ if (h.trio[n]) s+=.25; }); }); return s; }
+  function generate(){ const list=present(), h=hist(); let best=null, bs=Infinity;
+    if (list.length>=2) for (let t=0;t<600;t++){ const g=chunk(shuffle(list)), sc=scoreOf(g,h); if (sc<bs){ bs=sc; best=g; if (sc===0) break; } }
+    const tp=shuffle(topicNames()); PG.groups=(best||[]).map((m,i)=>({members:m, topic:tp[i%tp.length]})); PG.score=best?bs:0; PG.cid=CL.cur; }
+  const pNote = t => { $("#pNote").textContent = t; };
+  const groupLabel = (g,i) => g.members.length===3 ? L().pGroup3 : L().pPair(i+1);
+  function renderPairs(animate){
+    const c = cls(); if (PG.cid!==c.id) generate();
+    $("#pTopics").checked = c.topicsOn;
+    const r=$("#pRoster"); r.textContent="";
+    c.names.forEach(name => { const cb=el("input",{type:"checkbox"}); cb.checked=!c.absent[name];
+      cb.onchange = () => { if (cb.checked) delete c.absent[name]; else c.absent[name]=true; saveCL(); generate(); renderPairs(true); };
+      r.append(el("li",{class:c.absent[name]?"off":""}, el("label",{}, cb, el("span",{text:name})))); });
+    const n=present().length;
+    $("#pCount").textContent = L().pCount(n, c.names.length); $("#pSummary").textContent = `${c.name} · ${L().pSummary(n)}`;
+    $("#pRound").textContent = L().pRound(c.history.length+1); $("#pHist").textContent = L().pHist(c.history.length);
+    $("#pClear").disabled = !c.history.length; $("#pShuffle").disabled = n<2;
+    ["#pLock","#pCopy","#pPic","#pPrint"].forEach(s => { $(s).disabled = !PG.groups.length; });
+    const g=$("#pGroups"); g.textContent="";
+    PG.groups.forEach((x,i) => { const card = el("div",{class:"pair"+(x.members.length===3?" trio":"")},
+        el("div",{class:"eyebrow", text:groupLabel(x,i)}), el("ul",{}, x.members.map(m=>el("li",{text:m}))), c.topicsOn ? el("div",{class:"tp", text:x.topic}) : null);
+      g.append(card); if (animate) rise(card, Math.min(i,12)*35, 10, 300); });
+    const msg=[]; if (n<2) msg.push(L().pNeed2); else { if (n%2===1) msg.push(L().pOdd(n)); if (PG.score>=1) msg.push(L().pRepeat(Math.floor(PG.score))); if (!msg.length) msg.push(L().pAllNew); }
+    pNote(msg.join(" "));
+  }
+  const pairsText = () => [`${cls().name} · ${L().pRound(cls().history.length+1)}`, ...PG.groups.map((g,i)=>`${groupLabel(g,i)}: ${g.members.join(L().and)}` + (cls().topicsOn?` (${g.topic})`:""))].join("\n");
+  $("#pShuffle").onclick = () => { generate(); renderPairs(true); };
+  $("#pLock").onclick = () => { if (!PG.groups.length) return; const c=cls(); c.history.push(PG.groups.map(g=>g.members.slice())); saveCL(); generate(); renderPairs(true); pNote(L().pLocked(c.history.length)); };
+  $("#pClear").onclick = () => { cls().history=[]; saveCL(); generate(); renderPairs(true); };
+  $("#pAll").onclick = () => { cls().absent={}; saveCL(); generate(); renderPairs(true); };
+  $("#pTopics").onchange = e => { cls().topicsOn = e.target.checked; saveCL(); renderPairs(false); };
+  $("#pCopy").onclick = () => copyText(pairsText(), ()=>pNote(L().copiedList), ()=>pNote(L().copyFail));
+
+  /* --- seat plan --- */
+  let sel = null;
+  const S = () => cls().seat;
+  const sNote = t => { $("#sNote").textContent = t; };
+  const seated = () => S().seats.filter(n=>n!==null);
+  const unseated = () => { const s=new Set(seated()); return cls().names.filter(n=>!s.has(n)); };
+  const pos = i => ({r:Math.floor(i/S().cols), c:i%S().cols});
+  function ruleState(rule, seats){ const ia=seats.indexOf(rule.a), ib=seats.indexOf(rule.b); if (ia<0||ib<0) return "unseated";
+    const pa=pos(ia), pb=pos(ib); const dr=Math.abs(pa.r-pb.r); let dc=Math.abs(pa.c-pb.c);
+    if (S().aisle>0 && (pa.c<S().aisle)!==(pb.c<S().aisle)) dc=99;
+    if (rule.type==="apart") return Math.max(dr,dc)<=1 ? "broken" : "met"; return (dr===0 && dc===1) ? "met" : "broken"; }
+  const brokenCount = seats => S().rules.filter(r=>ruleState(r,seats)==="broken").length;
+  function swapSeats(a,b){ const s=S(); if (a===b) return; if (s.locked[a]||s.locked[b]){ sNote(L().sReserved); return; } [s.seats[a],s.seats[b]]=[s.seats[b],s.seats[a]]; }
+  function placeName(name,to){ const s=S(); if (s.locked[to]){ sNote(L().sReservedTo); return; } const from=s.seats.indexOf(name); if (from>-1){ if (s.locked[from]){ sNote(L().sReserved); return; } s.seats[from]=s.seats[to]; } s.seats[to]=name; }
+  const act = fn => { fn(); sel=null; saveCL(); renderSeats(); };
+  function randomAssign(){
+    const s=S(), names=cls().names; if (!names.length){ sNote(L().sAddFirst); return; }
+    const keep={}; s.seats.forEach((n,i)=>{ if (s.locked[i] && n!==null) keep[n]=1; });
+    const pool=names.filter(n=>!keep[n]), free=[]; s.seats.forEach((n,i)=>{ if (!(s.locked[i] && n!==null)) free.push(i); });
+    let best=null, bs=Infinity;
+    for (let t=0;t<800;t++){ const o=shuffle(pool), seats=s.seats.slice(); free.forEach((idx,k)=>{ seats[idx]= k<o.length ? o[k] : null; }); const sc=brokenCount(seats); if (sc<bs){ bs=sc; best=seats; if (!sc) break; } }
+    s.seats=best; sel=null; saveCL(); renderSeats(true);
+    const left=unseated().length, parts=[]; if (bs>0) parts.push(L().sRulesFail(bs)); else if (s.rules.length) parts.push(L().sRulesOk); if (left>0) parts.push(L().sNoSeat(left));
+    sNote(parts.join(" ") || L().sAssigned);
+  }
+  function resize(rows, cols){ const o=S(), n=blankSeat(rows, cols); if (cols===o.cols) n.aisle=o.aisle;
+    for (let r=0;r<Math.min(rows,o.rows);r++) for (let c=0;c<Math.min(cols,o.cols);c++){ n.seats[r*cols+c]=o.seats[r*o.cols+c]; n.locked[r*cols+c]=o.locked[r*o.cols+c]; }
+    n.rules=o.rules; cls().seat=n; sel=null; saveCL(); renderSeats(); }
+  function seatsText(){ const s=S(), lines=[`${cls().name} · ${L().sTextHead}`];
+    for (let r=0;r<s.rows;r++){ let row=""; for (let c=0;c<s.cols;c++){ const n=s.seats[r*s.cols+c]; if (c>0) row += (s.aisle>0 && c===s.aisle) ? "  ||  " : " | "; row += n===null ? L().sTextEmpty : n; } lines.push(`${L().sRow(r+1)}: ${row}`); }
+    if (s.aisle>0) lines.push(L().sTextAisle); return lines.join("\n"); }
+  function clickSeat(i){ const s=S();
+    if (sel===null){ if (s.seats[i]!==null){ sel={type:"seat", i}; renderSeats(); } return; }
+    if (sel.type==="seat"){ if (sel.i===i){ sel=null; renderSeats(); return; } const from=sel.i; act(()=>swapSeats(from,i)); }
+    else { const nm=sel.name; act(()=>placeName(nm,i)); } }
+  function drawSeats(animate){
+    const s=S(), g=$("#sSeats"); g.textContent=""; let tpl="auto"; for (let k=0;k<s.cols;k++){ if (s.aisle>0 && k===s.aisle) tpl+=" var(--aisle)"; tpl+=" minmax(0,1fr)"; }
+    g.style.gridTemplateColumns=tpl; g.style.minWidth=`calc(${s.cols} * 92px + 56px${s.aisle>0?" + 56px":""})`;
+    const warn={}; s.rules.forEach(r=>{ if (ruleState(r,s.seats)==="broken"){ warn[s.seats.indexOf(r.a)]=1; warn[s.seats.indexOf(r.b)]=1; } });
+    for (let r=0;r<s.rows;r++){
+      g.append(el("div",{class:"rowlabel", text:L().sRow(r+1)}));
+      for (let c=0;c<s.cols;c++){
+        if (s.aisle>0 && c===s.aisle) g.append(el("div",{class:"aisle", "aria-hidden":"true"}));
+        const i=r*s.cols+c, name=s.seats[i];
+        const d=el("div",{class:"seat"+(name===null?" empty":"")+(s.locked[i]?" locked":"")+(sel&&sel.type==="seat"&&sel.i===i?" sel":"")+(warn[i]?" warn":"")});
+        d.append(el("button",{type:"button", class:"seatbtn", "aria-label":L().sSeatAria(r+1,c+1,name===null?L().sEmptyL:name), onclick:()=>clickSeat(i)}, name===null?L().sEmpty:name));
+        if (name!==null){ const lk=el("button",{type:"button", class:"lock", "aria-label": s.locked[i]?L().sUnlock(name):L().sReserve(name), "aria-pressed":String(!!s.locked[i]), onclick:()=>{ s.locked[i]=!s.locked[i]; saveCL(); renderSeats(); }}); lk.innerHTML = s.locked[i]?LOCK_SHUT:LOCK_OPEN; d.append(lk);
+          if (!s.locked[i]){ d.draggable=true; d.addEventListener("dragstart", e=>{ e.dataTransfer.setData("text/plain","seat:"+i); e.dataTransfer.effectAllowed="move"; }); } }
+        d.addEventListener("dragover", e=>{ e.preventDefault(); d.classList.add("over"); });
+        d.addEventListener("dragleave", ()=>d.classList.remove("over"));
+        d.addEventListener("drop", e=>{ e.preventDefault(); d.classList.remove("over"); const data=e.dataTransfer.getData("text/plain")||"";
+          if (data.startsWith("seat:")){ const from=parseInt(data.slice(5),10); if (!isNaN(from) && from>=0 && from<s.seats.length) act(()=>swapSeats(from,i)); }
+          else if (data.startsWith("chip:")){ const nm=data.slice(5); if (cls().names.includes(nm)) act(()=>placeName(nm,i)); } });
+        g.append(d); if (animate && name!==null) rise(d, Math.min(i,24)*18, 6, 260);
       }
     }
-    function renderSide(){
-      const box=$("#sUnseated"); box.textContent=""; const list=unseated(); $("#sUnseatedT").textContent=L().sUnseated(list.length);
-      if (!st.roster.length) box.append(el("p",{class:"hint", text:L().sNoStudents}));
-      else if (!list.length) box.append(el("p",{class:"hint", text:L().sEveryone}));
-      else list.forEach(n=>{ const b=el("button",{type:"button", class:"schip"+(st.sel&&st.sel.type==="chip"&&st.sel.name===n?" sel":""), draggable:"true"}, n);
-        b.addEventListener("dragstart", e=>{ e.dataTransfer.setData("text/plain","chip:"+n); e.dataTransfer.effectAllowed="move"; });
-        b.onclick = () => { st.sel = st.sel && st.sel.type==="chip" && st.sel.name===n ? null : {type:"chip", name:n}; render(); }; box.append(b); });
-      const A=$("#sRuleA"), B=$("#sRuleB"), kA=A.value, kB=B.value;
-      [A,B].forEach(s=>{ s.textContent=""; st.roster.forEach(n=>s.append(el("option",{value:n}, n))); });
-      if (kA && st.roster.includes(kA)) A.value=kA; if (kB && st.roster.includes(kB)) B.value=kB; else if (st.roster.length>1) B.value=st.roster[1];
-      $("#sAddRule").disabled = st.roster.length<2;
-      const ul=$("#sRules"); ul.textContent="";
-      if (!st.rules.length) ul.append(el("li",{class:"none", text:L().sNoRules}));
-      st.rules.forEach((r,idx)=>{ const s=ruleState(r,st.seats);
-        ul.append(el("li",{}, el("span",{}, (r.type==="apart"?L().sApartL:L().sTogetherL)+r.a+L().and+r.b+". ", el("span",{class:s==="broken"?"bad":s==="met"?"ok":"", text:s==="broken"?L().sBroken:s==="met"?L().sMet:L().sNotSeated})),
-          el("button",{type:"button", class:"btn sec sm", "aria-label":L().sRemoveL(r.a,r.b), onclick:()=>{ st.rules.splice(idx,1); save(); render(); }}, L().sRemove))); });
-      const pl=$("#sPlans"); pl.textContent="";
-      if (!plans.length) pl.append(el("li",{class:"none", text:L().sNoPlans}));
-      plans.forEach((p,idx)=>pl.append(el("li",{}, el("span",{text:p.name}), el("span",{class:"crow", style:"gap:6px"},
-        el("button",{type:"button", class:"btn sec sm", "aria-label":L().sLoadL(p.name), onclick:()=>{ if (restore(p)){ save(); render(true); $("#sNames").value=st.roster.join("\n"); say(L().sLoaded(p.name)); } else say(L().sBadPlan); }}, L().sLoad),
-        el("button",{type:"button", class:"btn sec sm", "aria-label":L().sDeleteL(p.name), onclick:()=>{ plans.splice(idx,1); savePlans(); render(); }}, L().sDelete)))));
+  }
+  function seatSide(){
+    const s=S(), names=cls().names, box=$("#sUnseated"); box.textContent=""; const list=unseated(); $("#sUnseatedT").textContent=L().sUnseated(list.length);
+    if (!list.length) box.append(el("p",{class:"hint", text:L().sEveryone}));
+    else list.forEach(n=>{ const b=el("button",{type:"button", class:"schip"+(sel&&sel.type==="chip"&&sel.name===n?" sel":""), draggable:"true"}, n);
+      b.addEventListener("dragstart", e=>{ e.dataTransfer.setData("text/plain","chip:"+n); e.dataTransfer.effectAllowed="move"; });
+      b.onclick = () => { sel = sel && sel.type==="chip" && sel.name===n ? null : {type:"chip", name:n}; renderSeats(); }; box.append(b); });
+    const A=$("#sRuleA"), B=$("#sRuleB"), kA=A.value, kB=B.value;
+    [A,B].forEach(x=>{ x.textContent=""; names.forEach(n=>x.append(el("option",{value:n}, n))); });
+    if (kA && names.includes(kA)) A.value=kA; if (kB && names.includes(kB)) B.value=kB; else if (names.length>1) B.value=names[1];
+    $("#sAddRule").disabled = names.length<2;
+    const ul=$("#sRules"); ul.textContent="";
+    if (!s.rules.length) ul.append(el("li",{class:"none", text:L().sNoRules}));
+    s.rules.forEach((r,idx)=>{ const st=ruleState(r,s.seats);
+      ul.append(el("li",{}, el("span",{}, (r.type==="apart"?L().sApartL:L().sTogetherL)+r.a+L().and+r.b+". ", el("span",{class:st==="broken"?"bad":st==="met"?"ok":"", text:st==="broken"?L().sBroken:st==="met"?L().sMet:L().sNotSeated})),
+        el("button",{type:"button", class:"btn sec sm", "aria-label":L().sRemoveL(r.a,r.b), onclick:()=>{ s.rules.splice(idx,1); saveCL(); renderSeats(); }}, L().sRemove))); });
+    const plans=cls().plans, pl=$("#sPlans"); pl.textContent="";
+    if (!plans.length) pl.append(el("li",{class:"none", text:L().sNoPlans}));
+    plans.forEach((p,idx)=>pl.append(el("li",{}, el("span",{text:p.name}), el("span",{class:"crow", style:"gap:6px"},
+      el("button",{type:"button", class:"btn sec sm", "aria-label":L().sLoadL(p.name), onclick:()=>{ cls().seat = cleanSeat(JSON.parse(JSON.stringify(p.seat)), cls().names); sel=null; saveCL(); renderSeats(true); sNote(L().sLoaded(p.name)); }}, L().sLoad),
+      el("button",{type:"button", class:"btn sec sm", "aria-label":L().sDeleteL(p.name), onclick:()=>{ plans.splice(idx,1); saveCL(); renderSeats(); }}, L().sDelete)))));
+  }
+  function renderSeats(animate){
+    const s=S(), n=seated().length; $("#sSummary").textContent=`${cls().name} · ${L().sSummary(cls().names.length, n, s.rows*s.cols)}`;
+    $("#sRandom").disabled=!cls().names.length; ["#sCopy","#sClear","#sPic","#sPrint"].forEach(x=>{ $(x).disabled=!n; });
+    $("#sRows").value=s.rows; $("#sCols").value=s.cols;
+    const ai=$("#sAisle"); ai.textContent=""; ai.append(el("option",{value:"0"}, L().sNone)); for (let k=1;k<s.cols;k++) ai.append(el("option",{value:String(k)}, L().sAfter(k))); ai.value=String(s.aisle);
+    $("#sPlanName").placeholder = L().sPlanPh;
+    if (!n && !$("#sNote").textContent) sNote(L().sPress);
+    drawSeats(animate); seatSide();
+  }
+  $("#sRandom").onclick = randomAssign;
+  $("#sClear").onclick = () => { act(()=>{ const s=S(); s.seats=s.seats.map(()=>null); s.locked=s.locked.map(()=>false); }); sNote(L().sCleared); };
+  $("#sRows").onchange = e => resize(clamp8(e.target.value), S().cols);
+  $("#sCols").onchange = e => resize(S().rows, clamp8(e.target.value));
+  $("#sAisle").onchange = e => { const v=parseInt(e.target.value,10); S().aisle = v>0 && v<S().cols ? v : 0; sel=null; saveCL(); renderSeats(); };
+  $("#sAddRule").onclick = () => { const a=$("#sRuleA").value, b=$("#sRuleB").value, type=$("#sRuleType").value, rules=S().rules;
+    if (!a||!b||a===b){ sNote(L().sTwo); return; } if (rules.some(r=>r.type===type && ((r.a===a&&r.b===b)||(r.a===b&&r.b===a)))){ sNote(L().sDup); return; }
+    rules.push({a,b,type}); saveCL(); renderSeats(); sNote(L().sAdded); };
+  $("#sSave").onclick = () => { const plans=cls().plans, name=(tidy($("#sPlanName").value) || L().sPlanDefault(plans.length+1)).slice(0,60), snap={name, seat:JSON.parse(JSON.stringify(S()))};
+    const at=plans.findIndex(p=>p.name===name); if (at>-1) plans[at]=snap; else plans.push(snap); saveCL(); renderSeats(); sNote(L().sSaved(name)); };
+  $("#sCopy").onclick = () => copyText(seatsText(), ()=>sNote(L().sCopied), ()=>sNote(L().copyFail));
+  function exitPresent(){ document.body.classList.remove("present"); if (document.fullscreenElement && document.exitFullscreen){ try { document.exitFullscreen(); } catch(e){} } }
+  $("#sPresent").onclick = () => { sel=null; drawSeats(); document.body.classList.add("present"); scrollTo(0,0);
+    try { const p=document.documentElement.requestFullscreen && document.documentElement.requestFullscreen(); if (p && p.catch) p.catch(()=>{}); } catch(e){} };
+  $("#sExit").onclick = exitPresent;
+  document.addEventListener("fullscreenchange", () => { if (!document.fullscreenElement) document.body.classList.remove("present"); });
+  document.addEventListener("keydown", e => { if (e.key!=="Escape" || $("#sheet").open) return; if (document.body.classList.contains("present")) exitPresent(); else if (sel){ sel=null; renderSeats(); } });
+
+  /* --- save as picture, share, print --- */
+  const today8 = () => new Date().toLocaleDateString(vi()?"vi-VN":"en-GB", {day:"numeric", month:"long", year:"numeric"});
+  function wrap(ctx, text, maxW, maxLines){ const words=String(text).split(" "), lines=[]; let line="";
+    for (const w of words){ const t = line ? line+" "+w : w; if (ctx.measureText(t).width<=maxW || !line) line=t; else { lines.push(line); line=w; } }
+    if (line) lines.push(line);
+    if (lines.length>maxLines){ const keep=lines.slice(0,maxLines); let last=keep[maxLines-1]; while (last.length>1 && ctx.measureText(last+"…").width>maxW) last=last.slice(0,-1); keep[maxLines-1]=last+"…"; return keep; }
+    return lines.map(l=>{ let x=l; while (x.length>1 && ctx.measureText(x).width>maxW) x=x.slice(0,-1); return x===l?l:x+"…"; }); }
+  function rr(ctx,x,y,w,h,r){ ctx.beginPath(); ctx.moveTo(x+r,y); ctx.arcTo(x+w,y,x+w,y+h,r); ctx.arcTo(x+w,y+h,x,y+h,r); ctx.arcTo(x,y+h,x,y,r); ctx.arcTo(x,y,x+w,y,r); ctx.closePath(); }
+  const SERIF = '"Source Serif 4", Georgia, serif', SANS = '"Hanken Grotesk", Arial, sans-serif';
+  const PAL = {bg:"#f0eee6", card:"#faf9f5", line:"#d8d3c8", ink:"#141413", muted:"#6c6a64", coral:"#b65436", panel:"#141413", onPanel:"#faf9f5"};
+  function picHead(ctx, W, title, sub){ ctx.fillStyle=PAL.ink; ctx.font=`400 46px ${SERIF}`; ctx.textBaseline="alphabetic"; ctx.fillText(wrap(ctx,title,W-128,1)[0], 64, 104);
+    ctx.fillStyle=PAL.muted; ctx.font=`400 24px ${SANS}`; ctx.fillText(sub, 64, 146); }
+  function picFoot(ctx, W, H){ ctx.fillStyle=PAL.muted; ctx.font=`400 22px ${SERIF}`; ctx.fillText("The Standard", 64, H-44); const w=ctx.measureText("The Standard").width; ctx.fillStyle="#d97757"; ctx.fillText(".", 64+w, H-44); }
+  function pairsCanvas(){
+    const W=1600, cols=3, gap=24, pad=64, cw=(W-pad*2-gap*(cols-1))/cols, c=cls(), tmp=document.createElement("canvas").getContext("2d");
+    const heights = PG.groups.map(g=>{ tmp.font=`400 30px ${SERIF}`; const lines=g.members.reduce((s,m)=>s+wrap(tmp,m,cw-48,2).length,0); return 70 + lines*40 + (c.topicsOn?44:0) + 20; });
+    const rows=[]; for (let i=0;i<heights.length;i+=cols) rows.push(Math.max(...heights.slice(i,i+cols)));
+    const H = 190 + rows.reduce((s,h)=>s+h+gap,0) + 70;
+    const cv=document.createElement("canvas"); cv.width=W; cv.height=H; const ctx=cv.getContext("2d");
+    ctx.fillStyle=PAL.bg; ctx.fillRect(0,0,W,H);
+    picHead(ctx, W, `${c.name} · ${L().pName}`, `${L().pRound(c.history.length+1)} · ${today8()}`);
+    let y=190;
+    rows.forEach((rh,ri)=>{ for (let k=0;k<cols;k++){ const i=ri*cols+k, g=PG.groups[i]; if (!g) break; const x=pad+k*(cw+gap);
+      ctx.fillStyle=PAL.card; rr(ctx,x,y,cw,rh,18); ctx.fill(); ctx.lineWidth=g.members.length===3?3:1.5; ctx.strokeStyle=g.members.length===3?PAL.coral:PAL.line; ctx.stroke();
+      ctx.fillStyle=PAL.coral; ctx.font=`600 18px ${SANS}`; ctx.fillText(groupLabel(g,i).toUpperCase(), x+24, y+42);
+      let ly=y+86; ctx.font=`400 30px ${SERIF}`; ctx.fillStyle=PAL.ink;
+      g.members.forEach(m=>{ wrap(ctx,m,cw-48,2).forEach(l=>{ ctx.fillText(l, x+24, ly); ly+=40; }); });
+      if (c.topicsOn){ ctx.fillStyle=PAL.muted; ctx.font=`500 21px ${SANS}`; ctx.fillText(wrap(ctx,g.topic,cw-48,1)[0], x+24, ly+10); } }
+      y+=rh+gap; });
+    picFoot(ctx, W, H); return cv;
+  }
+  function seatsCanvas(){
+    const s=S(), c=cls(), pad=64, labelW=110, aisleW=s.aisle>0?56:0, gap=14, cellW=Math.max(170, Math.min(240, (1700-pad*2-labelW-aisleW)/s.cols)), cellH=120;
+    const W = pad*2 + labelW + aisleW + s.cols*cellW + (s.cols-1)*gap, H = 190 + 70 + 30 + s.rows*(cellH+gap) + 60;
+    const cv=document.createElement("canvas"); cv.width=Math.round(W); cv.height=Math.round(H); const ctx=cv.getContext("2d");
+    ctx.fillStyle=PAL.bg; ctx.fillRect(0,0,cv.width,cv.height);
+    picHead(ctx, cv.width, `${c.name} · ${L().sName}`, today8());
+    ctx.fillStyle=PAL.panel; rr(ctx,pad,186,cv.width-pad*2,54,12); ctx.fill(); ctx.fillStyle=PAL.onPanel; ctx.font=`600 20px ${SANS}`; ctx.textAlign="center"; ctx.fillText(L().sBoard.toUpperCase().split("").join(" "), cv.width/2, 220); ctx.textAlign="left";
+    let y=270;
+    for (let r=0;r<s.rows;r++){
+      ctx.fillStyle=PAL.muted; ctx.font=`400 20px ${SANS}`; ctx.fillText(L().sRow(r+1), pad, y+cellH/2+7);
+      for (let k=0;k<s.cols;k++){ const i=r*s.cols+k, name=s.seats[i], x=pad+labelW+k*(cellW+gap)+(s.aisle>0 && k>=s.aisle ? aisleW : 0);
+        ctx.fillStyle = name===null ? "rgba(0,0,0,0)" : PAL.card; rr(ctx,x,y,cellW,cellH,14); if (name!==null) ctx.fill();
+        ctx.setLineDash(name===null?[8,7]:[]); ctx.lineWidth=s.locked[i]?3:1.5; ctx.strokeStyle=s.locked[i]?PAL.coral:PAL.line; ctx.stroke(); ctx.setLineDash([]);
+        if (name!==null){ ctx.fillStyle=PAL.ink; ctx.font=`400 25px ${SERIF}`; const ls=wrap(ctx,name,cellW-28,3), lh=31, ty=y+cellH/2-(ls.length-1)*lh/2+9; ls.forEach((l,j)=>ctx.fillText(l, x+14, ty+j*lh)); } }
+      if (s.aisle>0){ const ax=pad+labelW+s.aisle*(cellW+gap)-gap+aisleW/2+gap/2; ctx.strokeStyle=PAL.line; ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(ax,y); ctx.lineTo(ax,y+cellH); ctx.stroke(); }
+      y+=cellH+gap; }
+    picFoot(ctx, cv.width, cv.height); return cv;
+  }
+  // plain letters in file names, so every phone and computer keeps the name (Lớp mẫu becomes Lop mau)
+  const fileName = kind => (`${cls().name} ${kind}`.normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/đ/g,"d").replace(/Đ/g,"D")
+    .replace(/[^A-Za-z0-9 ._()]+/g," ").replace(/\s+/g," ").trim().slice(0,70) || "class") + ".png";
+  async function savePicture(kind){
+    const note = kind==="pairs" ? pNote : sNote;
+    try {
+      if (document.fonts && document.fonts.load) await Promise.all([document.fonts.load(`400 30px ${SERIF}`), document.fonts.load(`500 20px ${SANS}`)]).catch(()=>{});
+      const cv = kind==="pairs" ? pairsCanvas() : seatsCanvas();
+      const blob = await new Promise(res => cv.toBlob(res, "image/png")); if (!blob) throw 0;
+      const name = fileName(kind==="pairs" ? L().pName : L().sName);
+      const file = typeof File==="function" ? new File([blob], name, {type:"image/png"}) : null;
+      // phones: open the share sheet (Zalo, Save image). Computers: download the file.
+      if (file && matchMedia("(pointer: coarse)").matches && navigator.canShare && navigator.canShare({files:[file]})){
+        try { await navigator.share({files:[file], title:name}); note(L().picShared); return; } catch(e){ if (e && e.name==="AbortError") return; }
+      }
+      const url = URL.createObjectURL(blob), a = el("a",{href:url, download:name}); document.body.append(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(url), 4000);
+      note(L().picDone(name));
+    } catch(e){ note(L().picFail); }
+  }
+  function printOut(kind){
+    const area=$("#printArea"), c=cls(); area.textContent="";
+    if (kind==="pairs"){
+      area.append(el("h1",{text:`${c.name} · ${L().pName}`}), el("p",{class:"psub", text:`${L().pRound(c.history.length+1)} · ${today8()}`}),
+        el("div",{class:"pgrid"}, PG.groups.map((g,i)=>el("div",{class:"pcard"}, el("div",{class:"pt", text:groupLabel(g,i)}), ...g.members.map(m=>el("div",{class:"pn", text:m})), c.topicsOn ? el("div",{class:"ptp", text:g.topic}) : null))));
+      $("#pageSize").textContent = "@page{size:portrait; margin:14mm}";
+    } else {
+      const s=S(); let tpl="auto"; for (let k=0;k<s.cols;k++){ if (s.aisle>0 && k===s.aisle) tpl+=" 14pt"; tpl+=" minmax(0,1fr)"; }
+      const grid=el("div",{class:"pseats", style:`grid-template-columns:${tpl}`});
+      for (let r=0;r<s.rows;r++){ grid.append(el("div",{class:"prow", text:L().sRow(r+1)}));
+        for (let k=0;k<s.cols;k++){ if (s.aisle>0 && k===s.aisle) grid.append(el("div")); const i=r*s.cols+k, n=s.seats[i];
+          grid.append(el("div",{class:"pseat"+(n===null?" e":"")+(s.locked[i]?" lk":""), text:n===null?L().sEmpty:n})); } }
+      area.append(el("h1",{text:`${c.name} · ${L().sName}`}), el("p",{class:"psub", text:today8()}), el("div",{class:"pboard", text:L().sBoard}), grid);
+      $("#pageSize").textContent = "@page{size:landscape; margin:12mm}";
     }
-    function render(animate){
-      const s=seated().length; $("#sSummary").textContent=L().sSummary(st.roster.length, s, st.rows*st.cols);
-      $("#sRandom").disabled=!st.roster.length; $("#sCopy").disabled=!s; $("#sClear").disabled=!s;
-      $("#sRows").value=st.rows; $("#sCols").value=st.cols;
-      const ai=$("#sAisle"); ai.textContent=""; ai.append(el("option",{value:"0"}, L().sNone)); for (let k=1;k<st.cols;k++) ai.append(el("option",{value:String(k)}, L().sAfter(k))); ai.value=String(st.aisle);
-      $("#sPlanName").placeholder = L().sPlanPh;
-      if (!st.roster.length && !$("#sNote").textContent) say(L().sStart);
-      renderSeats(animate); renderSide();
-    }
-    $("#sRandom").onclick = randomAssign;
-    $("#sClear").onclick = () => { act(()=>{ st.seats=st.seats.map(()=>null); st.locked=st.locked.map(()=>false); }); say(L().sCleared); };
-    $("#sApply").onclick = applyNames;
-    $("#sExample").onclick = () => { $("#sNames").value = Array.from({length:16},(_,i)=>L().student(i+1)).join("\n"); applyNames(); say(L().sExLoaded); };
-    $("#sRows").onchange = e => resize(clamp(e.target.value), st.cols);
-    $("#sCols").onchange = e => resize(st.rows, clamp(e.target.value));
-    $("#sAisle").onchange = e => { const v=parseInt(e.target.value,10); st.aisle = v>0 && v<st.cols ? v : 0; st.sel=null; save(); render(); };
-    $("#sAddRule").onclick = () => { const a=$("#sRuleA").value, b=$("#sRuleB").value, type=$("#sRuleType").value;
-      if (!a||!b||a===b){ say(L().sTwo); return; } if (st.rules.some(r=>r.type===type && ((r.a===a&&r.b===b)||(r.a===b&&r.b===a)))){ say(L().sDup); return; }
-      st.rules.push({a,b,type}); save(); render(); say(L().sAdded); };
-    $("#sSave").onclick = () => { const name=($("#sPlanName").value.trim() || L().sPlanDefault(plans.length+1)).slice(0,60); const snap=snapshot(); snap.name=name;
-      const at=plans.findIndex(p=>p.name===name); if (at>-1) plans[at]=snap; else plans.push(snap); savePlans(); render(); say(L().sSaved(name)); };
-    $("#sCopy").onclick = () => copyText(asText(), ()=>say(L().sCopied), ()=>say(L().copyFail));
-    function exitPresent(){ document.body.classList.remove("present"); if (document.fullscreenElement && document.exitFullscreen){ try { document.exitFullscreen(); } catch(e){} } }
-    $("#sPresent").onclick = () => { st.sel=null; renderSeats(); document.body.classList.add("present"); scrollTo(0,0);
-      try { const p=document.documentElement.requestFullscreen && document.documentElement.requestFullscreen(); if (p && p.catch) p.catch(()=>{}); } catch(e){} };
-    $("#sExit").onclick = exitPresent;
-    document.addEventListener("fullscreenchange", () => { if (!document.fullscreenElement) document.body.classList.remove("present"); });
-    document.addEventListener("keydown", e => { if (e.key!=="Escape" || $("#sheet").open) return; if (document.body.classList.contains("present")) exitPresent(); else if (st.sel){ st.sel=null; render(); } });
-    $("#sNames").value = st.roster.join("\n");
-    return { render, lang(){ $("#sNote").textContent=""; } };
-  })());
+    area.append(el("p",{class:"pfoot", text:"The Standard"}));
+    const done = () => { area.textContent=""; $("#pageSize").textContent=""; removeEventListener("afterprint", done); };
+    addEventListener("afterprint", done);
+    window.print();
+  }
+  $("#pPic").onclick = () => savePicture("pairs"); $("#sPic").onclick = () => savePicture("seats");
+  $("#pPrint").onclick = () => printOut("pairs"); $("#sPrint").onclick = () => printOut("seats");
+
+  function classChanged(animate){ sel=null; PG.cid=null; paintClassBar(); $("#pNote").textContent=""; $("#sNote").textContent="";
+    if (view.ct==="pairs") renderPairs(animate); else if (view.ct==="seats") renderSeats(animate); }
+  const P = { topicsChanged(){ const tp=shuffle(topicNames()); PG.groups.forEach((g,i)=>g.topic=tp[i%tp.length]); if (view.ct==="pairs") renderPairs(false); } };
 
   const shown = {};
   return {
-    show(k){ if (k==="wheel"){ refresh(); } else if (k==="pairs"){ getP().render(!shown.pairs); } else getS().render(!shown.seats); shown[k]=1; },
-    lang(){ if (P) P.lang(); if (S) S.lang(); $("#wMsg").textContent=""; }
+    show(k){ const onCls = k!=="wheel"; $("#clsBar").hidden = !onCls; if (!onCls){ closeEditor(); $("#clsDelBox").hidden=true; $("#clsSample").hidden=true; } else paintClassBar();
+      if (k==="wheel") refresh(); else if (k==="pairs") renderPairs(!shown.pairs); else renderSeats(!shown.seats); shown[k]=1; },
+    lang(){ CL.list.forEach(relabelSample); saveCL(); PG.cid=null; $("#wMsg").textContent=""; $("#pNote").textContent=""; $("#sNote").textContent=""; if (editing) openEditor(editing); },
+    parseNames, CL, get cls(){ return cls(); }
   };
 }
 
@@ -2106,10 +2528,14 @@ sheetOwl = makeOwl($("#sheetOwl"), 44, {label:UI[view.lang].owl});
 if (!RM){ const acts=["default","study","wave","think","default","sing"]; let ai=0; setInterval(()=>{ ai=(ai+1)%acts.length; heroOwl.setPose(acts[ai]); }, 7000); }
 
 /* ---------- start ---------- */
+function itemFromHash(){ const m=/^#(tenses|structure)\/([\w-]+)$/.exec(location.hash||""); if (!m) return null;
+  if (m[1]==="tenses" && has(tenseById,m[2])) return ["tt", m[2]]; if (m[1]==="structure" && has(topicById,m[2])) return ["ss", m[2]]; return null; }
+function openFromHash(){ const it=itemFromHash(); if (!it) return false; if (view.tool!==it[0]) setTool(it[0]); if (it[0]==="tt") openTT(it[1]); else openSS(it[1]); return true; }
+{ const it=itemFromHash(); if (it) view.tool=it[0]; }
 { const h=(location.hash||"").slice(1).toLowerCase();
   if (h==="structure") view.tool="ss"; else if (h==="tenses") view.tool="tt";
   else if (h==="class") view.tool="ct"; else if (["wheel","pairs","seats"].includes(h)){ view.tool="ct"; view.ct=h; } }
-addEventListener("hashchange", () => { const h=(location.hash||"").slice(1).toLowerCase();
+addEventListener("hashchange", () => { if (openFromHash()) return; const h=(location.hash||"").slice(1).toLowerCase();
   const t = h==="structure" ? "ss" : h==="tenses" ? "tt" : (h==="class"||["wheel","pairs","seats"].includes(h)) ? "ct" : null; if (!t) return;
   if (["wheel","pairs","seats"].includes(h) && view.ct!==h){ view.ct=h; saveView(); }
   if (view.tool!==t) setTool(t); else if (t==="ct") ctShow();
@@ -2121,8 +2547,39 @@ rise($(".owlbox"), 80, 8, 360); rise($("#nextCard"), 140, 8, 320); rise($("#tool
 if (!RM) ["#stTop","#stTen","#stMiss"].forEach(sel => { const n=$(sel), end=+n.textContent; if (!end) return; const t0=performance.now();
   const step = t => { const k=Math.min(1,(t-t0)/700); n.textContent = Math.round(end*(1-Math.pow(1-k,3))); if (k<1) requestAnimationFrame(step); }; requestAnimationFrame(step); });
 firstPaint = false;
+openFromHash();
 
 </script>
 
+<script>
+/* phone app mode: offline copy, install button; visit counter note */
+(() => {
+  if ("serviceWorker" in navigator && (location.protocol==="https:" || location.hostname==="localhost"))
+    addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(()=>{}));
+  const T = {
+    en:{h:"Use it like an app", p:"Install the route map and learning hub on your phone or computer. They open from your home screen and work without internet after your first visit.", b:"Install the app", ios:"On iPhone or iPad: tap the Share button, then Add to Home Screen.", done:"Installed. Open it from your home screen.", note:""},
+    vi:{h:"Dùng như một ứng dụng", p:"Cài lộ trình và góc học tập lên điện thoại hoặc máy tính. Ứng dụng mở từ màn hình chính và dùng được khi không có mạng sau lần truy cập đầu tiên.", b:"Cài ứng dụng", ios:"Trên iPhone hoặc iPad: bấm nút Chia sẻ, rồi chọn Thêm vào MH chính.", done:"Đã cài xong. Hãy mở từ màn hình chính.", note:""}
+  };
+  const host = document.getElementById("bkMsg") && document.getElementById("bkMsg").parentElement;
+  if (!host) return;
+  const standalone = matchMedia("(display-mode: standalone)").matches || navigator.standalone === true;
+  const ios = /iphone|ipad|ipod/i.test(navigator.userAgent) || (navigator.platform==="MacIntel" && navigator.maxTouchPoints>1);
+  const box = document.createElement("div"); box.className = "installbox"; box.hidden = true;
+  box.innerHTML = '<h3 class="ih"></h3><p class="ip"></p><div class="row8"><button type="button" class="btn sec ib" hidden></button></div><p class="note ii" hidden></p>';
+  const note = document.createElement("p"); note.className = "note cfnote"; note.hidden = !T.en.note;
+  host.append(box, note);
+  let prompt = null, state = "none";
+  const L = () => T[document.documentElement.lang==="vi" ? "vi" : "en"];
+  function paint(){ const t=L(); box.querySelector(".ih").textContent=t.h; box.querySelector(".ip").textContent = state==="done" ? t.done : t.p;
+    const b=box.querySelector(".ib"); b.textContent=t.b; b.hidden = state!=="prompt"; const i=box.querySelector(".ii"); i.textContent=t.ios; i.hidden = state!=="ios";
+    box.hidden = standalone || state==="none"; note.textContent = t.note; }
+  addEventListener("beforeinstallprompt", e => { e.preventDefault(); prompt = e; state = "prompt"; paint(); });
+  addEventListener("appinstalled", () => { state = "done"; prompt = null; paint(); });
+  box.querySelector(".ib").addEventListener("click", async () => { if (!prompt) return; prompt.prompt(); try { const r = await prompt.userChoice; if (r && r.outcome==="accepted"){ state="done"; } } catch(e) {} prompt = null; if (state!=="done") state="none"; paint(); });
+  if (ios && !standalone) state = "ios";
+  new MutationObserver(paint).observe(document.documentElement, {attributes:true, attributeFilter:["lang"]});
+  paint();
+})();
+</script>
 </body>
 </html>
