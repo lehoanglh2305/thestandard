@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Page not found · The Standard</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 11'%3E%3Cpath fill='%23d97757' d='M2 0h1v1h5V0h1v2h1v1h1v4h1v2h-1v1H1V9H0V7h1V3h1z'/%3E%3Crect x='3' y='4' width='2' height='2' fill='%23faf9f5'/%3E%3Crect x='7' y='4' width='2' height='2' fill='%23faf9f5'/%3E%3Crect x='5' y='7' width='2' height='1' fill='%23e8a55a'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400&family=Hanken+Grotesk:wght@400;500&display=swap" media="print" onload="this.media='all'">
+<style>
+/* Chiioo lesson design system: one deliberate cream look */
+:root{
+  --coral:#d97757; --coral-active:#a44a2e; --coral-text:#ad4f31; --coral-fill:#b65436; --on-cream:#5f5d58; --teal:#5db8a6; --amber:#e8a55a;
+  --ink:#141413; --body-strong:#252523; --body:#3d3d3a; --muted:#6c6a64; --muted-soft:#87867f;
+  --canvas:#f0eee6; --surface-soft:#f5e3c7; --surface-card:#faf9f5; --cream-strong:#e3dacc;
+  --hairline:#cccbc8; --hairline-soft:#e3dacc;
+  --dark:#141413; --dark-elevated:#3d3d3a; --dark-soft:#1f1e1c; --on-dark:#faf9f5; --on-dark-soft:#b0aea5;
+  --success:#5db872; --error:#c64545;
+  --on-primary:#faf9f5; --panel:#141413; --on-panel:#faf9f5; --on-panel-soft:#b0aea5;
+  --btn-dk:#3d3d3a; --btn-dk-soft:#1f1e1c; --ok-text:#3c8a4f; --err-text:#c64545;
+  --formula-soft:rgba(20,20,19,.06); --backdrop:rgba(20,20,19,.55);
+  --serif:"Copernicus","Source Serif 4","Tiempos Headline",Garamond,"Times New Roman",serif;
+  --sans:"Hanken Grotesk",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,monospace;
+  --ease:cubic-bezier(.2,0,0,1);
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]){
+  --on-cream:#a09d96;
+  --ink:#faf9f5; --body-strong:#e8e6df; --body:#cfccc3; --muted:#a09d96; --muted-soft:#8e8b82;
+  --canvas:#141413; --surface-soft:#2d2620; --surface-card:#1f1e1c; --cream-strong:#33312d;
+  --hairline:#4a4843; --hairline-soft:#33312d; --coral-text:#e8906f;
+  --panel:#262420; --btn-dk:#3d3a36; --btn-dk-soft:#2b2926; --ok-text:#7fcf92; --err-text:#ee7d7d;
+  --formula-soft:rgba(250,249,245,.07); --backdrop:rgba(0,0,0,.65);
+  color-scheme:dark;
+} }
+:root[data-theme="dark"]{
+  --on-cream:#a09d96;
+  --ink:#faf9f5; --body-strong:#e8e6df; --body:#cfccc3; --muted:#a09d96; --muted-soft:#8e8b82;
+  --canvas:#141413; --surface-soft:#2d2620; --surface-card:#1f1e1c; --cream-strong:#33312d;
+  --hairline:#4a4843; --hairline-soft:#33312d; --coral-text:#e8906f;
+  --panel:#262420; --btn-dk:#3d3a36; --btn-dk-soft:#2b2926; --ok-text:#7fcf92; --err-text:#ee7d7d;
+  --formula-soft:rgba(250,249,245,.07); --backdrop:rgba(0,0,0,.65);
+  color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+body{margin:0; min-height:100dvh; background:var(--canvas); color:var(--body); font-family:var(--sans); font-size:16px; line-height:1.55; display:grid; place-items:center; padding:32px 16px}
+main{width:min(560px,100%); text-align:center}
+.owlbox{width:150px; height:150px; margin:0 auto; border-radius:24px; background:var(--surface-soft); display:grid; place-items:center; overflow:hidden}
+.mark{display:inline-block; margin-top:28px; font:400 22px/1 var(--serif); color:var(--ink); text-decoration:none}
+.mark b{color:var(--coral); font-weight:400}
+.code{font:500 13px/1.4 var(--sans); letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); margin-top:28px}
+h1{font:400 clamp(32px,6vw,44px)/1.1 var(--serif); letter-spacing:-.8px; color:var(--ink); margin:10px 0 12px; text-wrap:balance}
+p{margin:0; color:var(--body-strong); text-wrap:pretty}
+nav{display:flex; flex-wrap:wrap; justify-content:center; gap:10px; margin-top:28px}
+nav a{display:inline-flex; align-items:center; height:44px; padding:0 18px; border-radius:12px; border:1px solid var(--hairline); background:var(--surface-card); color:var(--ink); text-decoration:none; font:500 15px/1 var(--sans)}
+nav a.main{background:var(--coral-fill); border-color:var(--coral-fill); color:var(--on-primary); border-radius:0 0 8px 8px}
+a:focus-visible{outline:none; box-shadow:0 0 0 3px rgba(217,119,87,.35)}
+.lang{margin-top:28px; font-size:14px}
+.lang button{border:0; background:none; color:var(--muted); font:500 14px/1 var(--sans); padding:8px; cursor:pointer; text-decoration:underline; text-underline-offset:3px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important}}
+</style>
+</head>
+<body>
+<main>
+  <div class="owlbox"><div id="owl"></div></div>
+  <a class="mark" href="https://lehoanglh2305.github.io/thestandard/">The Standard<b>.</b></a>
+  <div class="code">404</div>
+  <h1 id="t">This page could not be found</h1>
+  <p id="s">The link may be old or mistyped. Try one of these pages instead.</p>
+  <nav>
+    <a class="main" href="https://lehoanglh2305.github.io/thestandard/" id="lHome">Home</a>
+    <a href="https://lehoanglh2305.github.io/thestandard/route-map.html" id="lMap">Route map</a>
+    <a href="https://lehoanglh2305.github.io/thestandard/learning-hub.html" id="lHub">Learning hub</a>
+  </nav>
+  <div class="lang"><button type="button" id="sw"></button></div>
+</main>
+<script>
+const POSES = {
+  default: { glance: 1, blink: 1, flap: 1, bob: 2.4, grid: ['..L......R..', '..XX....XX..', '..XXXXXXXX..', '.XXXXXXXXXX.', '.XXabXXabXX.', '.XXcdXXcdXX.', '.XXXXXXXXXX.', 'XXXXXAAXXXXX', 'WXXXXXXXXXXW', '.XXXXXXXXXX.', '...A....A...'] },
+  wave: { glance: 1, blink: 1, flap: 3, bob: 2.4, grid: ['..L......R.W', '..XX....XX.W', '..XXXXXXXX.W', '.XXXXXXXXXXW', '.XXabXXabXX.', '.XXcdXXcdXX.', '.XXXXXXXXXX.', 'XXXXXAAXXXXU', 'XXXXXXXXXXXU', '.XXXXXXXXXX.', '...A....A...'] },
+  cheer: { glance: 0, blink: 0, flap: 4, bob: 1.2, grid: ['W.L......R.W', 'W.XX....XX.W', 'W.XXXXXXXX.W', 'WXXXXXXXXXXW', '.XXeeXXeeXX.', '.XXXXXXXXXX.', '.XXXXXXXXXX.', 'UXXXXAAXXXXU', 'UXXXXAAXXXXU', '.XXXXXXXXXX.', '...A....A...'] },
+  think: { glance: 0, blink: 1, flap: 0, bob: 3.2, grid: ['..L......R..', '..XX....XX..', '..XXXXXXXX..', '.XXXXXXXXXX.', '.XXeXXXeXXX.', '.XXeeXXeeXX.', '.XXXXXXXXXX.', 'XXXXXAAXXXXX', 'XXXXAAXXXXXX', '.XXXXXXXXXX.', '...A....A...'] },
+  surprised: { glance: 1, blink: 1, flap: 1, bob: 2.4, grid: ['..L......R..', '..XX....XX..', '..XXXXXXXX..', '.XXabXXabXX.', '.XXeeXXeeXX.', '.XXcdXXcdXX.', '.XXXXXXXXXX.', 'XXXXXAAXXXXX', 'WXXXXAAXXXXW', '.XXXXXXXXXX.', '...A....A...'] },
+  sleep: { glance: 0, blink: 0, flap: 0, bob: 4, grid: ['..........A.', '.LX......XRA', '.XXXXXXXXXXA', '.XXXXXXXXXX.', '.XXXXXXXXXX.', '.XXeeXXeeXX.', '.XXXXXXXXXX.', 'XXXXXAAXXXXX', 'XXXXXXXXXXXX', '.XXXXXXXXXX.', '...A....A...'] },
+  eat: { glance: 0, blink: 1, flap: 0, bob: 2.4, ms: 340, frames: [['..L......R..','..XX....XX..','..XXXXXXXX..','.XXXXXXXXXX.','.XXabXXabXX.','.XXcdXXcdXX.','.XXXXXXXXXX.','XXXXXAAXXXXX','WXXXXAAGXXXW','.XXXXXXGXXX.','...A....A...'],['..L......R..','..XX....XX..','..XXXXXXXX..','.XXXXXXXXXX.','.XXabXXabXX.','.XXcdXXcdXX.','.XXXXXXXXXX.','XXXXXAAXXXXX','WXXXXAAGXXXW','.XXXXXXGXXX.','...A....A...'],['..L......R..','..XX....XX..','..XXXXXXXX..','.XXXXXXXXXX.','.XXabXXabXX.','.XXcdXXcdXX.','.XXXXXXXXXX.','XXXXXAAXXXXX','WXXXXXXGXXXW','.XXXXXXXXXX.','...A....A...'],['..L......R..','..XX....XX..','..XXXXXXXX..','.XXXXXXXXXX.','.XXeeXXeeXX.','.XXXXXXXXXX.','.XXXXXXXXXX.','XXXXXAAXXXXX','WXXXXAAXXXXW','.XXXXXXXXXX.','...A....A...'],['..L......R..','..XX....XX..','..XXXXXXXX..','.XXXXXXXXXX.','.XXeeXXeeXX.','.XXXXXXXXXX.','.XXXXXXXXXX.','XXXXXAAXXXXX','WXXXXXXXXXXW','.XXXXXXXXXX.','...A....A...'],['..L......R..','..XX....XX..','..XXXXXXXX..','.XXXXXXXXXX.','.XXeeXXeeXX.','.XXXXXXXXXX.','.XXXXXXXXXX.','XXXXXAAXXXXX','WXXXXAAXXXXW','.XXXXXXXXXX.','...A....A...'],['..L......R..','..XX....XX..','..XXXXXXXX..','.XXXXXXXXXX.','.XXeeXXeeXX.','.XXXXXXXXXX.','.XXXXXXXXXX.','XXXXXAAXXXXX','WXXXXXXXXXXW','.XXXXXXXXXX.','...A....A...'],['..L......R..','..XX....XX..','..XXXXXXXX..','.XXXXXXXXXX.','.XXeeXXeeXX.','.XXXXXXXXXX.','.XXXXXXXXXX.','XXXXXAAXXXXX','WXXXXAAXXXXW','.XXXXXXXXXX.','...A....A...'],['..L......R..','..XX....XX..','..XXXXXXXX..','.XXXXXXXXXX.','.XXeeXXeeXX.','.XXXXXXXXXX.','.XXXXXXXXXX.','XXXXXAAXXXXX','WXXXXXXXXXXW','.XXXXXXXXXX.','...A....A...'],['..L......R..','..XX....XX..','..XXXXXXXX..','.XXXXXXXXXX.','.XXeeXXeeXX.','.XXXXXXXXXX.','.XXXXXXXXXX.','XXXXXAAXXXXX','WXXXXXXXXXXW','.XXXXXXXXXX.','...A....A...']] },
+  sing: { glance: 0, blink: 0, flap: 1, bob: 0.84, ms: 420, frames: [['..L......R.A','..XX....XX.A','..XXXXXXXXAA','.XXXXXXXXXX.','.XXeeXXeeXX.','.XXXXXXXXXX.','.XXXXXXXXXX.','XXXXXAAXXXXX','WXXXXAAXXXXW','.XXXXXXXXXX.','...A....A...'],['.AL......R..','.AXX....XX..','AAXXXXXXXX..','.XXXXXXXXXX.','.XXeeXXeeXX.','.XXXXXXXXXX.','.XXXXXXXXXX.','XXXXXAAXXXXX','WXXXXXXXXXXW','.XXXXXXXXXX.','...A....A...']] },
+  study: { glance: 0, blink: 1, flap: 0, bob: 3.6, ms: 320, frames: [['..L......R..','..XX....XX..','..XXXXXXXX..','.XXXXXXXXXX.','.XXeeXXeeXX.','.XXXXXXXXXX.','.XXXXXXXXXX.','XXXXXAAXXXXX','WXBBBGGBBBXW','.XGGGGGGGGX.','...A....A...'],['..L......R..','..XX....XX..','..XXXXXXXX..','.XXXXXXXXXX.','.XXeeXXeeXX.','.XXXXXXXXXX.','.XXXXXXXXXX.','XXXXXAAXXXXX','WXBBBGGBBBXW','.XGGGGGGGGX.','...A....A...'],['..L......R..','..XX....XX..','..XXXXXXXX..','.XXXXXXXXXX.','.XXeeXXeeXX.','.XXXXXXXXXX.','.XXXXXXXXXX.','XXXXXAAXXXXX','WXBBBGGBBBXW','.XGGGGGGGGX.','...A....A...'],['..L......R..','..XX....XX..','..XXXXXXXX..','.XXXXXXXXXX.','.XXeeXXeeXX.','.XXXXXXXXXX.','.XXXXXXXXXX.','XXXXXAAXXXXX','WXBBBGGBBBXW','.XGGGGGGGGX.','...A....A...'],['..L......R..','..XX....XX..','..XXXXXXXX..','.XXXXXXXXXX.','.XXeeXXeeXX.','.XXXXXXXXXX.','.XXXXXXXXXX.','XXXXXAAXXXXX','WXBBBGGBBBXW','.XGGGGGGGGX.','...A....A...'],['..L......R..','..XX....XX..','..XXXXXXXX..','.XXXXXXXXXX.','.XXeeXXeeXX.','.XXXXXXXXXX.','.XXXXXXXXXX.','XXXXXAAXXXXX','WXBBBGGBBBXW','.XGGGGGGGGX.','...A....A...'],['..L......R..','..XX....XX..','..XXXXXXXX..','.XXXXXXXXXX.','.XXeeXXeeXX.','.XXXXXXXXXX.','.XXXXXXXXXX.','XXXXXAAXXXXX','WXBBBGGBBBXW','.XGGGGGGGGX.','...A....A...'],['..L......R..','..XX....XX..','..XXXXXXXX..','.XXXXXXXXXX.','.XXeeXXeeXX.','.XXXXXXXXXX.','.XXXXXXXXXX.','XXXXXAAXXXXX','WXBBBGGBBBXW','.XGGGGGGGGX.','...A....A...'],['..L......R..','..XX....XX..','..XXXXXXXX..','.XXXXXXXXXX.','.XXeeXXeeXX.','.XXXXXXXXXX.','.XXXXXXXXXX.','XXXXXAAXXXXX','WXBBBGGBBBXW','.XGGGGGGGGX.','...A....A...'],['..L......R..','..XX....XX..','..XXXXXXXX..','.XXXXXXXXXX.','.XXeeXXeeXX.','.XXXXXXXXXX.','.XXXXXXXXXX.','XXXXXAABBXXX','WXBBBGGXXBXW','.XGGGGGGGGX.','...A....A...'],['..L......R..','..XX....XX..','..XXXXXXXX..','.XXXXXXXXXX.','.XXeeXXeeXX.','.XXXXXXXXXX.','.XXXXXXXXXX.','XXXXXAAXXXXX','WXBBBGGBBBXW','.XGGGGGGGGX.','...A....A...'],['..L......R..','..XX....XX..','..XXXXXXXX..','.XXXXXXXXXX.','.XXeeXXeeXX.','.XXXXXXXXXX.','.XXXXXXXXXX.','XXXXXAAXXXXX','WXBBBGGBBBXW','.XGGGGGGGGX.','...A....A...']] },
+  mad: { glance: 0, blink: 0, flap: 0, bob: 2.4, ms: 200, frames: [['M.L......R..','.MXX....XX..','..XXXXXXXX..','.XGGXXXXGGX.','.XXeGXXGeXX.','.XXeXXXXeXX.','.XXXXXXXXXX.','XXXXXAAXXXXX','XXXXXAAXXXXX','.XXXXXXXXXX.','...A....A...'],['..L......R.M','..XX....XXM.','..XXXXXXXX..','.XGGXXXXGGX.','.XXeGXXGeXX.','.XXeXXXXeXX.','.XXXXXXXXXX.','XXXXXAAXXXXX','XXXXXAAXXXXX','.XXXXXXXXXX.','...A....A...']] },
+};
+const keepWings = (src, g) => g.map((row, r) => row.split('').map((ch, c) => ('WU'.includes(src[r][c]) ? src[r][c] : ch)).join(''));
+const EYE = 'eabcd';
+// 12x11 pose -> 24x22: upscale, chamfer the silhouette, round + sparkle the eyes, blush, round beak, belly
+function hires(fr, mad) {
+  const g = []; fr.forEach(r => { const row = r.split('').map(ch => ch + ch); g.push(row, row.slice()); });
+  const s = g.map(r => r.map(ch => (EYE.includes(ch) ? 'E' : ch)));
+  const sa = (r, c) => (s[r] && s[r][c]) || '.';
+  const H = g.length, W = g[0].length;
+  const seen = {}; const groups = [];
+  for (let r = 0; r < H; r++) for (let c = 0; c < W; c++) if (s[r][c] === 'E' && !seen[r + ',' + c]) {
+    const st = [[r, c]]; seen[r + ',' + c] = 1; const cells = [];
+    while (st.length) { const [y, x] = st.pop(); cells.push([y, x]); [[1, 0], [-1, 0], [0, 1], [0, -1]].forEach(([dy, dx]) => { const k = (y + dy) + ',' + (x + dx); if (sa(y + dy, x + dx) === 'E' && !seen[k]) { seen[k] = 1; st.push([y + dy, x + dx]); } }); }
+    const ys = cells.map(a => a[0]), xs = cells.map(a => a[1]);
+    groups.push({ cells, top: Math.min(...ys), bot: Math.max(...ys), left: Math.min(...xs), right: Math.max(...xs) });
+  }
+  const out = s.map(r => r.slice());
+  for (let r = 0; r < H; r++) for (let c = 0; c < W; c++) if (s[r][c] === 'X') {
+    const u = sa(r - 1, c) === '.', d = sa(r + 1, c) === '.', l = sa(r, c - 1) === '.', rt = sa(r, c + 1) === '.';
+    if ((u && l) || (u && rt) || (d && l) || (d && rt)) out[r][c] = '.';
+  }
+  groups.forEach(o => {
+    const big = o.bot - o.top >= 3;
+    o.cells.forEach(([r, c]) => {
+      const u = sa(r - 1, c) !== 'E', d = sa(r + 1, c) !== 'E', l = sa(r, c - 1) !== 'E', rt = sa(r, c + 1) !== 'E';
+      if (big && ((u && l) || (u && rt) || (d && l) || (d && rt))) out[r][c] = 'X';
+      else out[r][c] = d ? 'N' : 'E';
+    });
+    if (big) {
+      out[o.top + 1][o.left + 1] = 'K';
+      if (!mad) [[o.bot - 1, o.left - 3], [o.bot - 1, o.left - 2], [o.bot, o.left - 3], [o.bot, o.left - 2], [o.bot - 1, o.right + 2], [o.bot - 1, o.right + 3], [o.bot, o.right + 2], [o.bot, o.right + 3]].forEach(([r, c]) => { if (out[r] && out[r][c] === 'X') out[r][c] = 'P'; });
+    }
+  });
+  for (let r = 0; r < H - 1; r++) for (let c = 1; c < W - 3; c++) {
+    if (s[r][c] === 'A' && s[r][c + 1] === 'A' && s[r][c + 2] === 'A' && s[r][c + 3] === 'A' && s[r][c - 1] === 'X' && s[r][c + 4] === 'X' && s[r + 1][c] === 'A' && sa(r + 2, c) === 'X') { out[r + 1][c] = 'X'; out[r + 1][c + 3] = 'X'; }
+  }
+  if (!mad) [[16, 9, 14], [17, 8, 15], [18, 8, 15], [19, 9, 14]].forEach(([r, a, b]) => { for (let c = a; c <= b; c++) if (out[r] && out[r][c] === 'X') out[r][c] = 'B'; });
+  return out.map(r => r.join(''));
+}
+
+/* Chiioo owl, vanilla port of components/brand/Chiioo.jsx (classic style, coral tone) */
+function makeOwl(host, size, opts){
+  // drawn on one <canvas> instead of 528 grid cells: far fewer page elements, same pixels
+  opts = opts || {};
+  const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const probe = document.createElement("span"); host.replaceChildren(probe);
+  const resolve = v => { probe.style.color = ""; probe.style.color = v; return getComputedStyle(probe).color; };
+  const C = {body:resolve("var(--coral)"), accent:resolve("var(--amber)"), detail:resolve("var(--ink)"), belly:resolve("color-mix(in oklch, var(--coral), white 38%)"), blush:resolve("oklch(0.8 0.1 18)")};
+  if (!C.belly || C.belly==="rgba(0, 0, 0, 0)") C.belly = "#ebb4a1";
+  const dpr = Math.min(3, window.devicePixelRatio || 1), px = size/24;
+  const root = document.createElement("canvas");
+  root.width = Math.round(size*dpr); root.height = Math.round(px*22*dpr);
+  root.setAttribute("role","img"); root.setAttribute("aria-label", opts.label || "Chiioo the owl");
+  root.className = "owl";
+  root.style.cssText = `display:block;width:${size}px;height:${px*22}px;--pxc:${size/12}px;flex:none;cursor:pointer;image-rendering:pixelated`;
+  host.replaceChildren(root);
+  const ctx = root.getContext("2d"), cell = root.width/24;
+  let pose = opts.pose || "default", frame = 0, closed = false, flap = false, frameT = null, lastKey = "", onScreen = true;
+  const cache = {};
+  const framesFor = p => cache[p] || (cache[p] = ((POSES[p].frames) || [POSES[p].grid]).map(fr => hires(keepWings(fr, fr.slice()), false).join("")));
+  function colour(ch){
+    if (ch==="X"||ch==="L"||ch==="R") return C.body;
+    if (ch==="A"||ch==="S") return C.accent;
+    if (ch==="G") return C.detail;
+    if (ch==="B") return C.belly;
+    if (ch==="P") return C.blush;
+    if (ch==="W") return flap ? null : C.body;
+    if (ch==="U") return flap ? C.body : null;
+    if ("abcde".includes(ch)) return closed ? C.body : null;
+    return null;
+  }
+  function paint(){
+    const fr = framesFor(pose), grid = fr[frame % fr.length];
+    const key = pose+"|"+(frame % fr.length)+"|"+closed+"|"+flap;
+    if (key === lastKey) return; lastKey = key;   // nothing changed, skip drawing
+    ctx.clearRect(0,0,root.width,root.height);
+    for (let i=0;i<grid.length;i++){ const c = colour(grid[i]); if (!c) continue;
+      ctx.fillStyle = c; const x=i%24, y=(i/24)|0;
+      ctx.fillRect(Math.floor(x*cell), Math.floor(y*cell), Math.ceil(cell), Math.ceil(cell)); }
+    const an = reduced ? "none" : `owl-bob ${POSES[pose].bob||2.4}s steps(2,jump-none) infinite`; if (root.dataset.an !== an){ root.style.animation = an; root.dataset.an = an; }
+  }
+  const tick = fn => () => { if (onScreen && !document.hidden) fn(); };   // no work while hidden or off screen
+  if ("IntersectionObserver" in window) new IntersectionObserver(es => es.forEach(e => { onScreen = e.isIntersecting; })).observe(root);
+  function setPose(p){
+    if (!POSES[p]) p = "default"; pose = p; frame = 0; clearInterval(frameT);
+    const P = POSES[p]; if (P.frames && !reduced) frameT = setInterval(tick(()=>{ frame++; paint(); }), P.ms || 320);
+    paint();
+  }
+  if (!reduced){
+    setInterval(tick(()=>{ if (!POSES[pose].blink) return; closed = true; paint(); setTimeout(()=>{ closed=false; paint(); }, 160); }), 3800);
+  }
+  function flapBurst(n){ if (reduced) return; let k=0; const t=setInterval(()=>{ flap=!flap; paint(); if(++k>=n){ clearInterval(t); flap=false; paint(); } }, 110); }
+  root.addEventListener("click", ()=>{ flapBurst(6); if (!reduced) root.animate([{transform:"translateY(0)"},{transform:`translateY(-${size/8}px)`},{transform:"translateY(0)"}],{duration:260}); });
+  setPose(pose);
+  return { setPose, flapBurst, el: root };
+}
+
+</script>
+<script>
+const T = {
+  en:{t:"This page could not be found", s:"The link may be old or mistyped. Try one of these pages instead.", lHome:"Home", lMap:"Route map", lHub:"Learning hub", sw:"Tiếng Việt", title:"Page not found · The Standard"},
+  vi:{t:"Không tìm thấy trang này", s:"Đường link có thể đã cũ hoặc bị gõ sai. Bạn hãy thử một trong các trang dưới đây.", lHome:"Trang chủ", lMap:"Lộ trình", lHub:"Góc học tập", sw:"English", title:"Không tìm thấy trang · The Standard"}
+};
+const get = k => { try { return localStorage.getItem(k); } catch(e) { return null; } };
+let lang = get("ts-lang"); if (lang!=="en" && lang!=="vi") lang = (navigator.language||"").toLowerCase().startsWith("vi") ? "vi" : "en";
+const th = get("standardRouteMap.v1.theme"); if (th==="light"||th==="dark") document.documentElement.setAttribute("data-theme", th);
+function paint(){ const L=T[lang]; for (const id of ["t","s","lHome","lMap","lHub","sw"]) document.getElementById(id).textContent = L[id]; document.title = L.title; document.documentElement.lang = lang; }
+document.getElementById("sw").onclick = () => { lang = lang==="en" ? "vi" : "en"; try { localStorage.setItem("ts-lang", lang); } catch(e) {} paint(); };
+paint();
+makeOwl(document.getElementById("owl"), 104, {label:"Chiioo", pose:"surprised"});
+</script>
+</body>
+</html>

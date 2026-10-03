@@ -1,0 +1,20 @@
+{
+  "name": "The Standard English",
+  "short_name": "The Standard",
+  "description": "A1 to C2 English route map and learning hub by The Standard, in English and Vietnamese.",
+  "lang": "en",
+  "start_url": "./route-map.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f0eee6",
+  "theme_color": "#f0eee6",
+  "icons": [
+    {"src": "icon-192.png", "sizes": "192x192", "type": "image/png"},
+    {"src": "icon-512.png", "sizes": "512x512", "type": "image/png"},
+    {"src": "icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}
+  ],
+  "shortcuts": [
+    {"name": "Route map", "short_name": "Route map", "url": "./route-map.html", "icons": [{"src": "icon-192.png", "sizes": "192x192"}]},
+    {"name": "Learning hub", "short_name": "Learning hub", "url": "./learning-hub.html", "icons": [{"src": "icon-192.png", "sizes": "192x192"}]}
+  ]
+}
