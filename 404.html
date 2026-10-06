@@ -1,15 +1,14 @@
 <!doctype html>
-<html lang="en">
+<html lang="vi">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Page not found · The Standard</title>
+<title>Không tìm thấy trang · The Standard</title>
 <meta name="robots" content="noindex">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 11'%3E%3Cpath fill='%23d97757' d='M2 0h1v1h5V0h1v2h1v1h1v4h1v2h-1v1H1V9H0V7h1V3h1z'/%3E%3Crect x='3' y='4' width='2' height='2' fill='%23faf9f5'/%3E%3Crect x='7' y='4' width='2' height='2' fill='%23faf9f5'/%3E%3Crect x='5' y='7' width='2' height='1' fill='%23e8a55a'/%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400&family=Hanken+Grotesk:wght@400;500&display=swap" media="print" onload="this.media='all'">
-<style>
+<link rel="preload" href="https://lehoanglh2305.github.io/thestandard/NotoSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://lehoanglh2305.github.io/thestandard/NotoSans-Bold.woff2" as="font" type="font/woff2" crossorigin>
+<style>@font-face{font-family:"Noto Sans";font-weight:400;font-style:normal;font-display:swap;src:local("Noto Sans"),local("NotoSans-Regular"),url("https://lehoanglh2305.github.io/thestandard/NotoSans-Regular.woff2") format("woff2")}@font-face{font-family:"Noto Sans";font-weight:400;font-style:italic;font-display:swap;src:local("Noto Sans Italic"),local("NotoSans-Italic"),url("https://lehoanglh2305.github.io/thestandard/NotoSans-Italic.woff2") format("woff2")}@font-face{font-family:"Noto Sans";font-weight:500;font-style:normal;font-display:swap;src:local("Noto Sans Medium"),local("NotoSans-Medium"),url("https://lehoanglh2305.github.io/thestandard/NotoSans-Medium.woff2") format("woff2")}@font-face{font-family:"Noto Sans";font-weight:600;font-style:normal;font-display:swap;src:local("Noto Sans SemiBold"),local("NotoSans-SemiBold"),url("https://lehoanglh2305.github.io/thestandard/NotoSans-SemiBold.woff2") format("woff2")}@font-face{font-family:"Noto Sans";font-weight:700;font-style:normal;font-display:swap;src:local("Noto Sans Bold"),local("NotoSans-Bold"),url("https://lehoanglh2305.github.io/thestandard/NotoSans-Bold.woff2") format("woff2")}</style><style>
 /* Chiioo lesson design system: one deliberate cream look */
 :root{
   --coral:#d97757; --coral-active:#a44a2e; --coral-text:#ad4f31; --coral-fill:#b65436; --on-cream:#5f5d58; --teal:#5db8a6; --amber:#e8a55a;
@@ -49,143 +48,458 @@
 *{box-sizing:border-box}
 body{margin:0; min-height:100dvh; background:var(--canvas); color:var(--body); font-family:var(--sans); font-size:16px; line-height:1.55; display:grid; place-items:center; padding:32px 16px}
 main{width:min(560px,100%); text-align:center}
-.owlbox{width:150px; height:150px; margin:0 auto; border-radius:24px; background:var(--surface-soft); display:grid; place-items:center; overflow:hidden}
-.mark{display:inline-block; margin-top:28px; font:400 22px/1 var(--serif); color:var(--ink); text-decoration:none}
+.owlstage{width:min(420px,100%); margin:0 auto; text-align:left}
+.mark{display:inline-block; margin-top:28px; font:700 22px/1 var(--serif); color:var(--ink); text-decoration:none}
 .mark b{color:var(--coral); font-weight:400}
 .code{font:500 13px/1.4 var(--sans); letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); margin-top:28px}
-h1{font:400 clamp(32px,6vw,44px)/1.1 var(--serif); letter-spacing:-.8px; color:var(--ink); margin:10px 0 12px; text-wrap:balance}
+h1{font:700 clamp(32px,6vw,44px)/1.1 var(--serif); letter-spacing:-.8px; color:var(--ink); margin:10px 0 12px; text-wrap:balance}
 p{margin:0; color:var(--body-strong); text-wrap:pretty}
 nav{display:flex; flex-wrap:wrap; justify-content:center; gap:10px; margin-top:28px}
 nav a{display:inline-flex; align-items:center; height:44px; padding:0 18px; border-radius:12px; border:1px solid var(--hairline); background:var(--surface-card); color:var(--ink); text-decoration:none; font:500 15px/1 var(--sans)}
 nav a.main{background:var(--coral-fill); border-color:var(--coral-fill); color:var(--on-primary); border-radius:0 0 8px 8px}
-a:focus-visible{outline:none; box-shadow:0 0 0 3px rgba(217,119,87,.35)}
+a:focus-visible{outline:none; box-shadow:0 0 0 3px var(--ring)}
 .lang{margin-top:28px; font-size:14px}
 .lang button{border:0; background:none; color:var(--muted); font:500 14px/1 var(--sans); padding:8px; cursor:pointer; text-decoration:underline; text-underline-offset:3px}
 @media (prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important}}
 </style>
+<style id="v2">
+/* ===== Chiioo v2: navy, teal and cream ===== */
+:root{
+  --navy:#1b2b4b; --navy-deep:#121d33; --navy-elevated:#2a3d63; --teal-text:#0c625e; --teal-fill:#2a9d8f; --teal-on-dark:#7fd1c5; --teal-soft:#d5ebe7;
+  --coral:#2a9d8f; --coral-active:#121d33; --coral-text:#0c625e; --coral-fill:#1b2b4b; --on-cream:#4f596d; --teal:#2a9d8f; --amber:#7fd1c5;
+  --ink:#14203a; --body-strong:#232d44; --body:#323c52; --muted:#4f596d; --muted-soft:#525b6f;
+  --canvas:#f5f2ea; --surface-soft:#e5dfcf; --surface-card:#ece7da; --cream-strong:#ddd6c4;
+  --hairline:#cfc8b6; --hairline-soft:#ddd6c4;
+  --dark:#1b2b4b; --dark-elevated:#2a3d63; --dark-soft:#121d33; --on-dark:#f5f2ea; --on-dark-soft:#b9c2d4;
+  --success:#23663f; --error:#b3261e;
+  --on-primary:#f5f2ea; --panel:#1b2b4b; --on-panel:#f5f2ea; --on-panel-soft:#b9c2d4;
+  --btn-dk:#0c625e; --btn-dk-soft:#0a4f4c; --ok-text:#23663f; --err-text:#b3261e;
+  --formula-soft:rgba(20,32,58,.06); --backdrop:rgba(18,29,51,.55);
+  --line-accent:#0c625e; --ring:rgba(12,98,94,.3); --glow:rgba(42,157,143,.22);
+  --ok-tint:rgba(35,102,63,.12); --err-tint:rgba(179,38,30,.09);
+  --stage:#ece7da; --stage-floor:#ddd6c4;
+  --wheel-a:#0c625e; --wheel-b:#1b2b4b; --wheel-c:#ddd6c4; --wheel-ta:#f5f2ea; --wheel-tb:#f5f2ea; --wheel-tc:#14203a; --wheel-ring:#14203a; --wheel-hub:#f5f2ea;
+  --serif:"Noto Sans","Segoe UI",Arial,sans-serif; --sans:"Noto Sans","Segoe UI",Arial,sans-serif; --mono:"Noto Sans","Segoe UI",Arial,sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]){
+  --coral:#7fd1c5; --coral-active:#ddd6c4; --coral-text:#7fd1c5; --coral-fill:#f5f2ea; --on-primary:#14203a; --on-cream:#b9c2d4; --teal:#7fd1c5; --amber:#7fd1c5;
+  --ink:#f5f2ea; --body-strong:#e6e9f0; --body:#cdd4e2; --muted:#b9c2d4; --muted-soft:#a7b1c6;
+  --canvas:#121d33; --surface-soft:#22355a; --surface-card:#1b2b4b; --cream-strong:#2a3d63;
+  --hairline:#3d5280; --hairline-soft:#2a3d63;
+  --panel:#2a3d63; --on-panel:#f5f2ea; --on-panel-soft:#c3cbdb; --btn-dk:#0c625e; --btn-dk-soft:#0a4f4c;
+  --success:#4fae7a; --error:#e3675d; --ok-text:#8fd6a8; --err-text:#f2a39b;
+  --formula-soft:rgba(245,242,234,.07); --backdrop:rgba(5,10,20,.7);
+  --line-accent:#7fd1c5; --ring:rgba(127,209,197,.45); --glow:rgba(127,209,197,.25);
+  --ok-tint:rgba(79,174,122,.16); --err-tint:rgba(227,103,93,.16);
+  --stage:#1b2b4b; --stage-floor:#2a3d63;
+  --wheel-a:#0c625e; --wheel-b:#2a3d63; --wheel-c:#f5f2ea; --wheel-ta:#f5f2ea; --wheel-tb:#f5f2ea; --wheel-tc:#14203a; --wheel-ring:#f5f2ea; --wheel-hub:#121d33;
+  color-scheme:dark;
+} }
+:root[data-theme="dark"]{
+  --coral:#7fd1c5; --coral-active:#ddd6c4; --coral-text:#7fd1c5; --coral-fill:#f5f2ea; --on-primary:#14203a; --on-cream:#b9c2d4; --teal:#7fd1c5; --amber:#7fd1c5;
+  --ink:#f5f2ea; --body-strong:#e6e9f0; --body:#cdd4e2; --muted:#b9c2d4; --muted-soft:#a7b1c6;
+  --canvas:#121d33; --surface-soft:#22355a; --surface-card:#1b2b4b; --cream-strong:#2a3d63;
+  --hairline:#3d5280; --hairline-soft:#2a3d63;
+  --panel:#2a3d63; --on-panel:#f5f2ea; --on-panel-soft:#c3cbdb; --btn-dk:#0c625e; --btn-dk-soft:#0a4f4c;
+  --success:#4fae7a; --error:#e3675d; --ok-text:#8fd6a8; --err-text:#f2a39b;
+  --formula-soft:rgba(245,242,234,.07); --backdrop:rgba(5,10,20,.7);
+  --line-accent:#7fd1c5; --ring:rgba(127,209,197,.45); --glow:rgba(127,209,197,.25);
+  --ok-tint:rgba(79,174,122,.16); --err-tint:rgba(227,103,93,.16);
+  --stage:#1b2b4b; --stage-floor:#2a3d63;
+  --wheel-a:#0c625e; --wheel-b:#2a3d63; --wheel-c:#f5f2ea; --wheel-ta:#f5f2ea; --wheel-tb:#f5f2ea; --wheel-tc:#14203a; --wheel-ring:#f5f2ea; --wheel-hub:#121d33;
+  color-scheme:dark;
+}
+body{-webkit-font-smoothing:antialiased}
+.mark{letter-spacing:-.3px}
+.mark b{color:var(--coral-text)}
+.eyebrow{color:var(--coral-text)}
+.next .eyebrow{color:var(--on-panel-soft)}
+:focus-visible{box-shadow:0 0 0 3px var(--ring)}
+.field{background:var(--canvas)}
+.field:focus{border-color:var(--line-accent); box-shadow:0 0 0 3px var(--ring)}
+.stop[aria-pressed="true"] .dot{box-shadow:0 0 0 10px var(--glow)}
+.pill{background:var(--btn-dk); color:#f5f2ea}
+.tick{color:var(--on-primary)}
+dialog,.shead{background:var(--canvas)}
+.next .btn:not(.dk):not(.sec){background:#f5f2ea; border-color:#f5f2ea; color:#14203a}
+.next .btn:not(.dk):not(.sec):active{background:#ddd6c4; border-color:#ddd6c4}
+.fix .w{background:var(--err-tint)} .fix .r{background:var(--ok-tint)}
+.opt.right{background:var(--ok-tint)} .opt.wrong{background:var(--err-tint)}
+.face.back .fix .w{background:rgba(227,103,93,.2)} .face.back .fix .r{background:rgba(79,174,122,.2)}
+.face.back .fix .r b{color:#8fd6a8} .face.back .fix .w b{color:#f2a39b}
+.face.back .say{background:rgba(245,242,234,.14)}
+.chunk.right{background:var(--ok-tint)} .chunk.wrong{background:var(--err-tint)}
+.tcard.hit,.tcard.hit:hover{border-color:var(--line-accent); box-shadow:0 0 0 3px var(--glow)}
+@media (hover:hover){ .tcard:hover{box-shadow:none} }
+.tnow::after{box-shadow:0 0 0 2px var(--line-accent)}
+.dg-ev{stroke:var(--line-accent)} .dg-dot{fill:var(--line-accent)}
+.seat.sel{box-shadow:0 0 0 3px var(--ring)}
+.seat.locked,.pair.trio,.schip.sel{border-color:var(--line-accent)} .pair.trio{box-shadow:inset 0 0 0 1.5px var(--line-accent)}
+.pageswitch a[aria-current="page"]{box-shadow:none}
+.pageswitch a:focus-visible{box-shadow:0 0 0 3px var(--ring)}
+.installbox{background:var(--surface-card); border-color:var(--hairline-soft)}
+
+/* two owls on a little stage, taking turns to talk */
+.owlstage{display:grid; gap:8px; justify-self:stretch; width:min(460px,100%)}
+.ostage{position:relative; min-height:250px; display:flex; justify-content:space-between; align-items:flex-end; padding:120px 28px 20px; background:var(--stage); border-radius:24px; overflow:hidden}
+.ostage::after{content:""; position:absolute; left:0; right:0; bottom:0; height:20px; background:var(--stage-floor)}
+.ostage > *{position:relative; z-index:1}
+.ohint{font-size:13px; color:var(--muted); margin:0}
+.hero{grid-template-columns:minmax(0,1fr) minmax(300px,460px)}
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr}
+  .owlstage{order:0; width:100%; max-width:520px}
+  .ostage{min-height:220px; padding:104px 20px 18px}
+}
+@media (max-width:420px){ .ostage{padding:96px 14px 16px} }
+.owlbox{display:none}
+/* Noto Sans is wider than the old font: keep the phone header on one line */
+@media (max-width:420px){ .sitebar{gap:12px} }
+</style>
 </head>
 <body>
 <main>
-  <div class="owlbox"><div id="owl"></div></div>
+  <div class="owlstage"><div class="ostage"><span id="o1"></span></div></div>
   <a class="mark" href="https://lehoanglh2305.github.io/thestandard/">The Standard<b>.</b></a>
   <div class="code">404</div>
-  <h1 id="t">This page could not be found</h1>
-  <p id="s">The link may be old or mistyped. Try one of these pages instead.</p>
+  <h1 id="t">Không tìm thấy trang này</h1>
+  <p id="s">Đường link có thể đã cũ hoặc bị gõ sai. Bạn hãy thử một trong các trang dưới đây.</p>
   <nav>
-    <a class="main" href="https://lehoanglh2305.github.io/thestandard/" id="lHome">Home</a>
-    <a href="https://lehoanglh2305.github.io/thestandard/route-map.html" id="lMap">Route map</a>
-    <a href="https://lehoanglh2305.github.io/thestandard/learning-hub.html" id="lHub">Learning hub</a>
+    <a class="main" href="https://lehoanglh2305.github.io/thestandard/" id="lHome">Trang chủ</a>
+    <a href="https://lehoanglh2305.github.io/thestandard/route-map.html" id="lMap">Lộ trình</a>
+    <a href="https://lehoanglh2305.github.io/thestandard/learning-hub.html" id="lHub">Góc học tập</a>
   </nav>
   <div class="lang"><button type="button" id="sw"></button></div>
 </main>
 <script>
-const POSES = {
-  default: { glance: 1, blink: 1, flap: 1, bob: 2.4, grid: ['..L......R..', '..XX....XX..', '..XXXXXXXX..', '.XXXXXXXXXX.', '.XXabXXabXX.', '.XXcdXXcdXX.', '.XXXXXXXXXX.', 'XXXXXAAXXXXX', 'WXXXXXXXXXXW', '.XXXXXXXXXX.', '...A....A...'] },
-  wave: { glance: 1, blink: 1, flap: 3, bob: 2.4, grid: ['..L......R.W', '..XX....XX.W', '..XXXXXXXX.W', '.XXXXXXXXXXW', '.XXabXXabXX.', '.XXcdXXcdXX.', '.XXXXXXXXXX.', 'XXXXXAAXXXXU', 'XXXXXXXXXXXU', '.XXXXXXXXXX.', '...A....A...'] },
-  cheer: { glance: 0, blink: 0, flap: 4, bob: 1.2, grid: ['W.L......R.W', 'W.XX....XX.W', 'W.XXXXXXXX.W', 'WXXXXXXXXXXW', '.XXeeXXeeXX.', '.XXXXXXXXXX.', '.XXXXXXXXXX.', 'UXXXXAAXXXXU', 'UXXXXAAXXXXU', '.XXXXXXXXXX.', '...A....A...'] },
-  think: { glance: 0, blink: 1, flap: 0, bob: 3.2, grid: ['..L......R..', '..XX....XX..', '..XXXXXXXX..', '.XXXXXXXXXX.', '.XXeXXXeXXX.', '.XXeeXXeeXX.', '.XXXXXXXXXX.', 'XXXXXAAXXXXX', 'XXXXAAXXXXXX', '.XXXXXXXXXX.', '...A....A...'] },
-  surprised: { glance: 1, blink: 1, flap: 1, bob: 2.4, grid: ['..L......R..', '..XX....XX..', '..XXXXXXXX..', '.XXabXXabXX.', '.XXeeXXeeXX.', '.XXcdXXcdXX.', '.XXXXXXXXXX.', 'XXXXXAAXXXXX', 'WXXXXAAXXXXW', '.XXXXXXXXXX.', '...A....A...'] },
-  sleep: { glance: 0, blink: 0, flap: 0, bob: 4, grid: ['..........A.', '.LX......XRA', '.XXXXXXXXXXA', '.XXXXXXXXXX.', '.XXXXXXXXXX.', '.XXeeXXeeXX.', '.XXXXXXXXXX.', 'XXXXXAAXXXXX', 'XXXXXXXXXXXX', '.XXXXXXXXXX.', '...A....A...'] },
-  eat: { glance: 0, blink: 1, flap: 0, bob: 2.4, ms: 340, frames: [['..L......R..','..XX....XX..','..XXXXXXXX..','.XXXXXXXXXX.','.XXabXXabXX.','.XXcdXXcdXX.','.XXXXXXXXXX.','XXXXXAAXXXXX','WXXXXAAGXXXW','.XXXXXXGXXX.','...A....A...'],['..L......R..','..XX....XX..','..XXXXXXXX..','.XXXXXXXXXX.','.XXabXXabXX.','.XXcdXXcdXX.','.XXXXXXXXXX.','XXXXXAAXXXXX','WXXXXAAGXXXW','.XXXXXXGXXX.','...A....A...'],['..L......R..','..XX....XX..','..XXXXXXXX..','.XXXXXXXXXX.','.XXabXXabXX.','.XXcdXXcdXX.','.XXXXXXXXXX.','XXXXXAAXXXXX','WXXXXXXGXXXW','.XXXXXXXXXX.','...A....A...'],['..L......R..','..XX....XX..','..XXXXXXXX..','.XXXXXXXXXX.','.XXeeXXeeXX.','.XXXXXXXXXX.','.XXXXXXXXXX.','XXXXXAAXXXXX','WXXXXAAXXXXW','.XXXXXXXXXX.','...A....A...'],['..L......R..','..XX....XX..','..XXXXXXXX..','.XXXXXXXXXX.','.XXeeXXeeXX.','.XXXXXXXXXX.','.XXXXXXXXXX.','XXXXXAAXXXXX','WXXXXXXXXXXW','.XXXXXXXXXX.','...A....A...'],['..L......R..','..XX....XX..','..XXXXXXXX..','.XXXXXXXXXX.','.XXeeXXeeXX.','.XXXXXXXXXX.','.XXXXXXXXXX.','XXXXXAAXXXXX','WXXXXAAXXXXW','.XXXXXXXXXX.','...A....A...'],['..L......R..','..XX....XX..','..XXXXXXXX..','.XXXXXXXXXX.','.XXeeXXeeXX.','.XXXXXXXXXX.','.XXXXXXXXXX.','XXXXXAAXXXXX','WXXXXXXXXXXW','.XXXXXXXXXX.','...A....A...'],['..L......R..','..XX....XX..','..XXXXXXXX..','.XXXXXXXXXX.','.XXeeXXeeXX.','.XXXXXXXXXX.','.XXXXXXXXXX.','XXXXXAAXXXXX','WXXXXAAXXXXW','.XXXXXXXXXX.','...A....A...'],['..L......R..','..XX....XX..','..XXXXXXXX..','.XXXXXXXXXX.','.XXeeXXeeXX.','.XXXXXXXXXX.','.XXXXXXXXXX.','XXXXXAAXXXXX','WXXXXXXXXXXW','.XXXXXXXXXX.','...A....A...'],['..L......R..','..XX....XX..','..XXXXXXXX..','.XXXXXXXXXX.','.XXeeXXeeXX.','.XXXXXXXXXX.','.XXXXXXXXXX.','XXXXXAAXXXXX','WXXXXXXXXXXW','.XXXXXXXXXX.','...A....A...']] },
-  sing: { glance: 0, blink: 0, flap: 1, bob: 0.84, ms: 420, frames: [['..L......R.A','..XX....XX.A','..XXXXXXXXAA','.XXXXXXXXXX.','.XXeeXXeeXX.','.XXXXXXXXXX.','.XXXXXXXXXX.','XXXXXAAXXXXX','WXXXXAAXXXXW','.XXXXXXXXXX.','...A....A...'],['.AL......R..','.AXX....XX..','AAXXXXXXXX..','.XXXXXXXXXX.','.XXeeXXeeXX.','.XXXXXXXXXX.','.XXXXXXXXXX.','XXXXXAAXXXXX','WXXXXXXXXXXW','.XXXXXXXXXX.','...A....A...']] },
-  study: { glance: 0, blink: 1, flap: 0, bob: 3.6, ms: 320, frames: [['..L......R..','..XX....XX..','..XXXXXXXX..','.XXXXXXXXXX.','.XXeeXXeeXX.','.XXXXXXXXXX.','.XXXXXXXXXX.','XXXXXAAXXXXX','WXBBBGGBBBXW','.XGGGGGGGGX.','...A....A...'],['..L......R..','..XX....XX..','..XXXXXXXX..','.XXXXXXXXXX.','.XXeeXXeeXX.','.XXXXXXXXXX.','.XXXXXXXXXX.','XXXXXAAXXXXX','WXBBBGGBBBXW','.XGGGGGGGGX.','...A....A...'],['..L......R..','..XX....XX..','..XXXXXXXX..','.XXXXXXXXXX.','.XXeeXXeeXX.','.XXXXXXXXXX.','.XXXXXXXXXX.','XXXXXAAXXXXX','WXBBBGGBBBXW','.XGGGGGGGGX.','...A....A...'],['..L......R..','..XX....XX..','..XXXXXXXX..','.XXXXXXXXXX.','.XXeeXXeeXX.','.XXXXXXXXXX.','.XXXXXXXXXX.','XXXXXAAXXXXX','WXBBBGGBBBXW','.XGGGGGGGGX.','...A....A...'],['..L......R..','..XX....XX..','..XXXXXXXX..','.XXXXXXXXXX.','.XXeeXXeeXX.','.XXXXXXXXXX.','.XXXXXXXXXX.','XXXXXAAXXXXX','WXBBBGGBBBXW','.XGGGGGGGGX.','...A....A...'],['..L......R..','..XX....XX..','..XXXXXXXX..','.XXXXXXXXXX.','.XXeeXXeeXX.','.XXXXXXXXXX.','.XXXXXXXXXX.','XXXXXAAXXXXX','WXBBBGGBBBXW','.XGGGGGGGGX.','...A....A...'],['..L......R..','..XX....XX..','..XXXXXXXX..','.XXXXXXXXXX.','.XXeeXXeeXX.','.XXXXXXXXXX.','.XXXXXXXXXX.','XXXXXAAXXXXX','WXBBBGGBBBXW','.XGGGGGGGGX.','...A....A...'],['..L......R..','..XX....XX..','..XXXXXXXX..','.XXXXXXXXXX.','.XXeeXXeeXX.','.XXXXXXXXXX.','.XXXXXXXXXX.','XXXXXAAXXXXX','WXBBBGGBBBXW','.XGGGGGGGGX.','...A....A...'],['..L......R..','..XX....XX..','..XXXXXXXX..','.XXXXXXXXXX.','.XXeeXXeeXX.','.XXXXXXXXXX.','.XXXXXXXXXX.','XXXXXAAXXXXX','WXBBBGGBBBXW','.XGGGGGGGGX.','...A....A...'],['..L......R..','..XX....XX..','..XXXXXXXX..','.XXXXXXXXXX.','.XXeeXXeeXX.','.XXXXXXXXXX.','.XXXXXXXXXX.','XXXXXAABBXXX','WXBBBGGXXBXW','.XGGGGGGGGX.','...A....A...'],['..L......R..','..XX....XX..','..XXXXXXXX..','.XXXXXXXXXX.','.XXeeXXeeXX.','.XXXXXXXXXX.','.XXXXXXXXXX.','XXXXXAAXXXXX','WXBBBGGBBBXW','.XGGGGGGGGX.','...A....A...'],['..L......R..','..XX....XX..','..XXXXXXXX..','.XXXXXXXXXX.','.XXeeXXeeXX.','.XXXXXXXXXX.','.XXXXXXXXXX.','XXXXXAAXXXXX','WXBBBGGBBBXW','.XGGGGGGGGX.','...A....A...']] },
-  mad: { glance: 0, blink: 0, flap: 0, bob: 2.4, ms: 200, frames: [['M.L......R..','.MXX....XX..','..XXXXXXXX..','.XGGXXXXGGX.','.XXeGXXGeXX.','.XXeXXXXeXX.','.XXXXXXXXXX.','XXXXXAAXXXXX','XXXXXAAXXXXX','.XXXXXXXXXX.','...A....A...'],['..L......R.M','..XX....XXM.','..XXXXXXXX..','.XGGXXXXGGX.','.XXeGXXGeXX.','.XXeXXXXeXX.','.XXXXXXXXXX.','XXXXXAAXXXXX','XXXXXAAXXXXX','.XXXXXXXXXX.','...A....A...']] },
-};
-const keepWings = (src, g) => g.map((row, r) => row.split('').map((ch, c) => ('WU'.includes(src[r][c]) ? src[r][c] : ch)).join(''));
-const EYE = 'eabcd';
-// 12x11 pose -> 24x22: upscale, chamfer the silhouette, round + sparkle the eyes, blush, round beak, belly
-function hires(fr, mad) {
-  const g = []; fr.forEach(r => { const row = r.split('').map(ch => ch + ch); g.push(row, row.slice()); });
-  const s = g.map(r => r.map(ch => (EYE.includes(ch) ? 'E' : ch)));
-  const sa = (r, c) => (s[r] && s[r][c]) || '.';
-  const H = g.length, W = g[0].length;
-  const seen = {}; const groups = [];
-  for (let r = 0; r < H; r++) for (let c = 0; c < W; c++) if (s[r][c] === 'E' && !seen[r + ',' + c]) {
-    const st = [[r, c]]; seen[r + ',' + c] = 1; const cells = [];
-    while (st.length) { const [y, x] = st.pop(); cells.push([y, x]); [[1, 0], [-1, 0], [0, 1], [0, -1]].forEach(([dy, dx]) => { const k = (y + dy) + ',' + (x + dx); if (sa(y + dy, x + dx) === 'E' && !seen[k]) { seen[k] = 1; st.push([y + dy, x + dx]); } }); }
-    const ys = cells.map(a => a[0]), xs = cells.map(a => a[1]);
-    groups.push({ cells, top: Math.min(...ys), bot: Math.max(...ys), left: Math.min(...xs), right: Math.max(...xs) });
-  }
-  const out = s.map(r => r.slice());
-  for (let r = 0; r < H; r++) for (let c = 0; c < W; c++) if (s[r][c] === 'X') {
-    const u = sa(r - 1, c) === '.', d = sa(r + 1, c) === '.', l = sa(r, c - 1) === '.', rt = sa(r, c + 1) === '.';
-    if ((u && l) || (u && rt) || (d && l) || (d && rt)) out[r][c] = '.';
-  }
-  groups.forEach(o => {
-    const big = o.bot - o.top >= 3;
-    o.cells.forEach(([r, c]) => {
-      const u = sa(r - 1, c) !== 'E', d = sa(r + 1, c) !== 'E', l = sa(r, c - 1) !== 'E', rt = sa(r, c + 1) !== 'E';
-      if (big && ((u && l) || (u && rt) || (d && l) || (d && rt))) out[r][c] = 'X';
-      else out[r][c] = d ? 'N' : 'E';
-    });
-    if (big) {
-      out[o.top + 1][o.left + 1] = 'K';
-      if (!mad) [[o.bot - 1, o.left - 3], [o.bot - 1, o.left - 2], [o.bot, o.left - 3], [o.bot, o.left - 2], [o.bot - 1, o.right + 2], [o.bot - 1, o.right + 3], [o.bot, o.right + 2], [o.bot, o.right + 3]].forEach(([r, c]) => { if (out[r] && out[r][c] === 'X') out[r][c] = 'P'; });
-    }
-  });
-  for (let r = 0; r < H - 1; r++) for (let c = 1; c < W - 3; c++) {
-    if (s[r][c] === 'A' && s[r][c + 1] === 'A' && s[r][c + 2] === 'A' && s[r][c + 3] === 'A' && s[r][c - 1] === 'X' && s[r][c + 4] === 'X' && s[r + 1][c] === 'A' && sa(r + 2, c) === 'X') { out[r + 1][c] = 'X'; out[r + 1][c + 3] = 'X'; }
-  }
-  if (!mad) [[16, 9, 14], [17, 8, 15], [18, 8, 15], [19, 9, 14]].forEach(([r, a, b]) => { for (let c = a; c <= b; c++) if (out[r] && out[r][c] === 'X') out[r][c] = 'B'; });
-  return out.map(r => r.join(''));
-}
+/* Chiioo and Hachimi (Chiioo v2), a plain script port of components/brand/Chiioo.jsx and Hachimi.jsx.
+   Each owl is drawn on one canvas instead of 528 grid cells, so a page stays light.
+   makeOwl(host, size, opts) returns { el, wrap, setPose, flapBurst, hop, say, setLabel }. */
+(function(){
+  // X body · A accent · e eye (fills on blink) · abcd eye cells a pupil can occupy · L/R ear tips (twitch)
+  // W wing shown at rest, hidden while flapping · U wing hidden at rest, shown while flapping
+  const POSES = {
+    default: { glance: 1, blink: 1, flap: 1, bob: 2.4, grid: ['..L......R..', '..XX....XX..', '..XXXXXXXX..', '.XXXXXXXXXX.', '.XXabXXabXX.', '.XXcdXXcdXX.', '.XXXXXXXXXX.', 'XXXXXAAXXXXX', 'WXXXXXXXXXXW', '.XXXXXXXXXX.', '...A....A...'] },
+    wave: { glance: 1, blink: 1, flap: 3, bob: 2.4, grid: ['..L......R.W', '..XX....XX.W', '..XXXXXXXX.W', '.XXXXXXXXXXW', '.XXabXXabXX.', '.XXcdXXcdXX.', '.XXXXXXXXXX.', 'XXXXXAAXXXXU', 'XXXXXXXXXXXU', '.XXXXXXXXXX.', '...A....A...'] },
+    cheer: { glance: 0, blink: 0, flap: 4, bob: 1.2, grid: ['W.L......R.W', 'W.XX....XX.W', 'W.XXXXXXXX.W', 'WXXXXXXXXXXW', '.XXeeXXeeXX.', '.XXXXXXXXXX.', '.XXXXXXXXXX.', 'UXXXXAAXXXXU', 'UXXXXAAXXXXU', '.XXXXXXXXXX.', '...A....A...'] },
+    think: { glance: 0, blink: 1, flap: 0, bob: 3.2, grid: ['..L......R..', '..XX....XX..', '..XXXXXXXX..', '.XXXXXXXXXX.', '.XXeXXXeXXX.', '.XXeeXXeeXX.', '.XXXXXXXXXX.', 'XXXXXAAXXXXX', 'XXXXAAXXXXXX', '.XXXXXXXXXX.', '...A....A...'] },
+    surprised: { glance: 1, blink: 1, flap: 1, bob: 2.4, grid: ['..L......R..', '..XX....XX..', '..XXXXXXXX..', '.XXabXXabXX.', '.XXeeXXeeXX.', '.XXcdXXcdXX.', '.XXXXXXXXXX.', 'XXXXXAAXXXXX', 'WXXXXAAXXXXW', '.XXXXXXXXXX.', '...A....A...'] },
+    sleep: { glance: 0, blink: 0, flap: 0, bob: 4, grid: ['..........A.', '.LX......XRA', '.XXXXXXXXXXA', '.XXXXXXXXXX.', '.XXXXXXXXXX.', '.XXeeXXeeXX.', '.XXXXXXXXXX.', 'XXXXXAAXXXXX', 'XXXXXXXXXXXX', '.XXXXXXXXXX.', '...A....A...'] },
+    mad: { glance: 0, blink: 0, flap: 0, bob: 2.4, ms: 200, frames: [['M.L......R..','.MXX....XX..','..XXXXXXXX..','.XGGXXXXGGX.','.XXeGXXGeXX.','.XXeXXXXeXX.','.XXXXXXXXXX.','XXXXXAAXXXXX','XXXXXAAXXXXX','.XXXXXXXXXX.','...A....A...'],['..L......R.M','..XX....XXM.','..XXXXXXXX..','.XGGXXXXGGX.','.XXeGXXGeXX.','.XXeXXXXeXX.','.XXXXXXXXXX.','XXXXXAAXXXXX','XXXXXAAXXXXX','.XXXXXXXXXX.','...A....A...']] }
+  };
+  // poses with several frames, built from a base grid so the file stays small
+  const base = POSES.default.grid, rest = ['..L......R..','..XX....XX..','..XXXXXXXX..','.XXXXXXXXXX.','.XXeeXXeeXX.','.XXXXXXXXXX.','.XXXXXXXXXX.','XXXXXAAXXXXX'];
+  const eatA = base.slice(0,8).concat(['WXXXXAAGXXXW','.XXXXXXGXXX.','...A....A...']), eatB = base.slice(0,8).concat(['WXXXXXXGXXXW','.XXXXXXXXXX.','...A....A...']);
+  const chewA = rest.concat(['WXXXXAAXXXXW','.XXXXXXXXXX.','...A....A...']), chewB = rest.concat(['WXXXXXXXXXXW','.XXXXXXXXXX.','...A....A...']);
+  POSES.eat = { glance: 0, blink: 1, flap: 0, bob: 2.4, ms: 340, frames: [eatA, eatA, eatB, chewA, chewB, chewA, chewB, chewA, chewB, chewB] };
+  POSES.sing = { glance: 0, blink: 0, flap: 1, bob: 0.84, ms: 420, frames: [['..L......R.A','..XX....XX.A','..XXXXXXXXAA','.XXXXXXXXXX.','.XXeeXXeeXX.','.XXXXXXXXXX.','.XXXXXXXXXX.','XXXXXAAXXXXX','WXXXXAAXXXXW','.XXXXXXXXXX.','...A....A...'],['.AL......R..','.AXX....XX..','AAXXXXXXXX..','.XXXXXXXXXX.','.XXeeXXeeXX.','.XXXXXXXXXX.','.XXXXXXXXXX.','XXXXXAAXXXXX','WXXXXXXXXXXW','.XXXXXXXXXX.','...A....A...']] };
+  const book = rest.concat(['WXBBBGGBBBXW','.XGGGGGGGGX.','...A....A...']), turn = rest.slice(0,7).concat(['XXXXXAABBXXX','WXBBBGGXXBXW','.XGGGGGGGGX.','...A....A...']);
+  POSES.study = { glance: 0, blink: 1, flap: 0, bob: 3.6, ms: 320, frames: [book,book,book,book,book,book,book,book,book,turn,book,book] };
 
-/* Chiioo owl, vanilla port of components/brand/Chiioo.jsx (classic style, coral tone) */
-function makeOwl(host, size, opts){
-  // drawn on one <canvas> instead of 528 grid cells: far fewer page elements, same pixels
-  opts = opts || {};
-  const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const probe = document.createElement("span"); host.replaceChildren(probe);
-  const resolve = v => { probe.style.color = ""; probe.style.color = v; return getComputedStyle(probe).color; };
-  const C = {body:resolve("var(--coral)"), accent:resolve("var(--amber)"), detail:resolve("var(--ink)"), belly:resolve("color-mix(in oklch, var(--coral), white 38%)"), blush:resolve("oklch(0.8 0.1 18)")};
-  if (!C.belly || C.belly==="rgba(0, 0, 0, 0)") C.belly = "#ebb4a1";
-  const dpr = Math.min(3, window.devicePixelRatio || 1), px = size/24;
-  const root = document.createElement("canvas");
-  root.width = Math.round(size*dpr); root.height = Math.round(px*22*dpr);
-  root.setAttribute("role","img"); root.setAttribute("aria-label", opts.label || "Chiioo the owl");
-  root.className = "owl";
-  root.style.cssText = `display:block;width:${size}px;height:${px*22}px;--pxc:${size/12}px;flex:none;cursor:pointer;image-rendering:pixelated`;
-  host.replaceChildren(root);
-  const ctx = root.getContext("2d"), cell = root.width/24;
-  let pose = opts.pose || "default", frame = 0, closed = false, flap = false, frameT = null, lastKey = "", onScreen = true;
-  const cache = {};
-  const framesFor = p => cache[p] || (cache[p] = ((POSES[p].frames) || [POSES[p].grid]).map(fr => hires(keepWings(fr, fr.slice()), false).join("")));
-  function colour(ch){
-    if (ch==="X"||ch==="L"||ch==="R") return C.body;
-    if (ch==="A"||ch==="S") return C.accent;
-    if (ch==="G") return C.detail;
-    if (ch==="B") return C.belly;
-    if (ch==="P") return C.blush;
-    if (ch==="W") return flap ? null : C.body;
-    if (ch==="U") return flap ? C.body : null;
-    if ("abcde".includes(ch)) return closed ? C.body : null;
-    return null;
+  // mascot colours are fixed (they never follow the page theme); mixes precomputed from the v2 tokens
+  const MASCOT = { coral:'#d97757', coralActive:'#c6613f', amber:'#e8a55a', owlTeal:'#5db8a6', ink:'#14203a', onDark:'#f5f2ea', white:'#ffffff', pink:'#f4a3c0', pinkDeep:'#e27fa3', rose:'#ff6f9e', peach:'#ffb58a', plum:'#3e1d3b' };
+  const TONES = {
+    coral: { body: MASCOT.coral, accent: MASCOT.amber, detail: MASCOT.ink, belly: '#ebab97', wing: MASCOT.coralActive, face: '#e4967c' },
+    teal: { body: MASCOT.owlTeal, accent: MASCOT.amber, detail: MASCOT.ink, belly: '#a2d5c9', wing: '#489183', face: '#88c9bb' },
+    amber: { body: MASCOT.amber, accent: MASCOT.coral, detail: MASCOT.ink, belly: '#f3cba2', wing: '#be8648', face: '#efbd88' },
+    ink: { body: MASCOT.ink, accent: MASCOT.coral, detail: MASCOT.amber, belly: '#4d586d', wing: '#2b374f', face: '#333f57' },
+    pink: { body: MASCOT.pink, accent: MASCOT.peach, detail: MASCOT.plum, belly: '#fcd1df', wing: MASCOT.pinkDeep, face: '#fac2d5', blush: MASCOT.rose },
+    cream: { body: MASCOT.onDark, accent: MASCOT.coral, detail: MASCOT.ink, belly: '#ebdbc2', wing: '#d1d3c6', face: '#f0e8d8' }
+  };
+  const BLUSH = '#f7a3a5', MAD_MARK = '#d73431';
+  const THEME_INK = { kawaii: { H: MASCOT.rose, C: MASCOT.pinkDeep } };
+  // Styles overlay the pose grid. G glasses/detail · S scarf (accent) · B belly feathers
+  const put = (g, r, c, ch) => { if (g[r][c] === '.' && ch !== 'A') return; g[r] = g[r].slice(0, c) + ch + g[r].slice(c + 1); };
+  const keepWings = (src, g) => g.map((row, r) => row.split('').map((ch, c) => ('WU'.includes(src[r][c]) ? src[r][c] : ch)).join(''));
+  const STYLES = {
+    classic: g => g,
+    scholar: g => { [[4, 2], [5, 2], [4, 9], [5, 9], [4, 5], [4, 6], [6, 3], [6, 4], [6, 7], [6, 8]].forEach(([r, c]) => put(g, r, c, 'G')); return g; },
+    graduate: g => { g[0] = '.GGGGGGGGGG.'; g[1] = '...GGGGGG.A.'; g[2] = g[2].slice(0, 10) + 'A' + g[2].slice(11); return g; },
+    tufted: g => { g[0] = '.L........R.'; g[1] = '.XX......XX.'; return g; },
+    cozy: g => { for (let c = 1; c <= 10; c++) put(g, 9, c, 'S'); g[10] = '...A....ASS.'; return g; },
+    feathered: g => { [[8, 4], [8, 7], [9, 5], [9, 6], [9, 3], [9, 8]].forEach(([r, c]) => put(g, r, c, 'B')); return g; },
+    kawaii: g => g // lashes, bigger blush and the bow are drawn at full resolution in hires()
+  };
+  const EYE = 'eabcd';
+  // 12x11 pose -> 24x22: upscale, chamfer the silhouette, round + sparkle the eyes, blush, round beak, belly
+  function hires(fr, mad, pose, kawaii) {
+    const happy = pose === 'cheer' || pose === 'sing', sleepy = pose === 'sleep';
+    const g = []; fr.forEach(r => { const row = r.split('').flatMap(ch => [ch, ch]); g.push(row, row.slice()); });
+    const s = g.map(r => r.map(ch => (EYE.includes(ch) ? 'E' : ch)));
+    const sa = (r, c) => (s[r] && s[r][c]) || '.';
+    const H = g.length, W = g[0].length, seen = {}, groups = [];
+    for (let r = 0; r < H; r++) for (let c = 0; c < W; c++) if (s[r][c] === 'E' && !seen[r + ',' + c]) {
+      const st = [[r, c]]; seen[r + ',' + c] = 1; const cells = [];
+      while (st.length) { const [y, x] = st.pop(); cells.push([y, x]); [[1, 0], [-1, 0], [0, 1], [0, -1]].forEach(([dy, dx]) => { const k = (y + dy) + ',' + (x + dx); if (sa(y + dy, x + dx) === 'E' && !seen[k]) { seen[k] = 1; st.push([y + dy, x + dx]); } }); }
+      const ys = cells.map(a => a[0]), xs = cells.map(a => a[1]);
+      groups.push({ cells, top: Math.min(...ys), bot: Math.max(...ys), left: Math.min(...xs), right: Math.max(...xs) });
+    }
+    const out = s.map(r => r.slice());
+    for (let r = 0; r < H; r++) for (let c = 0; c < W; c++) if (s[r][c] === 'X') {
+      const u = sa(r - 1, c) === '.', d = sa(r + 1, c) === '.', l = sa(r, c - 1) === '.', rt = sa(r, c + 1) === '.';
+      if ((u && l) || (u && rt) || (d && l) || (d && rt)) out[r][c] = '.';
+    }
+    groups.forEach(o => {
+      const big = o.bot - o.top >= 3;
+      o.cells.forEach(([r, c]) => {
+        const u = sa(r - 1, c) !== 'E', d = sa(r + 1, c) !== 'E', l = sa(r, c - 1) !== 'E', rt = sa(r, c + 1) !== 'E';
+        if (big && ((u && l) || (u && rt) || (d && l) || (d && rt))) out[r][c] = 'X';
+        else out[r][c] = d ? 'N' : 'E';
+      });
+      if (big) {
+        out[o.top + 1][o.left + 1] = 'K';
+        for (let r = o.top - 1; r <= o.bot + 1; r++) for (let c = o.left - 1; c <= o.right + 1; c++) {
+          const corner = (r === o.top - 1 || r === o.bot + 1) && (c === o.left - 1 || c === o.right + 1);
+          if (!corner && out[r] && out[r][c] === 'X') out[r][c] = 'D';
+        }
+      } else if ((happy || sleepy) && o.bot - o.top === 1 && o.right - o.left >= 3) {
+        for (let c = o.left; c <= o.right; c++) {
+          const edge = c === o.left || c === o.right;
+          out[o.top][c] = (edge !== happy) ? 'N' : 'X';
+          out[o.bot][c] = (edge !== happy) ? 'X' : 'N';
+        }
+      }
+    });
+    if (!mad) {
+      const bigs = groups.filter(o => o.bot - o.top >= 3).sort((a, b) => a.left - b.left);
+      if (bigs.length === 2) {
+        const [L, R] = bigs;
+        const blush = [[L.bot + 1, L.left - 3], [L.bot + 1, L.left - 2], [R.bot + 1, R.right + 2], [R.bot + 1, R.right + 3]];
+        if (kawaii) blush.push([L.bot + 2, L.left - 3], [L.bot + 2, L.left - 2], [L.bot + 1, L.left - 1], [R.bot + 2, R.right + 2], [R.bot + 2, R.right + 3], [R.bot + 1, R.right + 1]);
+        blush.forEach(([r, c]) => { if (out[r] && (out[r][c] === 'X' || out[r][c] === 'D')) out[r][c] = 'P'; });
+        if (kawaii) [[L.top, L.left - 1], [L.top - 1, L.left - 2], [L.top + 1, L.left - 2], [R.top, R.right + 1], [R.top - 1, R.right + 2], [R.top + 1, R.right + 2]].forEach(([r, c]) => { if (out[r] && out[r][c] !== '.' && out[r][c] !== undefined) out[r][c] = 'Q'; });
+      }
+    }
+    for (let r = 0; r < H - 1; r++) for (let c = 1; c < W - 3; c++) {
+      if (s[r][c] === 'A' && s[r][c + 1] === 'A' && s[r][c + 2] === 'A' && s[r][c + 3] === 'A' && s[r][c - 1] === 'X' && s[r][c + 4] === 'X' && s[r + 1][c] === 'A' && sa(r + 2, c) === 'X') { out[r + 1][c] = 'X'; out[r + 1][c + 3] = 'X'; }
+    }
+    if (!mad) [[16, 9, 14], [17, 8, 15], [18, 8, 15], [19, 9, 14]].forEach(([r, a, b]) => { for (let c = a; c <= b; c++) if (out[r] && out[r][c] === 'X') out[r][c] = 'B'; });
+    if (kawaii) {
+      const top = out.findIndex(row => row.slice(7, 17).some(ch => ch !== '.'));
+      const BOW = ['H.....H', 'HHH.HHH', 'HHHCHHH', 'HHH.HHH', 'H.....H'];
+      const r0 = Math.max(0, top - 3);
+      BOW.forEach((row, i) => row.split('').forEach((ch, j) => { const r = r0 + i, c = 9 + j; if (ch !== '.' && out[r] && !'ENKQ'.includes(out[r][c])) out[r][c] = ch; }));
+    }
+    return out.map(r => r.join(''));
   }
-  function paint(){
-    const fr = framesFor(pose), grid = fr[frame % fr.length];
-    const key = pose+"|"+(frame % fr.length)+"|"+closed+"|"+flap;
-    if (key === lastKey) return; lastKey = key;   // nothing changed, skip drawing
-    ctx.clearRect(0,0,root.width,root.height);
-    for (let i=0;i<grid.length;i++){ const c = colour(grid[i]); if (!c) continue;
-      ctx.fillStyle = c; const x=i%24, y=(i/24)|0;
-      ctx.fillRect(Math.floor(x*cell), Math.floor(y*cell), Math.ceil(cell), Math.ceil(cell)); }
-    const an = reduced ? "none" : `owl-bob ${POSES[pose].bob||2.4}s steps(2,jump-none) infinite`; if (root.dataset.an !== an){ root.style.animation = an; root.dataset.an = an; }
+  const ACTIVITIES = ['study', 'think', 'sing', 'eat', 'wave', 'study', 'cheer', 'surprised'];
+  // Speech bubble lines. Dry, nerdy Chiioo; sweet, bubbly Hachimi. English from the design system, Vietnamese written for the site.
+  const LINES = {
+    Chiioo: {
+      en: ['Whooo needs coffee? Grammar wakes me up.', 'I read this rule twice. Once for fun.', 'Owl be honest: this part is important.', 'Write it down. My memory is bird sized.', "Owls can't move their eyes. Read it for me?", 'Rule first, then practice. Then snacks.', 'I made this mistake once. Learn from me.', 'Grammar is just patterns. Owls love patterns.', 'Confused? Nod wisely. It works for me.', 'Ask a question. I promise not to hoot.'],
+      vi: ['Ai cần cà phê chứ? Ngữ pháp là đủ tỉnh rồi.', 'Mình đọc quy tắc này hai lần. Một lần cho vui.', 'Nói thật nhé: phần này quan trọng lắm.', 'Ghi lại đi. Trí nhớ của cú nhỏ xíu à.', 'Cú không đảo mắt được. Bạn đọc giúp mình nhé?', 'Học quy tắc trước, rồi luyện tập. Rồi ăn vặt.', 'Mình từng mắc lỗi này. Học từ mình nhé.', 'Ngữ pháp chỉ là các mẫu lặp lại. Cú mê mẫu lắm.', 'Bối rối à? Cứ gật gù ra vẻ hiểu. Mình hay làm vậy.', 'Cứ hỏi đi. Mình hứa không kêu ầm lên đâu.']
+    },
+    Hachimi: {
+      en: ["Hehe, this rule is my favourite. Don't tell!", 'Verbs are like snacks. Collect them all!', 'Blink twice if you get it. Like this!', 'I put a bow on this grammar point.', 'Mistakes are cute. Fixing them is cuter.', 'Say it out loud! Your mouth needs practice too.', 'Pink pen, highlight, done. So pretty!', 'One more example and I will happy dance.', 'Chiioo explained it. I made it adorable.', "You're doing great! Have a pretend cookie."],
+      vi: ['Hihi, quy tắc này mình thích nhất. Đừng nói ai nha!', 'Động từ giống đồ ăn vặt. Gom hết đi nào!', 'Hiểu rồi thì chớp mắt hai cái. Như mình nè!', 'Mình thắt nơ cho điểm ngữ pháp này rồi.', 'Sai cũng dễ thương. Sửa lỗi còn dễ thương hơn.', 'Đọc to lên nào! Miệng cũng cần luyện tập mà.', 'Bút hồng, tô sáng, xong. Đẹp ghê!', 'Thêm một ví dụ nữa là mình nhảy múa luôn.', 'Chiioo giải thích. Mình làm nó đáng yêu hơn.', 'Bạn làm tốt lắm! Tặng bạn một chiếc bánh tưởng tượng.']
+    }
+  };
+  const MAD_LINE = { en: 'Hey! I am trying to teach here!', vi: 'Này! Mình đang giảng bài mà!' };
+  const BUBBLE_TONES = {
+    owl: { bg: MASCOT.onDark, border: MASCOT.ink, text: MASCOT.ink, dot: '#4f596d' },
+    pink: { bg: '#feeef3', border: MASCOT.pinkDeep, text: MASCOT.plum, dot: MASCOT.pinkDeep }
+  };
+  const EASE_OUT = 'cubic-bezier(.22,.8,.3,1)';
+  const hopFrames = (cell, big) => [
+    { transform: 'none' },
+    { transform: 'translateY(' + cell * 0.25 + 'px) scale(1.08,.9)', offset: 0.16 },
+    { transform: 'translateY(' + -cell * (big ? 2 : 1.4) + 'px) scale(.95,1.06)', offset: 0.5 },
+    { transform: 'translateY(' + cell * 0.15 + 'px) scale(1.06,.93)', offset: 0.82 },
+    { transform: 'none' }
+  ];
+  const lang = () => (document.documentElement.lang || '').toLowerCase().startsWith('vi') ? 'vi' : 'en';
+  function ensureKeyframes() {
+    if (document.getElementById('pxav-kf3')) return;
+    const s = document.createElement('style'); s.id = 'pxav-kf3';
+    s.textContent = '@keyframes pxav-shake{0%,100%{transform:translateX(0)}25%{transform:translateX(calc(var(--pxc) * -1))}75%{transform:translateX(var(--pxc))}}@keyframes pxav-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(calc(var(--pxc) * -.5))}}@keyframes pxav-dot{0%,100%{transform:translateY(0);opacity:.45}40%{transform:translateY(-35%);opacity:1}}'
+      + '.pxav-wrap{position:relative;display:inline-flex;flex:none;vertical-align:bottom}.pxav-bub{position:absolute;bottom:78%;z-index:5;pointer-events:none}.pxav-bub>span{position:relative;display:block;width:max-content;text-align:left;white-space:normal;font-family:var(--sans,"Noto Sans",sans-serif);font-weight:600;line-height:1.25}'
+      + '@media (prefers-reduced-motion:reduce){[data-pxav],.pxav-bub *{animation:none!important}}';
+    document.head.appendChild(s);
   }
-  const tick = fn => () => { if (onScreen && !document.hidden) fn(); };   // no work while hidden or off screen
-  if ("IntersectionObserver" in window) new IntersectionObserver(es => es.forEach(e => { onScreen = e.isIntersecting; })).observe(root);
-  function setPose(p){
-    if (!POSES[p]) p = "default"; pose = p; frame = 0; clearInterval(frameT);
-    const P = POSES[p]; if (P.frames && !reduced) frameT = setInterval(tick(()=>{ frame++; paint(); }), P.ms || 320);
-    paint();
+
+  function makeOwl(host, size, opts) {
+    opts = opts || {};
+    ensureKeyframes();
+    const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const name = opts.name || 'Chiioo';
+    const tone = TONES[opts.tone] || (name === 'Hachimi' ? TONES.pink : TONES.coral);
+    const variant = STYLES[opts.variant] ? opts.variant : (name === 'Hachimi' ? 'kawaii' : 'classic');
+    const kawaii = variant === 'kawaii';
+    const blinkMs = opts.blinkMs || (name === 'Hachimi' ? 3000 : 4500);
+    const temper = opts.temper == null ? 5 : opts.temper;
+    const linesFor = () => { const l = typeof opts.lines === 'function' ? opts.lines() : opts.lines; return l && l.length ? l : (LINES[name] || LINES.Chiioo)[lang()]; };
+    const madLine = () => typeof opts.madLine === 'function' ? opts.madLine() : (opts.madLine || MAD_LINE[lang()]);
+    const bTone = BUBBLE_TONES[opts.bubbleTone || (name === 'Hachimi' ? 'pink' : 'owl')];
+    const dpr = Math.min(3, window.devicePixelRatio || 1), px = size / 24, cellPx = size / 12;
+
+    const wrap = document.createElement('span'); wrap.className = 'pxav-wrap';
+    const root = document.createElement('canvas');
+    root.width = Math.round(size * dpr); root.height = Math.round(px * 22 * dpr);
+    root.setAttribute('role', 'img'); root.setAttribute('data-pxav', ''); root.className = 'owl';
+    root.setAttribute('aria-label', opts.label || (name + ' the owl'));
+    root.style.cssText = 'display:block;width:' + size + 'px;height:' + (px * 22) + 'px;--pxc:' + cellPx + 'px;flex:none;cursor:' + (opts.interactive === false ? 'default' : 'pointer') + ';image-rendering:pixelated;transform-origin:50% 100%';
+    wrap.append(root); host.replaceChildren(wrap);
+    const ctx = root.getContext('2d'), cell = root.width / 24;
+
+    const cycling = !!opts.cycle;
+    let actIdx = Math.max(0, ACTIVITIES.indexOf(opts.pose || 'default'));
+    let basePose = opts.pose || 'default', pose = cycling ? ACTIVITIES[actIdx] : basePose;
+    let mad = false, frame = 0, closed = false, flap = false, look = 'center', twitch = null, hopping = false, onScreen = true, lastKey = '';
+    const T = { frame: null, act: null, madT: null, hopT: null, blink: [], idle: [], say: [], loop: [] };
+    const curPose = () => mad ? 'mad' : pose;
+    const cache = {};
+    const framesFor = p => cache[p] || (cache[p] = (POSES[p].frames || [POSES[p].grid]).map(fr => hires(keepWings(fr, STYLES[variant](fr.slice())), p === 'mad', p, kawaii).join('')));
+    function colour(ch) {
+      const c = tone;
+      switch (ch) {
+        case 'X': return c.body;
+        case 'A': case 'S': return c.accent;
+        case 'G': case 'Q': case 'N': return c.detail;
+        case 'B': return c.belly;
+        case 'P': return c.blush || BLUSH;
+        case 'M': return MAD_MARK;
+        case 'H': case 'F': case 'C': case 'Y': return (THEME_INK[variant] || {})[ch] || c.accent;
+        case 'L': case 'R': return twitch === ch ? null : c.body;
+        case 'D': return c.face;
+        case 'W': return flap ? null : c.wing;
+        case 'U': return flap ? c.wing : null;
+        case 'K': return closed ? (c.face || c.body) : MASCOT.onDark;
+        case 'E': return closed ? (c.face || c.body) : c.detail;
+      }
+      return null;
+    }
+    function paint() {
+      const p = curPose(), fr = framesFor(p), grid = fr[frame % fr.length], P = POSES[p];
+      const sh = P.glance ? (look === 'left' ? [-1, 0] : look === 'right' ? [1, 0] : look === 'up' ? [0, -1] : [0, 0]) : [0, 0];
+      const key = p + '|' + (frame % fr.length) + '|' + closed + '|' + flap + '|' + look + '|' + twitch;
+      if (key !== lastKey) {
+        lastKey = key; ctx.clearRect(0, 0, root.width, root.height);
+        const dot = (x, y, col) => { ctx.fillStyle = col; ctx.fillRect(Math.floor(x * cell), Math.floor(y * cell), Math.ceil(cell), Math.ceil(cell)); };
+        const moved = sh[0] || sh[1], eyes = [];
+        for (let i = 0; i < grid.length; i++) {
+          const ch = grid[i], col = colour(ch); if (!col) continue;
+          const x = i % 24, y = (i / 24) | 0;
+          if (ch === 'E' || ch === 'N' || ch === 'K') { eyes.push([x, y, col]); if (moved) dot(x, y, tone.face || tone.body); }   // a glancing eye leaves face colour behind, not a hole
+          else dot(x, y, col);
+        }
+        eyes.forEach(([x, y, col]) => dot(x + sh[0], y + sh[1], col));
+      }
+      const an = reduced ? 'none' : mad ? 'pxav-shake 180ms steps(3,jump-none) infinite' : (!hopping && onScreen) ? 'pxav-bob ' + (P.bob || 2.4) + 's steps(2,jump-none) infinite' : 'none';
+      if (root.dataset.an !== an) { root.style.animation = an; root.dataset.an = an; }
+    }
+    const live = () => onScreen && !document.hidden;
+    const clearAll = list => { list.forEach(x => { clearTimeout(x); clearInterval(x); }); list.length = 0; };
+
+    function startFrames() { clearInterval(T.frame); frame = 0; const P = POSES[curPose()]; if (P.frames && !reduced && onScreen) T.frame = setInterval(() => { if (!live()) return; frame++; paint(); }, P.ms || 320); }
+    function startBlink() {
+      clearAll(T.blink); if (reduced || !onScreen) return;
+      const once = at => { T.blink.push(setTimeout(() => { if (!POSES[curPose()].blink) return; closed = true; paint(); }, at)); T.blink.push(setTimeout(() => { closed = false; paint(); }, at + 140)); };
+      const next = () => { once(0); if (Math.random() < 0.2) once(260); T.blink.push(setTimeout(next, blinkMs * (0.6 + Math.random() * 0.8))); };
+      T.blink.push(setTimeout(next, 1200 + Math.random() * 1500));
+    }
+    function startIdle() {
+      clearAll(T.idle); if (reduced || !onScreen) return;
+      const later = (fn, ms) => T.idle.push(setTimeout(fn, ms));
+      const loop = () => {
+        const P = POSES[curPose()], acts = [];
+        if (P.glance) acts.push('glance', 'glance');
+        acts.push('twitch'); for (let i = 0; i < (P.flap || 0); i++) acts.push('flap');
+        const a = acts[Math.floor(Math.random() * acts.length)];
+        if (!mad && !hopping) {
+          if (a === 'glance') { look = ['left', 'right', 'up'][Math.floor(Math.random() * 3)]; paint(); later(() => { look = 'center'; paint(); }, 900 + Math.random() * 700); }
+          else if (a === 'twitch') { const e = Math.random() < 0.5 ? 'L' : 'R'; twitch = e; paint(); later(() => { twitch = null; paint(); }, 140); later(() => { twitch = e; paint(); }, 280); later(() => { twitch = null; paint(); }, 420); }
+          else flapBurst(6, pose === 'wave' ? 180 : 110);
+        }
+        later(loop, (pose === 'cheer' ? 1200 : 2200) + Math.random() * 2600);
+      };
+      later(loop, 1200);
+    }
+    function startCycle() {
+      clearInterval(T.act); if (!cycling || reduced || !onScreen) return;
+      T.act = setInterval(() => { if (!live() || mad) return; hop(220); actIdx = (actIdx + 1) % ACTIVITIES.length; pose = ACTIVITIES[actIdx]; lastKey = ''; startFrames(); paint(); }, opts.activityMs || 9000);
+    }
+    function setPose(p) { if (!POSES[p] || p === 'mad') p = 'default'; pose = p; basePose = p; lastKey = ''; startFrames(); paint(); }
+    function flapBurst(n, ms) { if (reduced) return; let k = 0; const t = setInterval(() => { flap = !flap; paint(); if (++k >= (n || 6)) { clearInterval(t); flap = false; paint(); } }, ms || 110); }
+    function hop(ms, big) {
+      clearTimeout(T.hopT); hopping = true;
+      if (big) { closed = true; flap = true; }
+      paint();
+      if (root.animate && !reduced) root.animate(hopFrames(cellPx, big), { duration: ms + 200, easing: EASE_OUT });
+      T.hopT = setTimeout(() => { hopping = false; if (big) { closed = false; flap = false; } paint(); }, ms + 200);
+    }
+
+    // speech bubble: typing dots, then the line types out, stays, floats away
+    let bubble = null, lastLine = -1;
+    const bubbleOn = !!opts.say;
+    const fs = opts.bubbleFont || Math.round(Math.min(44, Math.max(14, size * 0.24))), bw = Math.max(3, Math.round(fs / 12));
+    function side() {
+      if (opts.bubbleSide && opts.bubbleSide !== 'auto') return opts.bubbleSide;
+      const r = wrap.getBoundingClientRect(), box = (wrap.closest('section, header, .ostage') || document.body).getBoundingClientRect();
+      return (box.right - r.right) >= (r.left - box.left) ? 'right' : 'left';
+    }
+    function closeBubble(now) {
+      if (!bubble) return; const b = bubble; bubble = null;
+      if (now || reduced || !b.animate) { b.remove(); return; }
+      const a = b.animate([{ opacity: 1, transform: 'none' }, { opacity: 0, transform: 'translateY(-' + fs * 0.4 + 'px) scale(.96)' }], { duration: 260, easing: 'ease-in', fill: 'forwards' });
+      a.onfinish = () => b.remove();
+    }
+    function say(forced) {
+      const list = linesFor(); if (!list.length && !forced) return;
+      clearAll(T.say); closeBubble(true);
+      let i = Math.floor(Math.random() * list.length);
+      if (list.length > 1 && i === lastLine) i = (i + 1 + Math.floor(Math.random() * (list.length - 1))) % list.length;
+      lastLine = i;
+      const text = forced || list[i], right = side() !== 'left';
+      const b = document.createElement('span'); b.className = 'pxav-bub'; b.setAttribute('aria-hidden', 'true');
+      b.style[right ? 'left' : 'right'] = '72%'; b.style.transformOrigin = right ? '0% 100%' : '100% 100%';
+      const inner = document.createElement('span');
+      inner.style.cssText = 'max-width:' + (opts.bubbleMaxWidth || Math.max(240, fs * 12)) + 'px;padding:' + (fs * 0.45) + 'px ' + (fs * 0.6) + 'px;background:' + bTone.bg + ';color:' + bTone.text + ';border:' + bw + 'px solid ' + bTone.border + ';border-radius:' + (fs * 0.5) + 'px;font-size:' + fs + 'px;box-shadow:' + bw + 'px ' + bw + 'px 0 ' + bTone.border;
+      const tail = (dx, top, w) => { const t = document.createElement('span'); t.style.cssText = 'position:absolute;' + (right ? 'left' : 'right') + ':' + dx + 'px;top:' + top + ';width:' + w + 'px;height:' + w + 'px;box-sizing:content-box;background:' + bTone.bg + ';border:' + bw + 'px solid ' + bTone.border + ';border-top:none'; return t; };
+      const body = document.createElement('span');
+      inner.append(body, tail(fs * 0.9, '100%', fs * 0.55), tail(fs * 0.9 - fs * 0.35, 'calc(100% + ' + (fs * 0.55) + 'px)', fs * 0.3));
+      b.append(inner); wrap.append(b); bubble = b;
+      const shown = document.createElement('span'), hidden = document.createElement('span'); hidden.style.visibility = 'hidden';
+      const typeText = n => { shown.textContent = text.slice(0, n); hidden.textContent = text.slice(n); };
+      const stay = opts.sayForMs || 5200;
+      if (reduced) { body.append(shown, hidden); typeText(text.length); T.say.push(setTimeout(() => closeBubble(), stay)); return; }
+      b.animate([{ opacity: 0, transform: 'translateY(' + fs * 0.3 + 'px) scale(.6)' }, { opacity: 1, transform: 'translateY(-2px) scale(1.04)', offset: 0.65 }, { opacity: 1, transform: 'none' }], { duration: 340, easing: EASE_OUT, fill: 'forwards' });
+      const dots = document.createElement('span'); dots.style.cssText = 'display:inline-flex;gap:' + fs * 0.25 + 'px;padding:0 ' + fs * 0.2 + 'px';
+      for (let k = 0; k < 3; k++) { const d = document.createElement('span'); d.style.cssText = 'width:' + fs * 0.3 + 'px;height:' + fs * 0.3 + 'px;border-radius:50%;background:' + bTone.dot + ';animation:pxav-dot 900ms ' + k * 150 + 'ms infinite ' + EASE_OUT; dots.append(d); }
+      body.append(dots);
+      T.say.push(setTimeout(() => {
+        dots.remove(); body.append(shown, hidden); let n = 0; typeText(0);
+        const iv = setInterval(() => { n += 1; typeText(n); if (n >= text.length) clearInterval(iv); }, 28); T.say.push(iv);
+      }, 750));
+      T.say.push(setTimeout(() => closeBubble(), 750 + text.length * 28 + stay));
+    }
+    function startTalk() {
+      clearAll(T.loop); if (!bubbleOn || !onScreen) { clearAll(T.say); closeBubble(true); return; }
+      const every = opts.sayEveryMs || 12000, jit = opts.sayJitter == null ? 0.2 : opts.sayJitter;
+      const next = ms => T.loop.push(setTimeout(() => { if (live()) say(); next(every * (1 - jit + Math.random() * jit * 2)); }, ms));
+      next(opts.sayDelayMs != null ? opts.sayDelayMs : 1400 + Math.random() * 1200);
+    }
+
+    // poke it 5 times quickly and it gets mad for a moment
+    let clicks = [];
+    function getMad() { clearTimeout(T.madT); mad = true; lastKey = ''; startFrames(); paint(); if (bubbleOn) say(madLine()); T.madT = setTimeout(() => { mad = false; clicks = []; lastKey = ''; startFrames(); paint(); }, 3200); }
+    if (opts.interactive !== false) root.addEventListener('click', () => {
+      if (mad) { getMad(); return; }
+      const now = Date.now(); clicks = clicks.filter(t => now - t < 2500).concat(now);
+      if (temper > 0 && clicks.length >= temper) { clicks = []; getMad(); }
+      else { hop(260, true); if (bubbleOn && !bubble) say(); }
+    });
+
+    // only animate while on screen
+    function wake() { startFrames(); startBlink(); startIdle(); startCycle(); startTalk(); paint(); }
+    function sleep() { clearInterval(T.frame); clearInterval(T.act); clearAll(T.blink); clearAll(T.idle); clearAll(T.loop); clearAll(T.say); closeBubble(true); look = 'center'; twitch = null; paint(); }
+    if ('IntersectionObserver' in window) new IntersectionObserver(es => es.forEach(e => { const was = onScreen; onScreen = e.isIntersecting; if (onScreen && !was) wake(); else if (!onScreen && was) sleep(); })).observe(root);
+    paint(); wake();
+    return { el: root, wrap, setPose, flapBurst, hop, say, setLabel: t => root.setAttribute('aria-label', t), get pose() { return curPose(); } };
   }
-  if (!reduced){
-    setInterval(tick(()=>{ if (!POSES[pose].blink) return; closed = true; paint(); setTimeout(()=>{ closed=false; paint(); }, 160); }), 3800);
-  }
-  function flapBurst(n){ if (reduced) return; let k=0; const t=setInterval(()=>{ flap=!flap; paint(); if(++k>=n){ clearInterval(t); flap=false; paint(); } }, 110); }
-  root.addEventListener("click", ()=>{ flapBurst(6); if (!reduced) root.animate([{transform:"translateY(0)"},{transform:`translateY(-${size/8}px)`},{transform:"translateY(0)"}],{duration:260}); });
-  setPose(pose);
-  return { setPose, flapBurst, el: root };
-}
+  window.makeOwl = makeOwl;
+  window.OWL_LINES = LINES;
+})();
 
 </script>
 <script>
@@ -194,12 +508,15 @@ const T = {
   vi:{t:"Không tìm thấy trang này", s:"Đường link có thể đã cũ hoặc bị gõ sai. Bạn hãy thử một trong các trang dưới đây.", lHome:"Trang chủ", lMap:"Lộ trình", lHub:"Góc học tập", sw:"English", title:"Không tìm thấy trang · The Standard"}
 };
 const get = k => { try { return localStorage.getItem(k); } catch(e) { return null; } };
-let lang = get("ts-lang"); if (lang!=="en" && lang!=="vi") lang = (navigator.language||"").toLowerCase().startsWith("vi") ? "vi" : "en";
+let lang = "vi"; // the website always opens in Vietnamese
 const th = get("standardRouteMap.v1.theme"); if (th==="light"||th==="dark") document.documentElement.setAttribute("data-theme", th);
 function paint(){ const L=T[lang]; for (const id of ["t","s","lHome","lMap","lHub","sw"]) document.getElementById(id).textContent = L[id]; document.title = L.title; document.documentElement.lang = lang; }
-document.getElementById("sw").onclick = () => { lang = lang==="en" ? "vi" : "en"; try { localStorage.setItem("ts-lang", lang); } catch(e) {} paint(); };
+document.getElementById("sw").onclick = () => { lang = lang==="en" ? "vi" : "en"; paint(); };
 paint();
-makeOwl(document.getElementById("owl"), 104, {label:"Chiioo", pose:"surprised"});
+const TALK = {Chiioo:{en:["This page flew away. Try a link below.", "I looked everywhere. Even under my wing.", "Wrong branch. Let us hop to another page."], vi:["Trang này bay mất rồi. Thử một đường link bên dưới nhé.", "Mình tìm khắp nơi rồi. Cả dưới cánh luôn.", "Nhầm cành rồi. Mình nhảy sang trang khác nhé."]}};
+const talk = who => () => TALK[who][document.documentElement.lang==="vi" ? "vi" : "en"];
+const sz = innerWidth < 420 ? 88 : 104;
+makeOwl(document.getElementById("o1"), sz, {name:"Chiioo", label:"Chiioo", pose:"surprised", say:true, lines:talk("Chiioo"), sayDelayMs:900, sayEveryMs:10000, sayJitter:0.2, sayForMs:4200, bubbleSide:"right", bubbleFont:17, bubbleMaxWidth:240});
 </script>
 </body>
 </html>
