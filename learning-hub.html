@@ -762,20 +762,31 @@ dialog,.shead{background:var(--canvas)}
 .owlbox{display:none}
 /* Noto Sans is wider than the old font: keep the phone header on one line */
 @media (max-width:420px){ .sitebar{gap:12px} }
+
+/* V3.1: the wordmark from the home page replaces the text mark */
+.mark{display:inline-flex;align-items:center;line-height:0;flex:none}
+.mark-logo{display:block;height:22px;width:auto}
+.mark-dark{display:none}
+:root[data-theme="dark"] .mark-light{display:none}
+:root[data-theme="dark"] .mark-dark{display:block}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) .mark-light{display:none}
+  :root:not([data-theme="light"]) .mark-dark{display:block}
+}
+@media (max-width:420px){.mark-logo{height:18px}}
 </style>
 </head>
 <body>
 <div class="wrap">
   <div class="top sitebar">
-    <a class="mark" href="./" aria-label="The Standard, home">The Standard<b>.</b></a>
+    <a class="mark" href="./" aria-label="The Standard, home"><img class="mark-logo mark-light" src="assets/logo-black.png" alt="" width="760" height="96"><img class="mark-logo mark-dark" src="assets/logo-white.png" alt="" width="760" height="96"></a>
     <nav class="sitenav" aria-label="Site">
       <ul id="navList">
         <li><a href="./#about" data-i="navAbout">Giới thiệu</a></li>
-        <li><a href="./#experience" data-i="navExp">Kinh nghiệm</a></li>
-        <li><a href="./#education" data-i="navEdu">Học vấn</a></li>
-        <li><a href="./#skills" data-i="navSkills">Kỹ năng</a></li>
-        <li><a href="./#learning" aria-current="true" data-i="navLearn">Góc học tập</a></li>
+        <li><a href="./#services" data-i="navCourses">Khóa học</a></li>
         <li><a href="./#contact" data-i="navContact">Liên hệ</a></li>
+        <li><a href="./#learning" aria-current="true" data-i="navLearn">Góc học tập</a></li>
+        <li><a href="./#profile" data-i="navProfile">Hồ sơ</a></li>
         <li><a href="./#apply" class="navapply" data-i="navApply">Đăng ký</a></li>
       </ul>
     </nav>
@@ -1360,7 +1371,7 @@ const UI = {
   copy:"Copy backup code", restoreOpen:"Restore from code", reset:"Reset progress", code:"Backup code", restore:"Restore",
   resetQ:"This clears every tick and answer on this device.", resetYes:"Yes, reset", cancel:"Cancel", refs:"References",
   copied:"Backup code copied.", copyManual:"Copy the code shown above.", restored:"Progress restored.", badCode:"That code could not be read. Paste the full code exactly as copied.", cleared:"Progress cleared.",
-  navAbout:"About", navExp:"Experience", navEdu:"Education", navSkills:"Skills", navRoute:"Route map", navHub:"Learning hub", navContact:"Contact", navApply:"Apply", navMenu:"Open menu", navClose:"Close menu",
+  navCourses:"Courses", navProfile:"Profile", navAbout:"About", navExp:"Experience", navEdu:"Education", navSkills:"Skills", navRoute:"Route map", navHub:"Learning hub", navContact:"Contact", navApply:"Apply", navMenu:"Open menu", navClose:"Close menu",
   owlHint:"Click the owl for a new line.", owl2:"Hachimi the owl", owl:"Chiioo the owl", themes:{auto:"Auto", light:"Light", dark:"Dark"}, themeL:"Colour theme",
   /* class tools */
   wName:"Speaking wheel", wDesc:"Spin for a topic, then for a question. Speak until the timer ends.",
@@ -1451,7 +1462,7 @@ const UI = {
   copy:"Sao chép mã sao lưu", restoreOpen:"Khôi phục từ mã", reset:"Xóa tiến độ", code:"Mã sao lưu", restore:"Khôi phục",
   resetQ:"Thao tác này xóa mọi dấu đã học và câu trả lời trên thiết bị này.", resetYes:"Đồng ý xóa", cancel:"Hủy", refs:"Tài liệu tham khảo",
   copied:"Đã sao chép mã sao lưu.", copyManual:"Hãy sao chép mã hiển thị phía trên.", restored:"Đã khôi phục tiến độ.", badCode:"Không đọc được mã này. Hãy dán đầy đủ mã như khi sao chép.", cleared:"Đã xóa tiến độ.",
-  navAbout:"Giới thiệu", navExp:"Kinh nghiệm", navEdu:"Học vấn", navSkills:"Kỹ năng", navRoute:"Lộ trình", navHub:"Góc học tập", navContact:"Liên hệ", navApply:"Đăng ký", navMenu:"Mở menu", navClose:"Đóng menu",
+  navCourses:"Khóa học", navProfile:"Hồ sơ", navAbout:"Giới thiệu", navExp:"Kinh nghiệm", navEdu:"Học vấn", navSkills:"Kỹ năng", navRoute:"Lộ trình", navHub:"Góc học tập", navContact:"Liên hệ", navApply:"Đăng ký", navMenu:"Mở menu", navClose:"Đóng menu",
   owlHint:"Bấm vào chú cú để nghe câu mới.", owl2:"Cú Hachimi", owl:"Cú Chiioo", themes:{auto:"Tự động", light:"Sáng", dark:"Tối"}, themeL:"Giao diện",
   wName:"Vòng quay nói", wDesc:"Quay để chọn chủ đề, rồi quay để chọn câu hỏi. Nói cho đến khi hết giờ.",
   wModeTwo:"Chủ đề rồi câu hỏi", wModeAll:"Câu hỏi bất kỳ", wSkip:"Bỏ qua câu đã hỏi",

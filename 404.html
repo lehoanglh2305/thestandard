@@ -156,12 +156,24 @@ dialog,.shead{background:var(--canvas)}
 .owlbox{display:none}
 /* Noto Sans is wider than the old font: keep the phone header on one line */
 @media (max-width:420px){ .sitebar{gap:12px} }
+
+/* V3.1: the wordmark from the home page replaces the text mark */
+.mark{margin-top:28px;display:inline-flex;align-items:center;line-height:0;flex:none}
+.mark-logo{display:block;height:22px;width:auto}
+.mark-dark{display:none}
+:root[data-theme="dark"] .mark-light{display:none}
+:root[data-theme="dark"] .mark-dark{display:block}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) .mark-light{display:none}
+  :root:not([data-theme="light"]) .mark-dark{display:block}
+}
+@media (max-width:420px){.mark-logo{height:18px}}
 </style>
 </head>
 <body>
 <main>
   <div class="owlstage"><div class="ostage"><span id="o1"></span></div></div>
-  <a class="mark" href="https://lehoanglh2305.github.io/thestandard/">The Standard<b>.</b></a>
+  <a class="mark" href="https://lehoanglh2305.github.io/thestandard/" aria-label="The Standard, home"><img class="mark-logo mark-light" src="https://lehoanglh2305.github.io/thestandard/assets/logo-black.png" alt="" width="760" height="96"><img class="mark-logo mark-dark" src="https://lehoanglh2305.github.io/thestandard/assets/logo-white.png" alt="" width="760" height="96"></a>
   <div class="code">404</div>
   <h1 id="t">Không tìm thấy trang này</h1>
   <p id="s">Đường link có thể đã cũ hoặc bị gõ sai. Bạn hãy thử một trong các trang dưới đây.</p>
