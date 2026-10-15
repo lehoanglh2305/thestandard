@@ -392,6 +392,124 @@ footer p{font-size:16px}
 .card.c-ielts .tab,.card.c-toeic .tab,.card.c-aptis .tab,.card.c-found .tab{background:var(--cBg)}
 .card.c-ielts .tab span,.card.c-toeic .tab span,.card.c-aptis .tab span,.card.c-found .tab span{color:var(--cInk)}
 .card.c-ielts>.ico,.card.c-toeic>.ico,.card.c-aptis>.ico,.card.c-found>.ico{color:var(--cobalt)}
+
+/* ===== Elevation scale (V3.3) =====
+   Warm cocoa shadows. Each level = a short hard "shelf" edge + a soft ambient blur.
+   0 flat · 1 resting surface · 2 raised card · 3 hover or lifted · 4 floating UI. Buttons use the press pair. */
+:root{
+  --shadowRGB:75 42 34;
+  --elev0:none;
+  --elev1:0 1px 0 rgb(var(--shadowRGB) / .08),0 3px 8px -4px rgb(var(--shadowRGB) / .14);
+  --elev2:0 2px 0 rgb(var(--shadowRGB) / .10),0 10px 20px -10px rgb(var(--shadowRGB) / .24);
+  --elev3:0 4px 0 rgb(var(--shadowRGB) / .12),0 18px 32px -14px rgb(var(--shadowRGB) / .32);
+  --elev4:0 6px 0 rgb(var(--shadowRGB) / .14),0 28px 48px -18px rgb(var(--shadowRGB) / .40);
+  --elevPress:0 4px 0 rgb(var(--shadowRGB) / .28);
+  --elevPressed:0 1px 0 rgb(var(--shadowRGB) / .28);
+}
+.badges li,.course-pills li,.role,.skill-group,.edu-item,.cert-list li{box-shadow:var(--elev1)}
+.card,.stat,.enrol-card,.profile,.learn-card{box-shadow:var(--elev2)}
+.step{box-shadow:0 4px 0 rgb(15 40 90 / .35),0 18px 30px -16px rgb(10 25 60 / .55)}
+.nav.scrolled{box-shadow:var(--elev2)}
+.to-top,.mobile-panel.open{box-shadow:var(--elev4)}
+.mobile-apply{box-shadow:var(--elev4)}
+.btn{box-shadow:var(--elevPress)}
+.btn.second,.btn.light{box-shadow:var(--elevPress)}
+
+/* ===== Layout tune up (V3.3) ===== */
+section{padding:52px 0}
+@media (min-width:1024px){section{padding:80px 0}}
+.section-head{margin-bottom:28px}
+.contact-section{padding-bottom:80px}
+.hero{position:relative;overflow:hidden}
+.hero>.inner{position:relative;z-index:1}
+@media (min-width:1024px) and (min-height:640px){
+  .hero{min-height:calc(100svh - var(--navH));display:flex;flex-direction:column;justify-content:center;padding:24px 0 72px}
+  .hero>.inner{width:100%}
+}
+.scroll-cue{display:none}
+@media (min-width:1024px) and (min-height:640px){
+  .scroll-cue{display:grid;place-items:center;position:absolute;left:50%;bottom:18px;z-index:2;width:44px;height:44px;margin-left:-22px;border-radius:50%;border:2px solid var(--cocoa);color:var(--cocoa);background:var(--paper);box-shadow:var(--elev2);text-decoration:none}
+  .scroll-cue .ico{width:22px;height:22px}
+  .scroll-cue:hover{background:var(--cocoa);color:var(--cream)}
+}
+@media (min-width:860px){.about-grid{grid-template-columns:4fr 8fr;align-items:center;gap:56px}}
+.photo-frame{max-width:400px}
+.stat-row{gap:14px}
+.stat{position:relative;overflow:hidden;padding:22px 18px 18px;isolation:isolate}
+.stat .n{font-size:clamp(44px,5.4vw,66px)}
+.stat::after{content:"";position:absolute;z-index:-1;right:-34px;top:-34px;width:120px;height:120px;border-radius:50%;
+  background:repeating-conic-gradient(var(--grammar) 0 7deg,transparent 7deg 22.5deg);
+  -webkit-mask:radial-gradient(circle,transparent 20px,#000 21px);mask:radial-gradient(circle,transparent 20px,#000 21px);opacity:.6}
+.stat:nth-child(2)::after{background:repeating-conic-gradient(var(--speaking) 0 7deg,transparent 7deg 22.5deg)}
+.stat:nth-child(3)::after{background:repeating-conic-gradient(var(--reading) 0 7deg,transparent 7deg 22.5deg)}
+.course-grid{align-items:stretch}
+@media (min-width:1024px){.enrol-embed iframe{height:clamp(620px,calc(100svh - 300px),1500px)}}
+.steps{position:relative}
+.step .num{position:relative;z-index:2}
+@media (min-width:860px){
+  .steps::before{content:"";position:absolute;z-index:1;top:60px;left:58px;width:calc((100% - 48px) * 2 / 3 + 48px);border-top:4px dotted var(--grammar);transform-origin:left center;pointer-events:none}
+}
+
+/* ===== Visual effects (V3.3, lively but calm) ===== */
+.hero::before,.hero::after{content:"";position:absolute;z-index:0;border-radius:50%;pointer-events:none;background-image:radial-gradient(var(--cobalt) 1.4px,transparent 1.6px);background-size:10px 10px}
+.hero::before{width:360px;height:360px;left:-140px;top:12%;opacity:.12}
+.hero::after{width:260px;height:260px;right:4%;bottom:-90px;opacity:.14;background-image:radial-gradient(var(--review) 1.4px,transparent 1.6px)}
+.btn{position:relative;overflow:hidden;isolation:isolate}
+.btn::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(105deg,transparent 30%,rgb(255 255 255 / .38) 50%,transparent 70%);transform:translateX(-130%);pointer-events:none}
+.card[class*="c-"]{transition:transform .35s var(--easeOut),box-shadow .3s var(--easeOut),border-color .25s var(--easeOut)}
+.card[class*="c-"]:hover,.card[class*="c-"]:focus-visible{border-color:var(--cBg);box-shadow:0 0 0 2px var(--cBg),var(--elev3)}
+.learn-card:hover,.stat:hover{box-shadow:var(--elev3)}
+@media (prefers-reduced-motion:no-preference){
+  .btn{transition:background-color .2s var(--easeOut),color .2s var(--easeOut),border-color .2s var(--easeOut),transform .35s var(--easeSpring),box-shadow .2s var(--easeOut)}
+  .btn:hover::after{transform:translateX(130%);transition:transform .7s var(--easeOut)}
+  .btn:active{transform:translateY(3px);box-shadow:var(--elevPressed)}
+  .hero::before{animation:drift 22s ease-in-out infinite alternate}
+  .hero::after{animation:drift 18s ease-in-out -6s infinite alternate-reverse}
+  @keyframes drift{to{transform:translate(48px,-28px) rotate(18deg)}}
+  .stat::after{animation:spin 40s linear infinite}
+  @keyframes spin{to{transform:rotate(1turn)}}
+  .scroll-cue .ico{animation:nudge 2.4s var(--easeSpring) infinite}
+  @keyframes nudge{0%,60%,100%{transform:none}30%{transform:translateY(5px)}}
+  @supports ((animation-timeline: view()) and (animation-range: entry)){
+    .steps::before{animation:drawLine linear both;animation-timeline:view();animation-range:entry 30% cover 50%}
+    @keyframes drawLine{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+  }
+}
+@media (prefers-reduced-motion:no-preference) and (hover:hover) and (pointer:fine){
+  .tilt{transition:transform .35s var(--easeOut),box-shadow .3s var(--easeOut),border-color .25s var(--easeOut)}
+  .tilt:hover{transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translateY(-6px)}
+  .tilt>.glare{position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:3;opacity:0;transition:opacity .3s var(--easeOut);background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgb(255 255 255 / .18),transparent 50%)}
+  .tilt:hover>.glare{opacity:1}
+}
+html.anim-paused .hero::before,html.anim-paused .hero::after,html.anim-paused .stat::after,html.anim-paused .scroll-cue .ico{animation-play-state:paused!important}
+
+/* ===== Three steps, clearer (V3.4) ===== */
+.steps::before{content:none!important;display:none}
+.steps{gap:44px}
+@media (min-width:860px){.steps{gap:56px}}
+.step{position:relative;border-top:10px solid var(--sBg);padding:24px 24px 28px;gap:12px}
+.step.s1{--sBg:var(--grammar);--sInk:var(--grammarInk)}
+.step.s2{--sBg:var(--speaking);--sInk:var(--speakingInk)}
+.step.s3{--sBg:var(--reading);--sInk:var(--readingInk)}
+.step-top{display:flex;align-items:center;justify-content:space-between}
+.step .num{width:72px;height:72px;background:var(--sBg);color:var(--sInk);font-family:var(--font-display);font-weight:800;font-size:44px;box-shadow:0 4px 0 rgb(var(--shadowRGB) / .18)}
+.step-ico{width:56px;height:56px;border-radius:16px;display:grid;place-items:center;background:var(--cream);color:var(--cobalt)}
+.step-ico .ico{width:32px;height:32px}
+.step-tag{align-self:flex-start;font-family:var(--font-display);font-weight:700;font-size:15px;letter-spacing:.08em;text-transform:uppercase;color:var(--sInk);background:var(--sBg);border-radius:var(--radiusPill);padding:4px 12px}
+.step h3{font-size:clamp(26px,2.4vw,30px)}
+.step p{font-size:18px;color:var(--mocha)}
+.step:not(:last-child)::after{content:"";position:absolute;z-index:4;left:50%;bottom:-40px;width:36px;height:36px;margin-left:-18px;border-radius:50%;background:var(--grammar) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231f5bb5' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h13'/%3E%3Cpath d='m13 6.5 5.5 5.5-5.5 5.5'/%3E%3C/svg%3E") center/22px no-repeat;transform:rotate(90deg);box-shadow:0 3px 0 rgb(10 25 60 / .35)}
+@media (min-width:860px){.step:not(:last-child)::after{left:auto;bottom:auto;top:50%;right:-48px;width:40px;height:40px;margin:-20px 0 0;transform:none;background-size:24px}}
+.how .actions{align-items:center;gap:16px 20px}
+.cta-yellow{background:var(--grammar);border-color:var(--grammar);color:var(--cocoa);font-size:18px;min-height:56px;padding:0 28px}
+.cta-yellow:hover{background:var(--paper);border-color:var(--paper);color:var(--cocoa)}
+.cta-yellow .ico{transition:transform .35s var(--easeSpring)}
+.cta-yellow:hover .ico{transform:translateX(4px)}
+.how-note{margin:0;color:var(--cream);font-size:17px;opacity:.9}
+@media (prefers-reduced-motion:no-preference){
+  .step{transition:transform .35s var(--easeSpring),box-shadow .3s var(--easeOut)}
+  .step:hover{transform:translateY(-6px)}
+}
 </style>
 <script type="application/ld+json">
 {
@@ -574,6 +692,9 @@ footer p{font-size:16px}
   <symbol id="i-learner" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c.8-3.6 3.5-6 7-6s6.2 2.4 7 6"/></symbol>
   <symbol id="i-bulb" viewBox="0 0 24 24"><path d="M9 17h6M10 20h4"/><path d="M8.5 14C7 12.8 6 11.2 6 9.5a6 6 0 0 1 12 0c0 1.7-1 3.3-2.5 4.5V17h-7z"/></symbol>
   <symbol id="i-group" viewBox="0 0 24 24"><circle cx="9" cy="8.5" r="3"/><path d="M3.5 19.5c.6-3 2.7-5 5.5-5s4.9 2 5.5 5"/><path d="M15.5 5.6a3 3 0 0 1 0 5.8M17.5 14.7c1.6.7 2.6 2.4 3 4.8"/></symbol>
+  <symbol id="i-form" viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 3h6v3H9z"/><path d="M8.5 11h7M8.5 14.5h7M8.5 18h4"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9.5h8M8 12.5h5"/></symbol>
+  <symbol id="i-laptop" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="11" rx="1.5"/><path d="M2 19h20"/><circle cx="12" cy="9.5" r="1.8"/><path d="M9.2 14c.5-1.5 1.5-2.2 2.8-2.2s2.3.7 2.8 2.2"/></symbol>
   <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="m3.5 7 8.5 6 8.5-6"/></symbol>
 </svg>
 
@@ -677,6 +798,7 @@ footer p{font-size:16px}
     </div>
     </div>
   </div>
+  <a class="scroll-cue" href="#about" aria-label="Cuộn xuống phần giới thiệu" data-vi-label="Cuộn xuống phần giới thiệu" data-en-label="Scroll to About"><svg class="ico" aria-hidden="true"><use href="#i-down"/></svg></a>
 </section>
 
 <section id="about">
@@ -748,24 +870,28 @@ footer p{font-size:16px}
       <h2 data-vi="Ba bước để bắt đầu" data-en="Three steps to start">Ba bước để bắt đầu</h2>
     </div>
     <ol class="steps">
-      <li class="step reveal-lid">
-        <span class="num" aria-hidden="true">1</span>
+      <li class="step s1 reveal-lid">
+        <div class="step-top"><span class="num" aria-hidden="true">1</span><span class="step-ico" aria-hidden="true"><svg class="ico"><use href="#i-form"/></svg></span></div>
+        <span class="step-tag" data-vi="Bước 1 · 3 phút" data-en="Step 1 · 3 minutes">Bước 1 · 3 phút</span>
         <h3 data-vi="Điền form 3 phút" data-en="Fill in the 3 minute form">Điền form 3 phút</h3>
         <p data-vi="Cho the Standard biết trình độ hiện tại, điểm mục tiêu và lịch học của bạn." data-en="Tell the Standard your current level, your target score, and when you can study.">Cho the Standard biết trình độ hiện tại, điểm mục tiêu và lịch học của bạn.</p>
       </li>
-      <li class="step reveal-lid">
-        <span class="num" aria-hidden="true">2</span>
+      <li class="step s2 reveal-lid">
+        <div class="step-top"><span class="num" aria-hidden="true">2</span><span class="step-ico" aria-hidden="true"><svg class="ico"><use href="#i-chat"/></svg></span></div>
+        <span class="step-tag" data-vi="Bước 2 · Tư vấn" data-en="Step 2 · Advice">Bước 2 · Tư vấn</span>
         <h3 data-vi="Trao đổi qua điện thoại hoặc Zalo" data-en="Talk it through by phone or Zalo">Trao đổi qua điện thoại hoặc Zalo</h3>
         <p data-vi="Bạn sẽ được the Standard liên hệ để tư vấn lộ trình học phù hợp." data-en="The Standard contacts you to suggest a study path that fits you.">Bạn sẽ được the Standard liên hệ để tư vấn lộ trình học phù hợp.</p>
       </li>
-      <li class="step reveal-lid">
-        <span class="num" aria-hidden="true">3</span>
+      <li class="step s3 reveal-lid">
+        <div class="step-top"><span class="num" aria-hidden="true">3</span><span class="step-ico" aria-hidden="true"><svg class="ico"><use href="#i-laptop"/></svg></span></div>
+        <span class="step-tag" data-vi="Bước 3 · Vào học" data-en="Step 3 · Start">Bước 3 · Vào học</span>
         <h3 data-vi="Bắt đầu học 1 kèm 1 online" data-en="Start 1 on 1 online lessons">Bắt đầu học 1 kèm 1 online</h3>
         <p data-vi="Học IELTS, TOEIC, APTIS hoặc Foundation theo lộ trình đã thống nhất." data-en="Study IELTS, TOEIC, APTIS, or Foundation on the path you agreed.">Học IELTS, TOEIC, APTIS hoặc Foundation theo lộ trình đã thống nhất.</p>
       </li>
     </ol>
     <div class="actions">
-      <a href="#apply" class="btn light" data-vi="Điền form ngay" data-en="Fill in the form">Điền form ngay</a>
+      <a href="#apply" class="btn cta-yellow"><span data-vi="Điền form ngay" data-en="Fill in the form">Điền form ngay</span><svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <p class="how-note" data-vi="Mất khoảng 3 phút. The Standard sẽ liên hệ lại để tư vấn." data-en="It takes about three minutes. The Standard will contact you with advice.">Mất khoảng 3 phút. The Standard sẽ liên hệ lại để tư vấn.</p>
     </div>
   </div>
 </section>
@@ -1225,6 +1351,22 @@ profileBox.addEventListener('toggle', onFrame);
 if(location.hash){
   var first = openFor(location.hash);
   if(first && (first.id === 'profile' || profileBox.contains(first))) requestAnimationFrame(function(){ first.scrollIntoView({ block: 'start' }); });
+}
+
+/* ---------- Gentle tilt and glare toward the pointer (fine pointers only) ---------- */
+if (!reduce && window.matchMedia('(hover: hover) and (pointer: fine)').matches){
+  document.querySelectorAll('.card, .learn-card, .stat').forEach(function(el){
+    el.classList.add('tilt');
+    var g = document.createElement('span'); g.className = 'glare'; g.setAttribute('aria-hidden', 'true'); el.appendChild(g);
+    el.addEventListener('pointermove', function(e){
+      var r = el.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+      el.style.setProperty('--ry', ((x - .5) * 6).toFixed(2) + 'deg');
+      el.style.setProperty('--rx', ((.5 - y) * 6).toFixed(2) + 'deg');
+      el.style.setProperty('--mx', (x * 100).toFixed(1) + '%');
+      el.style.setProperty('--my', (y * 100).toFixed(1) + '%');
+    });
+    el.addEventListener('pointerleave', function(){ el.style.removeProperty('--rx'); el.style.removeProperty('--ry'); });
+  });
 }
 
 /* ---------- Hide the floating apply bar while the hero buttons or the form are on screen ---------- */
