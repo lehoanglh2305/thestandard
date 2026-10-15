@@ -510,6 +510,33 @@ html.anim-paused .hero::before,html.anim-paused .hero::after,html.anim-paused .s
   .step{transition:transform .35s var(--easeSpring),box-shadow .3s var(--easeOut)}
   .step:hover{transform:translateY(-6px)}
 }
+
+/* ===== Navigation click animations (V3.5) ===== */
+.nav-links{position:relative}
+.nav-links li{position:relative;z-index:1}
+.nav-ink-li{position:absolute!important;inset:0;z-index:0!important;pointer-events:none}
+.nav-ink{position:absolute;top:50%;left:0;height:44px;width:0;margin-top:-22px;border-radius:var(--radiusPill);background:var(--paper);box-shadow:inset 0 0 0 1.5px var(--sand),var(--elev1);opacity:0}
+.nav-ink.on{opacity:1}
+.nav-links a[aria-current="true"]{background:transparent;box-shadow:none}
+.nav-links a:hover{background:rgb(255 250 242 / .6)}
+.nav-links a[aria-current="true"]:hover{background:transparent}
+.enrol-title{align-self:flex-start}
+.tap-dot{position:fixed;z-index:80;width:8px;height:8px;margin:-4px 0 0 -4px;border-radius:50%;pointer-events:none}
+.landed .section-head h2,.landed .contact-copy h2,.landed .enrol-title,.landed .part-title{text-decoration:underline;text-decoration-color:var(--grammar);text-decoration-thickness:.16em;text-underline-offset:.08em;text-decoration-skip-ink:none}
+@media (prefers-reduced-motion:no-preference){
+  .nav-ink{transition:left .5s var(--easeSpring),width .5s var(--easeSpring),opacity .2s var(--easeOut)}
+  .nav-links a,.mobile-panel a,.nav-apply{transition:background-color .2s var(--easeOut),transform .3s var(--easeSpring)}
+  .tap{animation:tap .42s var(--easeSpring)}
+  @keyframes tap{0%{transform:scale(1)}30%{transform:scale(.88)}100%{transform:scale(1)}}
+  .tap-dot{animation:tapDot .6s var(--easeOut) forwards}
+  @keyframes tapDot{from{transform:translate(0,0) scale(1);opacity:1}to{transform:translate(var(--dx),var(--dy)) scale(.3);opacity:0}}
+  .landed .section-head .stamp,.landed .part-head .stamp,.landed .contact-copy .stamp,.landed>.stamp{animation:popIn .5s var(--easeSpring) both}
+  .landed .section-head h2,.landed .contact-copy h2,.landed .enrol-title,.landed .part-title{animation:marker .7s var(--easeSpring) .15s both}
+  @keyframes marker{from{text-decoration-thickness:0;text-decoration-color:transparent}}
+  .landed.enrol-card{animation:landCard .7s var(--easeSpring)}
+  @keyframes landCard{0%{transform:none}35%{transform:translateY(-8px);box-shadow:var(--elev4)}100%{transform:none}}
+  .mobile-panel.open a{animation:rise .42s var(--easeSpring) both;animation-delay:calc(var(--i,0) * 35ms)}
+}
 </style>
 <script type="application/ld+json">
 {
@@ -702,6 +729,7 @@ html.anim-paused .hero::before,html.anim-paused .hero::after,html.anim-paused .s
   <div class="nav-row">
     <a class="brand" href="#home" aria-label="The Standard, về đầu trang" data-en-label="The Standard, back to top" data-vi-label="The Standard, về đầu trang"><img src="assets/logo-black.png" alt="The Standard" width="760" height="96"></a>
     <ul class="nav-links">
+      <li class="nav-ink-li" aria-hidden="true"><span class="nav-ink"></span></li>
       <li><a href="#about" data-vi="Giới thiệu" data-en="About">Giới thiệu</a></li>
       <li><a href="#services" data-vi="Khóa học" data-en="Courses">Khóa học</a></li>
       <li><a href="#contact" data-vi="Liên hệ" data-en="Contact">Liên hệ</a></li>
@@ -1368,6 +1396,61 @@ if (!reduce && window.matchMedia('(hover: hover) and (pointer: fine)').matches){
     el.addEventListener('pointerleave', function(){ el.style.removeProperty('--rx'); el.style.removeProperty('--ry'); });
   });
 }
+
+/* ---------- Navigation: sliding pill, tap pop with dots, landing highlight ---------- */
+(function(){
+  var list = document.querySelector('.nav-links'), ink = list && list.querySelector('.nav-ink');
+  function moveInk(){
+    if(!ink) return;
+    var cur = list.querySelector('a[aria-current="true"]');
+    if(!cur || !cur.offsetParent){ ink.classList.remove('on'); return; }
+    var lr = list.getBoundingClientRect(), r = cur.getBoundingClientRect();
+    ink.style.left = (r.left - lr.left) + 'px'; ink.style.width = r.width + 'px'; ink.classList.add('on');
+  }
+  if(list && 'MutationObserver' in window){
+    new MutationObserver(moveInk).observe(list, { attributes: true, subtree: true, attributeFilter: ['aria-current'] });
+  }
+  window.addEventListener('resize', moveInk);
+  if(document.fonts && document.fonts.ready) document.fonts.ready.then(moveInk);
+  document.querySelectorAll('.lang-switch button').forEach(function(b){ b.addEventListener('click', function(){ setTimeout(moveInk, 60); }); });
+  var dotColours = ['var(--grammar)', 'var(--speaking)', 'var(--reading)', 'var(--vocab)', 'var(--cobalt)', 'var(--grammar)'];
+  function pop(a, e){
+    if(reduce) return;
+    a.classList.remove('tap'); void a.offsetWidth; a.classList.add('tap');
+    var r = a.getBoundingClientRect(), x = e && e.clientX ? e.clientX : r.left + r.width / 2, y = e && e.clientY ? e.clientY : r.top + r.height / 2;
+    for(var i = 0; i < 6; i++){
+      var d = document.createElement('span'), ang = (i / 6) * Math.PI * 2 + Math.random() * .5, dist = 22 + Math.random() * 12;
+      d.className = 'tap-dot'; d.style.left = x + 'px'; d.style.top = y + 'px'; d.style.background = dotColours[i];
+      d.style.setProperty('--dx', (Math.cos(ang) * dist).toFixed(1) + 'px'); d.style.setProperty('--dy', (Math.sin(ang) * dist).toFixed(1) + 'px');
+      document.body.appendChild(d); setTimeout(function(n){ return function(){ n.remove(); }; }(d), 650);
+    }
+  }
+  function land(hash){
+    var el = null; try { el = document.getElementById(decodeURIComponent(hash.slice(1))); } catch(err){}
+    if(!el) return;
+    var host = el.classList.contains('enrol-card') ? el : (el.closest('.profile-part') || el.closest('section') || el);
+    var done = false;
+    function go(){
+      if(done) return; done = true;
+      host.classList.remove('landed'); void host.offsetWidth; host.classList.add('landed');
+      setTimeout(function(){ host.classList.remove('landed'); }, 2200);
+    }
+    if('onscrollend' in window){ window.addEventListener('scrollend', go, { once: true }); setTimeout(go, 1400); }
+    else setTimeout(go, reduce ? 0 : 650);
+  }
+  document.querySelectorAll('.nav-links a, .mobile-panel a, .nav-apply, .brand').forEach(function(a){
+    a.addEventListener('click', function(e){
+      var href = a.getAttribute('href') || '';
+      if(a.closest('.nav-links')){ navLinks.forEach(function(x){ x.setAttribute('aria-current', x === a ? 'true' : 'false'); }); }
+      pop(a, e);
+      if(href.charAt(0) === '#' && href.length > 1 && href !== '#home') land(href);
+    });
+  });
+  document.getElementById('navToggle').addEventListener('click', function(){
+    panel.querySelectorAll('a').forEach(function(a, i){ a.style.setProperty('--i', i); });
+  });
+  moveInk();
+})();
 
 /* ---------- Hide the floating apply bar while the hero buttons or the form are on screen ---------- */
 var applyBar = document.getElementById('mobileApply');
