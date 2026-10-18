@@ -1,9 +1,9 @@
 /* The Standard: lets the route map and learning hub open without internet.
    Pages: newest copy from the internet when online, saved copy when offline.
    Change VERSION after an update to clear old saved files. */
-const VERSION = "ts-2026-10-10a";
+const VERSION = "ts-2026-10-18a";
 const FONTS = "ts-fonts";
-const CORE = ["./route-map.html", "./learning-hub.html", "./404.html", "./manifest.webmanifest", "./icon-192.png", "./icon-512.png", "./assets/logo-black.png", "./assets/logo-white.png",
+const CORE = ["./route-map.html", "./learning-hub.html", "./writing.html", "./404.html", "./manifest.webmanifest", "./icon-192.png", "./icon-512.png", "./assets/logo-black.png", "./assets/logo-white.png",
   "./NotoSans-Regular.woff2", "./NotoSans-Medium.woff2", "./NotoSans-SemiBold.woff2", "./NotoSans-Bold.woff2"];
 
 self.addEventListener("install", e => {
