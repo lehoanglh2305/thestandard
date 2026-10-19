@@ -806,6 +806,7 @@ dialog,.shead{background:var(--canvas)}
         <a href="route-map.html" data-i="pgRoute">Lộ trình</a>
         <a href="learning-hub.html" aria-current="page" data-i="pgHub">Góc học tập</a>
         <a href="writing.html" data-i="pgWriting">IELTS Writing</a>
+        <a href="lo-trinh-ielts.html" data-i="pgIelts">Lộ trình IELTS</a>
       </nav>
       <div class="eyebrow" data-i="eyebrow"></div>
       <h1 data-i="h1"></h1>
@@ -1336,7 +1337,7 @@ const UI = {
   ssEye:"Tool 01 · A1 to C1", ssLede:"Each topic explains one rule, shows coloured examples you can tap, and ends with practice. Tick a topic when you feel sure of it.",
   ttName:"Tense timeline", ttDesc:"The twelve tenses on one timeline, with form, use, common mistakes and a quiz for each.",
   ttEye:"Tool 02 · Twelve tenses", ttLede:"Columns show the time, rows show the aspect. Open a tense to learn it, or pick a signal word to see which tenses use it.",
-  ctName:"Class tools", ctDesc:"A speaking wheel, speaking pairs and a seat plan for the classroom.", ctFor:"For teachers", ctTitle:"Class tools · The Standard", ctEyebrow:"Class tools · For teachers", ctH1:"Speaking activities for the classroom", ctDataT:"Your data", ctData:"Class lists, topics and seat plans are saved in this browser on this device only and are never sent anywhere. Bookmark this page to come back to it.", pgRoute:"Route map", pgHub:"Learning hub", pgWriting:"IELTS Writing", pgL:"Learning pages", navLearn:"Learning",
+  ctName:"Class tools", ctDesc:"A speaking wheel, speaking pairs and a seat plan for the classroom.", ctFor:"For teachers", ctTitle:"Class tools · The Standard", ctEyebrow:"Class tools · For teachers", ctH1:"Speaking activities for the classroom", ctDataT:"Your data", ctData:"Class lists, topics and seat plans are saved in this browser on this device only and are never sent anywhere. Bookmark this page to come back to it.", pgRoute:"Route map", pgHub:"Learning hub", pgWriting:"IELTS Writing", pgIelts:"IELTS roadmap", pgL:"Learning pages", navLearn:"Learning",
   ctLede:"Three small tools for speaking lessons. Names, topics and plans stay in this browser and are never sent anywhere.",
   countTop:(d,n)=>`${d} / ${n} learned`, countTen:(d,n)=>`${d} / ${n} learned`,
   hide:"Hide learned", allAreas:"All areas", shown:n=>`${n} shown`, noTopics:"No topics match these filters.",
@@ -1427,7 +1428,7 @@ const UI = {
   ssEye:"Công cụ 01 · A1 đến C1", ssLede:"Mỗi chủ đề giải thích một quy tắc, có ví dụ tô màu để bạn chạm vào, và kết thúc bằng phần luyện tập. Hãy đánh dấu chủ đề khi bạn đã chắc chắn.",
   ttName:"Dòng thời gian các thì", ttDesc:"Mười hai thì trên cùng một dòng thời gian, kèm cấu trúc, cách dùng, lỗi thường gặp và câu đố cho từng thì.",
   ttEye:"Công cụ 02 · Mười hai thì", ttLede:"Cột cho biết thời gian, hàng cho biết dạng thì. Mở một thì để học, hoặc chọn một từ dấu hiệu để xem những thì nào dùng nó.",
-  ctName:"Công cụ lớp học", ctDesc:"Vòng quay nói, ghép cặp nói và sơ đồ chỗ ngồi cho lớp học.", ctFor:"Dành cho giáo viên", ctTitle:"Công cụ lớp học · The Standard", ctEyebrow:"Công cụ lớp học · Dành cho giáo viên", ctH1:"Hoạt động nói cho lớp học", ctDataT:"Dữ liệu của bạn", ctData:"Danh sách lớp, chủ đề và sơ đồ chỗ ngồi chỉ được lưu trong trình duyệt trên thiết bị này và không được gửi đi đâu. Hãy lưu trang này vào dấu trang để quay lại.", pgRoute:"Lộ trình", pgHub:"Góc học tập", pgWriting:"IELTS Writing", pgL:"Các trang học tập", navLearn:"Góc học tập",
+  ctName:"Công cụ lớp học", ctDesc:"Vòng quay nói, ghép cặp nói và sơ đồ chỗ ngồi cho lớp học.", ctFor:"Dành cho giáo viên", ctTitle:"Công cụ lớp học · The Standard", ctEyebrow:"Công cụ lớp học · Dành cho giáo viên", ctH1:"Hoạt động nói cho lớp học", ctDataT:"Dữ liệu của bạn", ctData:"Danh sách lớp, chủ đề và sơ đồ chỗ ngồi chỉ được lưu trong trình duyệt trên thiết bị này và không được gửi đi đâu. Hãy lưu trang này vào dấu trang để quay lại.", pgRoute:"Lộ trình", pgHub:"Góc học tập", pgWriting:"IELTS Writing", pgIelts:"Lộ trình IELTS", pgL:"Các trang học tập", navLearn:"Góc học tập",
   ctLede:"Ba công cụ nhỏ cho giờ học nói. Tên học sinh, chủ đề và sơ đồ chỉ lưu trong trình duyệt này và không được gửi đi đâu.",
   countTop:(d,n)=>`Đã học ${d} / ${n}`, countTen:(d,n)=>`Đã học ${d} / ${n}`,
   hide:"Ẩn mục đã học", allAreas:"Tất cả", shown:n=>`${n} mục`, noTopics:"Không có chủ đề nào khớp bộ lọc.",
