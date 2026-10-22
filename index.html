@@ -486,7 +486,7 @@ section{padding:52px 0}
 html.anim-paused .hero::before,html.anim-paused .hero::after,html.anim-paused .stat::after,html.anim-paused .scroll-cue .ico{animation-play-state:paused!important}
 
 /* ===== Opening screen: Soft Minimal (a staircase of arches, A1 to C2) ===== */
-.cover{--brass:#b08d57;--gilt:#dcbb7b;--burg:#6e2438;--navy:#1c3d73;--bottle:#2f4a3a;--fi:clamp(12px,2.4vmin,26px);--H:clamp(110px,max(25vmin,38vw),250px);--p:0;position:relative;overflow:hidden;padding:0;min-height:calc(100svh - var(--navH));background:radial-gradient(ellipse 80% 70% at 50% 38%,#fffdf8,var(--paper) 60%,#fbf2e2)}
+.cover{--brass:#b08d57;--gilt:#dcbb7b;--burg:#6e2438;--navy:#1c3d73;--bottle:#2f4a3a;--fi:clamp(12px,2.4vmin,26px);--H:clamp(110px,max(25vmin,38vw),min(250px,29svh));--p:0;position:relative;overflow:hidden;padding:0;min-height:calc(100svh - var(--navH));background:radial-gradient(ellipse 80% 70% at 50% 38%,#fffdf8,var(--paper) 60%,#fbf2e2)}
 @media (max-width:1023px){.cover{min-height:calc(100svh - var(--navH) - 84px)}}
 .cv-frame{position:absolute;inset:var(--fi);color:var(--mocha);pointer-events:none;z-index:3}
 .cv-frame.in{inset:calc(var(--fi) + 7px);color:var(--brass)}
@@ -511,7 +511,7 @@ html.anim-paused .hero::before,html.anim-paused .hero::after,html.anim-paused .s
 .cv-rule i:first-child{transform-origin:100% 50%;background:var(--g) 200% 0/220% 100% no-repeat,linear-gradient(90deg,transparent,var(--brass))}
 .cv-rule i:last-child{transform-origin:0 50%;background:var(--g) 200% 0/220% 100% no-repeat,linear-gradient(90deg,var(--brass),transparent)}
 .cv-rule b{display:block;width:7px;height:7px;background:var(--brass);transform:rotate(45deg)}
-.cv-shelf{position:absolute;left:50%;translate:-50% 0;bottom:calc(var(--fi) + 7px + 70px);width:min(88%,900px);z-index:2}
+.cv-shelf{position:absolute;left:50%;translate:-50% 0;bottom:calc(var(--fi) + 7px + 26px);width:min(88%,900px);z-index:2}
 .cv-books{display:flex;align-items:flex-end;gap:3px;height:var(--H);clip-path:inset(-60px -12px 0 -12px);padding:0 2px}
 .cvb{position:relative;flex:var(--w,1) 1 0;min-width:0;height:calc(var(--h) * 1%);background:var(--lc);border-radius:2px 2px 0 0;box-shadow:inset 3px 0 0 rgba(255,255,255,.1),inset -4px 0 0 rgba(0,0,0,.22);translate:0 calc(max(0, var(--p) - var(--i) * .03) * 125%);transition:transform .45s var(--easeOut)}
 .cvb::before,.cvb::after{content:"";position:absolute;left:0;right:0;height:5px;border-top:1px solid var(--gl,var(--gilt));border-bottom:1px solid var(--gl,var(--gilt));opacity:.85}
@@ -523,13 +523,12 @@ html.anim-paused .hero::before,html.anim-paused .hero::after,html.anim-paused .s
 .cvb:hover,.cvb.pulled{transform:translateY(-12px)}
 .cvb .rib{position:absolute;top:-1px;left:64%;width:clamp(7px,1vmin,10px);height:clamp(22px,4vmin,34px);background:var(--burg);border:1px solid #4d1827;border-top:0;clip-path:polygon(0 0,100% 0,100% 100%,50% 80%,0 100%)}
 .cv-plank{position:relative;z-index:3;height:12px;margin:0 -4%;background:var(--cocoa);border-top:2px solid var(--brass);box-shadow:0 12px 18px -12px rgba(75,42,34,.5)}
-.cover-cue{position:absolute;left:50%;bottom:calc(var(--fi) + 7px + 10px);z-index:4;translate:-50% 0;opacity:calc(1 - var(--p) * 5);height:48px;padding:0 22px;display:flex;align-items:center;gap:12px;color:var(--cocoa);background:rgba(255,250,242,.72);border:1.5px solid var(--brass);overflow:hidden;text-decoration:none;white-space:nowrap;font-family:var(--font-display);font-weight:700;font-size:15px;letter-spacing:.2em;text-transform:uppercase;transition:background-color .35s var(--easeOut),color .35s var(--easeOut),border-color .35s var(--easeOut),box-shadow .35s var(--easeOut)}
+.cover-cue{position:relative;margin-top:clamp(18px,3.4vmin,32px);pointer-events:auto;height:48px;padding:0 22px;display:flex;align-items:center;gap:12px;color:var(--cocoa);background:rgba(255,250,242,.72);border:1.5px solid var(--brass);overflow:hidden;text-decoration:none;white-space:nowrap;font-family:var(--font-display);font-weight:700;font-size:15px;letter-spacing:.2em;text-transform:uppercase;transition:background-color .35s var(--easeOut),color .35s var(--easeOut),border-color .35s var(--easeOut),box-shadow .35s var(--easeOut)}
 @media (max-height:560px) and (orientation:landscape){
   .cover{--H:clamp(96px,30vmin,150px);min-height:max(330px,calc(100svh - var(--navH) - 84px))}
   .cv-center{left:27%;top:48%;width:min(48%,560px)}
   .cv-logo{width:100%}
   .cv-shelf{left:auto;right:calc(var(--fi) + 24px);translate:none;width:42%;bottom:calc(var(--fi) + 7px + 56px)}
-  .cover-cue{left:27%}
 }
 .cv-ring{position:absolute;z-index:1;width:14px;height:14px;margin:-7px 0 0 -7px;border:1px solid var(--brass);border-radius:50%;pointer-events:none}
 .cover-cue .ico{width:20px;height:20px;flex:none}
@@ -859,12 +858,12 @@ html.anim-paused .cover *{animation-play-state:paused!important}
     <p class="cv-eyebrow"><i></i><span data-vi="Lớp tiếng Anh" data-en="English classes">Lớp tiếng Anh</span><i></i></p>
     <div class="cv-logo"><img class="cv-letters" src="assets/logo-letters.svg" alt="" width="760" height="96"><img class="cv-dot" src="assets/logo-dot.svg" alt="" width="760" height="96"></div>
     <div class="cv-rule" aria-hidden="true"><i></i><b></b><i></i></div>
+    <a class="cover-cue" href="#home" aria-label="Bắt đầu hành trình, cuộn xuống phần tiếp theo" data-vi-label="Bắt đầu hành trình, cuộn xuống phần tiếp theo" data-en-label="Begin the journey, scroll to the next section"><span data-vi="Bắt đầu hành trình" data-en="Begin the journey">Bắt đầu hành trình</span><svg class="ico" aria-hidden="true"><use href="#i-down"/></svg></a>
   </div>
   <div class="cv-shelf">
     <div class="cv-books" aria-hidden="true"><div class="cvb plain vel" style="--i:0;--w:0.6;--h:84"><i class="pm"></i></div><div class="cvb bg" style="--i:1;--w:1;--h:94"><span class="pl">A1</span></div><div class="cvb nv" style="--i:2;--w:1;--h:100"><span class="pl">A2</span></div><div class="cvb plain cc" style="--i:3;--w:0.55;--h:88"><i class="pm"></i></div><div class="cvb bt" style="--i:4;--w:1;--h:96"><span class="pl">B1</span></div><div class="cvb cc" style="--i:5;--w:1;--h:91"><span class="pl">B2</span></div><div class="cvb nv" style="--i:6;--w:1;--h:99"><span class="pl">C1</span></div><div class="cvb plain bg" style="--i:7;--w:0.6;--h:86"><i class="pm"></i></div><div class="cvb bt" style="--i:8;--w:1;--h:95"><span class="pl">C2</span><i class="rib"></i></div></div>
     <div class="cv-plank" aria-hidden="true"></div>
   </div>
-  <a class="cover-cue" href="#home" aria-label="Bắt đầu hành trình, cuộn xuống phần tiếp theo" data-vi-label="Bắt đầu hành trình, cuộn xuống phần tiếp theo" data-en-label="Begin the journey, scroll to the next section"><span data-vi="Bắt đầu hành trình" data-en="Begin the journey">Bắt đầu hành trình</span><svg class="ico" aria-hidden="true"><use href="#i-down"/></svg></a>
 </section>
 <section class="hero" id="home">
   <div class="inner hero-grid">
