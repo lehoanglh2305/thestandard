@@ -486,117 +486,84 @@ section{padding:52px 0}
 html.anim-paused .hero::before,html.anim-paused .hero::after,html.anim-paused .stat::after,html.anim-paused .scroll-cue .ico{animation-play-state:paused!important}
 
 /* ===== Opening screen: Soft Minimal (a staircase of arches, A1 to C2) ===== */
-.cover{position:relative;overflow:hidden;padding:0;min-height:calc(100svh - var(--navH));display:flex;flex-direction:column;background:linear-gradient(var(--paper) calc(100% - 88px),var(--cream) calc(100% - 88px))}
-.cover-copy{position:relative;z-index:2;width:100%;padding-top:clamp(28px,8vh,96px)}
-.cover-logo{display:block;width:min(100%,clamp(300px,56vw,720px));height:auto}
-.cover-stairs{position:absolute;left:0;right:0;bottom:102px;height:min(50%,430px);display:flex;align-items:flex-end;justify-content:space-between;gap:clamp(3px,.6vw,8px);z-index:1}
-.bk{--bg:var(--sand);--ink:var(--cocoa);position:relative;flex:var(--w,1) 1 0;min-width:0;max-width:96px;height:calc(var(--h) * 1%);display:flex;align-items:center;justify-content:center;background:var(--bg);color:var(--ink);border:1.5px solid var(--cocoa);border-bottom:0;border-radius:4px 4px 0 0;transform-origin:0 100%;transition:transform .35s var(--easeSpring)}
-.bk::before,.bk::after{content:"";position:absolute;left:0;right:0;border-top:1.5px solid currentColor;opacity:.55}
-.bk::before{top:9%}
-.bk::after{bottom:9%}
-.bk:hover{transform:translateY(-10px)}
-.bk .lv{writing-mode:vertical-rl;font-family:var(--font-display);font-weight:700;font-size:clamp(13px,1.5vw,20px);letter-spacing:.14em;text-transform:uppercase}
-.bk.lean{margin-right:clamp(16px,2.2vw,32px);transform-origin:100% 100%;transform:rotate(6deg)}
-.bk.lean:hover{transform:rotate(6deg) translateY(-10px)}
-.bk.a1{--bg:var(--grammar);--ink:var(--grammarInk)}
-.bk.a2{--bg:var(--reading);--ink:var(--readingInk)}
-.bk.b1{--bg:var(--speaking);--ink:var(--speakingInk)}
-.bk.b2{--bg:var(--vocab);--ink:var(--vocabInk)}
-.bk.c1{--bg:var(--cobalt);--ink:var(--cream)}
-.bk.c2{--bg:var(--review);--ink:var(--reviewInk)}
-.bk.d1{--bg:var(--cream);--ink:var(--mocha)}
-.bk.d2{--bg:var(--mocha);--ink:var(--cream)}
-@media(max-width:360px){.cover-stairs{height:min(44%,430px)}}
-@media(max-width:360px){.cover-stairs{height:min(44%,430px)}}
-@media(max-width:640px){.bk.dec{display:none}.bk .lv{padding:7px 2px}.bk{max-width:64px}}
-.bk .lv{padding:10px 3px;background:var(--cream);color:var(--cocoa);border:1.5px solid var(--cocoa);border-radius:3px}
-.bk.dec{background-image:radial-gradient(circle at 50% 22%,var(--ink) 0 2.5px,transparent 3px),linear-gradient(var(--ink),var(--ink));background-size:100% 100%,0 0}
-.bk.d1{background-image:repeating-linear-gradient(transparent 0 calc(50% - 14px),var(--mocha) 0 calc(50% - 12px),transparent 0 calc(50% - 2px),var(--mocha) 0 calc(50% + 0px),transparent 0)}
-.bk .top{position:absolute;left:50%;bottom:calc(100% + 1.5px);translate:-50% 0;display:block;pointer-events:none}
-.plant{height:auto;overflow:visible}
-.plantbig{flex:none;align-self:flex-end;width:clamp(58px,12.5vw,200px);margin-right:clamp(2px,.8vw,12px)}
-.plant .leaves{transform-origin:50% 100%;transform-box:fill-box}
-.globe{width:clamp(30px,3.4vw,44px);height:auto;overflow:visible}
-.flatstack{position:absolute;left:-1.5px;right:-1.5px;bottom:100%;display:flex;flex-direction:column-reverse;pointer-events:none}
-.flatstack i{display:block;height:clamp(11px,1.3vw,16px);border:1.5px solid var(--cocoa);margin-top:-1.5px;border-radius:3px}
-.flatstack i:nth-child(1){background:var(--speaking)}
-.flatstack i:nth-child(2){background:var(--cobalt);margin-left:6px;margin-right:-4px}
-.flatstack i:nth-child(3){background:var(--grammar);margin-left:2px;margin-right:4px}
-.rib{position:absolute;top:-2px;left:62%;width:clamp(9px,1vw,13px);height:clamp(36px,4vw,56px);background:var(--grammar);border:1.5px solid var(--cocoa);border-top:0;clip-path:polygon(0 0,100% 0,100% 100%,50% 82%,0 100%);z-index:1}
-.cover-floor{position:absolute;left:0;right:0;bottom:0;height:88px;z-index:2;background:var(--cream)}
-.cover-shelf{position:absolute;left:0;right:0;bottom:88px;height:14px;z-index:2;background:var(--cocoa);border-top:3px solid var(--mocha)}
-.cover-cue{position:absolute;left:50%;bottom:0;z-index:3;translate:-50% 0;height:88px;display:flex;align-items:center;gap:8px;color:var(--cocoa);text-decoration:none;font-family:var(--font-display);font-weight:700;font-size:16px;letter-spacing:.14em;text-transform:uppercase}
-.cover-catlane{--cw:clamp(84px,9.5vw,138px);position:absolute;left:0;right:0;bottom:102px;height:calc(var(--cw) * .725);z-index:2;pointer-events:none}
-.cat{position:absolute;left:0;bottom:-1px;width:var(--cw);aspect-ratio:160/116;padding:0;border:0;background:none;color:inherit;font:inherit;cursor:pointer;pointer-events:auto;-webkit-tap-highlight-color:transparent;touch-action:manipulation;will-change:transform}
-.cat:focus-visible{outline:3px solid var(--cobalt);outline-offset:4px;border-radius:12px}
-.cat-flip{display:block;width:100%;height:100%;transform-origin:50% 100%}
-.cat-svg{display:block;width:100%;height:100%;overflow:visible}
-.cat-bubble{position:absolute;left:50%;bottom:100%;translate:-50% -30px;padding:5px 12px;border:1.5px solid var(--cocoa);border-radius:999px;background:var(--paper);color:var(--cocoa);font:700 14px/1 var(--font-display);letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;opacity:0;transform:translateY(8px) scale(.8);transition:opacity .2s var(--easeOut),transform .35s var(--easeSpring);pointer-events:none}
-.cat-bubble.on{opacity:1;transform:none}
-.cat-heart{position:absolute;left:62%;bottom:78%;width:16px;height:16px;fill:var(--speaking);stroke:var(--cocoa);stroke-width:1.5;pointer-events:none;opacity:0}
-.cat-leg,.cat-tail,.cat-head,.cat-eyes,.cat-body{transform-box:fill-box}
-.cat-leg{transform-origin:50% 8%}
-.cat-tail{transform-origin:100% 100%}
-.cat-head{transform-origin:40% 90%}
-.cat-eyes{transform-origin:50% 50%}
-@media (prefers-reduced-motion:no-preference){
-  .cat{animation:catIn .6s var(--easeOut) 1.1s backwards}
-  @keyframes catIn{from{opacity:0}}
-  .cat-tail{animation:catTail 3.2s ease-in-out infinite alternate}
-  .cat-eyes{animation:catBlink 5s infinite}
-  .cat[data-state="walk"] .cat-svg{animation:catBob .36s ease-in-out infinite alternate}
-  .cat[data-state="walk"] .cat-tail{animation-duration:1.2s}
-  .cat[data-state="walk"] .lf1,.cat[data-state="walk"] .lb2{animation:catStepA .36s ease-in-out infinite alternate}
-  .cat[data-state="walk"] .lf2,.cat[data-state="walk"] .lb1{animation:catStepB .36s ease-in-out infinite alternate}
-  .cat[data-state="run"] .cat-svg{animation:catBob .2s ease-in-out infinite alternate}
-  .cat[data-state="run"] .lf1,.cat[data-state="run"] .lb2{animation:catStepA .2s ease-in-out infinite alternate}
-  .cat[data-state="run"] .lf2,.cat[data-state="run"] .lb1{animation:catStepB .2s ease-in-out infinite alternate}
-  .cat[data-state="hop"] .cat-svg{animation:catHop .7s cubic-bezier(.3,.7,.4,1)}
-  .cat[data-state="hop"] .cat-tail{animation:catPuff .7s ease-out}
-  .cat[data-state="purr"] .cat-svg{animation:catPurr .12s linear infinite alternate}
-  .cat[data-state="purr"] .cat-head{animation:catNuzzle 1.4s ease-in-out infinite alternate}
-  .cat[data-state="purr"] .cat-eyes{animation:none;transform:scaleY(.15)}
-  .cat-heart.go{animation:catHeart 1.6s ease-out forwards}
-  @keyframes catTail{from{transform:rotate(-12deg)}to{transform:rotate(14deg)}}
-  @keyframes catBlink{0%,92%,100%{transform:scaleY(1)}95%{transform:scaleY(.1)}}
-  @keyframes catBob{from{transform:translateY(0)}to{transform:translateY(-2.5px)}}
-  @keyframes catStepA{from{transform:rotate(-24deg)}to{transform:rotate(24deg)}}
-  @keyframes catStepB{from{transform:rotate(24deg)}to{transform:rotate(-24deg)}}
-  @keyframes catHop{0%{transform:translateY(0) scale(1.08,.88)}35%{transform:translateY(-38px) scale(.94,1.1)}70%{transform:translateY(0) scale(1.1,.86)}100%{transform:translateY(0) scale(1)}}
-  @keyframes catPuff{0%{transform:rotate(0) scale(1)}30%{transform:rotate(-16deg) scale(1.35)}100%{transform:rotate(0) scale(1)}}
-  @keyframes catPurr{from{transform:translateX(-.6px)}to{transform:translateX(.6px)}}
-  @keyframes catNuzzle{from{transform:rotate(-4deg)}to{transform:rotate(6deg)}}
-  @keyframes catHeart{0%{opacity:0;transform:translate(0,0) scale(.4)}20%{opacity:1}100%{opacity:0;transform:translate(var(--hx,0),-34px) scale(1.1)}}
-  .cat:hover .cat-tail{animation-duration:1s}
+.cover{--brass:#b08d57;--gilt:#dcbb7b;--burg:#6e2438;--navy:#1c3d73;--bottle:#2f4a3a;--fi:clamp(12px,2.4vmin,26px);--H:clamp(110px,max(25vmin,38vw),250px);--p:0;position:relative;overflow:hidden;padding:0;min-height:calc(100svh - var(--navH));background:radial-gradient(ellipse 80% 70% at 50% 38%,#fffdf8,var(--paper) 60%,#fbf2e2)}
+@media (max-width:1023px){.cover{min-height:calc(100svh - var(--navH) - 84px)}}
+.cv-frame{position:absolute;inset:var(--fi);color:var(--mocha);pointer-events:none;z-index:3}
+.cv-frame.in{inset:calc(var(--fi) + 7px);color:var(--brass)}
+.cv-frame i{position:absolute;background:currentColor}
+.cv-frame .t,.cv-frame .b{left:0;right:0;height:1px}
+.cv-frame .l,.cv-frame .r{top:0;bottom:0;width:1px}
+.cv-frame .t{top:0}.cv-frame .b{bottom:0}.cv-frame .l{left:0}.cv-frame .r{right:0}
+.cv-frame b{position:absolute;width:7px;height:7px;background:var(--brass)}
+.cv-frame .tl{left:0;top:0;transform:translate(-50%,-50%) rotate(45deg)}
+.cv-frame .tr{right:0;top:0;transform:translate(50%,-50%) rotate(45deg)}
+.cv-frame .bl{left:0;bottom:0;transform:translate(-50%,50%) rotate(45deg)}
+.cv-frame .br{right:0;bottom:0;transform:translate(50%,50%) rotate(45deg)}
+.cv-center{position:absolute;left:50%;top:33%;translate:-50% calc(-50% - var(--p) * 64px);opacity:calc(1 - var(--p) * 1.3);display:flex;flex-direction:column;align-items:center;width:min(92%,820px);z-index:2;pointer-events:none}
+@media (orientation:portrait){.cv-center{top:38%}}
+.cv-eyebrow{display:flex;align-items:center;gap:clamp(10px,2vmin,18px);margin:0;font-family:var(--font-display);font-weight:700;font-size:clamp(13px,2.1vmin,17px);letter-spacing:.34em;text-transform:uppercase;color:var(--mocha)}
+.cv-eyebrow i{display:block;width:clamp(24px,7vmin,70px);height:1px;background:var(--mocha);opacity:.7}
+.cv-eyebrow span{margin-right:-.34em}
+.cv-logo{position:relative;width:min(100%,clamp(290px,54vw,760px));aspect-ratio:760/96;margin-top:clamp(14px,3vmin,28px)}
+.cv-logo img{position:absolute;inset:0;width:100%;height:100%;display:block}
+.cv-rule{display:flex;align-items:center;gap:12px;width:clamp(170px,38vmin,380px);margin-top:clamp(16px,3.2vmin,30px)}
+.cv-rule i{display:block;flex:1;height:1px;--g:linear-gradient(100deg,transparent 42%,rgba(255,238,200,.95) 50%,transparent 58%)}
+.cv-rule i:first-child{transform-origin:100% 50%;background:var(--g) 200% 0/220% 100% no-repeat,linear-gradient(90deg,transparent,var(--brass))}
+.cv-rule i:last-child{transform-origin:0 50%;background:var(--g) 200% 0/220% 100% no-repeat,linear-gradient(90deg,var(--brass),transparent)}
+.cv-rule b{display:block;width:7px;height:7px;background:var(--brass);transform:rotate(45deg)}
+.cv-shelf{position:absolute;left:50%;translate:-50% 0;bottom:calc(var(--fi) + 7px + 70px);width:min(88%,900px);z-index:2}
+.cv-books{display:flex;align-items:flex-end;gap:3px;height:var(--H);clip-path:inset(-60px -12px 0 -12px);padding:0 2px}
+.cvb{position:relative;flex:var(--w,1) 1 0;min-width:0;height:calc(var(--h) * 1%);background:var(--lc);border-radius:2px 2px 0 0;box-shadow:inset 3px 0 0 rgba(255,255,255,.1),inset -4px 0 0 rgba(0,0,0,.22);translate:0 calc(max(0, var(--p) - var(--i) * .03) * 125%);transition:transform .45s var(--easeOut)}
+.cvb::before,.cvb::after{content:"";position:absolute;left:0;right:0;height:5px;border-top:1px solid var(--gl,var(--gilt));border-bottom:1px solid var(--gl,var(--gilt));opacity:.85}
+.cvb::before{top:6%}.cvb::after{bottom:6%}
+.cvb .pl{position:absolute;left:50%;translate:-50% 0;bottom:calc(var(--H) * .46);width:76%;padding:6px 0 5px;border:1px solid var(--gilt);color:var(--gilt);font:400 clamp(12px,1.8vmin,15px)/1 var(--font-serif);letter-spacing:.06em;text-align:center}
+.cvb.plain .pm{position:absolute;left:0;right:0;bottom:calc(var(--H) * .46 + 8px);height:8px;border-top:1px solid var(--gl,var(--gilt));border-bottom:1px solid var(--gl,var(--gilt));opacity:.85}
+.cvb.vel{--lc:#ecdcbc;--gl:var(--mocha)}
+.cvb.bg{--lc:var(--burg)}.cvb.nv{--lc:var(--navy)}.cvb.bt{--lc:var(--bottle)}.cvb.cc{--lc:var(--cocoa)}
+.cvb:hover,.cvb.pulled{transform:translateY(-12px)}
+.cvb .rib{position:absolute;top:-1px;left:64%;width:clamp(7px,1vmin,10px);height:clamp(22px,4vmin,34px);background:var(--burg);border:1px solid #4d1827;border-top:0;clip-path:polygon(0 0,100% 0,100% 100%,50% 80%,0 100%)}
+.cv-plank{position:relative;z-index:3;height:12px;margin:0 -4%;background:var(--cocoa);border-top:2px solid var(--brass);box-shadow:0 12px 18px -12px rgba(75,42,34,.5)}
+.cover-cue{position:absolute;left:50%;bottom:calc(var(--fi) + 7px + 10px);z-index:4;translate:-50% 0;opacity:calc(1 - var(--p) * 5);height:44px;display:flex;align-items:center;gap:8px;color:var(--cocoa);text-decoration:none;font-family:var(--font-display);font-weight:700;font-size:15px;letter-spacing:.22em;text-transform:uppercase}
+@media (max-height:560px) and (orientation:landscape){
+  .cover{--H:clamp(96px,30vmin,150px);min-height:max(330px,calc(100svh - var(--navH) - 84px))}
+  .cv-center{left:27%;top:48%;width:min(48%,560px)}
+  .cv-logo{width:100%}
+  .cv-shelf{left:auto;right:calc(var(--fi) + 24px);translate:none;width:42%;bottom:calc(var(--fi) + 7px + 56px)}
+  .cover-cue{left:27%}
 }
-html.anim-paused .cat *{animation-play-state:paused!important}
+.cv-ring{position:absolute;z-index:1;width:14px;height:14px;margin:-7px 0 0 -7px;border:1px solid var(--brass);border-radius:50%;pointer-events:none}
 .cover-cue .ico{width:22px;height:22px}
 .cover-cue:hover{color:var(--cobalt)}
 @media (prefers-reduced-motion:no-preference){
-  .cover-logo{animation:coverIn .8s var(--easeOut) backwards}
-  @keyframes coverIn{from{opacity:0;transform:translateY(16px)}}
-  .bk{animation:bkUp .8s var(--easeSpring) backwards;animation-delay:calc(var(--i) * 90ms + 200ms)}
-  @keyframes bkUp{from{opacity:0;transform:translateY(40%)}}
-  .bk.lean{animation:bkUp .8s var(--easeSpring) backwards,bkLean .9s var(--easeSpring) 1.3s backwards;animation-delay:calc(var(--i) * 90ms + 200ms),1.3s}
-  @keyframes bkLean{from{transform:rotate(0)}}
-  .plantbig{animation:bkUp .8s var(--easeSpring) .1s backwards}
-  .plant .leaves{animation:sway 5s ease-in-out infinite alternate 2s}
-  @keyframes sway{from{transform:rotate(-2.5deg)}to{transform:rotate(2.5deg)}}
-  .cover-cue .ico{animation:nudge 2.4s var(--easeSpring) 2s infinite}
+  .cv-frame .t{transform-origin:0 50%;animation:cvLine .9s var(--easeOut) 0s backwards}
+  .cv-frame .r{transform-origin:50% 0;animation:cvLineY .9s var(--easeOut) .25s backwards}
+  .cv-frame .b{transform-origin:100% 50%;animation:cvLine .9s var(--easeOut) .5s backwards}
+  .cv-frame .l{transform-origin:50% 100%;animation:cvLineY .9s var(--easeOut) .75s backwards}
+  .cv-frame.in .t{animation-delay:.25s}.cv-frame.in .r{animation-delay:.5s}.cv-frame.in .b{animation-delay:.75s}.cv-frame.in .l{animation-delay:1s}
+  .cv-frame b{animation:cvFade .8s var(--easeOut) 1.7s backwards}
+  .cv-eyebrow{animation:cvEyebrow 1.4s var(--easeOut) .5s backwards}
+  .cv-letters{animation:cvReveal 1.5s cubic-bezier(.6,0,.2,1) .8s backwards}
+  .cv-dot{animation:cvDot 1.1s cubic-bezier(.3,1.5,.5,1) 2.1s backwards}
+  .cv-rule i{animation:cvDraw 1.1s var(--easeOut) 2.3s backwards,cvGlint 8s ease-in-out 5s infinite}
+  .cv-rule b{animation:cvFade .8s var(--easeOut) 2.6s backwards}
+  .cvb{animation:cvRise 1.1s var(--easeOut) backwards;animation-delay:calc(var(--i) * 90ms + 1.5s)}
+  .cvb .pl{animation:cvFade .9s var(--easeOut) backwards;animation-delay:calc(var(--i) * 90ms + 2.6s)}
+  .cv-plank{animation:cvDraw 1.1s var(--easeOut) 1.2s backwards}
+  .cover-cue{animation:cvFade 1s var(--easeOut) 3s backwards}
+  .cover-cue .ico{animation:nudge 2.4s var(--easeSpring) 3.4s infinite}
+  .cv-ring{animation:cvRing 1.1s var(--easeOut) forwards}
+  @keyframes cvLine{from{transform:scaleX(0)}}
+  @keyframes cvLineY{from{transform:scaleY(0)}}
+  @keyframes cvFade{from{opacity:0}}
+  @keyframes cvEyebrow{from{opacity:0;letter-spacing:.7em}}
+  @keyframes cvReveal{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+  @keyframes cvDot{0%{opacity:0;transform:translateY(-60%)}55%{opacity:1}100%{transform:none}}
+  @keyframes cvDraw{from{transform:scaleX(0)}}
+  @keyframes cvGlint{0%{background-position:200% 0,0 0}22%,100%{background-position:-120% 0,0 0}}
+  @keyframes cvRise{from{transform:translateY(105%)}}
+  @keyframes cvRing{from{opacity:.9;transform:scale(1)}to{opacity:0;transform:scale(11)}}
 }
-@media (prefers-reduced-motion:no-preference){
-  @supports (animation-timeline:scroll()){
-    .cover-copy{animation:coverCopyOut linear both;animation-timeline:scroll(root);animation-range:0px 55svh}
-    .cover-catlane{animation:coverCatIn linear both;animation-timeline:scroll(root);animation-range:0px 60svh}
-    @keyframes coverCatIn{to{transform:translateY(135%)}}
-    .cover-stairs{animation:coverBooksIn linear both;animation-timeline:scroll(root);animation-range:0px 60svh}
-    .cover-cue{animation:coverCueOut linear both;animation-timeline:scroll(root);animation-range:0px 18svh}
-    @keyframes coverCopyOut{to{transform:translateY(-56px);opacity:0}}
-    @keyframes coverBooksIn{to{transform:translateY(88%)}}
-    @keyframes coverCueOut{to{opacity:0}}
-  }
-}
-html.anim-paused .cover-cue .ico,html.anim-paused .plant .leaves{animation-play-state:paused!important}
+html.anim-paused .cover *{animation-play-state:paused!important}
 
 /* ===== Three steps, clearer (V3.4) ===== */
 .steps::before{content:none!important;display:none}
@@ -874,39 +841,17 @@ html.anim-paused .cover-cue .ico,html.anim-paused .plant .leaves{animation-play-
 
 <main>
 <section class="cover" id="top" aria-label="Mở đầu" data-vi-label="Mở đầu" data-en-label="Opening">
-  <div class="inner cover-copy">
-    <img class="cover-logo" src="assets/logo-black.svg" alt="" width="760" height="96">
+  <div class="cv-frame"><i class="t"></i><i class="r"></i><i class="b"></i><i class="l"></i></div>
+  <div class="cv-frame in"><i class="t"></i><i class="r"></i><i class="b"></i><i class="l"></i><b class="tl"></b><b class="tr"></b><b class="bl"></b><b class="br"></b></div>
+  <div class="cv-center">
+    <p class="cv-eyebrow"><i></i><span data-vi="Lớp tiếng Anh" data-en="English classes">Lớp tiếng Anh</span><i></i></p>
+    <div class="cv-logo"><img class="cv-letters" src="assets/logo-letters.svg" alt="" width="760" height="96"><img class="cv-dot" src="assets/logo-dot.svg" alt="" width="760" height="96"></div>
+    <div class="cv-rule" aria-hidden="true"><i></i><b></b><i></i></div>
   </div>
-  <div class="inner cover-stairs" aria-hidden="true"><svg class="plant plantbig" viewBox="0 0 120 202" aria-hidden="true" stroke="#4b2a22" stroke-width="1.5" stroke-linejoin="round"><g class="leaves"><path d="M60 122C48 90 48 44 60 8C72 44 72 90 60 122Z" fill="#9fd63c"/><path d="M60 122C48 100 38 62 38 30C54 52 62 86 60 122Z" fill="#7fb92a"/><path d="M60 122C72 100 82 62 82 30C66 52 58 86 60 122Z" fill="#7fb92a"/><path d="M60 122C46 104 30 86 14 56C38 58 58 84 60 122Z" fill="#9fd63c"/><path d="M60 122C74 104 90 86 106 56C82 58 62 84 60 122Z" fill="#9fd63c"/><path d="M60 122C42 118 22 112 4 98C28 92 52 100 60 122Z" fill="#7fb92a"/><path d="M60 122C78 118 98 112 116 98C92 92 68 100 60 122Z" fill="#7fb92a"/><path d="M60 118V22M60 118C52 96 44 70 40 42M60 118C68 96 76 70 80 42" stroke="#1f4d14" stroke-opacity=".45" stroke-width="1.2" fill="none"/></g><path d="M30 124H90L82 198H38Z" fill="#1f5bb5"/><path d="M33 150H87" stroke="#d9c3a3" stroke-width="5"/><rect x="24" y="116" width="72" height="14" rx="3" fill="#d9c3a3"/></svg><div class="bk dec d1" style="--i:0;--h:72;--w:1.1"></div><div class="bk a1" style="--i:1;--h:58;--w:1"><span class="lv">A1</span><span class="flatstack" aria-hidden="true"><i></i><i></i></span></div><div class="bk a2" style="--i:2;--h:84;--w:1"><span class="lv">A2</span></div><div class="bk dec d2" style="--i:3;--h:66;--w:0.8"></div><div class="bk b1" style="--i:4;--h:70;--w:1"><span class="lv">B1</span></div><div class="bk b2 lean" style="--i:5;--h:62;--w:1"><span class="lv">B2</span></div><div class="bk c1" style="--i:6;--h:100;--w:1"><span class="lv">C1</span><i class="rib"></i></div><div class="bk dec d1" style="--i:7;--h:78;--w:0.9"><span class="top"><svg class="globe" viewBox="0 0 44 58" aria-hidden="true" fill="none" stroke-linejoin="round"><path d="M22 38V50M11 53H33" stroke="#4b2a22" stroke-width="1.5" stroke-linecap="round"/><circle cx="22" cy="20" r="18" fill="#fffaf2" stroke="#4b2a22" stroke-width="1.5"/><path d="M12 12C16 8 22 10 20 16C18 22 12 20 10 24C8 20 9 15 12 12ZM26 22C31 20 35 24 33 29C30 33 26 31 25 27Z" fill="#1f5bb5" fill-opacity=".28" stroke="#1f5bb5" stroke-width="1.2"/><ellipse cx="22" cy="20" rx="8" ry="18" stroke="#1f5bb5" stroke-width="1.2"/><path d="M4 20H40" stroke="#1f5bb5" stroke-width="1.2"/></svg></span></div><div class="bk c2" style="--i:8;--h:88;--w:1"><span class="lv">C2</span></div></div>
-    <div class="inner cover-catlane">
-    <button type="button" class="cat" id="cat" data-state="idle" aria-label="Mèo mướp. Bấm để vuốt ve" data-vi-label="Mèo mướp. Bấm để vuốt ve" data-en-label="Tabby cat. Press to pet">
-      <span class="cat-flip"><svg class="cat-svg" viewBox="0 0 160 116" aria-hidden="true" focusable="false" stroke="#4b2a22" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
-        <ellipse class="cat-shadow" cx="78" cy="114" rx="46" ry="3" fill="#4b2a22" fill-opacity=".16" stroke="none"/>
-        <g class="cat-tail"><path d="M36 74C8 74 4 40 24 28" fill="none" stroke-width="13"/><path d="M36 74C8 74 4 40 24 28" fill="none" stroke="#e8923a" stroke-width="9"/><path d="M36 74C8 74 4 40 24 28" fill="none" stroke="#9a4a18" stroke-width="9" stroke-dasharray="4 8"/></g>
-        <g class="cat-leg lb2"><rect x="38" y="82" width="13" height="30" rx="6.5" fill="#d98234"/><ellipse cx="44.5" cy="110" rx="7.5" ry="3.2" fill="#fff4e0" stroke-width="1.5"/></g>
-        <g class="cat-leg lf2"><rect x="96" y="82" width="13" height="30" rx="6.5" fill="#d98234"/><ellipse cx="102.5" cy="110" rx="7.5" ry="3.2" fill="#fff4e0" stroke-width="1.5"/></g>
-        <g class="cat-body"><ellipse cx="76" cy="76" rx="46" ry="25" fill="#e8923a"/>
-          <path d="M52 54C56 62 56 70 52 78M68 51C73 61 73 72 68 82M84 51C89 61 89 72 84 82M100 54C103 62 103 70 100 78" fill="none" stroke="#9a4a18" stroke-width="4.5"/>
-          <ellipse cx="76" cy="92" rx="26" ry="8" fill="#fff4e0" stroke="none" fill-opacity=".85"/></g>
-        <g class="cat-leg lb1"><rect x="52" y="84" width="13" height="28" rx="6.5" fill="#e8923a"/><ellipse cx="58.5" cy="110" rx="7.5" ry="3.2" fill="#fff4e0" stroke-width="1.5"/></g>
-        <g class="cat-leg lf1"><rect x="110" y="84" width="13" height="28" rx="6.5" fill="#e8923a"/><ellipse cx="116.5" cy="110" rx="7.5" ry="3.2" fill="#fff4e0" stroke-width="1.5"/></g>
-        <g class="cat-head">
-          <path d="M108 40L111 14L128 32Z" fill="#e8923a"/><path d="M112 34L113 22L121 31Z" fill="#f29bbf" stroke="none"/>
-          <path d="M130 32L146 14L148 42Z" fill="#e8923a"/><path d="M135 32L144 22L144 36Z" fill="#f29bbf" stroke="none"/>
-          <circle cx="128" cy="52" r="23" fill="#e8923a"/>
-          <path d="M122 31V38M128 30V38M134 31V38" fill="none" stroke="#9a4a18" stroke-width="3.5"/>
-          <path d="M106 50H112M107 58L113 56M150 50H144M149 58L143 56" fill="none" stroke="#9a4a18" stroke-width="3"/>
-          <ellipse cx="134" cy="62" rx="12" ry="8.5" fill="#fff4e0"/>
-          <g class="cat-eyes"><circle cx="119" cy="50" r="5" fill="#9fd63c" stroke-width="1.5"/><ellipse cx="119.6" cy="50" rx="1.4" ry="3.6" fill="#1f1411" stroke="none"/><circle cx="138" cy="50" r="5" fill="#9fd63c" stroke-width="1.5"/><ellipse cx="138.6" cy="50" rx="1.4" ry="3.6" fill="#1f1411" stroke="none"/></g>
-          <path d="M131 58L137 58L134 62Z" fill="#f29bbf" stroke-width="1.5"/><path d="M134 62V65M134 65C131 68 128 67 127 65M134 65C137 68 140 67 141 65" fill="none" stroke-width="1.5"/>
-          <path d="M146 60L158 57M146 64L158 65" fill="none" stroke-width="1.2" stroke-opacity=".7"/>
-        </g>
-      </svg></span>
-      <span class="cat-bubble" id="catBubble" role="status" aria-live="polite"></span>
-    </button>
+  <div class="cv-shelf">
+    <div class="cv-books" aria-hidden="true"><div class="cvb plain vel" style="--i:0;--w:0.6;--h:84"><i class="pm"></i></div><div class="cvb bg" style="--i:1;--w:1;--h:94"><span class="pl">A1</span></div><div class="cvb nv" style="--i:2;--w:1;--h:100"><span class="pl">A2</span></div><div class="cvb plain cc" style="--i:3;--w:0.55;--h:88"><i class="pm"></i></div><div class="cvb bt" style="--i:4;--w:1;--h:96"><span class="pl">B1</span></div><div class="cvb cc" style="--i:5;--w:1;--h:91"><span class="pl">B2</span></div><div class="cvb nv" style="--i:6;--w:1;--h:99"><span class="pl">C1</span></div><div class="cvb plain bg" style="--i:7;--w:0.6;--h:86"><i class="pm"></i></div><div class="cvb bt" style="--i:8;--w:1;--h:95"><span class="pl">C2</span><i class="rib"></i></div></div>
+    <div class="cv-plank" aria-hidden="true"></div>
   </div>
-  <div class="cover-shelf" aria-hidden="true"></div>
-  <div class="cover-floor" aria-hidden="true"></div>
   <a class="cover-cue" href="#home" aria-label="Kéo xuống để xem phần tiếp theo" data-vi-label="Kéo xuống để xem phần tiếp theo" data-en-label="Scroll down to continue"><span data-vi="Kéo xuống" data-en="Scroll down">Kéo xuống</span><svg class="ico" aria-hidden="true"><use href="#i-down"/></svg></a>
 </section>
 <section class="hero" id="home">
@@ -1627,63 +1572,35 @@ if ('IntersectionObserver' in window){
 <script>
 (function(){
 "use strict";
-var cat=document.getElementById('cat'); if(!cat) return;
-var cover=document.querySelector('.cover'), lane=cat.parentNode, flip=cat.querySelector('.cat-flip'), bubble=document.getElementById('catBubble');
+var cover=document.querySelector('.cover'); if(!cover) return;
 var root=document.documentElement;
 var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-var x=0, dir=1, timer=0, hideT=0, clicks=0, clickT=0, walking=false, visible=true;
-var TEXT={vi:{meo:'Meo!',purr:'Grừ grừ',run:'Meo meo!'},en:{meow:'Meow!',meo:'Meow!',purr:'Purr purr',run:'Meow meow!'}};
-function T(k){ return (root.lang==='en'?TEXT.en:TEXT.vi)[k]; }
-function maxX(){ return Math.max(0, lane.clientWidth-cat.offsetWidth); }
-function place(px){ x=Math.max(0,Math.min(maxX(),px)); cat.style.transform='translateX('+x.toFixed(1)+'px)'; }
-function face(d){ dir=d; flip.style.transform=d<0?'scaleX(-1)':'none'; }
-function state(s){ cat.dataset.state=s; }
-function curX(){ var m=new DOMMatrix(getComputedStyle(cat).transform); return m.m41; }
-function freeze(){ if(!walking) return; walking=false; var c=curX(); cat.style.transition='none'; place(c); }
-function active(){ return visible && !document.hidden && !root.classList.contains('anim-paused'); }
-function say(txt,ms){ bubble.textContent=txt; bubble.classList.add('on'); clearTimeout(hideT); hideT=setTimeout(function(){ bubble.classList.remove('on'); },ms||1400); }
-function hearts(){
-  var n=4;
-  for(var i=0;i<n;i++){ (function(i){
-    var h=document.createElementNS('http://www.w3.org/2000/svg','svg'); h.setAttribute('viewBox','0 0 24 24'); h.setAttribute('class','cat-heart'); h.setAttribute('aria-hidden','true');
-    h.innerHTML='<path d="M12 21C5 15 2 11.5 2 8a5 5 0 0 1 10-1 5 5 0 0 1 10 1c0 3.5-3 7-10 13Z"/>';
-    h.style.setProperty('--hx',((i-1.5)*14)+'px'); h.style.animationDelay=(i*160)+'ms';
-    cat.appendChild(h); h.classList.add('go'); setTimeout(function(){ h.remove(); },1900+i*160);
-  })(i); }
+/* Scroll down and up: one progress value drives the logo, the books and the cat */
+if(!reduce){
+  var ticking=false, last=-1;
+  var upd=function(){
+    ticking=false;
+    var p=Math.min(1,Math.max(0,window.scrollY/(window.innerHeight*0.6)));
+    p=Math.round(p*500)/500;
+    if(p!==last){ last=p; cover.style.setProperty('--p',p); }
+  };
+  window.addEventListener('scroll',function(){ if(!ticking){ ticking=true; requestAnimationFrame(upd); } },{passive:true});
+  upd();
 }
-function idle(){ walking=false; state('idle'); schedule(2600+Math.random()*3400); }
-function schedule(ms){ clearTimeout(timer); timer=setTimeout(next,ms); }
-function walkTo(target,speed,st){
-  target=Math.max(0,Math.min(maxX(),target)); var dist=Math.abs(target-x);
-  if(dist<20){ idle(); return; }
-  face(target>x?1:-1); state(st||'walk'); walking=true;
-  cat.style.transition='transform '+(dist/speed).toFixed(2)+'s linear';
-  void cat.offsetWidth; place(target);
-}
-function next(){
-  if(!active()||reduce){ schedule(1500); return; }
-  var span=maxX(), target=x+(Math.random()<.5?-1:1)*(120+Math.random()*Math.max(60,span*.5));
-  if(target<0||target>span) target=x-(target-x);
-  walkTo(target,56+Math.random()*20,'walk');
-}
-cat.addEventListener('transitionend',function(e){ if(e.propertyName!=='transform'||!walking) return; cat.style.transition='none'; idle(); });
-function react(){
-  clearTimeout(clickT); clickT=setTimeout(function(){ clicks=0; },2600);
-  freeze(); clearTimeout(timer); clicks++;
-  if(clicks===1){ state('hop'); say(T('meo'),1400); if(reduce) state('idle'); else setTimeout(function(){ if(cat.dataset.state==='hop') idle(); },750); }
-  else if(clicks===2){ state('purr'); say(T('purr'),1900); if(!reduce) hearts(); setTimeout(function(){ if(cat.dataset.state==='purr') idle(); },1900); }
-  else { clicks=0; say(T('run'),1200); if(reduce){ idle(); return; } state('hop'); setTimeout(function(){ var span=maxX(); walkTo(x<span/2?span:0,240,'run'); },320); }
-}
-cat.addEventListener('click',react);
-/* start in the middle of the shelf, sitting */
-function init(){ place(maxX()*.62); face(-1); idle(); }
-if(window.ResizeObserver){ new ResizeObserver(function(){ if(!walking) place(x); }).observe(lane); }
-new MutationObserver(function(){ if(root.classList.contains('anim-paused')){ freeze(); clearTimeout(timer); state('idle'); } else if(!walking) schedule(1200); }).observe(root,{attributes:true,attributeFilter:['class']});
-if('IntersectionObserver' in window){ new IntersectionObserver(function(es){ visible=es[0].isIntersecting; if(!visible){ freeze(); clearTimeout(timer); state('idle'); } else if(!walking) schedule(1200); },{threshold:0.05}).observe(cover); }
-document.addEventListener('visibilitychange',function(){ if(document.hidden){ freeze(); clearTimeout(timer); state('idle'); } else if(!walking) schedule(1200); });
-init();
+/* Press anywhere on the opening screen: a hairline ring, and a tapped book slides out */
+cover.addEventListener('pointerdown',function(e){
+  if(reduce||root.classList.contains('anim-paused')) return;
+  if(e.target.closest('a,button')) return;
+  var r=cover.getBoundingClientRect(), ring=document.createElement('i');
+  ring.className='cv-ring'; ring.style.left=(e.clientX-r.left)+'px'; ring.style.top=(e.clientY-r.top)+'px';
+  ring.addEventListener('animationend',function(){ ring.remove(); });
+  cover.appendChild(ring);
+  var bk=e.target.closest('.cvb');
+  if(bk){ bk.classList.add('pulled'); setTimeout(function(){ bk.classList.remove('pulled'); },1500); }
+});
 })();
 </script>
+
 
 </body>
 </html>
