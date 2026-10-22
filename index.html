@@ -485,27 +485,61 @@ section{padding:52px 0}
 }
 html.anim-paused .hero::before,html.anim-paused .hero::after,html.anim-paused .stat::after,html.anim-paused .scroll-cue .ico{animation-play-state:paused!important}
 
-/* ===== Hero: Soft Minimal, classroom window (arched niche) ===== */
-.hero-copy{position:relative;z-index:2}
-.hero-niche{position:absolute;left:0;top:0;translate:0 -20.48%;width:100%;height:auto;aspect-ratio:960/830;overflow:visible;z-index:0;pointer-events:none}
-.hero-niche .ni-sh{fill:var(--sand)}
-.hero-niche .ni-bg{fill:var(--paper)}
-.hero-niche .ni-ln{fill:none;stroke:var(--mocha);stroke-width:1.5;vector-effect:non-scaling-stroke}
-.hero-niche .ni-in{fill:none;stroke:var(--mocha);stroke-width:1;vector-effect:non-scaling-stroke;opacity:.35}
-.hero-niche .ni-fl{stroke:var(--mocha);stroke-width:1.5;vector-effect:non-scaling-stroke;opacity:.55}
-.hero-niche .ni-lv{font-family:var(--font-display);font-weight:700;font-size:30px;letter-spacing:.22em;fill:var(--mocha)}
-.hero-niche .ha-dot{fill:var(--cobalt)}
-.hero-art .cr{position:relative;z-index:1}
-.hero-art .anim-toggle,.hero-art .hero-lid{z-index:2}
-@media (max-width:1023px){.hero-art{margin-top:calc(18vw + 8px)}}
+/* ===== Opening screen: Soft Minimal (a staircase of arches, A1 to C2) ===== */
+.cover{position:relative;overflow:hidden;padding:0;min-height:calc(100svh - var(--navH));display:flex;flex-direction:column;background:linear-gradient(var(--paper) calc(100% - 88px),var(--cream) calc(100% - 88px))}
+.cover-copy{position:relative;z-index:2;width:100%;padding-top:clamp(28px,8vh,96px)}
+.cover-logo{display:block;width:min(100%,clamp(300px,56vw,720px));height:auto}
+.cover-stairs{position:absolute;left:0;right:0;bottom:102px;height:min(50%,430px);display:flex;align-items:flex-end;justify-content:space-between;gap:clamp(3px,.6vw,8px);z-index:1}
+.bk{--bg:var(--sand);--ink:var(--cocoa);position:relative;flex:var(--w,1) 1 0;min-width:0;max-width:96px;height:calc(var(--h) * 1%);display:flex;align-items:center;justify-content:center;background:var(--bg);color:var(--ink);border:1.5px solid var(--cocoa);border-bottom:0;border-radius:4px 4px 0 0;transform-origin:0 100%;transition:transform .35s var(--easeSpring)}
+.bk::before,.bk::after{content:"";position:absolute;left:0;right:0;border-top:1.5px solid currentColor;opacity:.55}
+.bk::before{top:9%}
+.bk::after{bottom:9%}
+.bk:hover{transform:translateY(-10px)}
+.bk .lv{writing-mode:vertical-rl;font-family:var(--font-display);font-weight:700;font-size:clamp(13px,1.5vw,20px);letter-spacing:.14em;text-transform:uppercase}
+.bk.lean{margin-right:clamp(16px,2.2vw,32px);transform-origin:100% 100%;transform:rotate(6deg)}
+.bk.lean:hover{transform:rotate(6deg) translateY(-10px)}
+.bk.a1{--bg:var(--grammar);--ink:var(--grammarInk)}
+.bk.a2{--bg:var(--reading);--ink:var(--readingInk)}
+.bk.b1{--bg:var(--speaking);--ink:var(--speakingInk)}
+.bk.b2{--bg:var(--vocab);--ink:var(--vocabInk)}
+.bk.c1{--bg:var(--cobalt);--ink:var(--cream)}
+.bk.c2{--bg:var(--review);--ink:var(--reviewInk)}
+.bk.d1{--bg:var(--cream);--ink:var(--mocha)}
+.bk.d2{--bg:var(--mocha);--ink:var(--cream)}
+@media(max-width:360px){.cover-stairs{height:min(44%,430px)}}
+@media(max-width:360px){.cover-stairs{height:min(44%,430px)}}
+@media(max-width:640px){.bk.dec{display:none}.bk .lv{padding:7px 2px}.bk{max-width:64px}}
+.bk .lv{padding:10px 3px;background:var(--cream);color:var(--cocoa);border:1.5px solid var(--cocoa);border-radius:3px}
+.bk.dec{background-image:radial-gradient(circle at 50% 22%,var(--ink) 0 2.5px,transparent 3px),linear-gradient(var(--ink),var(--ink));background-size:100% 100%,0 0}
+.bk.d1{background-image:repeating-linear-gradient(transparent 0 calc(50% - 14px),var(--mocha) 0 calc(50% - 12px),transparent 0 calc(50% - 2px),var(--mocha) 0 calc(50% + 0px),transparent 0)}
+.bk .top{position:absolute;left:50%;bottom:calc(100% + 1.5px);translate:-50% 0;display:block;pointer-events:none}
+.plant{height:auto;overflow:visible}
+.plantbig{flex:none;align-self:flex-end;width:clamp(58px,12.5vw,200px);margin-right:clamp(2px,.8vw,12px)}
+.plant .leaves{transform-origin:50% 100%;transform-box:fill-box}
+.globe{width:clamp(30px,3.4vw,44px);height:auto;overflow:visible}
+.flatstack{position:absolute;left:-1.5px;right:-1.5px;bottom:100%;display:flex;flex-direction:column-reverse;pointer-events:none}
+.flatstack i{display:block;height:clamp(11px,1.3vw,16px);border:1.5px solid var(--cocoa);margin-top:-1.5px;border-radius:3px}
+.flatstack i:nth-child(1){background:var(--speaking)}
+.flatstack i:nth-child(2){background:var(--cobalt);margin-left:6px;margin-right:-4px}
+.flatstack i:nth-child(3){background:var(--grammar);margin-left:2px;margin-right:4px}
+.rib{position:absolute;top:-2px;left:62%;width:clamp(9px,1vw,13px);height:clamp(36px,4vw,56px);background:var(--grammar);border:1.5px solid var(--cocoa);border-top:0;clip-path:polygon(0 0,100% 0,100% 100%,50% 82%,0 100%);z-index:1}
+.cover-shelf{position:absolute;left:0;right:0;bottom:88px;height:14px;z-index:2;background:var(--cocoa);border-top:3px solid var(--mocha)}
+.cover-cue{position:absolute;left:50%;bottom:0;z-index:3;translate:-50% 0;height:88px;display:flex;align-items:center;gap:8px;color:var(--cocoa);text-decoration:none;font-family:var(--font-display);font-weight:700;font-size:16px;letter-spacing:.14em;text-transform:uppercase}
+.cover-cue .ico{width:22px;height:22px}
+.cover-cue:hover{color:var(--cobalt)}
 @media (prefers-reduced-motion:no-preference){
-  .hero-niche .ni{transform-box:view-box;transform-origin:480px 658px;animation:nicheIn .9s var(--easeOut) .15s backwards}
-  @keyframes nicheIn{from{opacity:0;transform:translateY(36px) scale(.97)}}
-  .hero-niche .ha-dot{animation:dotIn .6s ease 1.1s backwards}
-  @keyframes dotIn{from{opacity:0}}
+  .cover-logo{animation:coverIn .8s var(--easeOut) backwards}
+  @keyframes coverIn{from{opacity:0;transform:translateY(16px)}}
+  .bk{animation:bkUp .8s var(--easeSpring) backwards;animation-delay:calc(var(--i) * 90ms + 200ms)}
+  @keyframes bkUp{from{opacity:0;transform:translateY(40%)}}
+  .bk.lean{animation:bkUp .8s var(--easeSpring) backwards,bkLean .9s var(--easeSpring) 1.3s backwards;animation-delay:calc(var(--i) * 90ms + 200ms),1.3s}
+  @keyframes bkLean{from{transform:rotate(0)}}
+  .plantbig{animation:bkUp .8s var(--easeSpring) .1s backwards}
+  .plant .leaves{animation:sway 5s ease-in-out infinite alternate 2s}
+  @keyframes sway{from{transform:rotate(-2.5deg)}to{transform:rotate(2.5deg)}}
+  .cover-cue .ico{animation:nudge 2.4s var(--easeSpring) 2s infinite}
 }
-@media (prefers-reduced-motion:reduce){.hero-niche .ha-dot{display:none}}
-html.anim-paused .hero-niche .ni,html.anim-paused .hero-niche .ha-dot{animation-play-state:paused!important}
+html.anim-paused .cover-cue .ico,html.anim-paused .plant .leaves{animation-play-state:paused!important}
 
 /* ===== Three steps, clearer (V3.4) ===== */
 .steps::before{content:none!important;display:none}
@@ -751,7 +785,7 @@ html.anim-paused .hero-niche .ni,html.anim-paused .hero-niche .ha-dot{animation-
 
 <nav class="nav" id="nav" aria-label="Chính" data-en-label="Main" data-vi-label="Chính">
   <div class="nav-row">
-    <a class="brand" href="#home" aria-label="The Standard, về đầu trang" data-en-label="The Standard, back to top" data-vi-label="The Standard, về đầu trang"><img src="assets/logo-black.png" alt="The Standard" width="760" height="96"></a>
+    <a class="brand" href="#top" aria-label="The Standard, về đầu trang" data-en-label="The Standard, back to top" data-vi-label="The Standard, về đầu trang"><img src="assets/logo-black.png" alt="The Standard" width="760" height="96"></a>
     <ul class="nav-links">
       <li class="nav-ink-li" aria-hidden="true"><span class="nav-ink"></span></li>
       <li><a href="#about" data-vi="Giới thiệu" data-en="About">Giới thiệu</a></li>
@@ -782,6 +816,14 @@ html.anim-paused .hero-niche .ni,html.anim-paused .hero-niche .ha-dot{animation-
 </div>
 
 <main>
+<section class="cover" id="top" aria-label="Mở đầu" data-vi-label="Mở đầu" data-en-label="Opening">
+  <div class="inner cover-copy">
+    <img class="cover-logo" src="assets/logo-black.png" alt="" width="760" height="96">
+  </div>
+  <div class="inner cover-stairs" aria-hidden="true"><svg class="plant plantbig" viewBox="0 0 120 202" aria-hidden="true" stroke="#4b2a22" stroke-width="1.5" stroke-linejoin="round"><g class="leaves"><path d="M60 122C48 90 48 44 60 8C72 44 72 90 60 122Z" fill="#9fd63c"/><path d="M60 122C48 100 38 62 38 30C54 52 62 86 60 122Z" fill="#7fb92a"/><path d="M60 122C72 100 82 62 82 30C66 52 58 86 60 122Z" fill="#7fb92a"/><path d="M60 122C46 104 30 86 14 56C38 58 58 84 60 122Z" fill="#9fd63c"/><path d="M60 122C74 104 90 86 106 56C82 58 62 84 60 122Z" fill="#9fd63c"/><path d="M60 122C42 118 22 112 4 98C28 92 52 100 60 122Z" fill="#7fb92a"/><path d="M60 122C78 118 98 112 116 98C92 92 68 100 60 122Z" fill="#7fb92a"/><path d="M60 118V22M60 118C52 96 44 70 40 42M60 118C68 96 76 70 80 42" stroke="#1f4d14" stroke-opacity=".45" stroke-width="1.2" fill="none"/></g><path d="M30 124H90L82 198H38Z" fill="#1f5bb5"/><path d="M33 150H87" stroke="#d9c3a3" stroke-width="5"/><rect x="24" y="116" width="72" height="14" rx="3" fill="#d9c3a3"/></svg><div class="bk dec d1" style="--i:0;--h:72;--w:1.1"></div><div class="bk a1" style="--i:1;--h:58;--w:1"><span class="lv">A1</span><span class="flatstack" aria-hidden="true"><i></i><i></i></span></div><div class="bk a2" style="--i:2;--h:84;--w:1"><span class="lv">A2</span></div><div class="bk dec d2" style="--i:3;--h:66;--w:0.8"></div><div class="bk b1" style="--i:4;--h:70;--w:1"><span class="lv">B1</span></div><div class="bk b2 lean" style="--i:5;--h:62;--w:1"><span class="lv">B2</span></div><div class="bk c1" style="--i:6;--h:100;--w:1"><span class="lv">C1</span><i class="rib"></i></div><div class="bk dec d1" style="--i:7;--h:78;--w:0.9"><span class="top"><svg class="globe" viewBox="0 0 44 58" aria-hidden="true" fill="none" stroke-linejoin="round"><path d="M22 38V50M11 53H33" stroke="#4b2a22" stroke-width="1.5" stroke-linecap="round"/><circle cx="22" cy="20" r="18" fill="#fffaf2" stroke="#4b2a22" stroke-width="1.5"/><path d="M12 12C16 8 22 10 20 16C18 22 12 20 10 24C8 20 9 15 12 12ZM26 22C31 20 35 24 33 29C30 33 26 31 25 27Z" fill="#1f5bb5" fill-opacity=".28" stroke="#1f5bb5" stroke-width="1.2"/><ellipse cx="22" cy="20" rx="8" ry="18" stroke="#1f5bb5" stroke-width="1.2"/><path d="M4 20H40" stroke="#1f5bb5" stroke-width="1.2"/></svg></span></div><div class="bk c2" style="--i:8;--h:88;--w:1"><span class="lv">C2</span></div></div>
+  <div class="cover-shelf" aria-hidden="true"></div>
+  <a class="cover-cue" href="#home" aria-label="Kéo xuống để xem phần tiếp theo" data-vi-label="Kéo xuống để xem phần tiếp theo" data-en-label="Scroll down to continue"><span data-vi="Kéo xuống" data-en="Scroll down">Kéo xuống</span><svg class="ico" aria-hidden="true"><use href="#i-down"/></svg></a>
+</section>
 <section class="hero" id="home">
   <div class="inner hero-grid">
     <div class="hero-copy stagger">
@@ -800,7 +842,6 @@ html.anim-paused .hero-niche .ni,html.anim-paused .hero-niche .ha-dot{animation-
       </div>
     </div>
     <div class="hero-art" id="heroArt">
-      <svg class="hero-niche" id="heroArch" viewBox="0 -170 960 830" aria-hidden="true" focusable="false"><g class="ni"><path class="ni-sh" transform="translate(14 14)" d="M20 658V310A460 460 0 0 1 940 310V658Z"/><path class="ni-bg" d="M20 658V310A460 460 0 0 1 940 310V658Z"/><path class="ni-in" d="M36 658V310A444 444 0 0 1 924 310V658"/><path class="ni-ln" d="M20 658V310A460 460 0 0 1 940 310V658"/><text class="ni-lv" x="480" y="-52" text-anchor="middle">A1 · A2 · B1 · B2 · C1 · C2</text><line class="ni-fl" x1="-60" y1="658" x2="1020" y2="658"/></g><path id="haFrame" d="M36 658V310A444 444 0 0 1 924 310V658" fill="none" stroke="none"/><circle class="ha-dot" r="9"><animateMotion dur="26s" repeatCount="indefinite" calcMode="linear" keyPoints="0;1;0" keyTimes="0;.5;1"><mpath href="#haFrame"/></animateMotion></circle></svg>
       <svg class="cr" viewBox="0 0 960 660" width="960" height="660" role="img" aria-label="Minh họa lớp học: giáo viên chỉ lộ trình từ A1 đến C2, học viên theo dõi và một chú mèo ngủ" data-vi-label="Minh họa lớp học: giáo viên chỉ lộ trình từ A1 đến C2, học viên theo dõi và một chú mèo ngủ" data-en-label="Classroom illustration: a teacher points along a route from A1 to C2, students follow, and a cat naps"><defs><pattern id="crL" width="9" height="9" patternUnits="userSpaceOnUse"><circle cx="2.2" cy="2.2" r="1.15" fill="#1f5bb5"/><circle cx="6.7" cy="6.7" r="1.15" fill="#1f5bb5"/></pattern><pattern id="crD" width="6" height="6" patternUnits="userSpaceOnUse"><circle cx="1.5" cy="1.5" r="1.45" fill="#1f5bb5"/><circle cx="4.5" cy="4.5" r="1.45" fill="#1f5bb5"/></pattern></defs><style>
 .cr-ln{fill:none;stroke:#1f5bb5;stroke-width:3.5;stroke-linecap:round;stroke-linejoin:round}
 .cr-th{stroke-width:2.4}
@@ -1496,23 +1537,6 @@ if ('IntersectionObserver' in window){
   }, { threshold: 0.05 });
   watch.forEach(function(el){ if(el) applyIO.observe(el); });
 }
-})();
-
-/* ---------- Hero window: the travelling dot follows the pause button, reduced motion, hidden tab and off screen ---------- */
-(function(){
-  var hero=document.getElementById('home'), arch=document.getElementById('heroArch'); if(!hero||!arch) return;
-  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var root=document.documentElement, paused=root.classList.contains('anim-paused'), hid=document.hidden, vis=true;
-  function sync(){
-    if(!arch.pauseAnimations) return;
-    if(reduce||paused||hid||!vis) arch.pauseAnimations(); else arch.unpauseAnimations();
-  }
-  if('IntersectionObserver' in window){
-    new IntersectionObserver(function(es){ vis=es[es.length-1].isIntersecting; sync(); },{threshold:0}).observe(hero);
-  }
-  document.addEventListener('visibilitychange',function(){ hid=document.hidden; sync(); });
-  new MutationObserver(function(){ paused=root.classList.contains('anim-paused'); sync(); }).observe(root,{attributes:true,attributeFilter:['class']});
-  sync();
 })();
 </script>
 </body>
