@@ -523,6 +523,7 @@ html.anim-paused .hero::before,html.anim-paused .hero::after,html.anim-paused .s
 .flatstack i:nth-child(2){background:var(--cobalt);margin-left:6px;margin-right:-4px}
 .flatstack i:nth-child(3){background:var(--grammar);margin-left:2px;margin-right:4px}
 .rib{position:absolute;top:-2px;left:62%;width:clamp(9px,1vw,13px);height:clamp(36px,4vw,56px);background:var(--grammar);border:1.5px solid var(--cocoa);border-top:0;clip-path:polygon(0 0,100% 0,100% 100%,50% 82%,0 100%);z-index:1}
+.cover-floor{position:absolute;left:0;right:0;bottom:0;height:88px;z-index:2;background:var(--cream)}
 .cover-shelf{position:absolute;left:0;right:0;bottom:88px;height:14px;z-index:2;background:var(--cocoa);border-top:3px solid var(--mocha)}
 .cover-cue{position:absolute;left:50%;bottom:0;z-index:3;translate:-50% 0;height:88px;display:flex;align-items:center;gap:8px;color:var(--cocoa);text-decoration:none;font-family:var(--font-display);font-weight:700;font-size:16px;letter-spacing:.14em;text-transform:uppercase}
 .cover-cue .ico{width:22px;height:22px}
@@ -538,6 +539,16 @@ html.anim-paused .hero::before,html.anim-paused .hero::after,html.anim-paused .s
   .plant .leaves{animation:sway 5s ease-in-out infinite alternate 2s}
   @keyframes sway{from{transform:rotate(-2.5deg)}to{transform:rotate(2.5deg)}}
   .cover-cue .ico{animation:nudge 2.4s var(--easeSpring) 2s infinite}
+}
+@media (prefers-reduced-motion:no-preference){
+  @supports (animation-timeline:scroll()){
+    .cover-copy{animation:coverCopyOut linear both;animation-timeline:scroll(root);animation-range:0px 55svh}
+    .cover-stairs{animation:coverBooksIn linear both;animation-timeline:scroll(root);animation-range:0px 60svh}
+    .cover-cue{animation:coverCueOut linear both;animation-timeline:scroll(root);animation-range:0px 18svh}
+    @keyframes coverCopyOut{to{transform:translateY(-56px);opacity:0}}
+    @keyframes coverBooksIn{to{transform:translateY(88%)}}
+    @keyframes coverCueOut{to{opacity:0}}
+  }
 }
 html.anim-paused .cover-cue .ico,html.anim-paused .plant .leaves{animation-play-state:paused!important}
 
@@ -818,10 +829,11 @@ html.anim-paused .cover-cue .ico,html.anim-paused .plant .leaves{animation-play-
 <main>
 <section class="cover" id="top" aria-label="Mở đầu" data-vi-label="Mở đầu" data-en-label="Opening">
   <div class="inner cover-copy">
-    <img class="cover-logo" src="assets/logo-black.png" alt="" width="760" height="96">
+    <img class="cover-logo" src="assets/logo-black.svg" alt="" width="760" height="96">
   </div>
   <div class="inner cover-stairs" aria-hidden="true"><svg class="plant plantbig" viewBox="0 0 120 202" aria-hidden="true" stroke="#4b2a22" stroke-width="1.5" stroke-linejoin="round"><g class="leaves"><path d="M60 122C48 90 48 44 60 8C72 44 72 90 60 122Z" fill="#9fd63c"/><path d="M60 122C48 100 38 62 38 30C54 52 62 86 60 122Z" fill="#7fb92a"/><path d="M60 122C72 100 82 62 82 30C66 52 58 86 60 122Z" fill="#7fb92a"/><path d="M60 122C46 104 30 86 14 56C38 58 58 84 60 122Z" fill="#9fd63c"/><path d="M60 122C74 104 90 86 106 56C82 58 62 84 60 122Z" fill="#9fd63c"/><path d="M60 122C42 118 22 112 4 98C28 92 52 100 60 122Z" fill="#7fb92a"/><path d="M60 122C78 118 98 112 116 98C92 92 68 100 60 122Z" fill="#7fb92a"/><path d="M60 118V22M60 118C52 96 44 70 40 42M60 118C68 96 76 70 80 42" stroke="#1f4d14" stroke-opacity=".45" stroke-width="1.2" fill="none"/></g><path d="M30 124H90L82 198H38Z" fill="#1f5bb5"/><path d="M33 150H87" stroke="#d9c3a3" stroke-width="5"/><rect x="24" y="116" width="72" height="14" rx="3" fill="#d9c3a3"/></svg><div class="bk dec d1" style="--i:0;--h:72;--w:1.1"></div><div class="bk a1" style="--i:1;--h:58;--w:1"><span class="lv">A1</span><span class="flatstack" aria-hidden="true"><i></i><i></i></span></div><div class="bk a2" style="--i:2;--h:84;--w:1"><span class="lv">A2</span></div><div class="bk dec d2" style="--i:3;--h:66;--w:0.8"></div><div class="bk b1" style="--i:4;--h:70;--w:1"><span class="lv">B1</span></div><div class="bk b2 lean" style="--i:5;--h:62;--w:1"><span class="lv">B2</span></div><div class="bk c1" style="--i:6;--h:100;--w:1"><span class="lv">C1</span><i class="rib"></i></div><div class="bk dec d1" style="--i:7;--h:78;--w:0.9"><span class="top"><svg class="globe" viewBox="0 0 44 58" aria-hidden="true" fill="none" stroke-linejoin="round"><path d="M22 38V50M11 53H33" stroke="#4b2a22" stroke-width="1.5" stroke-linecap="round"/><circle cx="22" cy="20" r="18" fill="#fffaf2" stroke="#4b2a22" stroke-width="1.5"/><path d="M12 12C16 8 22 10 20 16C18 22 12 20 10 24C8 20 9 15 12 12ZM26 22C31 20 35 24 33 29C30 33 26 31 25 27Z" fill="#1f5bb5" fill-opacity=".28" stroke="#1f5bb5" stroke-width="1.2"/><ellipse cx="22" cy="20" rx="8" ry="18" stroke="#1f5bb5" stroke-width="1.2"/><path d="M4 20H40" stroke="#1f5bb5" stroke-width="1.2"/></svg></span></div><div class="bk c2" style="--i:8;--h:88;--w:1"><span class="lv">C2</span></div></div>
   <div class="cover-shelf" aria-hidden="true"></div>
+  <div class="cover-floor" aria-hidden="true"></div>
   <a class="cover-cue" href="#home" aria-label="Kéo xuống để xem phần tiếp theo" data-vi-label="Kéo xuống để xem phần tiếp theo" data-en-label="Scroll down to continue"><span data-vi="Kéo xuống" data-en="Scroll down">Kéo xuống</span><svg class="ico" aria-hidden="true"><use href="#i-down"/></svg></a>
 </section>
 <section class="hero" id="home">
