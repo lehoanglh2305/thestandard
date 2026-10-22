@@ -137,7 +137,7 @@ button:focus-visible{outline:3px solid var(--cobalt);outline-offset:2px}
 .seg.p{background:var(--cocoa);border-color:var(--cocoa);color:var(--cream)}
 .seg.d{background:var(--paper);border-color:var(--cobalt);color:var(--cobalt)}
 .seg.i{background:var(--paper);border-color:var(--mocha);border-style:dashed;color:var(--mocha)}
-.big{font-size:clamp(2.25rem,7vw,3.5rem)}
+.big{font-size:clamp(1.875rem,7vw,3.5rem)}
 
 /* ----- chips ----- */
 .chips{display:flex;flex-wrap:wrap;gap:var(--space8);margin-bottom:var(--space16)}
@@ -604,6 +604,7 @@ details.gloss[open] .gl{margin-top:8px}
 .langsw button[aria-pressed="true"]{background:var(--cobalt);color:#fff}
 .langsw button:focus-visible{outline:3px solid var(--cobalt);outline-offset:2px}
 @media (max-width:639px){.barr{width:100%;justify-content:center}}
+@media(max-width:360px){.big{font-size:1.5rem}.labelled .seg small{font-size:10px;letter-spacing:.05em}.seg{padding:1px 5px}}
 </style>
 
 </head>
