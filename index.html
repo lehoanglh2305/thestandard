@@ -559,6 +559,7 @@ html.anim-paused .hero::before,html.anim-paused .hero::after,html.anim-paused .s
   .cover-cue:hover .ico,.cover-cue:focus-visible .ico{animation:none;transform:translateY(3px);transition:transform .3s var(--easeSpring)}
   .cover-cue:active{scale:.96}
   .cover-cue.go{animation:cvPress .5s var(--easeSpring)}
+  .cv-books.tidy .cvb{animation:cvTidy .62s var(--easeSpring) calc(var(--i) * 70ms) backwards}
   .cv-ring{animation:cvRing 1.1s var(--easeOut) forwards}
   @keyframes cvLine{from{transform:scaleX(0)}}
   @keyframes cvLineY{from{transform:scaleY(0)}}
@@ -572,6 +573,7 @@ html.anim-paused .hero::before,html.anim-paused .hero::after,html.anim-paused .s
   @keyframes cvRing{from{opacity:.9;transform:scale(1)}to{opacity:0;transform:scale(11)}}
   @keyframes cvBreathe{0%,100%{box-shadow:0 0 0 0 rgba(176,141,87,0)}50%{box-shadow:0 0 0 7px rgba(176,141,87,.2)}}
   @keyframes cvSweep{0%,70%{background-position:-160% 0}100%{background-position:260% 0}}
+  @keyframes cvTidy{0%{transform:none}35%{transform:translateY(-16px) rotate(-1.2deg)}70%{transform:translateY(2px)}100%{transform:none}}
   @keyframes cvPress{0%{transform:scale(1)}35%{transform:scale(.92)}100%{transform:scale(1)}}
 }
 html.anim-paused .cover *{animation-play-state:paused!important}
@@ -1611,7 +1613,9 @@ if(cue&&home){
     cover.appendChild(ring);
     cue.classList.add('go');
     setTimeout(function(){ cue.classList.remove('go'); },600);
-    setTimeout(go,220);
+    var books=cover.querySelector('.cv-books');
+    if(books){ books.classList.remove('tidy'); void books.offsetWidth; books.classList.add('tidy'); setTimeout(function(){ books.classList.remove('tidy'); },1300); }
+    setTimeout(go,650);
   });
 }
 /* Press anywhere on the opening screen: a hairline ring, and a tapped book slides out */
