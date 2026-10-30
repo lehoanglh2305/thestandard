@@ -1,10 +1,11 @@
 /* The Standard: lets the route map and learning hub open without internet.
    Pages: newest copy from the internet when online, saved copy when offline.
    Change VERSION after an update to clear old saved files. */
-const VERSION = "ts-2026-10-22h";
+const VERSION = "ts-2026-10-30a";
 const FONTS = "ts-fonts";
 const CORE = ["./route-map.html", "./learning-hub.html", "./writing.html", "./lo-trinh-ielts.html", "./404.html", "./manifest.webmanifest", "./icon-192.png", "./icon-512.png", "./assets/logo-black.png", "./assets/logo-letters.svg", "./assets/logo-dot.svg", "./assets/logo-white.png",
-  "./NotoSans-Regular.woff2", "./NotoSans-Medium.woff2", "./NotoSans-SemiBold.woff2", "./NotoSans-Bold.woff2"];
+  "./NotoSans-Regular.woff2", "./NotoSans-Medium.woff2", "./NotoSans-SemiBold.woff2", "./NotoSans-Bold.woff2",
+  "./fonts/barlow-400.woff2", "./fonts/barlow-600.woff2", "./fonts/barlow-condensed-700.woff2", "./fonts/barlow-condensed-800.woff2"];
 
 self.addEventListener("install", e => {
   e.waitUntil(caches.open(VERSION).then(c => c.addAll(CORE)).then(() => self.skipWaiting()));

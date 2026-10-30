@@ -21,8 +21,8 @@
 <meta name="twitter:card" content="summary_large_image">
 <!-- /share tags -->
 <title>Góc học tập · The Standard</title>
-<meta name="theme-color" content="#f5f2ea" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#121d33" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f4e6cf" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#2a1813" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 11'%3E%3Cpath fill='%23d97757' d='M2 0h1v1h5V0h1v2h1v1h1v4h1v2h-1v1H1V9H0V7h1V3h1z'/%3E%3Crect x='3' y='4' width='2' height='2' fill='%23faf9f5'/%3E%3Crect x='7' y='4' width='2' height='2' fill='%23faf9f5'/%3E%3Crect x='5' y='7' width='2' height='1' fill='%23e8a55a'/%3E%3C/svg%3E">
 <link rel="preload" href="NotoSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="NotoSans-Bold.woff2" as="font" type="font/woff2" crossorigin>
@@ -774,6 +774,83 @@ dialog,.shead{background:var(--canvas)}
   :root:not([data-theme="light"]) .mark-dark{display:block}
 }
 @media (max-width:420px){.mark-logo{height:18px}}
+</style>
+<style id="shelfpop-skin">
+/* Shelf Pop skin for the older learning pages.
+   Swaps the old navy tokens for The Standard's Shelf Pop palette and fonts.
+   Layout, owl and features are unchanged. Light and dark versions. */
+@font-face{font-family:"Barlow";src:url(fonts/barlow-400.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Barlow";src:url(fonts/barlow-600.woff2) format("woff2");font-weight:500 700;font-style:normal;font-display:swap}
+@font-face{font-family:"Barlow Condensed";src:url(fonts/barlow-condensed-700.woff2) format("woff2");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"Barlow Condensed";src:url(fonts/barlow-condensed-800.woff2) format("woff2");font-weight:800;font-style:normal;font-display:swap}
+:root{
+  --sp-cocoa:#4b2a22; --sp-cream:#f4e6cf; --sp-paper:#fffaf2; --sp-sand:#d9c3a3; --sp-mocha:#7a5648; --sp-cobalt:#1f5bb5;
+  --coral:#1f5bb5; --coral-active:#4b2a22; --coral-text:#1f5bb5; --coral-fill:#1f5bb5; --on-cream:#6b4a3e; --teal:#1f5bb5; --amber:#ffd23f;
+  --teal-text:#1f5bb5; --teal-fill:#1f5bb5; --teal-soft:#dbe6f7; --navy:#4b2a22; --navy-deep:#3a1f19; --navy-elevated:#5e3a30;
+  --ink:#4b2a22; --body-strong:#4b2a22; --body:#4b2a22; --muted:#6b4a3e; --muted-soft:#7a5648;
+  --canvas:#f4e6cf; --surface-soft:#efdcbf; --surface-card:#fffaf2; --cream-strong:#ead6b6;
+  --hairline:#d9c3a3; --hairline-soft:#e4cfae;
+  --dark:#4b2a22; --dark-elevated:#5e3a30; --dark-soft:#3a1f19; --on-dark:#f4e6cf; --on-dark-soft:#e2cdb0;
+  --success:#2e6b1f; --error:#b3261e;
+  --on-primary:#fffaf2; --panel:#4b2a22; --on-panel:#f4e6cf; --on-panel-soft:#e2cdb0;
+  --btn-dk:#1f5bb5; --btn-dk-soft:#174a96; --ok-text:#2e6b1f; --err-text:#b3261e;
+  --formula-soft:rgba(75,42,34,.06); --backdrop:rgba(58,31,25,.55);
+  --line-accent:#1f5bb5; --ring:rgba(31,91,181,.35); --glow:rgba(31,91,181,.18);
+  --ok-tint:rgba(46,107,31,.12); --err-tint:rgba(179,38,30,.09);
+  --stage:#fffaf2; --stage-floor:#ead6b6;
+  --wheel-a:#1f5bb5; --wheel-b:#4b2a22; --wheel-c:#ead6b6; --wheel-ta:#fffaf2; --wheel-tb:#fffaf2; --wheel-tc:#4b2a22; --wheel-ring:#4b2a22; --wheel-hub:#fffaf2;
+  --serif:"Barlow Condensed","Arial Narrow",sans-serif; --sans:Barlow,Arial,sans-serif; --mono:Barlow,Arial,sans-serif;
+}
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]){
+  --coral:#9dbdf2; --coral-active:#f4e6cf; --coral-text:#9dbdf2; --coral-fill:#9dbdf2; --on-primary:#2a1813; --on-cream:#d9c3a3; --teal:#9dbdf2; --amber:#ffd23f;
+  --teal-text:#9dbdf2; --teal-fill:#9dbdf2;
+  --ink:#f4e6cf; --body-strong:#f4e6cf; --body:#ecdcc4; --muted:#d9c3a3; --muted-soft:#cdb79c;
+  --canvas:#2a1813; --surface-soft:#43281f; --surface-card:#3a221b; --cream-strong:#4f3027;
+  --hairline:#6b4a3e; --hairline-soft:#4f3027;
+  --panel:#4f3027; --on-panel:#f4e6cf; --on-panel-soft:#e2cdb0; --btn-dk:#1f5bb5; --btn-dk-soft:#174a96;
+  --success:#8fd06a; --error:#f2a39b; --ok-text:#a6dc87; --err-text:#f2a39b;
+  --formula-soft:rgba(244,230,207,.07); --backdrop:rgba(10,5,3,.7);
+  --line-accent:#9dbdf2; --ring:rgba(157,189,242,.45); --glow:rgba(157,189,242,.22);
+  --ok-tint:rgba(143,208,106,.16); --err-tint:rgba(242,163,155,.16);
+  --stage:#3a221b; --stage-floor:#4f3027;
+  --wheel-a:#1f5bb5; --wheel-b:#4f3027; --wheel-c:#f4e6cf; --wheel-tc:#2a1813; --wheel-ring:#f4e6cf; --wheel-hub:#2a1813;
+} }
+:root[data-theme="dark"]{
+  --coral:#9dbdf2; --coral-active:#f4e6cf; --coral-text:#9dbdf2; --coral-fill:#9dbdf2; --on-primary:#2a1813; --on-cream:#d9c3a3; --teal:#9dbdf2; --amber:#ffd23f;
+  --teal-text:#9dbdf2; --teal-fill:#9dbdf2;
+  --ink:#f4e6cf; --body-strong:#f4e6cf; --body:#ecdcc4; --muted:#d9c3a3; --muted-soft:#cdb79c;
+  --canvas:#2a1813; --surface-soft:#43281f; --surface-card:#3a221b; --cream-strong:#4f3027;
+  --hairline:#6b4a3e; --hairline-soft:#4f3027;
+  --panel:#4f3027; --on-panel:#f4e6cf; --on-panel-soft:#e2cdb0; --btn-dk:#1f5bb5; --btn-dk-soft:#174a96;
+  --success:#8fd06a; --error:#f2a39b; --ok-text:#a6dc87; --err-text:#f2a39b;
+  --formula-soft:rgba(244,230,207,.07); --backdrop:rgba(10,5,3,.7);
+  --line-accent:#9dbdf2; --ring:rgba(157,189,242,.45); --glow:rgba(157,189,242,.22);
+  --ok-tint:rgba(143,208,106,.16); --err-tint:rgba(242,163,155,.16);
+  --stage:#3a221b; --stage-floor:#4f3027;
+  --wheel-a:#1f5bb5; --wheel-b:#4f3027; --wheel-c:#f4e6cf; --wheel-tc:#2a1813; --wheel-ring:#f4e6cf; --wheel-hub:#2a1813;
+}
+/* headings: Shelf Pop condensed display, big titles in capitals like the home page */
+h1,h2,h3,h4{font-family:var(--serif);letter-spacing:0}
+h1,.hero h1{font-weight:800;text-transform:uppercase;line-height:1.16;letter-spacing:0}
+.eyebrow{font-family:var(--serif);font-weight:700;letter-spacing:.12em}
+/* menu, same look as the home page */
+.sitebar{background:var(--canvas);border-bottom:1px solid var(--hairline);min-height:68px}
+.sitenav a{font:600 16px/1.2 var(--sans);color:var(--ink);border-radius:999px;min-height:44px;display:flex;align-items:center}
+.sitenav a:hover{background:var(--surface-card);color:var(--ink)}
+.sitenav a[aria-current]{background:var(--surface-card);box-shadow:inset 0 0 0 1.5px var(--hairline)}
+.sitenav a.navapply{background:#1f5bb5;color:#fffaf2;border-radius:16px;padding-inline:20px;margin-left:8px}
+.sitenav a.navapply:hover{background:#4b2a22;color:#fffaf2}
+.lang{background:transparent;border:1.5px solid var(--ink);padding:0;overflow:hidden}
+.lang button{border-radius:0;min-width:44px;min-height:40px;padding:0 12px;font:600 14px/1 var(--sans);color:var(--ink);letter-spacing:.04em}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--canvas)}
+.themeb{background:transparent;border:1.5px solid var(--ink);min-height:42px;min-width:42px;justify-content:center;font-family:var(--sans);font-weight:600;color:var(--ink)}
+.navtoggle{background:transparent;border:1.5px solid var(--ink);border-radius:12px;color:var(--ink);width:44px;height:44px}
+@media (min-width:1024px){.sitebar{min-height:76px}}
+/* tools row, same pills as the other pages */
+.pageswitch{background:transparent;padding:0;gap:6px}
+.pageswitch a{min-height:36px;display:inline-flex;align-items:center;border:1px solid var(--hairline);background:var(--surface-card);color:var(--muted);font:600 14px/1.2 var(--sans)}
+.pageswitch a:hover{color:var(--ink)}
+.pageswitch a[aria-current="page"]{background:var(--ink);border-color:var(--ink);color:var(--canvas)}
 </style>
 </head>
 <body>

@@ -169,6 +169,70 @@ dialog,.shead{background:var(--canvas)}
 }
 @media (max-width:420px){.mark-logo{height:18px}}
 </style>
+<style id="shelfpop-skin">
+/* Shelf Pop skin for the older learning pages.
+   Swaps the old navy tokens for The Standard's Shelf Pop palette and fonts.
+   Layout, owl and features are unchanged. Light and dark versions. */
+@font-face{font-family:"Barlow";src:url(https://lehoanglh2305.github.io/thestandard/fonts/barlow-400.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Barlow";src:url(https://lehoanglh2305.github.io/thestandard/fonts/barlow-600.woff2) format("woff2");font-weight:500 700;font-style:normal;font-display:swap}
+@font-face{font-family:"Barlow Condensed";src:url(https://lehoanglh2305.github.io/thestandard/fonts/barlow-condensed-700.woff2) format("woff2");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"Barlow Condensed";src:url(https://lehoanglh2305.github.io/thestandard/fonts/barlow-condensed-800.woff2) format("woff2");font-weight:800;font-style:normal;font-display:swap}
+:root{
+  --sp-cocoa:#4b2a22; --sp-cream:#f4e6cf; --sp-paper:#fffaf2; --sp-sand:#d9c3a3; --sp-mocha:#7a5648; --sp-cobalt:#1f5bb5;
+  --coral:#1f5bb5; --coral-active:#4b2a22; --coral-text:#1f5bb5; --coral-fill:#1f5bb5; --on-cream:#6b4a3e; --teal:#1f5bb5; --amber:#ffd23f;
+  --teal-text:#1f5bb5; --teal-fill:#1f5bb5; --teal-soft:#dbe6f7; --navy:#4b2a22; --navy-deep:#3a1f19; --navy-elevated:#5e3a30;
+  --ink:#4b2a22; --body-strong:#4b2a22; --body:#4b2a22; --muted:#6b4a3e; --muted-soft:#7a5648;
+  --canvas:#f4e6cf; --surface-soft:#efdcbf; --surface-card:#fffaf2; --cream-strong:#ead6b6;
+  --hairline:#d9c3a3; --hairline-soft:#e4cfae;
+  --dark:#4b2a22; --dark-elevated:#5e3a30; --dark-soft:#3a1f19; --on-dark:#f4e6cf; --on-dark-soft:#e2cdb0;
+  --success:#2e6b1f; --error:#b3261e;
+  --on-primary:#fffaf2; --panel:#4b2a22; --on-panel:#f4e6cf; --on-panel-soft:#e2cdb0;
+  --btn-dk:#1f5bb5; --btn-dk-soft:#174a96; --ok-text:#2e6b1f; --err-text:#b3261e;
+  --formula-soft:rgba(75,42,34,.06); --backdrop:rgba(58,31,25,.55);
+  --line-accent:#1f5bb5; --ring:rgba(31,91,181,.35); --glow:rgba(31,91,181,.18);
+  --ok-tint:rgba(46,107,31,.12); --err-tint:rgba(179,38,30,.09);
+  --stage:#fffaf2; --stage-floor:#ead6b6;
+  --wheel-a:#1f5bb5; --wheel-b:#4b2a22; --wheel-c:#ead6b6; --wheel-ta:#fffaf2; --wheel-tb:#fffaf2; --wheel-tc:#4b2a22; --wheel-ring:#4b2a22; --wheel-hub:#fffaf2;
+  --serif:"Barlow Condensed","Arial Narrow",sans-serif; --sans:Barlow,Arial,sans-serif; --mono:Barlow,Arial,sans-serif;
+}
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]){
+  --coral:#9dbdf2; --coral-active:#f4e6cf; --coral-text:#9dbdf2; --coral-fill:#9dbdf2; --on-primary:#2a1813; --on-cream:#d9c3a3; --teal:#9dbdf2; --amber:#ffd23f;
+  --teal-text:#9dbdf2; --teal-fill:#9dbdf2;
+  --ink:#f4e6cf; --body-strong:#f4e6cf; --body:#ecdcc4; --muted:#d9c3a3; --muted-soft:#cdb79c;
+  --canvas:#2a1813; --surface-soft:#43281f; --surface-card:#3a221b; --cream-strong:#4f3027;
+  --hairline:#6b4a3e; --hairline-soft:#4f3027;
+  --panel:#4f3027; --on-panel:#f4e6cf; --on-panel-soft:#e2cdb0; --btn-dk:#1f5bb5; --btn-dk-soft:#174a96;
+  --success:#8fd06a; --error:#f2a39b; --ok-text:#a6dc87; --err-text:#f2a39b;
+  --formula-soft:rgba(244,230,207,.07); --backdrop:rgba(10,5,3,.7);
+  --line-accent:#9dbdf2; --ring:rgba(157,189,242,.45); --glow:rgba(157,189,242,.22);
+  --ok-tint:rgba(143,208,106,.16); --err-tint:rgba(242,163,155,.16);
+  --stage:#3a221b; --stage-floor:#4f3027;
+  --wheel-a:#1f5bb5; --wheel-b:#4f3027; --wheel-c:#f4e6cf; --wheel-tc:#2a1813; --wheel-ring:#f4e6cf; --wheel-hub:#2a1813;
+} }
+:root[data-theme="dark"]{
+  --coral:#9dbdf2; --coral-active:#f4e6cf; --coral-text:#9dbdf2; --coral-fill:#9dbdf2; --on-primary:#2a1813; --on-cream:#d9c3a3; --teal:#9dbdf2; --amber:#ffd23f;
+  --teal-text:#9dbdf2; --teal-fill:#9dbdf2;
+  --ink:#f4e6cf; --body-strong:#f4e6cf; --body:#ecdcc4; --muted:#d9c3a3; --muted-soft:#cdb79c;
+  --canvas:#2a1813; --surface-soft:#43281f; --surface-card:#3a221b; --cream-strong:#4f3027;
+  --hairline:#6b4a3e; --hairline-soft:#4f3027;
+  --panel:#4f3027; --on-panel:#f4e6cf; --on-panel-soft:#e2cdb0; --btn-dk:#1f5bb5; --btn-dk-soft:#174a96;
+  --success:#8fd06a; --error:#f2a39b; --ok-text:#a6dc87; --err-text:#f2a39b;
+  --formula-soft:rgba(244,230,207,.07); --backdrop:rgba(10,5,3,.7);
+  --line-accent:#9dbdf2; --ring:rgba(157,189,242,.45); --glow:rgba(157,189,242,.22);
+  --ok-tint:rgba(143,208,106,.16); --err-tint:rgba(242,163,155,.16);
+  --stage:#3a221b; --stage-floor:#4f3027;
+  --wheel-a:#1f5bb5; --wheel-b:#4f3027; --wheel-c:#f4e6cf; --wheel-tc:#2a1813; --wheel-ring:#f4e6cf; --wheel-hub:#2a1813;
+}
+/* headings: Shelf Pop condensed display, big titles in capitals like the home page */
+h1,h2,h3,h4{font-family:var(--serif);letter-spacing:0}
+h1,.hero h1{font-weight:800;text-transform:uppercase;line-height:1.16;letter-spacing:0}
+.eyebrow{font-family:var(--serif);font-weight:700;letter-spacing:.12em}
+/* 404 buttons in Shelf Pop */
+nav a{border-radius:16px;font:600 16px/1 var(--sans)}
+nav a.main{background:#1f5bb5;border-color:#1f5bb5;color:#fffaf2;border-radius:16px}
+nav a.main:hover{background:#4b2a22;border-color:#4b2a22}
+.lang button{font:600 14px/1 var(--sans)}
+</style>
 </head>
 <body>
 <main>
