@@ -632,6 +632,16 @@ html.anim-paused .cover *{animation-play-state:paused!important}
   @keyframes landCard{0%{transform:none}35%{transform:translateY(-8px);box-shadow:var(--elev4)}100%{transform:none}}
   .mobile-panel.open a{animation:rise .42s var(--easeSpring) both;animation-delay:calc(var(--i,0) * 35ms)}
 }
+
+/* demo: Zalo in hero, contact, mobile bar */
+.contact-zalo{display:flex;flex-direction:column;align-items:flex-start;gap:8px}
+.contact-zalo-note{font-size:15px;color:var(--cocoa);opacity:.85}
+.mobile-apply{padding:0;gap:0;overflow:hidden}
+.mobile-apply-link{flex:1;display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:56px;padding:0 16px 0 20px;color:inherit;text-decoration:none}
+.mobile-zalo{display:flex;align-items:center;gap:6px;min-height:56px;padding:0 18px;color:var(--cocoa);background:var(--cream);font-weight:700;font-size:16px;text-decoration:none;border-left:2px solid var(--cobalt)}
+.mobile-zalo .ico{width:20px;height:20px}
+.mobile-apply-main{white-space:nowrap}
+@media (max-width:440px){.mobile-apply-sub{display:none}}
 </style>
 <script type="application/ld+json">
 {
@@ -822,7 +832,7 @@ html.anim-paused .cover *{animation-play-state:paused!important}
 
 <nav class="nav" id="nav" aria-label="Chính" data-en-label="Main" data-vi-label="Chính">
   <div class="nav-row">
-    <a class="brand" href="#top" aria-label="The Standard, về đầu trang" data-en-label="The Standard, back to top" data-vi-label="The Standard, về đầu trang"><img src="assets/logo-black.png" alt="The Standard" width="760" height="96"></a>
+    <a class="brand" href="#home" aria-label="The Standard, về đầu trang" data-en-label="The Standard, back to top" data-vi-label="The Standard, về đầu trang"><img src="assets/logo-black.png" alt="The Standard" width="760" height="96"></a>
     <ul class="nav-links">
       <li class="nav-ink-li" aria-hidden="true"><span class="nav-ink"></span></li>
       <li><a href="#about" data-vi="Giới thiệu" data-en="About">Giới thiệu</a></li>
@@ -853,20 +863,7 @@ html.anim-paused .cover *{animation-play-state:paused!important}
 </div>
 
 <main>
-<section class="cover" id="top" aria-label="Mở đầu" data-vi-label="Mở đầu" data-en-label="Opening">
-  <div class="cv-frame"><i class="t"></i><i class="r"></i><i class="b"></i><i class="l"></i></div>
-  <div class="cv-frame in"><i class="t"></i><i class="r"></i><i class="b"></i><i class="l"></i><b class="tl"></b><b class="tr"></b><b class="bl"></b><b class="br"></b></div>
-  <div class="cv-center">
-    <p class="cv-eyebrow"><i></i><span data-vi="Lớp tiếng Anh" data-en="English classes">Lớp tiếng Anh</span><i></i></p>
-    <div class="cv-logo"><img class="cv-letters" src="assets/logo-letters.svg" alt="" width="760" height="96"><img class="cv-dot" src="assets/logo-dot.svg" alt="" width="760" height="96"></div>
-    <div class="cv-rule" aria-hidden="true"><i></i><b></b><i></i></div>
-    <a class="cover-cue" href="#home" aria-label="Bắt đầu hành trình, cuộn xuống phần tiếp theo" data-vi-label="Bắt đầu hành trình, cuộn xuống phần tiếp theo" data-en-label="Begin the journey, scroll to the next section"><span data-vi="Bắt đầu hành trình" data-en="Begin the journey">Bắt đầu hành trình</span><svg class="ico" aria-hidden="true"><use href="#i-down"/></svg></a>
-  </div>
-  <div class="cv-shelf">
-    <div class="cv-books" aria-hidden="true"><div class="cvb plain vel" style="--i:0;--w:0.6;--h:84"><i class="pm"></i></div><div class="cvb bg" style="--i:1;--w:1;--h:94"><span class="pl">A1</span></div><div class="cvb nv" style="--i:2;--w:1;--h:100"><span class="pl">A2</span></div><div class="cvb plain cc" style="--i:3;--w:0.55;--h:88"><i class="pm"></i></div><div class="cvb bt" style="--i:4;--w:1;--h:96"><span class="pl">B1</span></div><div class="cvb cc" style="--i:5;--w:1;--h:91"><span class="pl">B2</span></div><div class="cvb nv" style="--i:6;--w:1;--h:99"><span class="pl">C1</span></div><div class="cvb plain bg" style="--i:7;--w:0.6;--h:86"><i class="pm"></i></div><div class="cvb bt" style="--i:8;--w:1;--h:95"><span class="pl">C2</span><i class="rib"></i></div></div>
-    <div class="cv-plank" aria-hidden="true"></div>
-  </div>
-</section>
+
 <section class="hero" id="home">
   <div class="inner hero-grid">
     <div class="hero-copy stagger">
@@ -881,7 +878,7 @@ html.anim-paused .cover *{animation-play-state:paused!important}
       </ul>
       <div class="actions">
         <a href="#apply" class="btn" data-vi="Đăng ký khóa học" data-en="Apply for a course">Đăng ký khóa học</a>
-        <a href="#profile" class="btn second" data-vi="Xem hồ sơ đầy đủ" data-en="Read the full record">Xem hồ sơ đầy đủ</a>
+        <a href="https://zalo.me/0382308059" class="btn second" target="_blank" rel="noopener" aria-label="Nhắn Zalo 0382308059 (mở trong thẻ mới)" data-vi-label="Nhắn Zalo 0382308059 (mở trong thẻ mới)" data-en-label="Message on Zalo 0382308059 (opens in a new tab)"><svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg><span data-vi="Nhắn Zalo" data-en="Message on Zalo">Nhắn Zalo</span></a>
       </div>
     </div>
     <div class="hero-art" id="heroArt">
@@ -1039,6 +1036,10 @@ html.anim-paused .cover *{animation-play-state:paused!important}
       <span class="stamp muted" data-vi="04 · Liên hệ" data-en="04 · Contact">04 · Liên hệ</span>
       <h2 data-vi="Bắt đầu cùng the Standard" data-en="Start with the Standard">Bắt đầu cùng the Standard</h2>
       <p class="lede" data-vi="Nhận dạy 1 kèm 1 online và luyện thi, song song với công việc giảng viên đại học tại TP. Hồ Chí Minh." data-en="Available for 1 on 1 online tutoring and exam preparation, alongside university lecturing in Ho Chi Minh City.">Nhận dạy 1 kèm 1 online và luyện thi, song song với công việc giảng viên đại học tại TP. Hồ Chí Minh.</p>
+      <div class="contact-zalo">
+        <a href="https://zalo.me/0382308059" class="btn second" target="_blank" rel="noopener" aria-label="Nhắn Zalo 0382308059 (mở trong thẻ mới)" data-vi-label="Nhắn Zalo 0382308059 (mở trong thẻ mới)" data-en-label="Message on Zalo 0382308059 (opens in a new tab)"><svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg><span data-vi="Nhắn Zalo 0382308059" data-en="Zalo 0382308059">Nhắn Zalo 0382308059</span></a>
+        <p class="contact-zalo-note" data-vi="Muốn hỏi nhanh trước khi điền form? Nhắn Zalo." data-en="Prefer a quick question before the form? Message on Zalo.">Muốn hỏi nhanh trước khi điền form? Nhắn Zalo.</p>
+      </div>
       <svg class="oc" viewBox="0 0 960 600" width="960" height="600" role="img" aria-label="Minh họa buổi học online: giáo viên chào qua video, học viên giơ tay, bên cạnh là cốc cà phê, quyển sổ và chậu cây" data-vi-label="Minh họa buổi học online: giáo viên chào qua video, học viên giơ tay, bên cạnh là cốc cà phê, quyển sổ và chậu cây" data-en-label="Illustration of an online lesson: the teacher says hi on a video call, a student raises a hand, next to a coffee mug, a notebook and a plant"><defs><pattern id="ocL" width="9" height="9" patternUnits="userSpaceOnUse"><circle cx="2.2" cy="2.2" r="1.15" fill="#1f5bb5"/><circle cx="6.7" cy="6.7" r="1.15" fill="#1f5bb5"/></pattern><pattern id="ocD" width="6" height="6" patternUnits="userSpaceOnUse"><circle cx="1.5" cy="1.5" r="1.45" fill="#1f5bb5"/><circle cx="4.5" cy="4.5" r="1.45" fill="#1f5bb5"/></pattern><clipPath id="ocWin"><rect x="84" y="64" width="232" height="232" rx="18"/></clipPath></defs><style>
 .oc-ln{fill:none;stroke:#1f5bb5;stroke-width:3.5;stroke-linecap:round;stroke-linejoin:round}
 .oc-th{stroke-width:2.4}
@@ -1334,10 +1335,13 @@ html.anim-paused .cover *{animation-play-state:paused!important}
 </main>
 
 <button type="button" class="to-top" id="toTop" aria-label="Lên đầu trang" data-en-label="Back to top" data-vi-label="Lên đầu trang"><svg class="ico" aria-hidden="true"><use href="#i-up"/></svg></button>
-<a class="mobile-apply" id="mobileApply" href="#apply">
-  <span class="mobile-apply-main" data-vi="Đăng ký khóa học" data-en="Apply for a course">Đăng ký khóa học</span>
-  <span class="mobile-apply-sub" data-vi="Form 3 phút" data-en="3 minute form">Form 3 phút</span>
-</a>
+<div class="mobile-apply" id="mobileApply">
+  <a class="mobile-apply-link" href="#apply">
+    <span class="mobile-apply-main" data-vi="Đăng ký khóa học" data-en="Apply for a course">Đăng ký khóa học</span>
+    <span class="mobile-apply-sub" data-vi="Form 3 phút" data-en="3 minute form">Form 3 phút</span>
+  </a>
+  <a class="mobile-zalo" href="https://zalo.me/0382308059" target="_blank" rel="noopener" aria-label="Nhắn Zalo (mở trong thẻ mới)" data-vi-label="Nhắn Zalo (mở trong thẻ mới)" data-en-label="Message on Zalo (opens in a new tab)"><svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg><span>Zalo</span></a>
+</div>
 
 <footer>
   <div class="inner footer-row">
@@ -1348,7 +1352,7 @@ html.anim-paused .cover *{animation-play-state:paused!important}
       <a href="lo-trinh-ielts.html" data-vi="Lộ trình IELTS" data-en="IELTS roadmap">Lộ trình IELTS</a>
       <a href="#apply" data-vi="Đăng ký" data-en="Apply">Đăng ký</a>
     </nav>
-    <p class="footer-contact"><span data-vi="Nếu cần, bạn có thể liên hệ qua Gmail:" data-en="If needed, please contact via this Gmail:">Nếu cần, bạn có thể liên hệ qua Gmail:</span> <a href="mailto:lehoang.lh2305@gmail.com">lehoang.lh2305@gmail.com</a></p>
+    <p class="footer-contact"><span data-vi="Zalo:" data-en="Zalo:">Zalo:</span> <a href="https://zalo.me/0382308059" target="_blank" rel="noopener">0382308059</a> &middot; <span data-vi="Gmail:" data-en="Gmail:">Gmail:</span> <a href="mailto:lehoang.lh2305@gmail.com">lehoang.lh2305@gmail.com</a></p>
     <p data-vi="&copy; 2026 The Standard. Bảo lưu mọi quyền." data-en="&amp;copy; 2026 The Standard. All rights reserved.">&copy; 2026 The Standard. Bảo lưu mọi quyền.</p>
   </div>
 </footer>
