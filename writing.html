@@ -33,6 +33,40 @@
 @font-face{font-family:"Playfair Display";src:url(fonts/playfair-400.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
 html{color-scheme:light}body{margin:0}img{max-width:100%}[hidden]{display:none!important}
 :root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+
+/* shared site menu (same links and order as the home page) */
+.tsn{background:var(--cream);border-bottom:1px solid var(--sand)}
+.tsn-row{max-width:1200px;margin:0 auto;padding:0 16px;min-height:68px;display:flex;align-items:center;gap:12px}
+.tsn-brand{margin-right:auto;display:inline-flex;align-items:center;line-height:0}
+.tsn-brand img{height:26px;width:auto}
+.tsn-main{display:none}
+.tsn-links{display:flex;list-style:none;margin:0;padding:0;gap:4px}
+.tsn-links a{display:inline-flex;align-items:center;min-height:44px;padding:0 12px;border-radius:999px;color:var(--cocoa);font:600 16px/1 var(--font-sans);text-decoration:none}
+.tsn-links a:hover{background:var(--paper)}
+.tsn-apply{display:none;align-items:center;justify-content:center;min-height:44px;padding:0 20px;border-radius:16px;background:var(--cobalt);border:2px solid var(--cobalt);color:#fffaf2;font:600 16px/1 var(--font-sans);text-decoration:none}
+.tsn-apply:hover{background:var(--cocoa);border-color:var(--cocoa)}
+.tsn .langsw{display:inline-flex;gap:0;padding:0;border:1.5px solid var(--cocoa);border-radius:999px;background:transparent;overflow:hidden;flex:none}
+.tsn .langsw button{min-width:44px;min-height:40px;padding:0 12px;border:0;border-radius:0;background:transparent;color:var(--cocoa);font:600 14px/1 var(--font-sans);letter-spacing:.04em;cursor:pointer}
+.tsn .langsw button[aria-pressed="true"]{background:var(--cocoa);color:#f4e6cf}
+.tsn-toggle{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;flex:none;border:1.5px solid var(--cocoa);border-radius:12px;background:transparent;color:var(--cocoa);cursor:pointer}
+.tsn-toggle svg{width:22px;height:22px}
+.tsn-panel{max-width:1200px;margin:0 auto;padding:0 16px 16px}
+.tsn-panel[hidden]{display:none}
+.tsn-panel a{display:flex;align-items:center;min-height:52px;border-bottom:1px solid var(--sand);color:var(--cocoa);font:700 22px/1.1 var(--font-display);text-decoration:none}
+.tsn-panel a.tsn-panel-apply{justify-content:center;margin-top:16px;min-height:48px;border:0;border-radius:16px;background:var(--cobalt);color:#fffaf2;font:600 17px/1 var(--font-sans)}
+.tsn-tools{max-width:1200px;margin:0 auto;padding:0 16px 12px;display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
+.tsn-tools::-webkit-scrollbar{display:none}
+.tsn-tools a{flex:none;display:inline-flex;align-items:center;min-height:36px;padding:0 14px;border:1px solid var(--sand);border-radius:999px;background:var(--paper);color:var(--mocha);font:600 14px/1.2 var(--font-sans);text-decoration:none}
+.tsn-tools a:hover{color:var(--cocoa)}
+.tsn-tools a[aria-current="page"]{background:var(--cocoa);border-color:var(--cocoa);color:#f4e6cf}
+.tsn a:focus-visible,.tsn button:focus-visible{outline:3px solid var(--cobalt);outline-offset:2px}
+@media (min-width:640px){.tsn-row,.tsn-panel,.tsn-tools{padding-inline:32px}}
+@media (min-width:1024px){
+  .tsn-row{min-height:76px;padding-inline:48px}.tsn-tools{padding-inline:48px}
+  .tsn-brand img{height:30px}
+  .tsn-main{display:block}.tsn-apply{display:inline-flex}
+  .tsn-toggle,.tsn-panel{display:none!important}
+}
 </style>
 <style>
 /* Layout: cream bar with wordmark, one purple Vocabulary lid, a paper control card, stamp tabs, then paper cards on a 12 column grid. Tokens follow Shelf Pop v1.4. */
@@ -614,15 +648,19 @@ details.gloss[open] .gl{margin-top:8px}
 </head>
 <body>
 <div id="app">
-  <header class="bar">
-    <a class="brand" href="./" aria-label="The Standard, home"><img class="wm" alt="The Standard." src="assets/logo-black.png" width="760" height="96"></a>
-    <div class="barr">
-      <nav class="sitenav" aria-label="Learning pages"><a href="route-map.html">Route map</a><a href="learning-hub.html">Learning hub</a><a href="writing.html" aria-current="page">IELTS Writing</a><a href="lo-trinh-ielts.html">IELTS roadmap</a></nav>
+  <header class="tsn">
+    <div class="tsn-row">
+      <a class="tsn-brand" href="./" aria-label="The Standard, home"><img alt="The Standard." src="assets/logo-black.png" width="760" height="96"></a>
+      <nav class="tsn-main" aria-label="Main"><ul class="tsn-links"><li><a href="./#about">About</a></li><li><a href="./#services">Courses</a></li><li><a href="./#contact">Contact</a></li><li><a href="./#learning">Learning</a></li><li><a href="./#profile">Profile</a></li></ul></nav>
+      <a class="tsn-apply" href="./#apply">Apply</a>
       <div class="langsw" role="group" aria-label="Language / Ngôn ngữ" data-keep="1">
-        <button type="button" id="ln-vi" data-act="lang" data-v="vi" aria-pressed="true" lang="vi" title="Tiếng Việt">VI</button>
-        <button type="button" id="ln-en" data-act="lang" data-v="en" aria-pressed="false" lang="en" title="English">EN</button>
+      <button type="button" id="ln-vi" data-act="lang" data-v="vi" aria-pressed="true" lang="vi" title="Tiếng Việt">VI</button>
+      <button type="button" id="ln-en" data-act="lang" data-v="en" aria-pressed="false" lang="en" title="English">EN</button>
       </div>
+      <button type="button" class="tsn-toggle" aria-expanded="false" aria-controls="tsnPanel" aria-label="Menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
     </div>
+    <div class="tsn-panel" id="tsnPanel" hidden><a href="./#about">About</a><a href="./#services">Courses</a><a href="./#contact">Contact</a><a href="./#learning">Learning</a><a href="./#profile">Profile</a><a class="tsn-panel-apply" href="./#apply">Apply for a course</a></div>
+    <nav class="tsn-tools" aria-label="Learning pages"><a href="route-map.html">A1 to C2 route map</a><a href="learning-hub.html">Learning hub</a><a href="writing.html" aria-current="page">IELTS Writing</a><a href="lo-trinh-ielts.html">IELTS roadmap</a></nav>
   </header>
 
   <div class="tbar" id="tbar">
@@ -3253,6 +3291,7 @@ var VI={"Means against.": "Nghĩa là chống lại, kháng lại.", "Means toge
 var LANG='vi';
 try{var _l=window.localStorage.getItem('ts-lang');if(_l==='en'||_l==='vi')LANG=_l;}catch(e){}
 S.vi=LANG==='vi';
+Object.assign(VI,{"Main":"Chính","About":"Giới thiệu","Courses":"Khóa học","Contact":"Liên hệ","Learning":"Góc học tập","Profile":"Hồ sơ","Apply":"Đăng ký","Apply for a course":"Đăng ký khóa học","A1 to C2 route map":"Lộ trình A1 đến C2","IELTS roadmap":"Lộ trình IELTS"});
 function setLang(l){
   LANG=l==='en'?'en':'vi';S.vi=LANG==='vi';
   try{window.localStorage.setItem('ts-lang',LANG);}catch(e){}
@@ -3550,6 +3589,20 @@ render();
 <script>
 if ("serviceWorker" in navigator && (location.protocol==="https:" || location.hostname==="localhost"))
   addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(()=>{}));
+</script>
+<script>
+/* shared site menu: open and close the phone menu */
+(function(){
+  var t=document.querySelector('.tsn-toggle'),p=document.getElementById('tsnPanel');
+  if(!t||!p)return;
+  function set(o){t.setAttribute('aria-expanded',String(o));p.hidden=!o;}
+  t.addEventListener('click',function(){set(p.hidden);});
+  p.addEventListener('click',function(e){if(e.target.closest('a'))set(false);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!p.hidden){set(false);t.focus();}});
+  var mq=window.matchMedia('(min-width:1024px)');
+  var off=function(m){if(m.matches)set(false);};
+  if(mq.addEventListener)mq.addEventListener('change',off);else if(mq.addListener)mq.addListener(off);
+})();
 </script>
 </body>
 </html>
