@@ -1277,8 +1277,7 @@ function renderTrack(){
   LEVELS.forEach((Lv,i) => {
     const its = DATA.filter(d=>d.level===Lv.id), dn = its.filter(d=>state.done[d.id]).length, full = dn===its.length; if (full) nowFull.add(Lv.id);
     const prevFull = i>0 && DATA.filter(d=>d.level===LEVELS[i-1].id).every(d=>state.done[d.id]);
-    tr.append(el("button",{class:"stop"+(full?" full":""), type:"button", style:`--i:${i}`, "aria-pressed":String(view.level===Lv.id),
-      "aria-label":`${Lv.id} ${Lv.name}, ${L().lvProg(dn,its.length)}`, onclick:()=>setLevel(view.level===Lv.id?"All":Lv.id)},
+    tr.append(el("button",{class:"stop"+(full?" full":""), type:"button", style:`--i:${i}`, "aria-pressed":String(view.level===Lv.id), onclick:()=>setLevel(view.level===Lv.id?"All":Lv.id)},
       el("span",{class:"nm", text: vi() ? `Bậc ${Lv.bac}` : Lv.name}),
       el("span",{class:"code", text:Lv.id}),
       el("span",{class:"lane"}, el("span",{class:"seg l "+(prevFull?"done":"todo")}), el("span",{class:"seg r "+(full?"done":"todo")}), el("span",{class:"dot"})),

@@ -583,7 +583,7 @@ dialog.closing::backdrop{opacity:0; transition:opacity 170ms ease-in}
 .rlist .ok{color:var(--ok-text); font-weight:600} .rlist .bad{color:var(--err-text); font-weight:600}
 .btn.sm{height:32px; padding:0 12px; font-size:13px}
 .exitb{display:none; position:fixed; right:16px; top:calc(12px + env(safe-area-inset-top,0px)); z-index:20}
-body.present .wrap > :not(#tool-ct), body.present #tool-ct > :not(#ct-seats), body.present #ct-seats > :not(.ct-stage):not(.exitb), body.present #ct-seats .side, body.present #ct-seats .toolbar, body.present #ct-seats .cnote{display:none!important}
+body.present .wrap > :not(#tool-ct):not(main), body.present .wrap > main > :not(#tool-ct), body.present #tool-ct > :not(#ct-seats), body.present #ct-seats > :not(.ct-stage):not(.exitb), body.present #ct-seats .side, body.present #ct-seats .toolbar, body.present #ct-seats .cnote{display:none!important}
 body.present .ct-seats{grid-template-columns:minmax(0,1fr)}
 body.present .exitb{display:inline-flex}
 body.present .wrap{max-width:none; padding-top:56px}
@@ -800,6 +800,7 @@ dialog,.shead{background:var(--canvas)}
     </div>
   </div>
 
+  <main id="main" style="display:contents">
   <header class="hero">
     <div id="heroText">
       <nav class="pageswitch" aria-label="Các trang học tập" data-il="pgL">
@@ -883,6 +884,7 @@ dialog,.shead{background:var(--canvas)}
     <div class="tboard"><div class="tgrid" id="tgrid"></div></div>
   </section>
 
+  </main>
   <footer>
     <section>
       <h2 data-i="howTitle"></h2>

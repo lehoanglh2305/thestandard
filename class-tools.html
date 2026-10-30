@@ -487,7 +487,7 @@ dialog.closing::backdrop{opacity:0; transition:opacity 170ms ease-in}
 .ctsub{margin-top:20px}
 .ct-stage{display:grid; grid-template-columns:minmax(0,1.05fr) minmax(0,1fr); gap:32px; align-items:start; margin-top:24px}
 .ct-head{margin-top:28px}
-.ct-head h3{font-size:28px; letter-spacing:-.4px}
+.ct-head h2,.ct-head h3{font-size:28px; letter-spacing:-.4px}
 .ct-head p{color:var(--muted); margin-top:6px}
 .wheelbox{position:relative; width:100%; max-width:560px; margin-inline:auto; padding-top:14px}
 .wheelbox canvas{display:block; width:100%; aspect-ratio:1; cursor:pointer}
@@ -514,7 +514,7 @@ dialog.closing::backdrop{opacity:0; transition:opacity 170ms ease-in}
 .hmeta{display:flex; flex-wrap:wrap; justify-content:space-between; align-items:baseline; gap:8px}
 .hmeta span{font-size:14px; color:var(--muted)}
 .ctcard{background:var(--surface-card); border:1px solid var(--hairline-soft); border-radius:16px; padding:18px; display:grid; gap:12px; min-width:0}
-.ctcard h3,.ctcard h4{font-size:21px; letter-spacing:-.3px}
+.ctcard h2,.ctcard h3,.ctcard h4{font-size:21px; letter-spacing:-.3px}
 .ctcard .hint{font-size:14px; color:var(--muted)}
 .ctx textarea{font:400 15px/1.45 var(--sans); min-height:150px; resize:vertical; color:var(--ink)}
 .ctx details summary{cursor:pointer; color:var(--coral-text); font-weight:500; padding:4px 0}
@@ -536,7 +536,7 @@ dialog.closing::backdrop{opacity:0; transition:opacity 170ms ease-in}
 .pair li + li{padding-top:6px; border-top:1px dashed var(--hairline)}
 .pair .tp{font-size:14px; color:var(--body); font-weight:500}
 .round{display:flex; flex-wrap:wrap; align-items:baseline; gap:4px 14px}
-.round h4{font-size:26px; letter-spacing:-.4px}
+.round h3,.round h4{font-size:26px; letter-spacing:-.4px}
 .round span{color:var(--muted); font-size:14px}
 .cnote{font-size:14.5px; color:var(--body-strong); min-height:1.5em}
 .ct-seats{grid-template-columns:minmax(0,1fr) minmax(280px,350px)}
@@ -567,7 +567,7 @@ dialog.closing::backdrop{opacity:0; transition:opacity 170ms ease-in}
 .rlist .ok{color:var(--ok-text); font-weight:600} .rlist .bad{color:var(--err-text); font-weight:600}
 .btn.sm{height:32px; padding:0 12px; font-size:13px}
 .exitb{display:none; position:fixed; right:16px; top:calc(12px + env(safe-area-inset-top,0px)); z-index:20}
-body.present .wrap > :not(#tool-ct), body.present #tool-ct > :not(#ct-seats), body.present #ct-seats > :not(.ct-stage):not(.exitb), body.present #ct-seats .side, body.present #ct-seats .toolbar, body.present #ct-seats .cnote{display:none!important}
+body.present .wrap > :not(#tool-ct):not(main), body.present .wrap > main > :not(#tool-ct), body.present #tool-ct > :not(#ct-seats), body.present #ct-seats > :not(.ct-stage):not(.exitb), body.present #ct-seats .side, body.present #ct-seats .toolbar, body.present #ct-seats .cnote{display:none!important}
 body.present .ct-seats{grid-template-columns:minmax(0,1fr)}
 body.present .exitb{display:inline-flex}
 body.present .wrap{max-width:none; padding-top:56px}
@@ -780,6 +780,7 @@ dialog,.shead{background:var(--canvas)}
     </div>
   </div>
 
+  <main id="main" style="display:contents">
   <header class="hero">
     <div id="heroText">
       <div class="eyebrow" data-i="ctEyebrow"></div>
@@ -817,7 +818,7 @@ dialog,.shead{background:var(--canvas)}
       <div class="row8"><button type="button" class="btn" id="clsDelYes" data-i="clsDelYes"></button><button type="button" class="btn sec" id="clsDelNo" data-i="cancel"></button></div>
     </div>
     <section class="ctcard clsedit" id="clsEditor" hidden aria-labelledby="clsEdT">
-      <h4 id="clsEdT"></h4>
+      <h2 id="clsEdT"></h2>
       <label class="hint" for="clsName" data-i="clsName"></label>
       <input class="field" type="text" id="clsName" maxlength="60" autocomplete="off">
       <label class="hint" for="clsNames" data-i="clsNamesL"></label>
@@ -828,7 +829,7 @@ dialog,.shead{background:var(--canvas)}
     </section>
 
     <section id="ct-wheel" role="tabpanel" aria-labelledby="ctb-wheel">
-      <div class="ct-head"><h3 data-i="wName"></h3><p data-i="wDesc"></p></div>
+      <div class="ct-head"><h2 data-i="wName"></h2><p data-i="wDesc"></p></div>
       <div class="ct-stage">
         <div class="wheelbox"><div class="pointer" aria-hidden="true"></div><canvas id="wCanvas" role="img"></canvas></div>
         <div class="cpanel">
@@ -852,7 +853,7 @@ dialog,.shead{background:var(--canvas)}
             <button type="button" class="btn sec" id="wTimer"></button>
           </div>
           <div>
-            <div class="hmeta"><h4 style="font-size:21px" data-i="wAsked"></h4><span id="wLeft"></span></div>
+            <div class="hmeta"><h3 style="font-size:21px" data-i="wAsked"></h3><span id="wLeft"></span></div>
             <ol class="hlist" id="wHist"></ol>
             <div class="row8"><button type="button" class="btn sec" id="wReset" data-i="wReset"></button></div>
           </div>
@@ -871,10 +872,10 @@ dialog,.shead{background:var(--canvas)}
     </section>
 
     <section id="ct-pairs" role="tabpanel" aria-labelledby="ctb-pairs" hidden>
-      <div class="ct-head"><h3 data-i="pName"></h3><p id="pSummary"></p></div>
+      <div class="ct-head"><h2 data-i="pName"></h2><p id="pSummary"></p></div>
       <div class="ct-stage ct-pairs">
         <aside class="ctcard">
-          <div class="hmeta"><h4 data-i="students"></h4><span id="pCount"></span></div>
+          <div class="hmeta"><h3 data-i="students"></h3><span id="pCount"></span></div>
           <div class="crow"><button type="button" class="btn sec sm" id="pAll" data-i="pAll"></button></div>
           <ul class="roster" id="pRoster"></ul>
           <p class="hint" data-i="pEditHint"></p>
@@ -892,7 +893,7 @@ dialog,.shead{background:var(--canvas)}
             <span class="chint" id="pHist"></span>
             <button type="button" class="btn txt" id="pClear" data-i="pClear"></button>
           </div>
-          <div class="round"><h4 id="pRound"></h4><span data-i="pNotLocked"></span></div>
+          <div class="round"><h3 id="pRound"></h3><span data-i="pNotLocked"></span></div>
           <p class="cnote" id="pNote" aria-live="polite"></p>
           <div class="groups" id="pGroups"></div>
         </div>
@@ -900,7 +901,7 @@ dialog,.shead{background:var(--canvas)}
     </section>
 
     <section id="ct-seats" role="tabpanel" aria-labelledby="ctb-seats" hidden>
-      <div class="ct-head"><h3 data-i="sName"></h3><p id="sSummary"></p></div>
+      <div class="ct-head"><h2 data-i="sName"></h2><p id="sSummary"></p></div>
       <button type="button" class="btn dk exitb" id="sExit" data-i="sExit"></button>
       <div class="ct-stage ct-seats">
         <div class="cpanel">
@@ -923,12 +924,12 @@ dialog,.shead{background:var(--canvas)}
         </div>
         <aside class="side cpanel">
           <section class="ctcard">
-            <h4 id="sUnseatedT"></h4>
+            <h3 id="sUnseatedT"></h3>
             <p class="hint" data-i="sFromClass"></p>
             <div class="schips" id="sUnseated"></div>
           </section>
           <section class="ctcard">
-            <h4 data-i="sRulesT"></h4>
+            <h3 data-i="sRulesT"></h3>
             <p class="hint" data-i="sRulesHelp"></p>
             <label class="hint" for="sRuleA" data-i="sA"></label>
             <select class="field" id="sRuleA"></select>
@@ -940,7 +941,7 @@ dialog,.shead{background:var(--canvas)}
             <ul class="rlist" id="sRules"></ul>
           </section>
           <section class="ctcard">
-            <h4 data-i="sPlansT"></h4>
+            <h3 data-i="sPlansT"></h3>
             <label class="hint" for="sPlanName" data-i="sPlanName"></label>
             <input class="field" type="text" id="sPlanName">
             <div><button type="button" class="btn sec sm" id="sSave" data-i="sSave"></button></div>
@@ -951,6 +952,7 @@ dialog,.shead{background:var(--canvas)}
     </section>
   </section>
 
+  </main>
   <footer>
     <section>
       <h2 data-i="ctDataT"></h2>
