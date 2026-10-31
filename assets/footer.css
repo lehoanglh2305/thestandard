@@ -55,7 +55,7 @@ footer.sf-burgundy{--sf-ground:#f4e6cf;--sf-sky:#6e2438;--sf-ink:#f4e6cf;--sf-mu
 footer.sf.sf-eng{--sf-flat:#06378b;--sf-sky:var(--sf-flat);--sf-ink:#f4e6cf;--sf-muted:#d3dcf2;--sf-rule:rgb(244 230 207 / .3);--sf-pill:rgb(244 230 207 / .14);--sf-x:50%;
   background:var(--sf-flat) var(--sf-img) no-repeat 50% 100% / 100% auto;padding-bottom:36vw}
 footer.sf.sf-eng.sf-ink-burgundy{--sf-flat:#6e2438;--sf-muted:#ecd2c2}
-footer.sf.sf-eng::after{display:none}
+footer.sf.sf-eng::after{opacity:.55}
 footer.sf.sf-eng .sf-inner,footer.sf.sf-eng .sf-bottom{text-shadow:0 1px 10px rgb(0 0 0 / .35)}
 footer.sf.sf-eng .sf-btn{text-shadow:none}
 footer.sf.sf-ink-cobalt.sf-e-field{--sf-img:url(eng-cobalt-field.webp);--sf-x:50%}
@@ -79,4 +79,27 @@ footer.sf.sf-ink-burgundy.sf-e-land{--sf-img:url(eng-burg-land.webp);--sf-x:50%}
 .eng-cobalt.eng-dome{--b-img:url(eng-cobalt-dome.webp)}.eng-cobalt.eng-land{--b-img:url(eng-cobalt-land.webp)}
 .eng-burgundy.eng-land{--b-img:url(eng-burg-land.webp)}.eng-burgundy.eng-dome{--b-img:url(eng-burg-dome.webp)}.eng-burgundy.eng-lake{--b-img:url(eng-burg-lake.webp)}
 @media print{.eng-band{display:none}}
+/* ===== Accent, ticker and scroll effects ===== */
+footer.sf{--sf-accent:#f2c230}
+.sf .sf-col h3{color:var(--sf-accent)}
+.sf .sf-col a:hover,.sf .sf-contact a:hover{color:var(--sf-accent)}
+.sf .sf-ticker{position:relative;z-index:1;overflow:hidden;border-bottom:1px solid var(--sf-rule);padding:14px 0;background:rgb(0 0 0 / .16)}
+.sf .sf-ticker-track{display:flex;width:max-content;animation:sfTick 46s linear infinite}
+.sf .sf-ticker-group{display:flex;align-items:center;gap:26px;padding-right:26px;white-space:nowrap;font-family:"Barlow Condensed","Arial Narrow",sans-serif;font-weight:800;font-size:clamp(15px,1.6vw,19px);letter-spacing:.16em;text-transform:uppercase;color:var(--sf-ink)}
+.sf .sf-ticker-group i{display:block;width:7px;height:7px;border-radius:50%;background:var(--sf-accent);flex:none}
+@keyframes sfTick{to{transform:translateX(-50%)}}
+html.anim-paused .sf .sf-ticker-track{animation-play-state:paused}
+@media (prefers-reduced-motion:reduce){.sf .sf-ticker-track{animation:none}}
+@keyframes sfRise{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+@keyframes sfArt{from{background-position-y:calc(100% + 90px)}to{background-position-y:100%}}
+@keyframes bandPar{from{background-position-y:82%}to{background-position-y:100%}}
+@supports (animation-timeline:view()){
+  @media (prefers-reduced-motion:no-preference){
+    .sf .sf-cta,.sf .sf-grid,.sf .sf-bottom{animation:sfRise linear both;animation-timeline:view();animation-range:entry 0% entry 75%}
+    .eng-band{animation:bandPar linear both;animation-timeline:scroll(root);animation-range:0 420px}
+  }
+  @media (prefers-reduced-motion:no-preference) and (min-width:1024px){
+    footer.sf.sf-eng{animation:sfArt linear both;animation-timeline:view();animation-range:entry 0% cover 55%}
+  }
+}
 @media print{footer.sf{display:none}}

@@ -692,6 +692,19 @@ html.anim-paused .cover *{animation-play-state:paused!important}
 .steps::before{border-top-color:var(--cream)}
 .learn-card.hub{background:var(--sand);color:var(--cocoa)}
 .landed .section-head h2,.landed .contact-copy h2,.landed .enrol-title,.landed .part-title{text-decoration-color:var(--cobalt)}
+
+/* ===== Scroll effects and accent ===== */
+.hero .stamp::before{content:"";width:8px;height:8px;border-radius:50%;background:#f2c230;flex:none;animation:stampPulse 2.2s ease-in-out infinite}
+@keyframes stampPulse{0%,100%{box-shadow:0 0 0 0 rgb(242 194 48 / .6)}50%{box-shadow:0 0 0 7px rgb(242 194 48 / 0)}}
+html.anim-paused .hero .stamp::before{animation-play-state:paused}
+@media (prefers-reduced-motion:reduce){.hero .stamp::before{animation:none}}
+@keyframes heroPar{to{transform:translateY(70px) scale(1.1)}}
+@keyframes heroOut{to{opacity:0;transform:translateY(-48px)}}
+@supports (animation-timeline:scroll()){@media (prefers-reduced-motion:no-preference){
+  .hero-show{animation:heroPar linear both;animation-timeline:scroll(root);animation-range:0 90vh}
+  .hero-copy{animation:heroOut linear both;animation-timeline:scroll(root);animation-range:0 75vh}
+}}
+.hero .btn:hover{background:#f2c230;border-color:#f2c230;color:#06378b}
 </style>
 <script type="application/ld+json">
 {
@@ -853,7 +866,7 @@ html.anim-paused .cover *{animation-play-state:paused!important}
  ]
 }
 </script>
-<link rel="stylesheet" href="assets/footer.css">
+<link rel="stylesheet" href="assets/footer.css?v=20261031g">
 </head>
 <body>
 
@@ -1353,6 +1366,7 @@ html.anim-paused .cover *{animation-play-state:paused!important}
 </div>
 
 <footer class="sf sf-eng sf-ink-cobalt sf-e-land sf-has-bar">
+  <div class="sf-ticker" aria-hidden="true"><div class="sf-ticker-track"><div class="sf-ticker-group"><span>IELTS</span><i></i><span>TOEIC</span><i></i><span>APTIS</span><i></i><span>Foundation</span><i></i><span data-fvi="1 kèm 1" data-fen="1 on 1">1 kèm 1</span><i></i><span>Online</span><i></i><span>Lê Hoàng</span><i></i></div><div class="sf-ticker-group"><span>IELTS</span><i></i><span>TOEIC</span><i></i><span>APTIS</span><i></i><span>Foundation</span><i></i><span data-fvi="1 kèm 1" data-fen="1 on 1">1 kèm 1</span><i></i><span>Online</span><i></i><span>Lê Hoàng</span><i></i></div></div></div>
   <div class="sf-inner">
     <div class="sf-cta">
       <div class="sf-cta-text">
@@ -1401,7 +1415,7 @@ html.anim-paused .cover *{animation-play-state:paused!important}
     <p data-fvi="Lê Hoàng, Thạc sĩ TESOL, Đại học York" data-fen="Lê Hoàng, MA TESOL, University of York">Lê Hoàng, Thạc sĩ TESOL, Đại học York</p>
   </div>
 </footer>
-<script src="assets/footer.js" defer></script>
+<script src="assets/footer.js?v=20261031g" defer></script>
 
 <script>
 (function(){
