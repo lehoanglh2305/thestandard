@@ -134,7 +134,30 @@ section{padding:var(--space64) 0}
 .badges li{font-family:var(--font-display);font-weight:700;font-size:15px;letter-spacing:.08em;text-transform:uppercase;padding:6px 14px;border-radius:var(--radiusPill);background:var(--paper);border:1.5px solid var(--sand)}
 .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px}
 .hero-art{position:relative;margin:0 calc(var(--gutter) * -1) 0 0}
-.hero-art .cr{display:block;width:100%;height:auto}
+/* Cover: the engraving fills the hero, text sits in its sky */
+.hero{position:relative;overflow:hidden;background:#06378b;color:var(--cream);padding-bottom:clamp(250px,30vw,330px)}
+.hero::before,.hero::after{display:none}
+.hero-grid{grid-template-columns:1fr}
+.hero-copy{position:relative;z-index:2;max-width:640px}
+.hero h1,.hero .who,.hero .who b,.hero .stamp,.hero-value{color:var(--cream)}
+.hero .badges li{color:var(--cocoa)}
+.hero h1,.hero .who,.hero-value{text-shadow:0 2px 14px rgb(0 20 80 / .45)}
+.hero .btn{background:var(--cream);color:var(--cobalt);border-color:var(--cream)}
+.hero .btn.second{background:transparent;color:var(--cream);border-color:var(--cream)}
+.hero .btn.second:hover{background:var(--cream);color:var(--cobalt)}
+.hero-art{position:absolute;inset:0;margin:0;pointer-events:none}
+.hero-show{position:absolute;inset:0;margin:0;overflow:hidden;background:#06378b}
+.hero-show::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgb(0 24 96 / .55) 0,rgb(0 24 96 / .25) 45%,rgb(0 24 96 / 0) 70%),linear-gradient(0deg,rgb(0 24 96 / .0) 0,rgb(0 24 96 / 0) 100%)}
+.hero-show img{position:absolute;inset:auto 0 0 0;width:100%;height:clamp(380px,56.25vw,1000px);max-width:none;object-fit:cover;object-position:var(--hx,50%) 100%;opacity:0}
+.hero-show img:first-child{opacity:1}
+@media (max-width:700px){.hero-show img{height:460px}}
+@keyframes hsFade{0%{opacity:0}5%{opacity:1}33%{opacity:1}38%{opacity:0}100%{opacity:0}}
+@media (prefers-reduced-motion:no-preference){.hero-show img{animation:hsFade 18s linear infinite}.hero-show img:first-child{animation-delay:-1s}.hero-show .hs2{animation-delay:5s}.hero-show .hs3{animation-delay:11s}}
+html.anim-paused .hero-show img{animation-play-state:paused!important}
+.hero-art .anim-toggle{pointer-events:auto;z-index:3;top:auto;bottom:18px;right:max(var(--gutter),calc((100% - var(--max)) / 2 + var(--gutter)))}
+.hero-art .hero-lid{pointer-events:none}
+@media (min-width:1024px){.hero-art .hero-lid{position:absolute;right:max(var(--gutter),calc((100% - var(--max)) / 2 + var(--gutter)));bottom:18px;margin:0}.hero-art .anim-toggle{bottom:auto;top:20px}}
+@media (max-width:1023px){.hero-art .hero-lid{display:none}.hero-art .anim-toggle{bottom:auto;top:16px}}
 .anim-toggle{position:absolute;right:var(--gutter);top:0;display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:0 14px 0 10px;border:1.5px solid var(--cocoa);border-radius:var(--radiusPill);background:var(--paper);color:var(--cocoa);font:600 14px/1 var(--font-sans);cursor:pointer}
 .anim-toggle .ico{width:18px;height:18px}
 @media (max-width:639px){.anim-toggle span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}.anim-toggle{padding:0 10px}}
@@ -423,9 +446,9 @@ section{padding:52px 0}
 .section-head{margin-bottom:28px}
 .contact-section{padding-bottom:80px}
 .hero{position:relative;overflow:hidden}
-.hero>.inner{position:relative;z-index:1}
+.hero>.inner{position:static}
 @media (min-width:1024px) and (min-height:640px){
-  .hero{min-height:calc(100svh - var(--navH));display:flex;flex-direction:column;justify-content:center;padding:24px 0 72px}
+  .hero{min-height:calc(100svh - var(--navH));display:flex;flex-direction:column;justify-content:flex-start;padding:40px 0 clamp(190px,16vw,300px)}
   .hero>.inner{width:100%}
 }
 .scroll-cue{display:none}
@@ -642,6 +665,33 @@ html.anim-paused .cover *{animation-play-state:paused!important}
 .mobile-zalo .ico{width:20px;height:20px}
 .mobile-apply-main{white-space:nowrap}
 @media (max-width:440px){.mobile-apply-sub{display:none}}
+
+/* ===== Print style pass: calmer shapes and a limited palette to match the engravings ===== */
+:root{--radiusMd:10px;--radiusLid:22px}
+.c-ielts{--cBg:var(--cobalt);--cInk:var(--cream)}
+.c-toeic{--cBg:var(--review);--cInk:var(--cream)}
+.c-aptis{--cBg:var(--cocoa);--cInk:var(--cream)}
+.c-found{--cBg:var(--sand);--cInk:var(--cocoa)}
+.hero .course-pills li{box-shadow:none;border:1.5px solid rgb(244 230 207 / .7)}
+.hero .btn.second{background:rgb(3 30 96 / .62);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px)}
+.hero .btn.second:hover{background:var(--cream);color:var(--cobalt)}
+.btn,.btn.second,.btn.light{box-shadow:none}
+.btn:active{transform:none;box-shadow:none}
+.badges li{box-shadow:none}
+.step{border-radius:14px;box-shadow:0 1px 0 rgb(10 25 60 / .35)}
+.step.s1,.step.s2,.step.s3{--sBg:var(--cobalt);--sInk:var(--cream);border-top-width:4px}
+.step .num{box-shadow:none}
+.photo-frame img{border-width:3px;border-color:var(--paper);border-radius:14px}
+.photo-frame::before{border-radius:14px}
+
+.stat::after{background:repeating-conic-gradient(var(--cobalt) 0 7deg,transparent 7deg 22.5deg)}
+.stat:nth-child(2)::after{background:repeating-conic-gradient(var(--review) 0 7deg,transparent 7deg 22.5deg)}
+.stat:nth-child(3)::after{background:repeating-conic-gradient(var(--cocoa) 0 7deg,transparent 7deg 22.5deg)}
+.cta-yellow{background:var(--cream);border-color:var(--cream);color:var(--cobalt)}
+.step:not(:last-child)::after{background-color:var(--cream)}
+.steps::before{border-top-color:var(--cream)}
+.learn-card.hub{background:var(--sand);color:var(--cocoa)}
+.landed .section-head h2,.landed .contact-copy h2,.landed .enrol-title,.landed .part-title{text-decoration-color:var(--cobalt)}
 </style>
 <script type="application/ld+json">
 {
@@ -806,6 +856,7 @@ html.anim-paused .cover *{animation-play-state:paused!important}
 <link rel="stylesheet" href="assets/footer.css">
 </head>
 <body>
+
 <a class="skip-link" href="#about" data-vi="Bỏ qua, đến nội dung chính" data-en="Skip to main content">Bỏ qua, đến nội dung chính</a>
 <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
@@ -883,50 +934,7 @@ html.anim-paused .cover *{animation-play-state:paused!important}
       </div>
     </div>
     <div class="hero-art" id="heroArt">
-      <svg class="cr" viewBox="0 0 960 660" width="960" height="660" role="img" aria-label="Minh họa lớp học: giáo viên chỉ lộ trình từ A1 đến C2, học viên theo dõi và một chú mèo ngủ" data-vi-label="Minh họa lớp học: giáo viên chỉ lộ trình từ A1 đến C2, học viên theo dõi và một chú mèo ngủ" data-en-label="Classroom illustration: a teacher points along a route from A1 to C2, students follow, and a cat naps"><defs><pattern id="crL" width="9" height="9" patternUnits="userSpaceOnUse"><circle cx="2.2" cy="2.2" r="1.15" fill="#1f5bb5"/><circle cx="6.7" cy="6.7" r="1.15" fill="#1f5bb5"/></pattern><pattern id="crD" width="6" height="6" patternUnits="userSpaceOnUse"><circle cx="1.5" cy="1.5" r="1.45" fill="#1f5bb5"/><circle cx="4.5" cy="4.5" r="1.45" fill="#1f5bb5"/></pattern></defs><style>
-.cr-ln{fill:none;stroke:#1f5bb5;stroke-width:3.5;stroke-linecap:round;stroke-linejoin:round}
-.cr-th{stroke-width:2.4}
-.cr-lt{fill:url(#crL)}.cr-dn{fill:url(#crD)}.cr-sp{fill:#1f5bb5}.cr-pp{fill:#f4e6cf}
-.cr-route{stroke-dasharray:1;stroke-dashoffset:0}
-.cr-dA,.cr-dB,.cr-dC{transform-box:fill-box;transform-origin:center}
-.cr-arm{transform:rotate(40deg);transform-origin:0 0}
-.cr-hand{opacity:0}
-.cr-catWalk{opacity:0}
-.cr-z{opacity:0}.cr-z1{opacity:1}
-@media (prefers-reduced-motion:no-preference){
-  .cr-route{animation:crRoute 6s cubic-bezier(.45,0,.25,1) infinite}
-  @keyframes crRoute{0%,8%{stroke-dashoffset:1;opacity:1}50%{stroke-dashoffset:0}88%{stroke-dashoffset:0;opacity:1}96%,100%{stroke-dashoffset:0;opacity:0}}
-  .cr-dA{animation:crPopA 6s infinite}.cr-dB{animation:crPopB 6s infinite}.cr-dC{animation:crPopC 6s infinite}
-  @keyframes crPopA{0%,8%{transform:scale(0);opacity:0}13%{transform:scale(1.35);opacity:1}17%,88%{transform:scale(1);opacity:1}96%,100%{transform:scale(1);opacity:0}}
-  @keyframes crPopB{0%,27%{transform:scale(0);opacity:0}32%{transform:scale(1.35);opacity:1}36%,88%{transform:scale(1);opacity:1}96%,100%{transform:scale(1);opacity:0}}
-  @keyframes crPopC{0%,49%{transform:scale(0);opacity:0}54%{transform:scale(1.35);opacity:1}58%,88%{transform:scale(1);opacity:1}96%,100%{transform:scale(1);opacity:0}}
-  .cr-arm{animation:crPoint 6s cubic-bezier(.34,1.56,.64,1) infinite}
-  @keyframes crPoint{0%{transform:rotate(-55deg)}8%,16%{transform:rotate(1deg)}27%,35%{transform:rotate(12deg)}49%,64%{transform:rotate(40deg)}76%,100%{transform:rotate(-55deg)}}
-  .cr-s1{animation:crNod1 6s ease-in-out infinite}.cr-s3{animation:crNod3 6s ease-in-out infinite}.cr-s2{animation:crNod2 6s ease-in-out infinite}
-  @keyframes crNod1{0%,12%,22%,100%{transform:translateY(0)}15%,19%{transform:translateY(5px)}}
-  @keyframes crNod2{0%,30%,40%,100%{transform:translateY(0)}33%,37%{transform:translateY(5px)}}
-  @keyframes crNod3{0%,54%,64%,100%{transform:translateY(0)}57%,61%{transform:translateY(5px)}}
-  .cr-hand{animation:crHand 6s cubic-bezier(.34,1.56,.64,1) infinite;transform-origin:0 0}
-  @keyframes crHand{0%,52%{opacity:0;transform:rotate(70deg)}56%{opacity:1}60%,74%{opacity:1;transform:rotate(0)}80%,100%{opacity:0;transform:rotate(70deg)}}
-  .cr-leaf1{animation:crLeaf 6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
-  .cr-leaf2{animation:crLeaf 6s ease-in-out -3s infinite;transform-box:fill-box;transform-origin:center}
-  @keyframes crLeaf{0%,100%{transform:translate(0,0) rotate(0)}50%{transform:translate(10px,-12px) rotate(18deg)}}
-  .cr-catWalk{animation:crCatWalk 12s linear infinite}
-  @keyframes crCatWalk{0%,3%{opacity:0;transform:translateX(150px)}5%{opacity:1}30%{opacity:1;transform:translateX(0)}33%,100%{opacity:0;transform:translateX(0)}}
-  .cr-legA{animation:crLegA .5s ease-in-out infinite alternate;transform-box:fill-box;transform-origin:50% 0}
-  .cr-legB{animation:crLegA .5s ease-in-out -.5s infinite alternate;transform-box:fill-box;transform-origin:50% 0}
-  @keyframes crLegA{from{transform:rotate(-14deg)}to{transform:rotate(14deg)}}
-  .cr-catBob{animation:crBob .5s ease-in-out infinite alternate}
-  @keyframes crBob{to{transform:translateY(-2px)}}
-  .cr-catSleep{animation:crCatSleep 12s linear infinite}
-  @keyframes crCatSleep{0%,30%{opacity:0}34%,90%{opacity:1}96%,100%{opacity:0}}
-  .cr-breath{animation:crBreath 2.4s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 100%}
-  @keyframes crBreath{50%{transform:scaleY(1.07)}}
-  .cr-z{animation:crZz 3s ease-out infinite;transform-box:fill-box;transform-origin:center}
-  .cr-z2{animation-delay:1s}.cr-z3{animation-delay:2s}
-  @keyframes crZz{0%{opacity:0;transform:translate(0,6px) scale(.6)}20%{opacity:1}100%{opacity:0;transform:translate(14px,-26px) scale(1.15)}}
-}
-</style><path class="cr-lt" d="M210 80H730V340H210Z"/><path class="cr-ln" d="M210 80H730V340H210Z"/><path class="cr-ln" d="M190 352H750"/><path class="cr-ln cr-th cr-route" pathLength="1" d="M300 290 C360 290 380 230 440 230 S540 170 600 150"/><g class="cr-dA"><path class="cr-sp cr-dot" d="M300 290m-9 0a9 9 0 1 0 18 0a9 9 0 1 0-18 0"/><path class="cr-sp cr-lab" d="M275.0 329.56 274.48 326.08Q274.48 325.88 274.24 325.88H269.92Q269.68 325.88 269.68 326.08L269.2 329.56Q269.16 330.0 268.68 330.0H263.0Q262.48 330.0 262.6 329.48L268.4 302.44Q268.48 302.0 268.92 302.0H275.44Q275.88 302.0 275.96 302.44L281.72 329.48L281.76 329.64Q281.76 330.0 281.32 330.0H275.52Q275.04 330.0 275.0 329.56ZM270.72 320.76H273.4Q273.56 320.76 273.56 320.56L272.12 311.44Q272.08 311.28 272.0 311.28Q271.92 311.28 271.88 311.44L270.56 320.56Q270.56 320.76 270.72 320.76Z M286.68 302.0H292.52Q292.71999999999997 302.0 292.86 302.14Q293.0 302.28 293.0 302.48V329.52Q293.0 329.72 292.86 329.86Q292.71999999999997 330.0 292.52 330.0H286.84Q286.64 330.0 286.5 329.86Q286.36 329.72 286.36 329.52V308.44Q286.36 308.24 286.15999999999997 308.24L283.2 308.4Q282.71999999999997 308.4 282.71999999999997 307.96L282.64 303.72Q282.64 303.32 283.04 303.2L286.08 302.12Q286.4 302.0 286.68 302.0Z"/></g><g class="cr-dB"><path class="cr-sp cr-dot" d="M440 230m-9 0a9 9 0 1 0 18 0a9 9 0 1 0-18 0"/><path class="cr-sp cr-lab" d="M419.96 270.0H411.88Q411.68 270.0 411.53999999999996 269.86Q411.4 269.72 411.4 269.52V242.48Q411.4 242.28 411.53999999999996 242.14Q411.68 242.0 411.88 242.0H418.92Q423.08 242.0 425.46 243.94Q427.84 245.88 427.84 249.76Q427.84 253.6 425.32 255.4Q425.12 255.52 425.28 255.64Q428.32 257.88 428.32 262.2Q428.32 265.96 425.96000000000004 267.98Q423.6 270.0 419.96 270.0ZM418.04 247.88V253.0Q418.04 253.2 418.24 253.2H419.0Q420.12 253.2 420.72 252.5Q421.32 251.8 421.32 250.48Q421.32 249.12 420.72 248.4Q420.12 247.68 419.0 247.68H418.24Q418.04 247.68 418.04 247.88ZM421.68 261.2Q421.68 259.72 421.08000000000004 258.84000000000003Q420.48 257.96 419.48 257.96H418.24Q418.04 257.96 418.04 258.16V264.08Q418.04 264.28 418.24 264.28H419.44Q420.48 264.28 421.08000000000004 263.48Q421.68 262.68 421.68 261.2Z M433.44 242.0H439.28Q439.47999999999996 242.0 439.62 242.14Q439.76 242.28 439.76 242.48V269.52Q439.76 269.72 439.62 269.86Q439.47999999999996 270.0 439.28 270.0H433.59999999999997Q433.4 270.0 433.26 269.86Q433.12 269.72 433.12 269.52V248.44Q433.12 248.24 432.91999999999996 248.24L429.96 248.4Q429.47999999999996 248.4 429.47999999999996 247.96L429.4 243.72Q429.4 243.32 429.8 243.2L432.84 242.12Q433.15999999999997 242.0 433.44 242.0Z"/></g><g class="cr-dC"><path class="cr-sp cr-dot" d="M600 150m-9 0a9 9 0 1 0 18 0a9 9 0 1 0-18 0"/><path class="cr-sp cr-lab" d="M621.08 128.12V115.84Q621.08 112.08 623.36 109.88Q625.64 107.68 629.44 107.68Q633.24 107.68 635.54 109.88Q637.84 112.08 637.84 115.84V116.2Q637.84 116.4 637.7 116.54Q637.56 116.68 637.36 116.68L631.68 116.92Q631.2 116.92 631.2 116.44V115.36Q631.2 114.44 630.72 113.9Q630.24 113.36 629.44 113.36Q628.68 113.36 628.2 113.9Q627.72 114.44 627.72 115.36V128.68Q627.72 129.56 628.2 130.1Q628.68 130.64 629.44 130.64Q630.24 130.64 630.72 130.1Q631.2 129.56 631.2 128.68V127.52Q631.2 127.32 631.34 127.17999999999999Q631.48 127.03999999999999 631.68 127.03999999999999L637.36 127.28Q637.56 127.28 637.7 127.42Q637.84 127.56 637.84 127.76V128.12Q637.84 131.84 635.54 134.07999999999998Q633.24 136.32 629.44 136.32Q625.64 136.32 623.36 134.07999999999998Q621.08 131.84 621.08 128.12Z M647.8399999999999 130.32H655.8399999999999Q656.04 130.32 656.18 130.45999999999998Q656.3199999999999 130.6 656.3199999999999 130.8V135.52Q656.3199999999999 135.72 656.18 135.86Q656.04 136.0 655.8399999999999 136.0H640.16Q639.9599999999999 136.0 639.8199999999999 135.86Q639.68 135.72 639.68 135.52V130.64Q639.68 130.36 639.88 130.04Q639.76 130.2 641.9599999999999 127.6Q643.4799999999999 125.8 644.9199999999998 124.02Q646.3599999999999 122.24 647.28 120.88Q649.28 117.8 649.28 115.6Q649.28 114.48 648.8599999999999 113.92Q648.4399999999999 113.36 647.76 113.36Q647.0799999999999 113.36 646.66 113.92Q646.24 114.48 646.28 115.36V117.08Q646.28 117.28 646.14 117.42Q646.0 117.56 645.8 117.56H640.04Q639.8399999999999 117.56 639.6999999999999 117.42Q639.56 117.28 639.56 117.08V115.08Q639.76 111.75999999999999 642.1199999999999 109.72Q644.4799999999999 107.68 648.0799999999999 107.68Q650.4 107.68 652.2 108.68Q654.0 109.68 655.0 111.48Q656.0 113.28 656.0 115.64Q656.0 117.75999999999999 655.3399999999999 119.58Q654.68 121.4 653.1999999999999 123.48Q652.0 125.2 649.3199999999999 128.2L647.7199999999999 130.08Q647.64 130.16 647.68 130.24Q647.7199999999999 130.32 647.8399999999999 130.32Z"/></g><path class="cr-sp cr-leaf1" d="M86 120 c9.0 -12.6 25.2 -12.6 32.4 -5.4 c-12.6 9.0 -27.0 10.8 -32.4 5.4z"/><path class="cr-sp cr-leaf2" d="M892 92 c-8.0 -11.2 -22.4 -11.2 -28.8 -4.8 c11.2 8.0 24.0 9.6 28.8 4.8z"/><path class="cr-pp" d="M820 232m-30 0a30 30 0 1 0 60 0a30 30 0 1 0-60 0"/><path class="cr-ln" d="M820 232m-30 0a30 30 0 1 0 60 0a30 30 0 1 0-60 0"/><path class="cr-dn" d="M790 228a30 30 0 0 1 60 0c-14-8-40-8-60 0z"/><path class="cr-pp" d="M772 286C790 272 850 272 866 286L884 470H752Z"/><path class="cr-lt" d="M772 286C790 272 850 272 866 286L884 470H752Z"/><path class="cr-ln" d="M772 286C790 272 850 272 866 286L884 470H752Z"/><g transform="translate(784 300)"><g class="cr-arm"><path class="cr-ln" d="M0 0L-92 0"/><path class="cr-sp" d="M-92 0m-6 0a6 6 0 1 0 12 0a6 6 0 1 0-12 0"/></g></g><g class="cr-s1"><path class="cr-pp" d="M133 662 C135 576 175 552 215 552 C255 552 295 576 297 662Z"/><path class="cr-lt" d="M133 662 C135 576 175 552 215 552 C255 552 295 576 297 662Z"/><path class="cr-ln" d="M133 662 C135 576 175 552 215 552 C255 552 295 576 297 662"/><path class="cr-pp" d="M215 506m-38 0a38 38 0 1 0 76 0a38 38 0 1 0-76 0"/><path class="cr-dn" d="M177 504a38 38 0 0 1 76 0c-22-12-54-12-76 0z"/><path class="cr-ln" d="M215 506m-38 0a38 38 0 1 0 76 0a38 38 0 1 0-76 0"/></g><g class="cr-s2"><path class="cr-pp" d="M376 662 C378 588 418 564 458 564 C498 564 538 588 540 662Z"/><path class="cr-lt" d="M376 662 C378 588 418 564 458 564 C498 564 538 588 540 662Z"/><path class="cr-ln" d="M376 662 C378 588 418 564 458 564 C498 564 538 588 540 662"/><path class="cr-pp" d="M458 518m-38 0a38 38 0 1 0 76 0a38 38 0 1 0-76 0"/><path class="cr-dn" d="M420 516a38 38 0 0 1 76 0c-22-12-54-12-76 0z"/><path class="cr-ln" d="M458 518m-38 0a38 38 0 1 0 76 0a38 38 0 1 0-76 0"/></g><g transform="translate(500 590)"><g class="cr-hand"><path class="cr-ln" d="M0 0C10 -40 16 -70 18 -96"/><path class="cr-pp" d="M18 -96m-11 0a11 11 0 1 0 22 0a11 11 0 1 0-22 0"/><path class="cr-ln cr-th" d="M18 -96m-11 0a11 11 0 1 0 22 0a11 11 0 1 0-22 0"/></g></g><g class="cr-s3"><path class="cr-pp" d="M618 662 C620 596 660 572 700 572 C740 572 780 596 782 662Z"/><path class="cr-lt" d="M618 662 C620 596 660 572 700 572 C740 572 780 596 782 662Z"/><path class="cr-ln" d="M618 662 C620 596 660 572 700 572 C740 572 780 596 782 662"/><path class="cr-pp" d="M700 526m-38 0a38 38 0 1 0 76 0a38 38 0 1 0-76 0"/><path class="cr-sp" d="M662 526a38 38 0 0 1 76 0z"/><path class="cr-ln" d="M700 526m-38 0a38 38 0 1 0 76 0a38 38 0 1 0-76 0"/></g><g class="cr-catWalk"><g transform="translate(880 652)"><g class="cr-catBob"><path class="cr-ln cr-legA" d="M-24 -22V-2"/><path class="cr-ln cr-legB" d="M-12 -22V-2"/><path class="cr-ln cr-legB" d="M14 -22V-2"/><path class="cr-ln cr-legA" d="M26 -22V-2"/><path class="cr-pp" d="M-40 -32a40 16 0 1 0 80 0a40 16 0 1 0-80 0"/><path class="cr-dn" d="M-40 -32a40 16 0 1 0 80 0a40 16 0 1 0-80 0"/><path class="cr-ln" d="M-40 -32a40 16 0 1 0 80 0a40 16 0 1 0-80 0"/><path class="cr-ln" d="M38 -38C58 -44 62 -70 50 -78"/><path class="cr-pp" d="M-46 -52m-15 0a15 15 0 1 0 30 0a15 15 0 1 0-30 0"/><path class="cr-ln" d="M-46 -52m-15 0a15 15 0 1 0 30 0a15 15 0 1 0-30 0"/><path class="cr-ln" d="M-58 -61l1 -13l9 8M-40 -64l5 -11l5 12"/><path class="cr-sp" d="M-52 -54m-2.5 0a2.5 2.5 0 1 0 5 0a2.5 2.5 0 1 0-5 0"/></g></g></g><g class="cr-catSleep"><g class="cr-breath"><path class="cr-pp" d="M832 652C826 622 856 606 888 608C922 610 940 628 934 652Z"/><path class="cr-dn" d="M832 652C826 622 856 606 888 608C922 610 940 628 934 652Z"/><path class="cr-ln" d="M832 652C826 622 856 606 888 608C922 610 940 628 934 652"/><path class="cr-ln" d="M934 650C930 664 860 664 846 652"/><path class="cr-pp" d="M846 634m-15 0a15 15 0 1 0 30 0a15 15 0 1 0-30 0"/><path class="cr-ln" d="M846 634m-15 0a15 15 0 1 0 30 0a15 15 0 1 0-30 0"/><path class="cr-ln" d="M834 625l1 -13l9 8M852 622l5 -11l4 12"/><path class="cr-ln cr-th" d="M838 636q4 4 8 0M850 636q4 4 8 0"/></g><path class="cr-sp cr-z cr-z1" d="M915.338 585.688V582.308Q915.338 582.126 915.468 581.918L919.03 576.614Q919.082 576.562 919.056 576.51Q919.03 576.458 918.952 576.458H915.806Q915.676 576.458 915.585 576.367Q915.494 576.276 915.494 576.146V572.87Q915.494 572.74 915.585 572.649Q915.676 572.558 915.806 572.558H923.97Q924.1 572.558 924.191 572.649Q924.282 572.74 924.282 572.87V576.25Q924.282 576.432 924.152 576.64L920.356 581.944Q920.304 581.996 920.3299999999999 582.048Q920.356 582.1 920.434 582.1H924.178Q924.308 582.1 924.399 582.191Q924.49 582.282 924.49 582.412V585.688Q924.49 585.818 924.399 585.909Q924.308 586.0 924.178 586.0H915.65Q915.52 586.0 915.429 585.909Q915.338 585.818 915.338 585.688Z"/><path class="cr-sp cr-z cr-z2" d="M925.39 571.64V567.74Q925.39 567.53 925.54 567.29L929.65 561.17Q929.71 561.11 929.6800000000001 561.05Q929.65 560.99 929.56 560.99H925.93Q925.78 560.99 925.675 560.885Q925.57 560.78 925.57 560.63V556.85Q925.57 556.7 925.675 556.595Q925.78 556.49 925.93 556.49H935.35Q935.5 556.49 935.605 556.595Q935.71 556.7 935.71 556.85V560.75Q935.71 560.96 935.56 561.2L931.18 567.32Q931.12 567.38 931.15 567.44Q931.18 567.5 931.27 567.5H935.59Q935.74 567.5 935.845 567.605Q935.95 567.71 935.95 567.86V571.64Q935.95 571.79 935.845 571.895Q935.74 572.0 935.59 572.0H925.75Q925.6 572.0 925.495 571.895Q925.39 571.79 925.39 571.64Z"/><path class="cr-sp cr-z cr-z3" d="M935.442 557.592V553.172Q935.442 552.934 935.612 552.662L940.27 545.726Q940.338 545.658 940.304 545.59Q940.27 545.522 940.168 545.522H936.054Q935.884 545.522 935.765 545.403Q935.646 545.284 935.646 545.114V540.83Q935.646 540.66 935.765 540.5409999999999Q935.884 540.422 936.054 540.422H946.73Q946.9 540.422 947.019 540.5409999999999Q947.138 540.66 947.138 540.83V545.25Q947.138 545.488 946.968 545.76L942.004 552.696Q941.936 552.764 941.97 552.832Q942.004 552.9 942.106 552.9H947.002Q947.172 552.9 947.2909999999999 553.019Q947.41 553.138 947.41 553.308V557.592Q947.41 557.762 947.2909999999999 557.881Q947.172 558.0 947.002 558.0H935.85Q935.68 558.0 935.5609999999999 557.881Q935.442 557.762 935.442 557.592Z"/></g></svg>
+      <div class="hero-show" role="img" aria-label="Tranh khắc xanh cobalt: người cưỡi ngựa đi qua cao nguyên, núi và đồng cỏ" data-vi-label="Tranh khắc xanh cobalt: người cưỡi ngựa đi qua cao nguyên, núi và đồng cỏ" data-en-label="Cobalt engraving: a rider on horseback crossing a high plain with mountains and open grassland"><img src="assets/eng-cobalt-field.webp" alt="" width="1600" height="900" decoding="async" fetchpriority="high" style="--hx:50%"><img class="hs2" src="assets/eng-cobalt-dome.webp" alt="" width="1600" height="900" loading="lazy" decoding="async" style="--hx:50%"><img class="hs3" src="assets/eng-cobalt-lake.webp" alt="" width="1600" height="900" loading="lazy" decoding="async" style="--hx:30%"></div>
 
       <button type="button" class="anim-toggle" id="animToggle" aria-pressed="false"><svg class="ico" aria-hidden="true"><use href="#i-pause"/></svg><span data-vi="Tạm dừng hoạt ảnh" data-en="Pause animation">Tạm dừng hoạt ảnh</span></button>
       <div class="hero-lid" aria-hidden="true"><ul class="course-pills"><li class="c-ielts">IELTS</li><li class="c-toeic">TOEIC</li><li class="c-aptis">APTIS</li><li class="c-found">Foundation</li></ul></div>
@@ -1344,7 +1352,7 @@ html.anim-paused .cover *{animation-play-state:paused!important}
   <a class="mobile-zalo" href="https://zalo.me/0382308059" target="_blank" rel="noopener" aria-label="Nhắn Zalo (mở trong thẻ mới)" data-vi-label="Nhắn Zalo (mở trong thẻ mới)" data-en-label="Message on Zalo (opens in a new tab)"><svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg><span>Zalo</span></a>
 </div>
 
-<footer class="sf sf-photo-b sf-has-bar">
+<footer class="sf sf-eng sf-ink-cobalt sf-e-land sf-has-bar">
   <div class="sf-inner">
     <div class="sf-cta">
       <div class="sf-cta-text">
@@ -1572,7 +1580,7 @@ if (!reduce && window.matchMedia('(hover: hover) and (pointer: fine)').matches){
   window.addEventListener('resize', moveInk);
   if(document.fonts && document.fonts.ready) document.fonts.ready.then(moveInk);
   document.querySelectorAll('.lang-switch button').forEach(function(b){ b.addEventListener('click', function(){ setTimeout(moveInk, 60); }); });
-  var dotColours = ['var(--grammar)', 'var(--speaking)', 'var(--reading)', 'var(--vocab)', 'var(--cobalt)', 'var(--grammar)'];
+  var dotColours = ['var(--cobalt)', 'var(--review)', 'var(--cocoa)', 'var(--sand)', 'var(--cobalt)', 'var(--review)'];
   function pop(a, e){
     if(reduce) return;
     a.classList.remove('tap'); void a.offsetWidth; a.classList.add('tap');

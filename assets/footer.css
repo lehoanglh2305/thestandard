@@ -1,5 +1,5 @@
 /* The Standard site footer. Content sits in the sky, an engraved desert scene closes the page.
-   Variants: .sf-cobalt, .sf-standard (cocoa), .sf-burgundy. Scenes: assets/footer-scene-*.svg. Photo variants: .sf-photo-a, .sf-photo-b (assets/footer-photo-*.webp)
+   Variants: .sf-cobalt, .sf-standard (cocoa), .sf-burgundy. Scenes: assets/footer-scene-*.svg. Engraving variants: .sf-eng (assets/eng-*.webp)
    Selectors start with .sf so they win over each page's own footer rules. */
 @font-face{font-family:"Barlow";src:url(../fonts/barlow-400.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
 @font-face{font-family:"Barlow";src:url(../fonts/barlow-600.woff2) format("woff2");font-weight:600;font-style:normal;font-display:swap}
@@ -50,24 +50,33 @@ footer.sf-burgundy{--sf-ground:#f4e6cf;--sf-sky:#6e2438;--sf-ink:#f4e6cf;--sf-mu
 @media (max-width:560px){.sf .sf-inner{padding-block:56px 32px;gap:40px}.sf .sf-grid{grid-template-columns:1fr 1fr}.sf .sf-col:last-of-type{grid-column:1/-1}.sf .sf-btn{flex:1 1 100%;justify-content:center}}
 /* Pages with a fixed bottom bar on small screens: extend the ground under the bar */
 @media (max-width:1023px){footer.sf.sf-has-bar{padding-bottom:calc(80px + env(safe-area-inset-bottom,0px));background:linear-gradient(var(--sf-sky),var(--sf-sky)) top/100% calc(100% - 81px - env(safe-area-inset-bottom,0px)) no-repeat,var(--sf-ground)}}
-/* Photo footers: the picture is the background, content sits in its sky. */
-footer.sf.sf-photo-a{--sf-sky:#01379a;--sf-ink:#f7efdd;--sf-muted:#cddaf7;--sf-rule:rgb(247 239 221 / .32);--sf-pill:rgb(247 239 221 / .14);
-  background:#01379a url(footer-photo-a.webp) no-repeat 50% 100% / 100% auto;padding-bottom:27vw}
-footer.sf.sf-photo-a::before{content:"";position:absolute;inset:0;pointer-events:none;
-  background:linear-gradient(180deg,rgb(0 28 112 / .34) 0,rgb(0 28 112 / .26) calc(100% - 30vw),rgb(0 28 112 / 0) calc(100% - 18vw))}
-footer.sf.sf-photo-b{--sf-sky:#012c59;--sf-ink:#f7ebd3;--sf-muted:#c9d4e8;--sf-rule:rgb(247 235 211 / .3);--sf-pill:rgb(247 235 211 / .14);
-  background:#012c59 url(footer-photo-b.webp) no-repeat 50% 100% / 100% auto;padding-bottom:12.5vw}
-footer.sf.sf-photo-a::after,footer.sf.sf-photo-b::after{display:none}
-.sf.sf-photo-a .sf-inner,.sf.sf-photo-a .sf-bottom,.sf.sf-photo-b .sf-inner,.sf.sf-photo-b .sf-bottom{text-shadow:0 1px 12px rgb(0 20 80 / .45)}
-.sf.sf-photo-a .sf-btn,.sf.sf-photo-b .sf-btn{text-shadow:none}
+/* Engraving footers: a two tone print is the background, content sits in its sky.
+   Colour: .sf-ink-cobalt or .sf-ink-burgundy. Picture: .sf-e-field, .sf-e-dome, .sf-e-lake, .sf-e-land */
+footer.sf.sf-eng{--sf-flat:#06378b;--sf-sky:var(--sf-flat);--sf-ink:#f4e6cf;--sf-muted:#d3dcf2;--sf-rule:rgb(244 230 207 / .3);--sf-pill:rgb(244 230 207 / .14);--sf-x:50%;
+  background:var(--sf-flat) var(--sf-img) no-repeat 50% 100% / 100% auto;padding-bottom:36vw}
+footer.sf.sf-eng.sf-ink-burgundy{--sf-flat:#6e2438;--sf-muted:#ecd2c2}
+footer.sf.sf-eng::after{display:none}
+footer.sf.sf-eng .sf-inner,footer.sf.sf-eng .sf-bottom{text-shadow:0 1px 10px rgb(0 0 0 / .35)}
+footer.sf.sf-eng .sf-btn{text-shadow:none}
+footer.sf.sf-ink-cobalt.sf-e-field{--sf-img:url(eng-cobalt-field.webp);--sf-x:50%}
+footer.sf.sf-ink-cobalt.sf-e-dome{--sf-img:url(eng-cobalt-dome.webp);--sf-x:30%}
+footer.sf.sf-ink-cobalt.sf-e-lake{--sf-img:url(eng-cobalt-lake.webp);--sf-x:30%}
+footer.sf.sf-ink-cobalt.sf-e-land{--sf-img:url(eng-cobalt-land.webp);--sf-x:50%}
+footer.sf.sf-ink-burgundy.sf-e-dome{--sf-img:url(eng-burg-dome.webp);--sf-x:30%}
+footer.sf.sf-ink-burgundy.sf-e-lake{--sf-img:url(eng-burg-lake.webp);--sf-x:30%}
+footer.sf.sf-ink-burgundy.sf-e-land{--sf-img:url(eng-burg-land.webp);--sf-x:50%}
 @media (max-width:700px){
-  footer.sf.sf-photo-a{background-size:auto 360px;padding-bottom:160px}
-  footer.sf.sf-photo-a::before{background:linear-gradient(180deg,rgb(0 28 112 / .34) 0,rgb(0 28 112 / .26) calc(100% - 230px),rgb(0 28 112 / 0) calc(100% - 130px))}
-  footer.sf.sf-photo-b{background-position:63% 100%;background-size:auto 290px;padding-bottom:120px}
+  footer.sf.sf-eng{background-size:auto 360px;background-position:var(--sf-x) 100%;padding-bottom:250px}
 }
-/* Photo footer on a page with the fixed bottom bar: lift the picture above the bar */
+/* On a page with the fixed bottom bar, lift the picture above the bar */
 @media (max-width:1023px){
-  footer.sf.sf-photo-b.sf-has-bar{padding-bottom:calc(200px + env(safe-area-inset-bottom,0px));background:#012c59 url(footer-photo-b.webp) no-repeat 63% calc(100% - 80px - env(safe-area-inset-bottom,0px)) / auto 290px}
+  footer.sf.sf-eng.sf-has-bar{padding-bottom:calc(330px + env(safe-area-inset-bottom,0px));background:var(--sf-flat) var(--sf-img) no-repeat var(--sf-x) calc(100% - 80px - env(safe-area-inset-bottom,0px)) / auto 360px}
 }
 @media (prefers-reduced-motion:reduce){.sf .sf-btn,.sf .sf-col a{transition:none}.sf .sf-btn:hover{transform:none}}
+/* Engraving band under the page header on inner pages */
+.eng-band{display:block;width:100%;height:clamp(120px,15vw,220px);margin:0;border:0;background:var(--b-flat) var(--b-img) no-repeat 50% 82% / cover}
+.eng-band.eng-cobalt{--b-flat:#06378b}.eng-band.eng-burgundy{--b-flat:#6e2438}
+.eng-cobalt.eng-dome{--b-img:url(eng-cobalt-dome.webp)}.eng-cobalt.eng-land{--b-img:url(eng-cobalt-land.webp)}
+.eng-burgundy.eng-land{--b-img:url(eng-burg-land.webp)}.eng-burgundy.eng-dome{--b-img:url(eng-burg-dome.webp)}.eng-burgundy.eng-lake{--b-img:url(eng-burg-lake.webp)}
+@media print{.eng-band{display:none}}
 @media print{footer.sf{display:none}}
