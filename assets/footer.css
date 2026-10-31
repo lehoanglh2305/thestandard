@@ -1,5 +1,5 @@
 /* The Standard site footer. Content sits in the sky, an engraved desert scene closes the page.
-   Variants: .sf-cobalt, .sf-standard (cocoa), .sf-burgundy. Scenes: assets/footer-scene-*.svg
+   Variants: .sf-cobalt, .sf-standard (cocoa), .sf-burgundy. Scenes: assets/footer-scene-*.svg. Photo variants: .sf-photo-a, .sf-photo-b (assets/footer-photo-*.webp)
    Selectors start with .sf so they win over each page's own footer rules. */
 @font-face{font-family:"Barlow";src:url(../fonts/barlow-400.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
 @font-face{font-family:"Barlow";src:url(../fonts/barlow-600.woff2) format("woff2");font-weight:600;font-style:normal;font-display:swap}
@@ -50,5 +50,24 @@ footer.sf-burgundy{--sf-ground:#f4e6cf;--sf-sky:#6e2438;--sf-ink:#f4e6cf;--sf-mu
 @media (max-width:560px){.sf .sf-inner{padding-block:56px 32px;gap:40px}.sf .sf-grid{grid-template-columns:1fr 1fr}.sf .sf-col:last-of-type{grid-column:1/-1}.sf .sf-btn{flex:1 1 100%;justify-content:center}}
 /* Pages with a fixed bottom bar on small screens: extend the ground under the bar */
 @media (max-width:1023px){footer.sf.sf-has-bar{padding-bottom:calc(80px + env(safe-area-inset-bottom,0px));background:linear-gradient(var(--sf-sky),var(--sf-sky)) top/100% calc(100% - 81px - env(safe-area-inset-bottom,0px)) no-repeat,var(--sf-ground)}}
+/* Photo footers: the picture is the background, content sits in its sky. */
+footer.sf.sf-photo-a{--sf-sky:#01379a;--sf-ink:#f7efdd;--sf-muted:#cddaf7;--sf-rule:rgb(247 239 221 / .32);--sf-pill:rgb(247 239 221 / .14);
+  background:#01379a url(footer-photo-a.webp) no-repeat 50% 100% / 100% auto;padding-bottom:27vw}
+footer.sf.sf-photo-a::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(180deg,rgb(0 28 112 / .34) 0,rgb(0 28 112 / .26) calc(100% - 30vw),rgb(0 28 112 / 0) calc(100% - 18vw))}
+footer.sf.sf-photo-b{--sf-sky:#012c59;--sf-ink:#f7ebd3;--sf-muted:#c9d4e8;--sf-rule:rgb(247 235 211 / .3);--sf-pill:rgb(247 235 211 / .14);
+  background:#012c59 url(footer-photo-b.webp) no-repeat 50% 100% / 100% auto;padding-bottom:12.5vw}
+footer.sf.sf-photo-a::after,footer.sf.sf-photo-b::after{display:none}
+.sf.sf-photo-a .sf-inner,.sf.sf-photo-a .sf-bottom,.sf.sf-photo-b .sf-inner,.sf.sf-photo-b .sf-bottom{text-shadow:0 1px 12px rgb(0 20 80 / .45)}
+.sf.sf-photo-a .sf-btn,.sf.sf-photo-b .sf-btn{text-shadow:none}
+@media (max-width:700px){
+  footer.sf.sf-photo-a{background-size:auto 360px;padding-bottom:160px}
+  footer.sf.sf-photo-a::before{background:linear-gradient(180deg,rgb(0 28 112 / .34) 0,rgb(0 28 112 / .26) calc(100% - 230px),rgb(0 28 112 / 0) calc(100% - 130px))}
+  footer.sf.sf-photo-b{background-position:63% 100%;background-size:auto 290px;padding-bottom:120px}
+}
+/* Photo footer on a page with the fixed bottom bar: lift the picture above the bar */
+@media (max-width:1023px){
+  footer.sf.sf-photo-b.sf-has-bar{padding-bottom:calc(200px + env(safe-area-inset-bottom,0px));background:#012c59 url(footer-photo-b.webp) no-repeat 63% calc(100% - 80px - env(safe-area-inset-bottom,0px)) / auto 290px}
+}
 @media (prefers-reduced-motion:reduce){.sf .sf-btn,.sf .sf-col a{transition:none}.sf .sf-btn:hover{transform:none}}
 @media print{footer.sf{display:none}}
