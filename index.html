@@ -698,11 +698,9 @@ html.anim-paused .cover *{animation-play-state:paused!important}
 @keyframes stampPulse{0%,100%{box-shadow:0 0 0 0 rgb(242 194 48 / .6)}50%{box-shadow:0 0 0 7px rgb(242 194 48 / 0)}}
 html.anim-paused .hero .stamp::before{animation-play-state:paused}
 @media (prefers-reduced-motion:reduce){.hero .stamp::before{animation:none}}
-@keyframes heroPar{to{transform:translateY(70px) scale(1.1)}}
-@keyframes heroOut{to{opacity:0;transform:translateY(-48px)}}
+@keyframes heroPar{to{transform:translate3d(0,60px,0)}}
 @supports (animation-timeline:scroll()){@media (prefers-reduced-motion:no-preference){
   .hero-show{animation:heroPar linear both;animation-timeline:scroll(root);animation-range:0 90vh}
-  .hero-copy{animation:heroOut linear both;animation-timeline:scroll(root);animation-range:0 75vh}
 }}
 .hero .btn:hover{background:#f2c230;border-color:#f2c230;color:#06378b}
 
@@ -1698,5 +1696,15 @@ cover.addEventListener('pointerdown',function(e){
 </script>
 
 
+<script>
+/* Retry a picture once, bypassing any stale saved copy, if it fails to load */
+(function(){
+  function retry(img){ if(img.dataset.retry) return; img.dataset.retry='1'; img.src=img.getAttribute('src').split('?')[0]+'?r='+Date.now(); }
+  document.querySelectorAll('.hero-show img,.contact-art img').forEach(function(img){
+    img.addEventListener('error',function(){ retry(img); });
+    if(img.complete && img.naturalWidth===0 && img.getAttribute('loading')!=='lazy') retry(img);
+  });
+})();
+</script>
 </body>
 </html>

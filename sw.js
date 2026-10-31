@@ -1,9 +1,9 @@
 /* The Standard: lets the route map and learning hub open without internet.
    Pages: newest copy from the internet when online, saved copy when offline.
    Change VERSION after an update to clear old saved files. */
-const VERSION = "ts-2026-10-31i";
+const VERSION = "ts-2026-10-31j";
 const FONTS = "ts-fonts";
-const CORE = ["./route-map.html", "./learning-hub.html", "./writing.html", "./lo-trinh-ielts.html", "./404.html", "./manifest.webmanifest", "./icon-192.png", "./icon-512.png", "./assets/logo-black.png", "./assets/logo-letters.svg", "./assets/logo-dot.svg", "./assets/logo-white.png", "./assets/footer.css", "./assets/footer.js", "./assets/eng-cobalt-field.webp", "./fonts/playfair-400.woff2",
+const CORE = ["./route-map.html", "./learning-hub.html", "./writing.html", "./lo-trinh-ielts.html", "./404.html", "./manifest.webmanifest", "./icon-192.png", "./icon-512.png", "./assets/logo-black.png", "./assets/logo-letters.svg", "./assets/logo-dot.svg", "./assets/logo-white.png", "./assets/footer.css", "./assets/footer.js", "./fonts/playfair-400.woff2",
   "./NotoSans-Regular.woff2", "./NotoSans-Medium.woff2", "./NotoSans-SemiBold.woff2", "./NotoSans-Bold.woff2",
   "./fonts/barlow-400.woff2", "./fonts/barlow-600.woff2", "./fonts/barlow-condensed-700.woff2", "./fonts/barlow-condensed-800.woff2"];
 
@@ -27,11 +27,7 @@ self.addEventListener("fetch", e => {
         .catch(() => caches.match(req, {ignoreSearch: true}).then(m => m || caches.match("./route-map.html"))));
       return;
     }
-    if (/\.(css|js)$/.test(url.pathname)) {
-      e.respondWith(fetch(req).then(res => keep(VERSION, req, res)).catch(() => caches.match(req, {ignoreSearch: true})));
-      return;
-    }
-    e.respondWith(caches.match(req).then(m => m || fetch(req).then(res => keep(VERSION, req, res))));
+    e.respondWith(fetch(req).then(res => keep(VERSION, req, res)).catch(() => caches.match(req, {ignoreSearch: true})));
     return;
   }
   if (url.hostname === "fonts.googleapis.com" || url.hostname === "fonts.gstatic.com") {
