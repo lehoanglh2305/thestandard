@@ -9,7 +9,7 @@
 <meta property="og:site_name" content="The Standard">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://lehoanglh2305.github.io/thestandard/learning-hub.html">
-<meta property="og:title" content="Learning hub · The Standard">
+<meta property="og:title" content="Tự học · The Standard">
 <meta property="og:description" content="Góc học tập miễn phí: 28 chủ đề cấu trúc câu và 12 thì trên một dòng thời gian, có câu đố và thẻ ghi nhớ. Free, in English and Vietnamese.">
 <meta property="og:image" content="https://lehoanglh2305.github.io/thestandard/og-learning-hub.png">
 <meta property="og:image:type" content="image/png">
@@ -20,7 +20,7 @@
 <meta property="og:locale:alternate" content="en_GB">
 <meta name="twitter:card" content="summary_large_image">
 <!-- /share tags -->
-<title>Góc học tập · The Standard</title>
+<title>Tự học · The Standard</title>
 <meta name="theme-color" content="#f4e6cf" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#2a1813" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 11'%3E%3Cpath fill='%23d97757' d='M2 0h1v1h5V0h1v2h1v1h1v4h1v2h-1v1H1V9H0V7h1V3h1z'/%3E%3Crect x='3' y='4' width='2' height='2' fill='%23faf9f5'/%3E%3Crect x='7' y='4' width='2' height='2' fill='%23faf9f5'/%3E%3Crect x='5' y='7' width='2' height='1' fill='%23e8a55a'/%3E%3C/svg%3E">
@@ -851,6 +851,18 @@ h1,.hero h1{font-weight:800;text-transform:uppercase;line-height:1.16;letter-spa
 .pageswitch a{min-height:36px;display:inline-flex;align-items:center;border:1px solid var(--hairline);background:var(--surface-card);color:var(--muted);font:600 14px/1.2 var(--sans)}
 .pageswitch a:hover{color:var(--ink)}
 .pageswitch a[aria-current="page"]{background:var(--ink);border-color:var(--ink);color:var(--canvas)}
+
+/* two learning pages, one switch */
+.pageswitch.two{display:inline-flex; gap:0; padding:3px; border-radius:9999px; background:var(--cream-strong); border:1px solid var(--hairline-soft); margin-bottom:18px}
+.pageswitch.two a{min-height:38px; padding:0 18px; display:inline-flex; align-items:center; border:0; border-radius:9999px; background:transparent; color:var(--on-cream); font:600 15px/1 var(--sans); text-decoration:none}
+.pageswitch.two a[aria-current="page"]{background:var(--surface-card); color:var(--ink); box-shadow:0 1px 2px rgba(0,0,0,.12)}
+.ieltsbar{display:grid; grid-template-columns:auto repeat(2,minmax(0,1fr)); gap:10px 12px; align-items:stretch; margin-top:16px}
+.ieltsbar .eyebrow{align-self:center; padding-right:6px}
+.ieltsbar a{display:flex; flex-direction:column; gap:2px; padding:12px 16px; border-radius:12px; border:1px solid var(--hairline); background:var(--surface-card); color:var(--body); text-decoration:none; transition:border-color 160ms var(--ease)}
+.ieltsbar a:hover{border-color:var(--coral)}
+.ieltsbar a b{color:var(--ink); font-size:16px}
+.ieltsbar a span{font-size:14px; color:var(--muted)}
+@media (max-width:720px){ .ieltsbar{grid-template-columns:1fr} }
 </style>
 <link rel="stylesheet" href="assets/footer.css?v=20261031g">
 </head>
@@ -863,7 +875,8 @@ h1,.hero h1{font-weight:800;text-transform:uppercase;line-height:1.16;letter-spa
         <li><a href="./#about" data-i="navAbout">Giới thiệu</a></li>
         <li><a href="./#services" data-i="navCourses">Khóa học</a></li>
         <li><a href="./#contact" data-i="navContact">Liên hệ</a></li>
-        <li><a href="route-map.html" data-i="navLearn">Góc học tập</a></li>
+        <li><a href="route-map.html" data-i="navRoute">Lộ trình</a></li>
+        <li><a href="learning-hub.html" aria-current="page" data-i="navHub">Tự học</a></li>
         <li><a href="./#profile" data-i="navProfile">Hồ sơ</a></li>
         <li><a href="./#apply" class="navapply" data-i="navApply">Đăng ký</a></li>
       </ul>
@@ -882,8 +895,9 @@ h1,.hero h1{font-weight:800;text-transform:uppercase;line-height:1.16;letter-spa
   <div class="eng-band eng-burgundy eng-land" role="presentation"></div>
 <header class="hero">
     <div id="heroText">
-      <nav class="pageswitch" aria-label="Các trang học tập" data-il="pgL">
-        <a href="route-map.html" data-i="pgRoute">← Lộ trình học</a>
+      <nav class="pageswitch two" aria-label="Các trang học tập" data-il="pgL">
+        <a href="route-map.html" data-i="pgRoute">Lộ trình</a>
+        <a href="learning-hub.html" aria-current="page" data-i="pgHub">Tự học</a>
       </nav>
       <div class="eyebrow" data-i="eyebrow"></div>
       <h1 data-i="h1"></h1>
@@ -913,6 +927,11 @@ h1,.hero h1{font-weight:800;text-transform:uppercase;line-height:1.16;letter-spa
     </div>
   </section>
 
+  <nav class="ieltsbar" aria-labelledby="ieltsT">
+    <span class="eyebrow" id="ieltsT" data-i="ieltsT">Luyện IELTS</span>
+    <a href="writing.html"><b>IELTS Writing</b><span data-i="ieltsW">Từ vựng, cấu trúc câu và bài mẫu có chú giải</span></a>
+    <a href="lo-trinh-ielts.html"><b data-i="ieltsR">Lộ trình IELTS</b><span data-i="ieltsRd">Cần học bao lâu để đạt band mục tiêu</span></a>
+  </nav>
   <div class="toolnav" role="tablist" id="toolnav" aria-label="Tools">
     <button type="button" class="toolbtn" role="tab" id="tb-ss" aria-controls="tool-ss"><span class="n">01</span><span class="h" data-i="ssName"></span><span class="d" id="ssDesc"></span><span class="c num" id="ssCount"></span></button>
     <button type="button" class="toolbtn" role="tab" id="tb-tt" aria-controls="tool-tt"><span class="n">02</span><span class="h" data-i="ttName"></span><span class="d" data-i="ttDesc"></span><span class="c num" id="ttCount"></span></button>
@@ -1024,7 +1043,8 @@ h1,.hero h1{font-weight:800;text-transform:uppercase;line-height:1.16;letter-spa
       </nav>
       <nav class="sf-col" aria-label="Học liệu" data-fvl="Học liệu" data-fel="Resources">
         <h3 data-fvi="Học liệu" data-fen="Resources">Học liệu</h3>
-        <a href="route-map.html" data-fvi="Lộ trình học" data-fen="Learning route">Lộ trình học</a>
+        <a href="route-map.html" data-fvi="Lộ trình" data-fen="Route map">Lộ trình</a>
+        <a href="learning-hub.html" data-fvi="Tự học" data-fen="Self study">Tự học</a>
       </nav>
       <nav class="sf-col" aria-label="Về tôi" data-fvl="Về tôi" data-fel="About">
         <h3 data-fvi="Về tôi" data-fen="About">Về tôi</h3>
@@ -1454,7 +1474,7 @@ const ASK = {
 
 /* ---------- interface text ---------- */
 const UI = {
- en:{eyebrow:"Learning hub · The Standard", h1:"Practise the building blocks of English",
+ en:{eyebrow:"Self study · The Standard", h1:"Self study: the grammar foundations",
   lede:"See how sentences are built and place the twelve tenses on one timeline. Your progress is saved in this browser only.",
   topLearned:n=>`of ${n} structure topics learned`, tenLearned:n=>`of ${n} tenses learned`, toReview:"answers due for review today",
   continue:"Continue where you left off", allDone:"You have ticked every topic and tense.", allDoneMeta:"Use review mistakes to keep it fresh.",
@@ -1464,7 +1484,7 @@ const UI = {
   ssEye:"Tool 01 · A1 to C1", ssLede:"Each topic explains one rule, shows coloured examples you can tap, and ends with practice. Tick a topic when you feel sure of it.",
   ttName:"Tense timeline", ttDesc:"The twelve tenses on one timeline, with form, use, common mistakes and a quiz for each.",
   ttEye:"Tool 02 · Twelve tenses", ttLede:"Columns show the time, rows show the aspect. Open a tense to learn it, or pick a signal word to see which tenses use it.",
-  ctName:"Class tools", ctDesc:"A speaking wheel, speaking pairs and a seat plan for the classroom.", ctFor:"For teachers", ctTitle:"Class tools · The Standard", ctEyebrow:"Class tools · For teachers", ctH1:"Speaking activities for the classroom", ctDataT:"Your data", ctData:"Class lists, topics and seat plans are saved in this browser on this device only and are never sent anywhere. Bookmark this page to come back to it.", pgRoute:"← Learning route", pgHub:"Learning hub", pgWriting:"IELTS Writing", pgIelts:"IELTS roadmap", pgL:"Learning pages", navLearn:"Learning",
+  ctName:"Class tools", ctDesc:"A speaking wheel, speaking pairs and a seat plan for the classroom.", ctFor:"For teachers", ctTitle:"Class tools · The Standard", ctEyebrow:"Class tools · For teachers", ctH1:"Speaking activities for the classroom", ctDataT:"Your data", ctData:"Class lists, topics and seat plans are saved in this browser on this device only and are never sent anywhere. Bookmark this page to come back to it.", pgRoute:"Route map", pgHub:"Self study", ieltsT:"IELTS practice", ieltsW:"Vocabulary, sentence patterns and annotated model answers", ieltsR:"IELTS roadmap", ieltsRd:"How long to reach your target band", fullLesson:"Full lesson", pgWriting:"IELTS Writing", pgIelts:"IELTS roadmap", pgL:"Learning pages", navLearn:"Learning",
   ctLede:"Three small tools for speaking lessons. Names, topics and plans stay in this browser and are never sent anywhere.",
   countTop:(d,n)=>`${d} / ${n} learned`, countTen:(d,n)=>`${d} / ${n} learned`,
   hide:"Hide learned", allAreas:"All areas", shown:n=>`${n} shown`, noTopics:"No topics match these filters.",
@@ -1500,7 +1520,7 @@ const UI = {
   copy:"Copy backup code", restoreOpen:"Restore from code", reset:"Reset progress", code:"Backup code", restore:"Restore",
   resetQ:"This clears every tick and answer on this device.", resetYes:"Yes, reset", cancel:"Cancel", refs:"References",
   copied:"Backup code copied.", copyManual:"Copy the code shown above.", restored:"Progress restored.", badCode:"That code could not be read. Paste the full code exactly as copied.", cleared:"Progress cleared.",
-  navCourses:"Courses", navProfile:"Profile", navAbout:"About", navExp:"Experience", navEdu:"Education", navSkills:"Skills", navRoute:"Route map", navHub:"Learning hub", navContact:"Contact", navApply:"Apply", navMenu:"Open menu", navClose:"Close menu",
+  navCourses:"Courses", navProfile:"Profile", navAbout:"About", navExp:"Experience", navEdu:"Education", navSkills:"Skills", navRoute:"Route map", navHub:"Self study", navContact:"Contact", navApply:"Apply", navMenu:"Open menu", navClose:"Close menu",
   owlHint:"Click the owl for a new line.", owl2:"Hachimi the owl", owl:"Chiioo the owl", themes:{auto:"Auto", light:"Light", dark:"Dark"}, themeL:"Colour theme",
   /* class tools */
   wName:"Speaking wheel", wDesc:"Spin for a topic, then for a question. Speak until the timer ends.",
@@ -1545,7 +1565,7 @@ const UI = {
   sCleared:"All seats cleared.", sExLoaded:"Example names loaded. Replace them with your class list.", sTwo:"Choose two different students.", sDup:"That rule already exists.", sAdded:"Rule added. Press Random assign to apply it.",
   sSaved:n=>`Plan ${n} saved in this browser.`, sLoaded:n=>`Loaded plan ${n}.`, sBadPlan:"This plan could not be loaded.", sCopied:"Seat plan copied.", sStart:"Paste your student names in the Students box, press Apply names, then Random assign.",
   sTextHead:"Seat plan (board at the front)", sTextEmpty:"(empty)", sTextAisle:"(|| marks the aisle)", student:n=>`Student ${n}`},
- vi:{eyebrow:"Góc học tập · The Standard", h1:"Luyện những viên gạch nền của tiếng Anh",
+ vi:{eyebrow:"Tự học · The Standard", h1:"Tự học ngữ pháp nền tảng",
   lede:"Tìm hiểu cách câu được xây dựng và đặt mười hai thì lên cùng một dòng thời gian. Tiến độ của bạn chỉ được lưu trong trình duyệt này.",
   topLearned:n=>`trên ${n} chủ đề cấu trúc câu đã học`, tenLearned:n=>`trên ${n} thì đã học`, toReview:"câu cần ôn hôm nay",
   continue:"Học tiếp từ chỗ bạn dừng", allDone:"Bạn đã đánh dấu mọi chủ đề và mọi thì.", allDoneMeta:"Hãy dùng ôn lỗi sai để củng cố kiến thức.",
@@ -1555,7 +1575,7 @@ const UI = {
   ssEye:"Công cụ 01 · A1 đến C1", ssLede:"Mỗi chủ đề giải thích một quy tắc, có ví dụ tô màu để bạn chạm vào, và kết thúc bằng phần luyện tập. Hãy đánh dấu chủ đề khi bạn đã chắc chắn.",
   ttName:"Dòng thời gian các thì", ttDesc:"Mười hai thì trên cùng một dòng thời gian, kèm cấu trúc, cách dùng, lỗi thường gặp và câu đố cho từng thì.",
   ttEye:"Công cụ 02 · Mười hai thì", ttLede:"Cột cho biết thời gian, hàng cho biết dạng thì. Mở một thì để học, hoặc chọn một từ dấu hiệu để xem những thì nào dùng nó.",
-  ctName:"Công cụ lớp học", ctDesc:"Vòng quay nói, ghép cặp nói và sơ đồ chỗ ngồi cho lớp học.", ctFor:"Dành cho giáo viên", ctTitle:"Công cụ lớp học · The Standard", ctEyebrow:"Công cụ lớp học · Dành cho giáo viên", ctH1:"Hoạt động nói cho lớp học", ctDataT:"Dữ liệu của bạn", ctData:"Danh sách lớp, chủ đề và sơ đồ chỗ ngồi chỉ được lưu trong trình duyệt trên thiết bị này và không được gửi đi đâu. Hãy lưu trang này vào dấu trang để quay lại.", pgRoute:"← Lộ trình học", pgHub:"Góc học tập", pgWriting:"IELTS Writing", pgIelts:"Lộ trình IELTS", pgL:"Các trang học tập", navLearn:"Góc học tập",
+  ctName:"Công cụ lớp học", ctDesc:"Vòng quay nói, ghép cặp nói và sơ đồ chỗ ngồi cho lớp học.", ctFor:"Dành cho giáo viên", ctTitle:"Công cụ lớp học · The Standard", ctEyebrow:"Công cụ lớp học · Dành cho giáo viên", ctH1:"Hoạt động nói cho lớp học", ctDataT:"Dữ liệu của bạn", ctData:"Danh sách lớp, chủ đề và sơ đồ chỗ ngồi chỉ được lưu trong trình duyệt trên thiết bị này và không được gửi đi đâu. Hãy lưu trang này vào dấu trang để quay lại.", pgRoute:"Lộ trình", pgHub:"Tự học", ieltsT:"Luyện IELTS", ieltsW:"Từ vựng, cấu trúc câu và bài mẫu có chú giải", ieltsR:"Lộ trình IELTS", ieltsRd:"Cần học bao lâu để đạt band mục tiêu", fullLesson:"Bài học chuyên sâu", pgWriting:"IELTS Writing", pgIelts:"Lộ trình IELTS", pgL:"Các trang học tập", navLearn:"Góc học tập",
   ctLede:"Ba công cụ nhỏ cho giờ học nói. Tên học sinh, chủ đề và sơ đồ chỉ lưu trong trình duyệt này và không được gửi đi đâu.",
   countTop:(d,n)=>`Đã học ${d} / ${n}`, countTen:(d,n)=>`Đã học ${d} / ${n}`,
   hide:"Ẩn mục đã học", allAreas:"Tất cả", shown:n=>`${n} mục`, noTopics:"Không có chủ đề nào khớp bộ lọc.",
@@ -1591,7 +1611,7 @@ const UI = {
   copy:"Sao chép mã sao lưu", restoreOpen:"Khôi phục từ mã", reset:"Xóa tiến độ", code:"Mã sao lưu", restore:"Khôi phục",
   resetQ:"Thao tác này xóa mọi dấu đã học và câu trả lời trên thiết bị này.", resetYes:"Đồng ý xóa", cancel:"Hủy", refs:"Tài liệu tham khảo",
   copied:"Đã sao chép mã sao lưu.", copyManual:"Hãy sao chép mã hiển thị phía trên.", restored:"Đã khôi phục tiến độ.", badCode:"Không đọc được mã này. Hãy dán đầy đủ mã như khi sao chép.", cleared:"Đã xóa tiến độ.",
-  navCourses:"Khóa học", navProfile:"Hồ sơ", navAbout:"Giới thiệu", navExp:"Kinh nghiệm", navEdu:"Học vấn", navSkills:"Kỹ năng", navRoute:"Lộ trình", navHub:"Góc học tập", navContact:"Liên hệ", navApply:"Đăng ký", navMenu:"Mở menu", navClose:"Đóng menu",
+  navCourses:"Khóa học", navProfile:"Hồ sơ", navAbout:"Giới thiệu", navExp:"Kinh nghiệm", navEdu:"Học vấn", navSkills:"Kỹ năng", navRoute:"Lộ trình", navHub:"Tự học", navContact:"Liên hệ", navApply:"Đăng ký", navMenu:"Mở menu", navClose:"Đóng menu",
   owlHint:"Bấm vào chú cú để nghe câu mới.", owl2:"Cú Hachimi", owl:"Cú Chiioo", themes:{auto:"Tự động", light:"Sáng", dark:"Tối"}, themeL:"Giao diện",
   wName:"Vòng quay nói", wDesc:"Quay để chọn chủ đề, rồi quay để chọn câu hỏi. Nói cho đến khi hết giờ.",
   wModeTwo:"Chủ đề rồi câu hỏi", wModeAll:"Câu hỏi bất kỳ", wSkip:"Bỏ qua câu đã hỏi",
@@ -1753,7 +1773,7 @@ function paintStatic(){
   $("#sClose").setAttribute("aria-label", L().close);
   $("#ssDesc").textContent = L().ssDesc(TOPICS.length);
   $("#ttQuizAll").textContent = L().quizAll;
-  document.title = (vi() ? "Góc học tập" : "Learning hub") + " · The Standard";
+  document.title = (vi() ? "Tự học" : "Self study") + " · The Standard";
 }
 
 /* ---------- summary and continue card ---------- */
@@ -2053,8 +2073,10 @@ function playDiagram(box, base){
   });
 }
 function fix(w, r){ return el("div",{class:"fix"}, el("div",{class:"w"}, el("b",{"aria-label":"✗", text:"✗"}), el("span",{text:w})), el("div",{class:"r"}, el("b",{"aria-label":"✓", text:"✓"}), el("span",{text:r}), sayBtn(r))); }
-function mapLinks(key){ const xl = XL[key]; if (!xl || !xl.length) return [];
-  return [el("h4",{text:L().onMap}), el("div",{class:"xlinks"}, xl.map(([pid,lv,en,vt]) => el("a",{class:"xlink", href:`route-map.html#point/${pid}`}, el("b",{text:lv}), vi()?vt:en)))]; }
+const LESSONS = {"tenses/present-simple":["ngu-phap/hien-tai-don.html","Present simple: timelines, passive and 20 practice questions","Hiện tại đơn: trục thời gian, câu bị động và 20 câu luyện tập"]};
+function mapLinks(key){ const ls = LESSONS[key], lesson = ls ? [el("h4",{text:L().fullLesson}), el("div",{class:"xlinks"}, el("a",{class:"xlink", href:ls[0]}, el("b",{text:"→"}), vi()?ls[2]:ls[1]))] : [];
+  const xl = XL[key]; if (!xl || !xl.length) return lesson;
+  return [...lesson, el("h4",{text:L().onMap}), el("div",{class:"xlinks"}, xl.map(([pid,lv,en,vt]) => el("a",{class:"xlink", href:`route-map.html#point/${pid}`}, el("b",{text:lv}), vi()?vt:en)))]; }
 function ttQuiz(id, runner, onAnswer){
   const d=tenseById[id], q=d.quiz, prev=state.tt.quiz[id];
   const card = el("div",{class:"q"}, el("div",{class:"eyebrow", text: runner ? `${L().zones[d.zone]} · ${tName(d)}` : L().tabQuiz}), el("div",{class:"qq", text:q.q}));

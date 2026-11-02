@@ -735,8 +735,6 @@ html.anim-paused .hero .stamp::before{animation-play-state:paused}
 @media (prefers-reduced-motion:reduce){.ca-fly,.ca-st{display:none}.ca-heat{display:none}.ca-glint{opacity:.9}}
 @keyframes caZoom{from{transform:scale(1.1) translateY(10px)}to{transform:scale(1) translateY(-4px)}}
 @supports (animation-timeline:view()){@media (prefers-reduced-motion:no-preference){.ca-zoom{animation:caZoom linear both;animation-timeline:view();animation-range:entry 0% exit 60%}}}
-.learn-grid.one{grid-template-columns:minmax(0,1fr)!important;max-width:760px}
-.learn-grid.one .learn-card{min-height:240px}
 </style>
 <script type="application/ld+json">
 {
@@ -935,7 +933,8 @@ html.anim-paused .hero .stamp::before{animation-play-state:paused}
       <li><a href="#about" data-vi="Giới thiệu" data-en="About">Giới thiệu</a></li>
       <li><a href="#services" data-vi="Khóa học" data-en="Courses">Khóa học</a></li>
       <li><a href="#contact" data-vi="Liên hệ" data-en="Contact">Liên hệ</a></li>
-      <li><a href="#learning" data-vi="Góc học tập" data-en="Learning">Góc học tập</a></li>
+      <li><a href="route-map.html" data-vi="Lộ trình" data-en="Route map">Lộ trình</a></li>
+      <li><a href="learning-hub.html" data-vi="Tự học" data-en="Self study">Tự học</a></li>
       <li><a href="#profile" data-vi="Hồ sơ" data-en="Profile">Hồ sơ</a></li>
     </ul>
     <a href="#apply" class="btn nav-apply" data-vi="Đăng ký" data-en="Apply">Đăng ký</a>
@@ -951,7 +950,8 @@ html.anim-paused .hero .stamp::before{animation-play-state:paused}
   <a href="#services" data-vi="Khóa học" data-en="Courses">Khóa học</a>
   <a href="#how" data-vi="Cách bắt đầu" data-en="How it works">Cách bắt đầu</a>
   <a href="#contact" data-vi="Liên hệ" data-en="Contact">Liên hệ</a>
-  <a href="#learning" data-vi="Góc học tập" data-en="Learning">Góc học tập</a>
+  <a href="route-map.html" data-vi="Lộ trình" data-en="Route map">Lộ trình</a>
+  <a href="learning-hub.html" data-vi="Tự học" data-en="Self study">Tự học</a>
   <a href="#profile" data-vi="Hồ sơ đầy đủ" data-en="Full profile">Hồ sơ đầy đủ</a>
   <a href="#experience" class="sub" data-vi="Kinh nghiệm" data-en="Experience">Kinh nghiệm</a>
   <a href="#education" class="sub" data-vi="Học vấn" data-en="Education">Học vấn</a>
@@ -1120,13 +1120,20 @@ html.anim-paused .hero .stamp::before{animation-play-state:paused}
       <h2 data-vi="Góc học tập" data-en="Learning">Góc học tập</h2>
     </div>
     <p class="learn-intro reveal" data-vi="Công cụ học miễn phí. Tiến độ và lựa chọn của bạn được lưu ngay trong trình duyệt." data-en="Free study tools. Your progress and choices are saved in your own browser.">Công cụ học miễn phí. Tiến độ và lựa chọn của bạn được lưu ngay trong trình duyệt.</p>
-    <div class="learn-grid one">
+    <div class="learn-grid">
       <a class="learn-card map reveal-lid" href="route-map.html">
         <svg class="burst" viewBox="0 0 180 180" aria-hidden="true"><circle class="core" cx="90" cy="90" r="22"/><g class="rays"><line class="a" pathLength="1" x1="124.0" y1="90.0" x2="160.0" y2="90.0"/><line class="b" pathLength="1" x1="121.4" y1="103.0" x2="141.7" y2="111.4"/><line class="a" pathLength="1" x1="114.0" y1="114.0" x2="139.5" y2="139.5"/><line class="b" pathLength="1" x1="103.0" y1="121.4" x2="111.4" y2="141.7"/><line class="a" pathLength="1" x1="90.0" y1="124.0" x2="90.0" y2="160.0"/><line class="b" pathLength="1" x1="77.0" y1="121.4" x2="68.6" y2="141.7"/><line class="a" pathLength="1" x1="66.0" y1="114.0" x2="40.5" y2="139.5"/><line class="b" pathLength="1" x1="58.6" y1="103.0" x2="38.3" y2="111.4"/><line class="a" pathLength="1" x1="56.0" y1="90.0" x2="20.0" y2="90.0"/><line class="b" pathLength="1" x1="58.6" y1="77.0" x2="38.3" y2="68.6"/><line class="a" pathLength="1" x1="66.0" y1="66.0" x2="40.5" y2="40.5"/><line class="b" pathLength="1" x1="77.0" y1="58.6" x2="68.6" y2="38.3"/><line class="a" pathLength="1" x1="90.0" y1="56.0" x2="90.0" y2="20.0"/><line class="b" pathLength="1" x1="103.0" y1="58.6" x2="111.4" y2="38.3"/><line class="a" pathLength="1" x1="114.0" y1="66.0" x2="139.5" y2="40.5"/><line class="b" pathLength="1" x1="121.4" y1="77.0" x2="141.7" y2="68.6"/></g></svg>
-        <span class="stamp eyebrow" data-vi="Lộ trình học" data-en="Learning route">Lộ trình học</span>
-        <h3 data-vi="Một lộ trình, từng bước từ A1 đến C2" data-en="One route, every step from A1 to C2">Một lộ trình, từng bước từ A1 đến C2</h3>
-        <p data-vi="Chọn trình độ của bạn, rồi làm theo bước tiếp theo. Ngữ pháp, 12 thì, bốn kỹ năng và luyện IELTS đều nằm trên cùng một lộ trình, kèm bài kiểm tra và thẻ ghi nhớ." data-en="Choose your level, then follow your next step. Grammar, the twelve tenses, the four skills and IELTS practice all sit on one route, with quizzes and flashcards.">Chọn trình độ của bạn, rồi làm theo bước tiếp theo. Ngữ pháp, 12 thì, bốn kỹ năng và luyện IELTS đều nằm trên cùng một lộ trình, kèm bài kiểm tra và thẻ ghi nhớ.</p>
-        <span class="learn-go"><span data-vi="Bắt đầu học" data-en="Start learning">Bắt đầu học</span><svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+        <span class="stamp eyebrow" data-vi="Lộ trình" data-en="Route map">Lộ trình</span>
+        <h3 data-vi="Từng bước từ A1 đến C2" data-en="Every step from A1 to C2">Từng bước từ A1 đến C2</h3>
+        <p data-vi="Chọn trình độ, rồi làm theo bước tiếp theo. Ngữ pháp và bốn kỹ năng theo khung CEFR, kèm bài kiểm tra và thời gian học dự kiến." data-en="Choose your level, then follow your next step. Grammar and the four skills in CEFR order, with quizzes and study time estimates.">Chọn trình độ, rồi làm theo bước tiếp theo. Ngữ pháp và bốn kỹ năng theo khung CEFR, kèm bài kiểm tra và thời gian học dự kiến.</p>
+        <span class="learn-go"><span data-vi="Xem lộ trình" data-en="Open the route map">Xem lộ trình</span><svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+      </a>
+      <a class="learn-card hub reveal-lid" href="learning-hub.html">
+        <svg class="burst" viewBox="0 0 180 180" aria-hidden="true" style="color:var(--grammarInk)"><circle class="core" cx="90" cy="90" r="22"/><g class="rays"><line class="a" pathLength="1" x1="124.0" y1="90.0" x2="160.0" y2="90.0"/><line class="b" pathLength="1" x1="121.4" y1="103.0" x2="141.7" y2="111.4"/><line class="a" pathLength="1" x1="114.0" y1="114.0" x2="139.5" y2="139.5"/><line class="b" pathLength="1" x1="103.0" y1="121.4" x2="111.4" y2="141.7"/><line class="a" pathLength="1" x1="90.0" y1="124.0" x2="90.0" y2="160.0"/><line class="b" pathLength="1" x1="77.0" y1="121.4" x2="68.6" y2="141.7"/><line class="a" pathLength="1" x1="66.0" y1="114.0" x2="40.5" y2="139.5"/><line class="b" pathLength="1" x1="58.6" y1="103.0" x2="38.3" y2="111.4"/><line class="a" pathLength="1" x1="56.0" y1="90.0" x2="20.0" y2="90.0"/><line class="b" pathLength="1" x1="58.6" y1="77.0" x2="38.3" y2="68.6"/><line class="a" pathLength="1" x1="66.0" y1="66.0" x2="40.5" y2="40.5"/><line class="b" pathLength="1" x1="77.0" y1="58.6" x2="68.6" y2="38.3"/><line class="a" pathLength="1" x1="90.0" y1="56.0" x2="90.0" y2="20.0"/><line class="b" pathLength="1" x1="103.0" y1="58.6" x2="111.4" y2="38.3"/><line class="a" pathLength="1" x1="114.0" y1="66.0" x2="139.5" y2="40.5"/><line class="b" pathLength="1" x1="121.4" y1="77.0" x2="141.7" y2="68.6"/></g></svg>
+        <span class="stamp eyebrow" data-vi="Tự học" data-en="Self study">Tự học</span>
+        <h3 data-vi="Ngữ pháp nền tảng, 12 thì và IELTS" data-en="Grammar foundations, the 12 tenses and IELTS">Ngữ pháp nền tảng, 12 thì và IELTS</h3>
+        <p data-vi="Luyện cấu trúc câu, xem 12 thì trên một dòng thời gian, học bài chuyên sâu cho từng thì, và vào thẳng các công cụ IELTS." data-en="Practise sentence structure, see the 12 tenses on one timeline, study full lessons for each tense, and go straight to the IELTS tools.">Luyện cấu trúc câu, xem 12 thì trên một dòng thời gian, học bài chuyên sâu cho từng thì, và vào thẳng các công cụ IELTS.</p>
+        <span class="learn-go"><span data-vi="Vào tự học" data-en="Start self study">Vào tự học</span><svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></span>
       </a>
     </div>
   </div>
@@ -1384,7 +1391,8 @@ html.anim-paused .hero .stamp::before{animation-play-state:paused}
       </nav>
       <nav class="sf-col" aria-label="Học liệu" data-fvl="Học liệu" data-fel="Resources">
         <h3 data-fvi="Học liệu" data-fen="Resources">Học liệu</h3>
-        <a href="route-map.html" data-fvi="Lộ trình học" data-fen="Learning route">Lộ trình học</a>
+        <a href="route-map.html" data-fvi="Lộ trình" data-fen="Route map">Lộ trình</a>
+        <a href="learning-hub.html" data-fvi="Tự học" data-fen="Self study">Tự học</a>
       </nav>
       <nav class="sf-col" aria-label="Về tôi" data-fvl="Về tôi" data-fel="About">
         <h3 data-fvi="Về tôi" data-fen="About">Về tôi</h3>

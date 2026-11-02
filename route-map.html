@@ -597,6 +597,11 @@ h1,.hero h1{font-weight:800;text-transform:uppercase;line-height:1.16;letter-spa
 .pageswitch a{min-height:36px;display:inline-flex;align-items:center;border:1px solid var(--hairline);background:var(--surface-card);color:var(--muted);font:600 14px/1.2 var(--sans)}
 .pageswitch a:hover{color:var(--ink)}
 .pageswitch a[aria-current="page"]{background:var(--ink);border-color:var(--ink);color:var(--canvas)}
+
+/* two learning pages, one switch */
+.pageswitch.two{display:inline-flex; gap:0; padding:3px; border-radius:9999px; background:var(--cream-strong); border:1px solid var(--hairline-soft); margin-bottom:18px}
+.pageswitch.two a{min-height:38px; padding:0 18px; display:inline-flex; align-items:center; border:0; border-radius:9999px; background:transparent; color:var(--on-cream); font:600 15px/1 var(--sans); text-decoration:none}
+.pageswitch.two a[aria-current="page"]{background:var(--surface-card); color:var(--ink); box-shadow:0 1px 2px rgba(0,0,0,.12)}
 </style>
 <link rel="stylesheet" href="assets/footer.css?v=20261031g">
 </head>
@@ -609,7 +614,8 @@ h1,.hero h1{font-weight:800;text-transform:uppercase;line-height:1.16;letter-spa
         <li><a href="./#about" data-i="navAbout">Giới thiệu</a></li>
         <li><a href="./#services" data-i="navCourses">Khóa học</a></li>
         <li><a href="./#contact" data-i="navContact">Liên hệ</a></li>
-        <li><a href="route-map.html" aria-current="page" data-i="navLearn">Góc học tập</a></li>
+        <li><a href="route-map.html" aria-current="page" data-i="navRoute">Lộ trình</a></li>
+        <li><a href="learning-hub.html" data-i="navHub">Tự học</a></li>
         <li><a href="./#profile" data-i="navProfile">Hồ sơ</a></li>
         <li><a href="./#apply" class="navapply" data-i="navApply">Đăng ký</a></li>
       </ul>
@@ -627,6 +633,10 @@ h1,.hero h1{font-weight:800;text-transform:uppercase;line-height:1.16;letter-spa
   <div class="eng-band eng-cobalt eng-dome" role="presentation"></div>
 <header class="hero">
     <div id="heroText">
+      <nav class="pageswitch two" aria-label="Các trang học tập" data-il="pgL">
+        <a href="route-map.html" aria-current="page" data-i="pgRoute">Lộ trình</a>
+        <a href="learning-hub.html" data-i="pgHub">Tự học</a>
+      </nav>
       <div class="eyebrow" data-i="eyebrow"></div>
       <h1 data-i="h1"></h1>
       <p class="lede" data-i="lede"></p>
@@ -761,7 +771,8 @@ h1,.hero h1{font-weight:800;text-transform:uppercase;line-height:1.16;letter-spa
       </nav>
       <nav class="sf-col" aria-label="Học liệu" data-fvl="Học liệu" data-fel="Resources">
         <h3 data-fvi="Học liệu" data-fen="Resources">Học liệu</h3>
-        <a href="route-map.html" data-fvi="Lộ trình học" data-fen="Learning route">Lộ trình học</a>
+        <a href="route-map.html" data-fvi="Lộ trình" data-fen="Route map">Lộ trình</a>
+        <a href="learning-hub.html" data-fvi="Tự học" data-fen="Self study">Tự học</a>
       </nav>
       <nav class="sf-col" aria-label="Về tôi" data-fvl="Về tôi" data-fel="About">
         <h3 data-fvi="Về tôi" data-fen="About">Về tôi</h3>
@@ -1190,7 +1201,7 @@ const UI = {
   copy:"Copy backup code", restoreOpen:"Restore from code", reset:"Reset progress", code:"Backup code", restore:"Restore",
   resetQ:"This clears every tick and quiz result on this device.", resetYes:"Yes, reset", cancel:"Cancel", refs:"References",
   copied:"Backup code copied.", copyManual:"Copy the code shown above.", restored:"Progress restored.", badCode:"That code could not be read. Paste the full code exactly as copied.", cleared:"Progress cleared.",
-  navCourses:"Courses", navProfile:"Profile", navAbout:"About", navExp:"Experience", navEdu:"Education", navSkills:"Skills", navRoute:"Route map", navHub:"Learning hub", navLearn:"Learning", pgRoute:"Learning route", pgHub:"Learning hub", pgWriting:"IELTS Writing", pgIelts:"IELTS roadmap", pgL:"Learning pages", navContact:"Contact", navApply:"Apply", navMenu:"Open menu", navClose:"Close menu",
+  navCourses:"Courses", navProfile:"Profile", navAbout:"About", navExp:"Experience", navEdu:"Education", navSkills:"Skills", navRoute:"Route map", navHub:"Self study", navLearn:"Learning", pgRoute:"Route map", pgHub:"Self study", pgWriting:"IELTS Writing", pgIelts:"IELTS roadmap", pgL:"Learning pages", navContact:"Contact", navApply:"Apply", navMenu:"Open menu", navClose:"Close menu",
   owlHint:"Click the owl for a new line.", owl2:"Hachimi the owl", owl:"Chiioo the owl", themes:{auto:"Auto", light:"Light", dark:"Dark"}, themeL:"Colour theme"},
  vi:{eyebrow:"Lộ trình học · A1 đến C2", h1:"Học tiếng Anh từng bước",
   lede:"Chọn trình độ của bạn, rồi đi theo một lộ trình duy nhất: ngữ pháp, 12 thì, bốn kỹ năng và luyện IELTS, sắp xếp theo khung CEFR. Mỗi bước có giải thích, ví dụ và bài kiểm tra ngắn. Học xong thì đánh dấu.",
@@ -1229,7 +1240,7 @@ const UI = {
   copy:"Sao chép mã sao lưu", restoreOpen:"Khôi phục từ mã", reset:"Xóa tiến độ", code:"Mã sao lưu", restore:"Khôi phục",
   resetQ:"Thao tác này xóa mọi dấu đã học và kết quả kiểm tra trên thiết bị này.", resetYes:"Đồng ý xóa", cancel:"Hủy", refs:"Tài liệu tham khảo",
   copied:"Đã sao chép mã sao lưu.", copyManual:"Hãy sao chép mã hiển thị phía trên.", restored:"Đã khôi phục tiến độ.", badCode:"Không đọc được mã này. Hãy dán đầy đủ mã như khi sao chép.", cleared:"Đã xóa tiến độ.",
-  navCourses:"Khóa học", navProfile:"Hồ sơ", navAbout:"Giới thiệu", navExp:"Kinh nghiệm", navEdu:"Học vấn", navSkills:"Kỹ năng", navRoute:"Lộ trình", navHub:"Góc học tập", navLearn:"Góc học tập", pgRoute:"Lộ trình học", pgHub:"Góc học tập", pgWriting:"IELTS Writing", pgIelts:"Lộ trình IELTS", pgL:"Các trang học tập", navContact:"Liên hệ", navApply:"Đăng ký", navMenu:"Mở menu", navClose:"Đóng menu",
+  navCourses:"Khóa học", navProfile:"Hồ sơ", navAbout:"Giới thiệu", navExp:"Kinh nghiệm", navEdu:"Học vấn", navSkills:"Kỹ năng", navRoute:"Lộ trình", navHub:"Tự học", navLearn:"Góc học tập", pgRoute:"Lộ trình", pgHub:"Tự học", pgWriting:"IELTS Writing", pgIelts:"Lộ trình IELTS", pgL:"Các trang học tập", navContact:"Liên hệ", navApply:"Đăng ký", navMenu:"Mở menu", navClose:"Đóng menu",
   owlHint:"Bấm vào chú cú để nghe câu mới.", owl2:"Cú Hachimi", owl:"Cú Chiioo", themes:{auto:"Tự động", light:"Sáng", dark:"Tối"}, themeL:"Giao diện"}
 };
 

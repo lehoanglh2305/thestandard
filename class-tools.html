@@ -843,7 +843,8 @@ h1,.hero h1{font-weight:800;text-transform:uppercase;line-height:1.16;letter-spa
         <li><a href="./#about" data-i="navAbout">Giới thiệu</a></li>
         <li><a href="./#services" data-i="navCourses">Khóa học</a></li>
         <li><a href="./#contact" data-i="navContact">Liên hệ</a></li>
-        <li><a href="route-map.html" data-i="navLearn">Góc học tập</a></li>
+        <li><a href="route-map.html" data-i="navRoute">Lộ trình</a></li>
+        <li><a href="learning-hub.html" data-i="navHub">Tự học</a></li>
         <li><a href="./#profile" data-i="navProfile">Hồ sơ</a></li>
         <li><a href="./#apply" class="navapply" data-i="navApply">Đăng ký</a></li>
       </ul>
@@ -1072,7 +1073,8 @@ h1,.hero h1{font-weight:800;text-transform:uppercase;line-height:1.16;letter-spa
       </nav>
       <nav class="sf-col" aria-label="Học liệu" data-fvl="Học liệu" data-fel="Resources">
         <h3 data-fvi="Học liệu" data-fen="Resources">Học liệu</h3>
-        <a href="route-map.html" data-fvi="Lộ trình học" data-fen="Learning route">Lộ trình học</a>
+        <a href="route-map.html" data-fvi="Lộ trình" data-fen="Route map">Lộ trình</a>
+        <a href="learning-hub.html" data-fvi="Tự học" data-fen="Self study">Tự học</a>
       </nav>
       <nav class="sf-col" aria-label="Về tôi" data-fvl="Về tôi" data-fel="About">
         <h3 data-fvi="Về tôi" data-fen="About">Về tôi</h3>
@@ -1448,7 +1450,7 @@ const UI = {
   ssEye:"Tool 01 · A1 to C1", ssLede:"Each topic explains one rule, shows coloured examples you can tap, and ends with practice. Tick a topic when you feel sure of it.",
   ttName:"Tense timeline", ttDesc:"The twelve tenses on one timeline, with form, use, common mistakes and a quiz for each.",
   ttEye:"Tool 02 · Twelve tenses", ttLede:"Columns show the time, rows show the aspect. Open a tense to learn it, or pick a signal word to see which tenses use it.",
-  ctName:"Class tools", ctDesc:"A speaking wheel, speaking pairs and a seat plan for the classroom.", ctFor:"For teachers", ctTitle:"Class tools · The Standard", ctEyebrow:"Class tools · For teachers", ctH1:"Speaking activities for the classroom", ctDataT:"Your data", ctData:"Class lists, topics and seat plans are saved in this browser on this device only and are never sent anywhere. Bookmark this page to come back to it.", pgRoute:"A1 to C2 route map", pgHub:"Learning hub", pgL:"Learning pages", navLearn:"Learning",
+  ctName:"Class tools", ctDesc:"A speaking wheel, speaking pairs and a seat plan for the classroom.", ctFor:"For teachers", ctTitle:"Class tools · The Standard", ctEyebrow:"Class tools · For teachers", ctH1:"Speaking activities for the classroom", ctDataT:"Your data", ctData:"Class lists, topics and seat plans are saved in this browser on this device only and are never sent anywhere. Bookmark this page to come back to it.", pgRoute:"A1 to C2 route map", pgHub:"Self study", pgL:"Learning pages", navLearn:"Learning",
   ctLede:"Three small tools for speaking lessons. Names, topics and plans stay in this browser and are never sent anywhere.",
   countTop:(d,n)=>`${d} / ${n} learned`, countTen:(d,n)=>`${d} / ${n} learned`,
   hide:"Hide learned", allAreas:"All areas", shown:n=>`${n} shown`, noTopics:"No topics match these filters.",
@@ -1484,7 +1486,7 @@ const UI = {
   copy:"Copy backup code", restoreOpen:"Restore from code", reset:"Reset progress", code:"Backup code", restore:"Restore",
   resetQ:"This clears every tick and answer on this device.", resetYes:"Yes, reset", cancel:"Cancel", refs:"References",
   copied:"Backup code copied.", copyManual:"Copy the code shown above.", restored:"Progress restored.", badCode:"That code could not be read. Paste the full code exactly as copied.", cleared:"Progress cleared.",
-  navCourses:"Courses", navProfile:"Profile", navAbout:"About", navExp:"Experience", navEdu:"Education", navSkills:"Skills", navRoute:"Route map", navHub:"Learning hub", navContact:"Contact", navApply:"Apply", navMenu:"Open menu", navClose:"Close menu",
+  navCourses:"Courses", navProfile:"Profile", navAbout:"About", navExp:"Experience", navEdu:"Education", navSkills:"Skills", navRoute:"Route map", navHub:"Self study", navContact:"Contact", navApply:"Apply", navMenu:"Open menu", navClose:"Close menu",
   owlHint:"Click the owl for a new line.", owl2:"Hachimi the owl", owl:"Chiioo the owl", themes:{auto:"Auto", light:"Light", dark:"Dark"}, themeL:"Colour theme",
   /* class tools */
   wName:"Speaking wheel", wDesc:"Spin for a topic, then for a question. Speak until the timer ends.",
@@ -1539,7 +1541,7 @@ const UI = {
   ssEye:"Công cụ 01 · A1 đến C1", ssLede:"Mỗi chủ đề giải thích một quy tắc, có ví dụ tô màu để bạn chạm vào, và kết thúc bằng phần luyện tập. Hãy đánh dấu chủ đề khi bạn đã chắc chắn.",
   ttName:"Dòng thời gian các thì", ttDesc:"Mười hai thì trên cùng một dòng thời gian, kèm cấu trúc, cách dùng, lỗi thường gặp và câu đố cho từng thì.",
   ttEye:"Công cụ 02 · Mười hai thì", ttLede:"Cột cho biết thời gian, hàng cho biết dạng thì. Mở một thì để học, hoặc chọn một từ dấu hiệu để xem những thì nào dùng nó.",
-  ctName:"Công cụ lớp học", ctDesc:"Vòng quay nói, ghép cặp nói và sơ đồ chỗ ngồi cho lớp học.", ctFor:"Dành cho giáo viên", ctTitle:"Công cụ lớp học · The Standard", ctEyebrow:"Công cụ lớp học · Dành cho giáo viên", ctH1:"Hoạt động nói cho lớp học", ctDataT:"Dữ liệu của bạn", ctData:"Danh sách lớp, chủ đề và sơ đồ chỗ ngồi chỉ được lưu trong trình duyệt trên thiết bị này và không được gửi đi đâu. Hãy lưu trang này vào dấu trang để quay lại.", pgRoute:"Lộ trình A1 đến C2", pgHub:"Góc học tập", pgL:"Các trang học tập", navLearn:"Góc học tập",
+  ctName:"Công cụ lớp học", ctDesc:"Vòng quay nói, ghép cặp nói và sơ đồ chỗ ngồi cho lớp học.", ctFor:"Dành cho giáo viên", ctTitle:"Công cụ lớp học · The Standard", ctEyebrow:"Công cụ lớp học · Dành cho giáo viên", ctH1:"Hoạt động nói cho lớp học", ctDataT:"Dữ liệu của bạn", ctData:"Danh sách lớp, chủ đề và sơ đồ chỗ ngồi chỉ được lưu trong trình duyệt trên thiết bị này và không được gửi đi đâu. Hãy lưu trang này vào dấu trang để quay lại.", pgRoute:"Lộ trình A1 đến C2", pgHub:"Tự học", pgL:"Các trang học tập", navLearn:"Góc học tập",
   ctLede:"Ba công cụ nhỏ cho giờ học nói. Tên học sinh, chủ đề và sơ đồ chỉ lưu trong trình duyệt này và không được gửi đi đâu.",
   countTop:(d,n)=>`Đã học ${d} / ${n}`, countTen:(d,n)=>`Đã học ${d} / ${n}`,
   hide:"Ẩn mục đã học", allAreas:"Tất cả", shown:n=>`${n} mục`, noTopics:"Không có chủ đề nào khớp bộ lọc.",
@@ -1575,7 +1577,7 @@ const UI = {
   copy:"Sao chép mã sao lưu", restoreOpen:"Khôi phục từ mã", reset:"Xóa tiến độ", code:"Mã sao lưu", restore:"Khôi phục",
   resetQ:"Thao tác này xóa mọi dấu đã học và câu trả lời trên thiết bị này.", resetYes:"Đồng ý xóa", cancel:"Hủy", refs:"Tài liệu tham khảo",
   copied:"Đã sao chép mã sao lưu.", copyManual:"Hãy sao chép mã hiển thị phía trên.", restored:"Đã khôi phục tiến độ.", badCode:"Không đọc được mã này. Hãy dán đầy đủ mã như khi sao chép.", cleared:"Đã xóa tiến độ.",
-  navCourses:"Khóa học", navProfile:"Hồ sơ", navAbout:"Giới thiệu", navExp:"Kinh nghiệm", navEdu:"Học vấn", navSkills:"Kỹ năng", navRoute:"Lộ trình", navHub:"Góc học tập", navContact:"Liên hệ", navApply:"Đăng ký", navMenu:"Mở menu", navClose:"Đóng menu",
+  navCourses:"Khóa học", navProfile:"Hồ sơ", navAbout:"Giới thiệu", navExp:"Kinh nghiệm", navEdu:"Học vấn", navSkills:"Kỹ năng", navRoute:"Lộ trình", navHub:"Tự học", navContact:"Liên hệ", navApply:"Đăng ký", navMenu:"Mở menu", navClose:"Đóng menu",
   owlHint:"Bấm vào chú cú để nghe câu mới.", owl2:"Cú Hachimi", owl:"Cú Chiioo", themes:{auto:"Tự động", light:"Sáng", dark:"Tối"}, themeL:"Giao diện",
   wName:"Vòng quay nói", wDesc:"Quay để chọn chủ đề, rồi quay để chọn câu hỏi. Nói cho đến khi hết giờ.",
   wModeTwo:"Chủ đề rồi câu hỏi", wModeAll:"Câu hỏi bất kỳ", wSkip:"Bỏ qua câu đã hỏi",
