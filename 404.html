@@ -243,8 +243,7 @@ nav a.main:hover{background:#4b2a22;border-color:#4b2a22}
   <p id="s">Đường link có thể đã cũ hoặc bị gõ sai. Bạn hãy thử một trong các trang dưới đây.</p>
   <nav>
     <a class="main" href="https://lehoanglh2305.github.io/thestandard/" id="lHome">Trang chủ</a>
-    <a href="https://lehoanglh2305.github.io/thestandard/route-map.html" id="lMap">Lộ trình</a>
-    <a href="https://lehoanglh2305.github.io/thestandard/learning-hub.html" id="lHub">Góc học tập</a>
+    <a href="https://lehoanglh2305.github.io/thestandard/route-map.html" id="lMap">Lộ trình học</a>
   </nav>
   <div class="lang"><button type="button" id="sw"></button></div>
 </main>
@@ -580,13 +579,13 @@ nav a.main:hover{background:#4b2a22;border-color:#4b2a22}
 </script>
 <script>
 const T = {
-  en:{t:"This page could not be found", s:"The link may be old or mistyped. Try one of these pages instead.", lHome:"Home", lMap:"Route map", lHub:"Learning hub", sw:"Tiếng Việt", title:"Page not found · The Standard"},
-  vi:{t:"Không tìm thấy trang này", s:"Đường link có thể đã cũ hoặc bị gõ sai. Bạn hãy thử một trong các trang dưới đây.", lHome:"Trang chủ", lMap:"Lộ trình", lHub:"Góc học tập", sw:"English", title:"Không tìm thấy trang · The Standard"}
+  en:{t:"This page could not be found", s:"The link may be old or mistyped. Try one of these pages instead.", lHome:"Home", lMap:"Learning route", sw:"Tiếng Việt", title:"Page not found · The Standard"},
+  vi:{t:"Không tìm thấy trang này", s:"Đường link có thể đã cũ hoặc bị gõ sai. Bạn hãy thử một trong các trang dưới đây.", lHome:"Trang chủ", lMap:"Lộ trình học", sw:"English", title:"Không tìm thấy trang · The Standard"}
 };
 const get = k => { try { return localStorage.getItem(k); } catch(e) { return null; } };
 let lang = "vi"; // the website always opens in Vietnamese
 const th = get("standardRouteMap.v1.theme"); if (th==="light"||th==="dark") document.documentElement.setAttribute("data-theme", th);
-function paint(){ const L=T[lang]; for (const id of ["t","s","lHome","lMap","lHub","sw"]) document.getElementById(id).textContent = L[id]; document.title = L.title; document.documentElement.lang = lang; }
+function paint(){ const L=T[lang]; for (const id of ["t","s","lHome","lMap","sw"]) document.getElementById(id).textContent = L[id]; document.title = L.title; document.documentElement.lang = lang; }
 document.getElementById("sw").onclick = () => { lang = lang==="en" ? "vi" : "en"; paint(); };
 paint();
 const TALK = {Chiioo:{en:["This page flew away. Try a link below.", "I looked everywhere. Even under my wing.", "Wrong branch. Let us hop to another page."], vi:["Trang này bay mất rồi. Thử một đường link bên dưới nhé.", "Mình tìm khắp nơi rồi. Cả dưới cánh luôn.", "Nhầm cành rồi. Mình nhảy sang trang khác nhé."]}};

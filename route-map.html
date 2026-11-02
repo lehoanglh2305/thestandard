@@ -26,7 +26,25 @@
 <title>Lộ trình A1 đến C2 · The Standard</title>
 <link rel="preload" href="NotoSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="NotoSans-Bold.woff2" as="font" type="font/woff2" crossorigin>
-<style>@font-face{font-family:"Noto Sans";font-weight:400;font-style:normal;font-display:swap;src:local("Noto Sans"),local("NotoSans-Regular"),url("NotoSans-Regular.woff2") format("woff2")}@font-face{font-family:"Noto Sans";font-weight:400;font-style:italic;font-display:swap;src:local("Noto Sans Italic"),local("NotoSans-Italic"),url("NotoSans-Italic.woff2") format("woff2")}@font-face{font-family:"Noto Sans";font-weight:500;font-style:normal;font-display:swap;src:local("Noto Sans Medium"),local("NotoSans-Medium"),url("NotoSans-Medium.woff2") format("woff2")}@font-face{font-family:"Noto Sans";font-weight:600;font-style:normal;font-display:swap;src:local("Noto Sans SemiBold"),local("NotoSans-SemiBold"),url("NotoSans-SemiBold.woff2") format("woff2")}@font-face{font-family:"Noto Sans";font-weight:700;font-style:normal;font-display:swap;src:local("Noto Sans Bold"),local("NotoSans-Bold"),url("NotoSans-Bold.woff2") format("woff2")}</style><style>
+<style>@font-face{font-family:"Noto Sans";font-weight:400;font-style:normal;font-display:swap;src:local("Noto Sans"),local("NotoSans-Regular"),url("NotoSans-Regular.woff2") format("woff2")}@font-face{font-family:"Noto Sans";font-weight:400;font-style:italic;font-display:swap;src:local("Noto Sans Italic"),local("NotoSans-Italic"),url("NotoSans-Italic.woff2") format("woff2")}@font-face{font-family:"Noto Sans";font-weight:500;font-style:normal;font-display:swap;src:local("Noto Sans Medium"),local("NotoSans-Medium"),url("NotoSans-Medium.woff2") format("woff2")}@font-face{font-family:"Noto Sans";font-weight:600;font-style:normal;font-display:swap;src:local("Noto Sans SemiBold"),local("NotoSans-SemiBold"),url("NotoSans-SemiBold.woff2") format("woff2")}@font-face{font-family:"Noto Sans";font-weight:700;font-style:normal;font-display:swap;src:local("Noto Sans Bold"),local("NotoSans-Bold"),url("NotoSans-Bold.woff2") format("woff2")}
+/* one way in: pick a level, then follow the next step */
+.start{background:var(--surface-card); border:1px solid var(--hairline-soft); border-radius:16px; padding:28px 32px; margin-top:8px}
+.start h2{font-size:clamp(24px,3.4vw,32px); margin-top:6px}
+.startp{margin-top:8px; max-width:62ch; color:var(--body-strong)}
+.startgrid{display:grid; grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr)); gap:10px; margin-top:18px}
+.startlv{display:grid; grid-template-columns:auto minmax(0,1fr); gap:2px 14px; align-items:start; align-content:start; text-align:left; padding:14px 16px; border-radius:12px; border:1px solid var(--hairline); background:var(--canvas); color:var(--body); transition:border-color 160ms var(--ease), background 160ms var(--ease)}
+.startlv:hover{border-color:var(--coral)}
+.startlv[aria-pressed="true"]{border-color:var(--coral-fill); background:var(--surface-soft)}
+.startlv b{grid-row:span 2; font-size:26px; line-height:1; color:var(--coral-text); min-width:42px}
+.startlv .n{font-weight:700; color:var(--ink); font-size:15px}
+.startlv .d{font-size:13.5px; line-height:1.45; color:var(--muted)}
+.startfoot{display:flex; flex-wrap:wrap; gap:6px 18px; margin-top:14px}
+.startfoot .btn.txt{height:auto; padding:4px 0; text-decoration:underline; text-underline-offset:3px}
+.item.ext .tick{border-style:dashed; color:var(--muted); background:transparent}
+.item.ext a.open{color:inherit; text-decoration:none}
+.xlink.lesson{border-color:var(--coral-fill)}
+@media (max-width:640px){ .start{padding:22px 18px} }
+</style><style>
 /* Chiioo lesson design system: one deliberate cream look */
 :root{
   --coral:#d97757; --coral-active:#a44a2e; --coral-text:#ad4f31; --coral-fill:#b65436; --on-cream:#5f5d58; --teal:#5db8a6; --amber:#e8a55a;
@@ -591,7 +609,7 @@ h1,.hero h1{font-weight:800;text-transform:uppercase;line-height:1.16;letter-spa
         <li><a href="./#about" data-i="navAbout">Giới thiệu</a></li>
         <li><a href="./#services" data-i="navCourses">Khóa học</a></li>
         <li><a href="./#contact" data-i="navContact">Liên hệ</a></li>
-        <li><a href="./#learning" aria-current="true" data-i="navLearn">Góc học tập</a></li>
+        <li><a href="route-map.html" aria-current="page" data-i="navLearn">Góc học tập</a></li>
         <li><a href="./#profile" data-i="navProfile">Hồ sơ</a></li>
         <li><a href="./#apply" class="navapply" data-i="navApply">Đăng ký</a></li>
       </ul>
@@ -609,12 +627,6 @@ h1,.hero h1{font-weight:800;text-transform:uppercase;line-height:1.16;letter-spa
   <div class="eng-band eng-cobalt eng-dome" role="presentation"></div>
 <header class="hero">
     <div id="heroText">
-      <nav class="pageswitch" aria-label="Các trang học tập" data-il="pgL">
-        <a href="route-map.html" aria-current="page" data-i="pgRoute">Lộ trình A1 đến C2</a>
-        <a href="learning-hub.html" data-i="pgHub">Góc học tập</a>
-        <a href="writing.html" data-i="pgWriting">IELTS Writing</a>
-        <a href="lo-trinh-ielts.html" data-i="pgIelts">Lộ trình IELTS</a>
-      </nav>
       <div class="eyebrow" data-i="eyebrow"></div>
       <h1 data-i="h1"></h1>
       <p class="lede" data-i="lede"></p>
@@ -630,6 +642,14 @@ h1,.hero h1{font-weight:800;text-transform:uppercase;line-height:1.16;letter-spa
       <p class="ohint" data-i="owlHint">Bấm vào chú cú để nghe câu mới.</p>
     </div>
   </header>
+
+  <section class="start" id="startBox" aria-labelledby="startTitle" hidden>
+    <div class="eyebrow" data-i="startEy"></div>
+    <h2 id="startTitle" data-i="startT"></h2>
+    <p class="startp" data-i="startP"></p>
+    <div class="startgrid" id="startGrid"></div>
+    <div class="startfoot"><button class="btn txt" type="button" id="startTest"></button><button class="btn txt" type="button" id="startClose" hidden></button></div>
+  </section>
 
   <section class="next" id="nextCard" aria-labelledby="nextTitle">
     <div>
@@ -741,10 +761,7 @@ h1,.hero h1{font-weight:800;text-transform:uppercase;line-height:1.16;letter-spa
       </nav>
       <nav class="sf-col" aria-label="Học liệu" data-fvl="Học liệu" data-fel="Resources">
         <h3 data-fvi="Học liệu" data-fen="Resources">Học liệu</h3>
-        <a href="route-map.html" data-fvi="Lộ trình A1 đến C2" data-fen="A1 to C2 route map">Lộ trình A1 đến C2</a>
-        <a href="lo-trinh-ielts.html" data-fvi="Lộ trình IELTS" data-fen="IELTS roadmap">Lộ trình IELTS</a>
-        <a href="learning-hub.html" data-fvi="Góc học tập" data-fen="Learning hub">Góc học tập</a>
-        <a href="writing.html">IELTS Writing</a>
+        <a href="route-map.html" data-fvi="Lộ trình học" data-fen="Learning route">Lộ trình học</a>
       </nav>
       <nav class="sf-col" aria-label="Về tôi" data-fvl="Về tôi" data-fel="About">
         <h3 data-fvi="Về tôi" data-fen="About">Về tôi</h3>
@@ -1136,17 +1153,17 @@ const CATS = [...new Set(DATA.filter(d=>d.strand==="Grammar").map(d=>d.cat))];
 const TOTAL = DATA.length, TOTALQ = DATA.reduce((n,d)=>n+d.quiz.length,0);
 
 const UI = {
- en:{eyebrow:"English route map · A1 to C2", h1:"Every step from A1 to C2",
-  lede:"85 grammar points and 30 targets for listening, reading, speaking, writing and pronunciation, in CEFR order. Study a point, test yourself, and tick it when you have learned it.",
+ en:{eyebrow:"Learning route · A1 to C2", h1:"Learn English one step at a time",
+  lede:"Choose your level, then follow one route: grammar, the twelve tenses, the four skills and IELTS practice, in CEFR order. Each step has an explanation, examples and a short quiz. Tick it when you have learned it.",
   learned:n=>`of ${n} learned`, correct:n=>`of ${n} quiz answers correct`, toReview:"answers due for review today",
-  continue:"Continue where you left off", allDone:"You have ticked every point on the route.", allDoneMeta:"Use review or flashcards to keep it fresh.",
+  continue:"Your next step", allDone:"You have ticked every point on the route.", allDoneMeta:"Use review or flashcards to keep it fresh.",
   open:"Open", flash:"Flashcards", flashDue:n=>`Flashcards (${n} due)`, review:n=>`Review due (${n})`, route:"The route", showAll:"Show all levels",
-  placeBtn:"Find my level", placeT:"Find my level", placeIntro:"Answer three grammar questions per level, starting at A1. The test moves up while you get at least two of three right, and stops at the first level where you don't.",
+  placeBtn:"Change my level", placeT:"Find my level", placeIntro:"Answer three grammar questions per level, starting at A1. The test moves up while you get at least two of three right, and stops at the first level where you don't.",
   placeNote:"This short test checks grammar only. Use it as a guide, not as an official CEFR result.", placeStart:"Start the test", placeQ:(k,lv)=>`${lv} · question ${k} of 3`, unsure:"I'm not sure",
   placeRes:"Suggested starting level", placeTop:"You passed every level. Start with C2 and use review to keep it fresh.", placeMid:lv=>`Start your route at ${lv}. The points before it are probably familiar, so a quick check is enough.`,
   placeLv:(lv,s)=>[lv, `${s} of 3`], placeGo:lv=>`Go to ${lv}`, placeTick:(lv,n)=>`Mark ${lv} grammar as learned (${n} points)`, placeTickQ:"This ticks the grammar points below your level. Skill targets stay as they are, and you can untick any point later.",
   placeYes:"Yes, tick them", placeTicked:n=>`${n} points ticked.`, lvRange:(a,b)=>a===b?a:`${a} to ${b}`,
-  notYet:"Not yet", listen:"Listen", inHub:"Practise in the Learning hub", hubTool:{tenses:"Tense timeline", structure:"Sentence structure"},
+  notYet:"Not yet", listen:"Listen", inHub:"Practise in the Learning hub", inLesson:"Full lesson", lessonTool:"Lesson", startEy:"Step 1", startT:"Where are you now?", startP:"Pick the level that sounds most like you. Your route starts there, and you can change it at any time.", startTest:"Not sure? Take a short grammar check", startClose:"Keep my current level", ieltsG:"IELTS practice (from B1)", ieltsW:["IELTS Writing","Word classes, vocabulary, sentence patterns and annotated model answers for Academic Writing"], ieltsR:["IELTS roadmap","How long you need to reach your target band, based on your level and study hours"], hubTool:{tenses:"Tense timeline", structure:"Sentence structure"},
   laterN:n=>n ? `${n} ${n===1?"answer is":"answers are"} scheduled for later days.` : "",
   paceL:"My study time per week", perWeek:h=>`${h} ${h===1?"hour":"hours"} a week`,
   proj:(h,w,d)=>h==="0" ? "You have ticked every point. Well done." : `About ${h} hours left on the route, based on the points you have ticked. At this pace that is about ${w} weeks, so you could finish around ${d}.`, total:"Whole route: about 1,000 to 1,200 guided hours from zero (Cambridge English).",
@@ -1173,19 +1190,19 @@ const UI = {
   copy:"Copy backup code", restoreOpen:"Restore from code", reset:"Reset progress", code:"Backup code", restore:"Restore",
   resetQ:"This clears every tick and quiz result on this device.", resetYes:"Yes, reset", cancel:"Cancel", refs:"References",
   copied:"Backup code copied.", copyManual:"Copy the code shown above.", restored:"Progress restored.", badCode:"That code could not be read. Paste the full code exactly as copied.", cleared:"Progress cleared.",
-  navCourses:"Courses", navProfile:"Profile", navAbout:"About", navExp:"Experience", navEdu:"Education", navSkills:"Skills", navRoute:"Route map", navHub:"Learning hub", navLearn:"Learning", pgRoute:"A1 to C2 route map", pgHub:"Learning hub", pgWriting:"IELTS Writing", pgIelts:"IELTS roadmap", pgL:"Learning pages", navContact:"Contact", navApply:"Apply", navMenu:"Open menu", navClose:"Close menu",
+  navCourses:"Courses", navProfile:"Profile", navAbout:"About", navExp:"Experience", navEdu:"Education", navSkills:"Skills", navRoute:"Route map", navHub:"Learning hub", navLearn:"Learning", pgRoute:"Learning route", pgHub:"Learning hub", pgWriting:"IELTS Writing", pgIelts:"IELTS roadmap", pgL:"Learning pages", navContact:"Contact", navApply:"Apply", navMenu:"Open menu", navClose:"Close menu",
   owlHint:"Click the owl for a new line.", owl2:"Hachimi the owl", owl:"Chiioo the owl", themes:{auto:"Auto", light:"Light", dark:"Dark"}, themeL:"Colour theme"},
- vi:{eyebrow:"Lộ trình tiếng Anh · A1 đến C2", h1:"Từng bước từ A1 đến C2",
-  lede:"85 điểm ngữ pháp và 30 mục tiêu cho nghe, đọc, nói, viết và phát âm, sắp xếp theo khung CEFR. Học từng điểm, tự kiểm tra, và đánh dấu khi bạn đã nắm vững.",
+ vi:{eyebrow:"Lộ trình học · A1 đến C2", h1:"Học tiếng Anh từng bước",
+  lede:"Chọn trình độ của bạn, rồi đi theo một lộ trình duy nhất: ngữ pháp, 12 thì, bốn kỹ năng và luyện IELTS, sắp xếp theo khung CEFR. Mỗi bước có giải thích, ví dụ và bài kiểm tra ngắn. Học xong thì đánh dấu.",
   learned:n=>`trên ${n} điểm đã học`, correct:n=>`trên ${n} câu trả lời đúng`, toReview:"câu cần ôn hôm nay",
-  continue:"Học tiếp từ chỗ bạn dừng", allDone:"Bạn đã đánh dấu mọi điểm trên lộ trình.", allDoneMeta:"Hãy dùng ôn lỗi sai hoặc thẻ ghi nhớ để củng cố kiến thức.",
+  continue:"Bước tiếp theo của bạn", allDone:"Bạn đã đánh dấu mọi điểm trên lộ trình.", allDoneMeta:"Hãy dùng ôn lỗi sai hoặc thẻ ghi nhớ để củng cố kiến thức.",
   open:"Mở bài", flash:"Thẻ ghi nhớ", flashDue:n=>`Thẻ ghi nhớ (${n} đến hạn)`, review:n=>`Ôn bài đến hạn (${n})`, route:"Lộ trình", showAll:"Xem tất cả các bậc",
-  placeBtn:"Tìm trình độ của tôi", placeT:"Tìm trình độ của tôi", placeIntro:"Trả lời ba câu ngữ pháp ở mỗi bậc, bắt đầu từ A1. Bài kiểm tra lên bậc tiếp theo khi bạn đúng ít nhất hai trên ba câu, và dừng ở bậc đầu tiên bạn chưa đạt.",
+  placeBtn:"Đổi trình độ", placeT:"Tìm trình độ của tôi", placeIntro:"Trả lời ba câu ngữ pháp ở mỗi bậc, bắt đầu từ A1. Bài kiểm tra lên bậc tiếp theo khi bạn đúng ít nhất hai trên ba câu, và dừng ở bậc đầu tiên bạn chưa đạt.",
   placeNote:"Bài kiểm tra ngắn này chỉ kiểm tra ngữ pháp. Hãy xem đây là gợi ý, không phải kết quả CEFR chính thức.", placeStart:"Bắt đầu kiểm tra", placeQ:(k,lv)=>`${lv} · câu ${k} trên 3`, unsure:"Tôi chưa chắc",
   placeRes:"Bậc nên bắt đầu", placeTop:"Bạn đã đạt mọi bậc. Hãy bắt đầu với C2 và dùng phần ôn bài để củng cố.", placeMid:lv=>`Hãy bắt đầu lộ trình từ ${lv}. Các điểm trước đó có lẽ đã quen thuộc, bạn chỉ cần xem lại nhanh.`,
   placeLv:(lv,s)=>[lv, `${s} trên 3`], placeGo:lv=>`Đến bậc ${lv}`, placeTick:(lv,n)=>`Đánh dấu ngữ pháp ${lv} là đã học (${n} điểm)`, placeTickQ:"Thao tác này đánh dấu các điểm ngữ pháp dưới bậc của bạn. Mục tiêu kỹ năng giữ nguyên, và bạn có thể bỏ đánh dấu bất kỳ điểm nào sau này.",
   placeYes:"Đồng ý đánh dấu", placeTicked:n=>`Đã đánh dấu ${n} điểm.`, lvRange:(a,b)=>a===b?a:`${a} đến ${b}`,
-  notYet:"Chưa nhớ", listen:"Nghe", inHub:"Luyện tập trong Góc học tập", hubTool:{tenses:"Dòng thời gian các thì", structure:"Cấu trúc câu"},
+  notYet:"Chưa nhớ", listen:"Nghe", inHub:"Luyện tập trong Góc học tập", inLesson:"Bài học chuyên sâu", lessonTool:"Bài học", startEy:"Bước 1", startT:"Bạn đang ở trình độ nào?", startP:"Chọn bậc mô tả đúng nhất khả năng của bạn. Lộ trình sẽ bắt đầu từ đó, và bạn có thể đổi lại bất cứ lúc nào.", startTest:"Chưa chắc? Làm bài kiểm tra ngữ pháp ngắn", startClose:"Giữ trình độ hiện tại", ieltsG:"Luyện IELTS (từ B1)", ieltsW:["IELTS Writing","Các lớp của từ, từ vựng, cấu trúc câu và bài mẫu có chú giải cho Academic Writing"], ieltsR:["Lộ trình IELTS","Tính thời gian cần để đạt band mục tiêu, theo trình độ và số giờ tự học"], hubTool:{tenses:"Dòng thời gian các thì", structure:"Cấu trúc câu"},
   laterN:n=>n ? `Còn ${n} câu được hẹn ôn vào những ngày sau.` : "",
   paceL:"Thời gian học mỗi tuần", perWeek:h=>`${h} giờ mỗi tuần`,
   proj:(h,w,d)=>h==="0" ? "Bạn đã đánh dấu mọi điểm. Chúc mừng bạn." : `Còn khoảng ${h} giờ trên lộ trình, tính theo các điểm bạn đã đánh dấu. Với tốc độ này là khoảng ${w} tuần, bạn có thể hoàn thành vào khoảng ${d}.`, total:"Cả lộ trình: khoảng 1.000 đến 1.200 giờ học có hướng dẫn tính từ đầu (Cambridge English).",
@@ -1212,7 +1229,7 @@ const UI = {
   copy:"Sao chép mã sao lưu", restoreOpen:"Khôi phục từ mã", reset:"Xóa tiến độ", code:"Mã sao lưu", restore:"Khôi phục",
   resetQ:"Thao tác này xóa mọi dấu đã học và kết quả kiểm tra trên thiết bị này.", resetYes:"Đồng ý xóa", cancel:"Hủy", refs:"Tài liệu tham khảo",
   copied:"Đã sao chép mã sao lưu.", copyManual:"Hãy sao chép mã hiển thị phía trên.", restored:"Đã khôi phục tiến độ.", badCode:"Không đọc được mã này. Hãy dán đầy đủ mã như khi sao chép.", cleared:"Đã xóa tiến độ.",
-  navCourses:"Khóa học", navProfile:"Hồ sơ", navAbout:"Giới thiệu", navExp:"Kinh nghiệm", navEdu:"Học vấn", navSkills:"Kỹ năng", navRoute:"Lộ trình", navHub:"Góc học tập", navLearn:"Góc học tập", pgRoute:"Lộ trình A1 đến C2", pgHub:"Góc học tập", pgWriting:"IELTS Writing", pgIelts:"Lộ trình IELTS", pgL:"Các trang học tập", navContact:"Liên hệ", navApply:"Đăng ký", navMenu:"Mở menu", navClose:"Đóng menu",
+  navCourses:"Khóa học", navProfile:"Hồ sơ", navAbout:"Giới thiệu", navExp:"Kinh nghiệm", navEdu:"Học vấn", navSkills:"Kỹ năng", navRoute:"Lộ trình", navHub:"Góc học tập", navLearn:"Góc học tập", pgRoute:"Lộ trình học", pgHub:"Góc học tập", pgWriting:"IELTS Writing", pgIelts:"Lộ trình IELTS", pgL:"Các trang học tập", navContact:"Liên hệ", navApply:"Đăng ký", navMenu:"Mở menu", navClose:"Đóng menu",
   owlHint:"Bấm vào chú cú để nghe câu mới.", owl2:"Cú Hachimi", owl:"Cú Chiioo", themes:{auto:"Tự động", light:"Sáng", dark:"Tối"}, themeL:"Giao diện"}
 };
 
@@ -1251,6 +1268,8 @@ const save = () => store.set(KEY, JSON.stringify(state));
 const view = {level:"All", strand:"All", cat:"All", q:"", hideDone:false, lang:"en"};
 try { const v = JSON.parse(store.get(KEY+".view")||"null"); if (v) Object.assign(view, v, {q:""}); } catch(e) {}
 const saveView = () => store.set(KEY+".view", JSON.stringify(view));
+if (!LEVELS.some(l=>l.id===view.start)) view.start = null;
+let startOpen = false;
 const L = () => UI[view.lang];
 view.pace = Math.min(30, Math.max(1, Math.round(+view.pace || 5)));
 // share the language choice with the Standard home page (key ts-lang), else follow the browser
@@ -1331,6 +1350,7 @@ function speak(text, b){ const again = speaking===b; stopSpeak(); if (again) ret
   u.onend = done; u.onerror = done; b.classList.add("on"); b.setAttribute("aria-pressed","true"); speaking=b; speechSynthesis.speak(u); }
 function sayBtn(text){ if (!TTS) return null; const b=el("button",{class:"say", type:"button", "aria-pressed":"false", "aria-label":`${L().listen}: ${text}`, title:L().listen});
   b.innerHTML = SPEAK_SVG; b.addEventListener("click", e => { e.stopPropagation(); speak(text, b); }); return b; }
+const LESSONS = {"a1-pres":["ngu-phap/hien-tai-don.html","Present simple: full lesson with timelines, passive and 20 practice questions","Hiện tại đơn: bài học đầy đủ với trục thời gian, câu bị động và 20 câu luyện tập"]};
 const XL = (() => { const n=document.getElementById("xlinks"); try { return n ? JSON.parse(n.textContent) : {}; } catch(e) { return {}; } })();
 
 /* ---------- static text ---------- */
@@ -1339,7 +1359,7 @@ function paintStatic(){
   document.querySelectorAll("[data-i]").forEach(n => { const v = L()[n.dataset.i]; if (typeof v==="string") n.textContent = v; });
   document.querySelectorAll("[data-il]").forEach(n => { const v = L()[n.dataset.il]; if (typeof v==="string") n.setAttribute("aria-label", v); });
   $("#lnEN").setAttribute("aria-pressed", String(!vi())); $("#lnVI").setAttribute("aria-pressed", String(vi()));
-  document.title = vi() ? "Lộ trình A1 đến C2 · The Standard" : "A1 to C2 Route Map · The Standard"; $("#q").placeholder = L().search; $("#sClose").setAttribute("aria-label", L().close);
+  document.title = vi() ? "Lộ trình học · The Standard" : "Learning route · The Standard"; $("#q").placeholder = L().search; $("#sClose").setAttribute("aria-label", L().close);
 }
 
 /* ---------- summary, continue ---------- */
@@ -1353,12 +1373,29 @@ function renderSummary(){
   $("#stMiss").textContent = miss; $("#stMissL").textContent = L().toReview;
   const fillW = (done/TOTAL*100).toFixed(1)+"%";
   if (firstPaint && !RM){ $("#fill").style.width="0"; requestAnimationFrame(()=>requestAnimationFrame(()=>{ $("#fill").style.width=fillW; })); } else $("#fill").style.width = fillW;
-  const nx = ordered().find(d=>!state.done[d.id]);
+  const si = view.start ? LEVELS.findIndex(l=>l.id===view.start) : 0;
+  const nx = ordered().find(d=>!state.done[d.id] && LEVELS.findIndex(l=>l.id===d.level)>=si) || ordered().find(d=>!state.done[d.id]);
+  renderStart();
   if (nx){ if (!firstPaint && lastNextTitle && lastNextTitle!==T(nx)) rise($("#nextTitle"),0,6,300); lastNextTitle = T(nx); $("#nextTitle").textContent = T(nx); $("#nextMeta").textContent = nx.level + " · " + meta(nx); $("#nextOpen").hidden=false; $("#nextOpen").textContent = L().open; $("#nextOpen").onclick = () => openItem(nx.id); }
   else { $("#nextTitle").textContent = L().allDone; $("#nextMeta").textContent = L().allDoneMeta; $("#nextOpen").hidden=true; }
-  const dc = dueCards().length; $("#fcBtn").textContent = dc ? L().flashDue(dc) : L().flash; $("#revBtn").textContent = L().review(miss); $("#revBtn").disabled = miss===0;
+  const dc = dueCards().length; $("#fcBtn").textContent = dc ? L().flashDue(dc) : L().flash; $("#revBtn").textContent = L().review(miss); $("#revBtn").hidden = miss===0;
   $("#placeBtn").textContent = L().placeBtn;
 }
+
+
+/* ---------- step 1: choose a starting level ---------- */
+function renderStart(){
+  const box=$("#startBox"), show = !view.start || startOpen;
+  box.hidden = !show; $("#nextCard").hidden = !view.start;
+  if (!show) return;
+  const g=$("#startGrid"); g.textContent="";
+  LEVELS.forEach(Lv => g.append(el("button",{class:"startlv", type:"button", "aria-pressed":String(view.start===Lv.id), onclick:()=>pickStart(Lv.id)},
+    el("b",{text:Lv.id}), el("span",{class:"n", text: vi() ? `Bậc ${Lv.bac} · ${Lv.name}` : Lv.name}), el("span",{class:"d", text:Lv.desc[vi()?1:0]}))));
+  $("#startTest").textContent = L().startTest; $("#startClose").textContent = L().startClose; $("#startClose").hidden = !view.start;
+}
+function pickStart(id){ view.start=id; view.level=id; startOpen=false; saveView(); levelsAnim=true; renderAll();
+  const n=$("#nextCard"); if (n){ const bar=document.querySelector(".sitebar"); scrollTo({top:Math.max(0, n.getBoundingClientRect().top+scrollY-(bar?bar.offsetHeight:0)-20), behavior: RM?"auto":"smooth"}); rise(n,0,8,320); } }
+function openStart(){ startOpen=true; renderSummary(); const b=$("#startBox"), bar=document.querySelector(".sitebar"); scrollTo({top:Math.max(0, b.getBoundingClientRect().top+scrollY-(bar?bar.offsetHeight:0)-20), behavior: RM?"auto":"smooth"}); }
 
 /* ---------- timeline motion ---------- */
 let trackDrawn = false, trackIO = null; const prevMini = {};
@@ -1518,6 +1555,12 @@ function levelSection(Lv){
       gram.length ? el("ul",{class:"list"}, gram.map(row)) : el("div",{class:"list"}, el("p",{class:"empty", text:L().noG}))));
     if (showS) body.append(el("div",{class:"group"}, el("div",{class:"ghead"}, el("span",{class:"eyebrow", text:L().skills}), el("span",{class:"eyebrow num", text:L().shown(sk.length)})),
       sk.length ? el("ul",{class:"list"}, sk.map(row)) : el("div",{class:"list"}, el("p",{class:"empty", text:L().noS}))));
+    if (LEVELS.indexOf(Lv) >= 2 && view.strand==="All" && view.cat==="All" && !view.q){
+      const ext = ([t,m], href) => el("li",{class:"item ext"}, el("span",{class:"tick", "aria-hidden":"true", text:"↗"}),
+        el("a",{class:"open", href}, el("span",{style:"min-width:0"}, el("span",{class:"t", text:t}), el("span",{class:"m", text:m})), el("span",{class:"chev", "aria-hidden":"true", text:"›"})));
+      body.append(el("div",{class:"group"}, el("div",{class:"ghead"}, el("span",{class:"eyebrow", text:L().ieltsG}), el("span",{class:"eyebrow num", text:L().shown(2)})),
+        el("ul",{class:"list"}, ext(L().ieltsW, "writing.html"), ext(L().ieltsR, "lo-trinh-ielts.html"))));
+    }
     return el("section",{class:"level", id:"lv-"+Lv.id, "aria-labelledby":"h-"+Lv.id}, side, body);
   }
 }
@@ -1578,6 +1621,8 @@ function learnG(d){
   const out=[el("h4",{text:L().what}), el("p",{class:"lead", text:X(d)}), el("h4",{text:L().form}), el("div",{class:"formula", text:d.form}),
     el("h4",{text:L().examples}), el("ul",{class:"eg"}, d.examples.map(e=>el("li",{}, e, sayBtn(e)))), el("h4",{text:L().mistake}), fix(d),
     el("h4",{text:L().further}), el("p",{text: d.units ? L().unit(d.units) : L().noUnit})];
+  const ls = LESSONS[d.id];
+  if (ls) out.push(el("h4",{text:L().inLesson}), el("div",{class:"xlinks"}, el("a",{class:"xlink lesson", href:ls[0]}, el("b",{text:L().lessonTool}), vi()?ls[2]:ls[1])));
   const xl = XL[d.id];
   if (xl && xl.length) out.push(el("h4",{text:L().inHub}), el("div",{class:"xlinks"}, xl.map(([tool,id,en,vt]) => el("a",{class:"xlink", href:`learning-hub.html#${tool}/${id}`}, el("b",{text:L().hubTool[tool]}), vi()?vt:en))));
   const note = vi() ? d.vi.n : d.note; if (note) out.push(el("p",{class:"note", text:L().levelNote+note}));
@@ -1671,7 +1716,7 @@ function paintPlace(){
     el("p",{class:"lead", text: cur.top ? L().placeTop : L().placeMid(lv)}),
     el("ul",{class:"plist"}, cur.results.map(([l,s])=>{ const [a,b]=L().placeLv(l,s); return el("li",{class:s>=2?"pl-pass":"pl-fail"}, el("span",{text:a}), el("b",{class:"num", text:b})); })),
     el("p",{class:"note", text:L().placeNote}),
-    el("div",{class:"row8", style:"margin:20px 0 6px"}, el("button",{class:"btn", type:"button", onclick:()=>{ closeSheet(); setTimeout(()=>setLevel(lv), RM?0:200); }}, L().placeGo(lv)), tickBtn,
+    el("div",{class:"row8", style:"margin:20px 0 6px"}, el("button",{class:"btn", type:"button", onclick:()=>{ closeSheet(); setTimeout(()=>pickStart(lv), RM?0:200); }}, L().placeGo(lv)), tickBtn,
       el("button",{class:"btn sec", type:"button", onclick:()=>closeSheet()}, L().close)), box, el("div",{style:"height:14px"}));
   if (sheetOwl) sheetOwl.setPose("cheer");
 }
@@ -1724,7 +1769,9 @@ $("#pace").oninput = e => { view.pace = +e.target.value; renderPace();
   document.querySelectorAll(".wk").forEach(n => { const t=stageTime(+n.dataset.i2); n.textContent = L().weeks(t.w,t.m); }); };
 $("#pace").onchange = () => saveView();
 $("#revBtn").onclick = () => startRunner("review");
-$("#placeBtn").onclick = () => startPlace();
+$("#placeBtn").onclick = () => openStart();
+$("#startTest").onclick = () => startPlace();
+$("#startClose").onclick = () => { startOpen=false; renderSummary(); };
 $("#cat").onchange = e => { view.cat=e.target.value; if (view.cat!=="All" && !["All","Grammar"].includes(view.strand)) view.strand="All"; saveView(); levelsAnim=true; renderAll(); };
 let qt; $("#q").oninput = e => { clearTimeout(qt); qt=setTimeout(()=>{ view.q=e.target.value.trim(); renderLevels(); }, 150); };
 $("#hideDone").onchange = e => { view.hideDone=e.target.checked; saveView(); levelsAnim=true; renderLevels(); };

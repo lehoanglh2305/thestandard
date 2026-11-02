@@ -1,0 +1,771 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hiện tại đơn · The Standard</title>
+<meta name="description" content="Bài 1 trong lộ trình 12 thì của The Standard: thì hiện tại đơn và câu bị động hiện tại đơn, có trục thời gian, hình minh họa và bài tập tự chấm.">
+<meta name="theme-color" content="#f4e6cf" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#2a1813" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<style>
+@font-face{font-family:"Barlow";src:url(../fonts/barlow-400.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Barlow";src:url(../fonts/barlow-600.woff2) format("woff2");font-weight:500 700;font-style:normal;font-display:swap}
+@font-face{font-family:"Barlow Condensed";src:url(../fonts/barlow-condensed-700.woff2) format("woff2");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"Barlow Condensed";src:url(../fonts/barlow-condensed-800.woff2) format("woff2");font-weight:800;font-style:normal;font-display:swap}
+
+/* The Standard site palette: cocoa, cream and cobalt, with a yellow accent */
+:root{
+  --coral:#1f5bb5; --coral-text:#1f5bb5; --coral-fill:#1f5bb5; --coral-soft:rgba(31,91,181,.12);
+  --teal:#7a5648; --teal-text:#7a5648; --teal-soft:rgba(122,86,72,.14);
+  --amber:#ffd23f; --amber-soft:rgba(255,210,63,.22);
+  --ink:#4b2a22; --body-strong:#4b2a22; --body:#4b2a22; --muted:#6b4a3e;
+  --canvas:#f4e6cf; --surface-soft:#efdcbf; --surface-card:#fffaf2; --cream-strong:#ead6b6;
+  --hairline:#d9c3a3; --hairline-soft:#e4cfae;
+  --on-primary:#fffaf2; --ok-text:#2e6b1f; --ok-soft:rgba(46,107,31,.12); --err-text:#b3261e; --err-soft:rgba(179,38,30,.09);
+  --sans:Barlow,Arial,sans-serif; --display:"Barlow Condensed","Arial Narrow",sans-serif;
+  --ease:cubic-bezier(.2,0,0,1);
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]){
+  --coral:#9dbdf2; --coral-text:#9dbdf2; --coral-fill:#9dbdf2; --coral-soft:rgba(157,189,242,.16); --on-primary:#2a1813;
+  --teal:#d9c3a3; --teal-text:#d9c3a3; --teal-soft:rgba(217,195,163,.14);
+  --ink:#f4e6cf; --body-strong:#f4e6cf; --body:#ecdcc4; --muted:#d9c3a3;
+  --canvas:#2a1813; --surface-soft:#43281f; --surface-card:#3a221b; --cream-strong:#4f3027;
+  --hairline:#6b4a3e; --hairline-soft:#4f3027; --ok-text:#a6dc87; --ok-soft:rgba(143,208,106,.16); --err-text:#f2a39b; --err-soft:rgba(242,163,155,.16);
+  color-scheme:dark;
+} }
+:root[data-theme="dark"]{
+  --coral:#9dbdf2; --coral-text:#9dbdf2; --coral-fill:#9dbdf2; --coral-soft:rgba(157,189,242,.16); --on-primary:#2a1813;
+  --teal:#d9c3a3; --teal-text:#d9c3a3; --teal-soft:rgba(217,195,163,.14);
+  --ink:#f4e6cf; --body-strong:#f4e6cf; --body:#ecdcc4; --muted:#d9c3a3;
+  --canvas:#2a1813; --surface-soft:#43281f; --surface-card:#3a221b; --cream-strong:#4f3027;
+  --hairline:#6b4a3e; --hairline-soft:#4f3027; --ok-text:#a6dc87; --ok-soft:rgba(143,208,106,.16); --err-text:#f2a39b; --err-soft:rgba(242,163,155,.16);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth; scroll-padding-top:120px}
+body{margin:0; background:var(--canvas); color:var(--body); font-family:var(--sans); font-size:17px; line-height:1.65; -webkit-font-smoothing:antialiased}
+h1,h2{font-family:var(--display); font-weight:800; text-transform:uppercase; letter-spacing:.2px}
+h1,h2,h3{ color:var(--ink); margin:0; line-height:1.25; text-wrap:balance}
+p{margin:0; text-wrap:pretty}
+button,input,select{font:inherit; color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:none; box-shadow:0 0 0 3px rgba(31,91,181,.4); border-radius:8px}
+.en{font-style:italic; color:var(--body-strong)}
+.hl{color:var(--coral-text); font-weight:700}
+.tl{color:var(--teal-text); font-weight:700}
+
+/* top bar */
+.top{position:sticky; top:0; z-index:10; background:var(--canvas); border-bottom:1px solid var(--hairline-soft)}
+.top-in{max-width:880px; margin:0 auto; padding:12px 16px; display:flex; align-items:center; justify-content:space-between; gap:12px}
+.mark{display:flex; align-items:center; text-decoration:none; color:var(--ink); font-weight:700; font-size:18px; min-width:0}
+.mark img{height:22px; width:auto; display:block}
+.mark .dark{display:none}
+:root[data-theme="dark"] .mark .light{display:none} :root[data-theme="dark"] .mark .dark{display:block}
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .mark .light{display:none} :root:not([data-theme="light"]) .mark .dark{display:block} }
+.mark .txt{display:none}
+.mark.noimg img{display:none!important} .mark.noimg .txt{display:inline}
+.tools{display:flex; gap:8px; align-items:center; flex:none}
+.pill{display:inline-flex; align-items:center; gap:6px; border:0; background:var(--cream-strong); color:var(--ink); border-radius:999px; padding:8px 14px; font-size:14px; font-weight:600; text-decoration:none; white-space:nowrap}
+.toc{max-width:880px; margin:0 auto; padding:0 16px 10px; display:flex; gap:6px; overflow-x:auto; scrollbar-width:none}
+.toc::-webkit-scrollbar{display:none}
+.toc a{flex:none; font-size:13px; font-weight:600; color:var(--muted); text-decoration:none; padding:5px 11px; border-radius:999px; border:1px solid var(--hairline-soft)}
+.toc a.on{color:var(--on-primary); background:var(--coral-fill); border-color:var(--coral-fill)}
+
+.wrap{max-width:880px; margin:0 auto; padding:0 16px 80px}
+
+/* hero */
+.hero{padding:40px 0 28px}
+.crumb{font-size:13px; font-weight:600; letter-spacing:1.2px; text-transform:uppercase; color:var(--muted)}
+.crumb a{color:inherit}
+.hero h1{font-size:clamp(40px,7vw,64px); margin-top:10px; line-height:1.05}
+.hero h1 small{display:block; font-family:var(--sans); text-transform:none; font-size:.42em; font-weight:600; color:var(--coral-text); letter-spacing:0; margin-top:6px}
+.lede{font-size:19px; color:var(--body-strong); margin-top:14px; max-width:62ch}
+.meta{display:flex; flex-wrap:wrap; gap:8px; margin-top:18px}
+.tag{font-size:13px; font-weight:600; padding:5px 12px; border-radius:999px; background:var(--surface-card); border:1px solid var(--hairline-soft); color:var(--body-strong)}
+.goals{margin-top:22px; background:var(--surface-card); border:1px solid var(--hairline-soft); border-radius:16px; padding:18px 20px}
+.goals h2{font-size:15px; text-transform:uppercase; letter-spacing:1.2px; color:var(--muted)}
+.goals ul{margin:10px 0 0; padding-left:20px}
+.goals li{margin:4px 0}
+
+/* sections */
+section{padding:40px 0 8px; border-top:1px solid var(--hairline-soft)}
+.sec-n{font-size:13px; font-weight:700; color:var(--coral-text); letter-spacing:1.2px; text-transform:uppercase}
+section > h2{font-size:clamp(25px,4vw,32px); margin-top:6px}
+.intro{margin-top:12px; max-width:66ch}
+.card{background:var(--surface-card); border:1px solid var(--hairline-soft); border-radius:16px; padding:18px 20px; margin-top:16px}
+.card h3{font-size:18px}
+.grid2{display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,330px),1fr)); gap:14px; margin-top:16px}
+.grid2 .card{margin-top:0}
+.ex{margin:8px 0 0; padding-left:0; list-style:none}
+.ex li{padding:6px 0 6px 14px; border-left:3px solid var(--hairline); margin:6px 0}
+.ex li .vi{display:block; font-size:15px; color:var(--muted)}
+.note{margin-top:16px; border-radius:14px; padding:14px 18px; background:var(--amber-soft); border:1px solid rgba(201,160,30,.5); color:var(--body-strong)}
+.note > b:first-child{display:block; font-size:13px; letter-spacing:1px; text-transform:uppercase; color:var(--ink); margin-bottom:4px}
+.note.vn{background:var(--coral-soft); border-color:rgba(31,91,181,.35)}
+.note.adv{background:var(--teal-soft); border-color:rgba(122,86,72,.35)}
+
+/* timeline illustrations */
+.tlc{background:var(--surface-card); border:1px solid var(--hairline-soft); border-radius:16px; padding:14px 16px 16px}
+.tlc svg{display:block; width:100%; max-width:420px; height:auto; margin:0 auto}
+.tlc h3{font-size:17px; margin-top:6px}
+.tlc p{font-size:15.5px; margin-top:4px}
+.ax{stroke:var(--muted); stroke-width:2; fill:none}
+.axh{fill:var(--muted)}
+.now{stroke:var(--coral); stroke-width:2; stroke-dasharray:4 4}
+.lbl{fill:var(--muted); font:600 12px var(--sans)}
+.lbln{fill:var(--coral-text); font:700 12px var(--sans)}
+.xm{stroke:var(--coral); stroke-width:3; stroke-linecap:round}
+.band{fill:var(--teal); opacity:.35}
+.bandc{fill:var(--amber); opacity:.55}
+.dot{fill:var(--teal-text)}
+.dtxt{fill:var(--teal-text); font:700 12px var(--sans)}
+
+/* week calendar */
+.week{display:grid; grid-template-columns:repeat(7,1fr); gap:6px; margin-top:12px}
+.day{border:1px solid var(--hairline-soft); border-radius:10px; padding:8px 2px; text-align:center; font-size:13px; font-weight:600; color:var(--muted); background:var(--canvas)}
+.day i{display:block; font-style:normal; font-size:18px; height:24px; line-height:24px; color:var(--coral-text)}
+.day.on{background:var(--coral-soft); border-color:rgba(31,91,181,.45); color:var(--ink)}
+
+/* formula tables */
+.ftab{width:100%; border-collapse:collapse; margin-top:10px; font-size:15.5px}
+.ftab th,.ftab td{text-align:left; padding:9px 10px; border-bottom:1px solid var(--hairline-soft); vertical-align:top}
+.ftab th{font-size:13px; text-transform:uppercase; letter-spacing:.8px; color:var(--muted); font-weight:700}
+.ftab td:first-child{font-weight:700; color:var(--ink); white-space:nowrap}
+.formula{display:inline-block; font-weight:700; color:var(--ink); background:var(--cream-strong); padding:2px 8px; border-radius:6px}
+.scroll{overflow-x:auto}
+
+/* frequency bars */
+.freq{margin-top:12px; display:grid; gap:7px}
+.fr{display:grid; grid-template-columns:96px 1fr 44px; align-items:center; gap:10px; font-size:15px}
+.fr b{color:var(--ink)}
+.fr .bar{height:12px; border-radius:6px; background:var(--cream-strong); overflow:hidden}
+.fr .bar i{display:block; height:100%; background:var(--coral); border-radius:6px}
+.fr span{font-size:13px; color:var(--muted); text-align:right}
+
+/* passive diagram */
+.pd{display:grid; gap:10px; margin-top:12px}
+.prow{display:flex; flex-wrap:wrap; gap:8px; align-items:center}
+.prow .lab{width:84px; font-size:13px; font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:.8px}
+.chip{padding:6px 12px; border-radius:10px; font-weight:700; font-size:15.5px; border:1px solid transparent}
+.c-s{background:var(--teal-soft); border-color:rgba(122,86,72,.45); color:var(--teal-text)}
+.c-v{background:var(--cream-strong); color:var(--ink)}
+.c-o{background:var(--coral-soft); border-color:rgba(31,91,181,.5); color:var(--coral-text)}
+.c-a{background:transparent; border:1px dashed var(--hairline); color:var(--muted)}
+.parr{font-size:14px; color:var(--muted); padding-left:92px}
+
+/* mistakes */
+.mist{display:grid; gap:10px; margin-top:16px}
+.mi{background:var(--surface-card); border:1px solid var(--hairline-soft); border-radius:14px; padding:12px 16px; display:grid; gap:4px}
+.mi .w{color:var(--err-text); text-decoration:line-through; text-decoration-thickness:1.5px}
+.mi .w::before{content:"✗  "; text-decoration:none; display:inline-block}
+.mi .r{color:var(--ok-text); font-weight:700}
+.mi .r::before{content:"✓  "}
+.mi .y{font-size:15px; color:var(--muted)}
+
+/* compare */
+.cmp td,.cmp th{width:50%}
+
+/* practice */
+.lvl{margin-top:22px}
+.lvl-h{display:flex; align-items:center; gap:10px; flex-wrap:wrap}
+.lvl-h h3{font-size:20px}
+.badge{font-size:12px; font-weight:700; letter-spacing:1px; text-transform:uppercase; padding:4px 10px; border-radius:999px}
+.b1{background:var(--teal-soft); color:var(--teal-text)} .b2{background:var(--amber-soft); color:var(--body-strong)} .b3{background:var(--coral-soft); color:var(--coral-text)}
+.q{background:var(--surface-card); border:1px solid var(--hairline-soft); border-radius:14px; padding:14px 16px; margin-top:10px}
+.q .qt{font-weight:600; color:var(--ink)}
+.q .qt .n{color:var(--coral-text); margin-right:6px}
+.opts{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px}
+.opt{border:1px solid var(--hairline); background:var(--canvas); border-radius:10px; padding:8px 14px; font-weight:600; min-height:42px}
+.opt:hover{border-color:var(--coral)}
+.opt.ok{background:var(--ok-soft); border-color:var(--ok-text); color:var(--ok-text)}
+.opt.bad{background:var(--err-soft); border-color:var(--err-text); color:var(--err-text)}
+.opt:disabled{cursor:default}
+.inrow{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; align-items:center}
+.inp{flex:1 1 220px; min-width:0; border:1px solid var(--hairline); background:var(--canvas); border-radius:10px; padding:9px 12px; font-size:16px}
+.inp.sm{flex:0 1 150px}
+.inp.ok{border-color:var(--ok-text); background:var(--ok-soft)}
+.inp.bad{border-color:var(--err-text); background:var(--err-soft)}
+select.inp{flex:1 1 200px}
+.btn{border:1px solid var(--coral-fill); background:var(--coral-fill); color:var(--on-primary); border-radius:10px; padding:9px 16px; font-weight:600; font-size:15px; min-height:42px}
+.btn.ghost{background:transparent; color:var(--coral-text)}
+.fb{margin-top:8px; font-size:15px}
+.fb.ok{color:var(--ok-text)} .fb.bad{color:var(--err-text)}
+.fb .why{display:block; color:var(--muted)}
+.score{position:sticky; bottom:12px; z-index:5; margin-top:24px; display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; background:var(--ink); color:var(--canvas); border-radius:14px; padding:12px 16px}
+.score b{font-size:20px}
+.score .btn{background:var(--canvas); color:var(--ink); border-color:var(--canvas)}
+.checklist{margin:8px 0 0; padding-left:20px; font-size:15px}
+
+/* summary */
+.sum{display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:10px; margin-top:16px}
+.sum div{background:var(--surface-card); border:1px solid var(--hairline-soft); border-radius:14px; padding:14px 16px}
+.sum b{display:block; color:var(--coral-text); font-size:13px; text-transform:uppercase; letter-spacing:1px}
+.next{display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; margin-top:24px}
+.next .pill[aria-disabled="true"]{opacity:.55; cursor:not-allowed}
+.refs{font-size:14.5px; color:var(--muted); margin-top:12px; padding-left:0; list-style:none}
+.refs li{padding-left:28px; text-indent:-28px; margin:6px 0}
+footer{border-top:1px solid var(--hairline-soft); margin-top:48px; padding-top:18px; font-size:14px; color:var(--muted)}
+
+@media (max-width:560px){
+  body{font-size:16px}
+  .hero{padding-top:28px}
+  .prow .lab{width:100%}
+  .parr{padding-left:0}
+  .fr{grid-template-columns:84px 1fr 40px}
+  .day{font-size:11px}
+  .pill.hide-sm{display:none}
+}
+@media print{ .top,.score{display:none} section{break-inside:avoid-page} }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="top-in">
+    <a class="mark" id="mark" href="../" aria-label="The Standard, trang chủ">
+      <img class="light" src="../assets/logo-black.png" alt="The Standard" width="174" height="22">
+      <img class="dark" src="../assets/logo-white.png" alt="The Standard" width="174" height="22">
+      <span class="txt">The Standard</span>
+    </a>
+    <div class="tools">
+      <a class="pill hide-sm" href="../route-map.html">← Lộ trình học</a>
+      <button type="button" class="pill" id="themeBtn" aria-label="Đổi giao diện sáng tối"></button>
+    </div>
+  </div>
+  <nav class="toc" id="toc" aria-label="Mục lục bài học">
+    <a href="#hinh-dung">1 Hình dung</a>
+    <a href="#cong-thuc">2 Công thức</a>
+    <a href="#cach-dung">3 Cách dùng</a>
+    <a href="#dau-hieu">4 Dấu hiệu</a>
+    <a href="#so-sanh">5 So sánh</a>
+    <a href="#loi-sai">6 Lỗi thường gặp</a>
+    <a href="#bi-dong">7 Bị động</a>
+    <a href="#luyen-tap">8 Luyện tập</a>
+    <a href="#tom-tat">9 Tóm tắt</a>
+  </nav>
+</header>
+
+<main class="wrap">
+
+  <div class="hero">
+    <div class="crumb"><a href="../route-map.html">Lộ trình học</a> · 12 thì · Bài 1 / 12 · Cấp Nền tảng</div>
+    <h1>Hiện tại đơn <small>Present simple</small></h1>
+    <p class="lede">Thì dùng nhiều nhất trong tiếng Anh. Bạn dùng nó để nói về thói quen, sự thật và lịch trình cố định. Học xong bài này, bạn cũng sẽ biết cách dùng câu bị động ở hiện tại đơn.</p>
+    <div class="meta">
+      <span class="tag">⏱ Khoảng 25 phút</span>
+      <span class="tag">A1 → B1</span>
+      <span class="tag">20 câu tự chấm</span>
+    </div>
+    <div class="goals">
+      <h2>Sau bài này, bạn có thể</h2>
+      <ul>
+        <li>Chia động từ đúng với <b>he, she, it</b> (thêm s hoặc es) và đọc đúng âm cuối.</li>
+        <li>Đặt câu phủ định và câu hỏi với <b>do, does</b>.</li>
+        <li>Phân biệt hiện tại đơn với hiện tại tiếp diễn.</li>
+        <li>Viết câu bị động <b>am, is, are + V3</b> để mô tả quy trình và sự thật.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 1 -->
+  <section id="hinh-dung">
+    <div class="sec-n">Phần 1</div>
+    <h2>Hình dung thì hiện tại đơn</h2>
+    <p class="intro">Hiện tại đơn không chỉ nói về <b>lúc này</b>. Nó nói về những điều lặp lại, những điều luôn đúng, và những lịch trình đã cố định. Hãy nhìn vào trục thời gian.</p>
+
+    <div class="grid2">
+      <figure class="tlc" style="margin:0">
+        <svg viewBox="0 0 360 130" role="img" aria-label="Trục thời gian: các dấu X lặp lại đều đặn từ quá khứ qua hiện tại đến tương lai">
+          <line class="ax" x1="14" y1="74" x2="340" y2="74"/><path class="axh" d="M346 74 l-10 -6 v12z"/>
+          <line class="now" x1="180" y1="26" x2="180" y2="98"/>
+          <text class="lbln" x="180" y="18" text-anchor="middle">NOW · Bây giờ</text>
+          <g class="xm">
+            <path d="M34 66 l14 16 M48 66 l-14 16"/><path d="M78 66 l14 16 M92 66 l-14 16"/><path d="M122 66 l14 16 M136 66 l-14 16"/>
+            <path d="M210 66 l14 16 M224 66 l-14 16"/><path d="M254 66 l14 16 M268 66 l-14 16"/><path d="M298 66 l14 16 M312 66 l-14 16"/>
+          </g>
+          <text class="lbl" x="14" y="120">Past · Quá khứ</text>
+          <text class="lbl" x="346" y="120" text-anchor="end">Future · Tương lai</text>
+        </svg>
+        <h3>Thói quen, việc lặp lại</h3>
+        <p class="en">I walk to class every day.</p>
+        <p>Việc này đã xảy ra nhiều lần, và sẽ còn tiếp tục.</p>
+      </figure>
+
+      <figure class="tlc" style="margin:0">
+        <svg viewBox="0 0 360 130" role="img" aria-label="Trục thời gian: một dải màu kéo dài suốt từ quá khứ đến tương lai">
+          <rect class="band" x="14" y="62" width="326" height="24" rx="12"/>
+          <line class="ax" x1="14" y1="74" x2="340" y2="74"/><path class="axh" d="M346 74 l-10 -6 v12z"/>
+          <line class="now" x1="180" y1="26" x2="180" y2="98"/>
+          <text class="lbln" x="180" y="18" text-anchor="middle">NOW · Bây giờ</text>
+          <text class="lbl" x="14" y="120">Past · Quá khứ</text>
+          <text class="lbl" x="346" y="120" text-anchor="end">Future · Tương lai</text>
+        </svg>
+        <h3>Sự thật, trạng thái lâu dài</h3>
+        <p class="en">Water boils at 100°C. · My family lives in Hue.</p>
+        <p>Điều này đúng ở quá khứ, hiện tại và tương lai.</p>
+      </figure>
+
+      <figure class="tlc" style="margin:0">
+        <svg viewBox="0 0 360 130" role="img" aria-label="Trục thời gian: một điểm cố định ở tương lai, ví dụ chuyến tàu lúc 7 giờ 30 sáng mai">
+          <line class="ax" x1="14" y1="74" x2="340" y2="74"/><path class="axh" d="M346 74 l-10 -6 v12z"/>
+          <line class="now" x1="180" y1="26" x2="180" y2="98"/>
+          <text class="lbln" x="180" y="18" text-anchor="middle">NOW · Bây giờ</text>
+          <circle class="dot" cx="272" cy="74" r="8"/>
+          <text class="dtxt" x="272" y="50" text-anchor="middle">7:30 tomorrow</text>
+          <text class="lbl" x="14" y="120">Past · Quá khứ</text>
+          <text class="lbl" x="346" y="120" text-anchor="end">Future · Tương lai</text>
+        </svg>
+        <h3>Lịch trình, thời gian biểu cố định</h3>
+        <p class="en">The train leaves at 7:30 tomorrow.</p>
+        <p>Sự việc ở tương lai, nhưng đã nằm trên lịch, không ai thay đổi được.</p>
+      </figure>
+
+      <div class="tlc">
+        <h3 style="margin-top:0">Một tuần của Lan</h3>
+        <p class="en">Lan goes to the gym three times a week.</p>
+        <div class="week" aria-label="Lịch tuần: Lan đi tập vào thứ Hai, thứ Tư và thứ Sáu">
+          <div class="day on">Mon<i>✓</i></div><div class="day">Tue<i></i></div><div class="day on">Wed<i>✓</i></div>
+          <div class="day">Thu<i></i></div><div class="day on">Fri<i>✓</i></div><div class="day">Sat<i></i></div><div class="day">Sun<i></i></div>
+        </div>
+        <p style="margin-top:10px">Tuần nào cũng vậy. Đó là <b>thói quen</b>, nên ta dùng hiện tại đơn.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="cong-thuc">
+    <div class="sec-n">Phần 2</div>
+    <h2>Công thức</h2>
+    <p class="intro">Có hai nhóm: động từ <b>to be</b> (am, is, are) và <b>động từ thường</b> (work, study, go). Hai nhóm này tạo câu phủ định và câu hỏi theo cách khác nhau.</p>
+
+    <div class="card">
+      <h3>A. Động từ to be</h3>
+      <div class="scroll"><table class="ftab">
+        <tr><th>Dạng câu</th><th>Công thức</th><th>Ví dụ</th></tr>
+        <tr><td>Khẳng định</td><td>S + am / is / are + …</td><td class="en">She is a nurse. They are at home.</td></tr>
+        <tr><td>Phủ định</td><td>S + am / is / are + <b>not</b> + …</td><td class="en">I am not tired. He isn't busy.</td></tr>
+        <tr><td>Câu hỏi</td><td><b>Am / Is / Are</b> + S + …?</td><td class="en">Are you a student? Yes, I am.</td></tr>
+      </table></div>
+    </div>
+
+    <div class="card">
+      <h3>B. Động từ thường</h3>
+      <div class="scroll"><table class="ftab">
+        <tr><th>Dạng câu</th><th>Công thức</th><th>Ví dụ</th></tr>
+        <tr><td>Khẳng định</td><td>I, you, we, they + <b>V</b><br>he, she, it + <b>V s / es</b></td><td class="en">We study English.<br>He studies English.</td></tr>
+        <tr><td>Phủ định</td><td>S + <b>do not (don't) / does not (doesn't)</b> + V nguyên mẫu</td><td class="en">I don't drink coffee.<br>She doesn't drink coffee.</td></tr>
+        <tr><td>Câu hỏi</td><td><b>Do / Does</b> + S + V nguyên mẫu?</td><td class="en">Does she drink coffee?<br>No, she doesn't.</td></tr>
+        <tr><td>Câu hỏi Wh</td><td>Wh + <b>do / does</b> + S + V nguyên mẫu?</td><td class="en">Where do you live?<br>What time does the class start?</td></tr>
+      </table></div>
+      <div class="note"><b>Quy tắc vàng</b>Khi đã có <b>does</b> hoặc <b>doesn't</b>, động từ chính quay về nguyên mẫu. <span class="en">Does she <u>like</u> it?</span> (không phải likes). <span class="en">He doesn't <u>go</u>.</span> (không phải goes).</div>
+    </div>
+
+    <div class="grid2">
+      <div class="card">
+        <h3>Thêm s hay es? (chính tả)</h3>
+        <div class="scroll"><table class="ftab">
+          <tr><th>Động từ tận cùng</th><th>Cách thêm</th></tr>
+          <tr><td>Hầu hết động từ</td><td>+ s: work → work<b>s</b>, play → play<b>s</b></td></tr>
+          <tr><td>s, ss, sh, ch, x, o</td><td>+ es: watch → watch<b>es</b>, go → go<b>es</b>, fix → fix<b>es</b></td></tr>
+          <tr><td>phụ âm + y</td><td>bỏ y, + ies: study → stud<b>ies</b>, try → tr<b>ies</b></td></tr>
+          <tr><td>nguyên âm + y</td><td>+ s: play → play<b>s</b>, buy → buy<b>s</b></td></tr>
+          <tr><td>Bất quy tắc</td><td>have → <b>has</b>, be → <b>is</b></td></tr>
+        </table></div>
+      </div>
+      <div class="card">
+        <h3>Đọc đuôi s thế nào? (phát âm)</h3>
+        <div class="scroll"><table class="ftab">
+          <tr><th>Âm</th><th>Khi nào</th><th>Ví dụ</th></tr>
+          <tr><td>/s/</td><td>sau âm vô thanh p, t, k, f</td><td class="en">stops, works, laughs</td></tr>
+          <tr><td>/z/</td><td>sau nguyên âm và âm hữu thanh</td><td class="en">plays, lives, goes</td></tr>
+          <tr><td>/ɪz/</td><td>sau âm s, z, ʃ, tʃ, dʒ</td><td class="en">watches, uses, changes</td></tr>
+        </table></div>
+        <p style="margin-top:10px;font-size:15px">Người Việt hay nuốt âm cuối khi nói nhanh. Nếu bạn không đọc âm s, người nghe sẽ không biết bạn đã chia động từ.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section id="cach-dung">
+    <div class="sec-n">Phần 3</div>
+    <h2>Năm cách dùng chính</h2>
+    <div class="grid2">
+      <div class="card"><h3><span class="hl">1</span> Thói quen, việc lặp lại</h3>
+        <ul class="ex"><li><span class="en">I check my email every morning.</span><span class="vi">Sáng nào tôi cũng kiểm tra email.</span></li><li><span class="en">She rarely eats fast food.</span><span class="vi">Cô ấy hiếm khi ăn đồ ăn nhanh.</span></li></ul></div>
+      <div class="card"><h3><span class="hl">2</span> Sự thật, chân lý</h3>
+        <ul class="ex"><li><span class="en">The sun rises in the east.</span><span class="vi">Mặt trời mọc ở hướng đông.</span></li><li><span class="en">Hanoi is the capital of Vietnam.</span><span class="vi">Hà Nội là thủ đô của Việt Nam.</span></li></ul></div>
+      <div class="card"><h3><span class="hl">3</span> Trạng thái (stative verbs)</h3>
+        <p style="font-size:15.5px;margin-top:6px">Các động từ chỉ suy nghĩ, cảm xúc, sở hữu thường <b>không</b> dùng dạng ing: <span class="en">know, understand, believe, like, love, want, need, own, belong, seem</span>.</p>
+        <ul class="ex"><li><span class="en">I know the answer.</span><span class="vi">Không nói: I am knowing the answer.</span></li></ul></div>
+      <div class="card"><h3><span class="hl">4</span> Lịch trình cố định</h3>
+        <ul class="ex"><li><span class="en">The semester starts on 8 September.</span><span class="vi">Học kỳ bắt đầu vào ngày 8 tháng 9.</span></li><li><span class="en">The last bus leaves at 10 p.m.</span><span class="vi">Chuyến xe buýt cuối rời bến lúc 10 giờ tối.</span></li></ul></div>
+      <div class="card"><h3><span class="hl">5</span> Sau when, after, before, until, as soon as, if (nói về tương lai)</h3>
+        <ul class="ex"><li><span class="en">I will call you when I <b>get</b> home.</span><span class="vi">Không nói: when I will get home.</span></li><li><span class="en">If it <b>rains</b> tomorrow, we will stay in.</span><span class="vi">Mệnh đề if, when dùng hiện tại đơn dù nghĩa là tương lai.</span></li></ul></div>
+      <div class="card"><h3><span class="hl">+</span> Mô tả biểu đồ, quy trình</h3>
+        <ul class="ex"><li><span class="en">The chart shows the number of visitors.</span><span class="vi">Câu mở đầu quen thuộc trong IELTS Writing Task 1.</span></li><li><span class="en">The leaves are picked and then dried.</span><span class="vi">Quy trình thường dùng bị động (xem Phần 7).</span></li></ul></div>
+    </div>
+    <div class="note adv"><b>Ghi chú nâng cao</b>Sau <span class="en">everyone, everybody, nobody</span> và danh từ tập hợp như <span class="en">my family</span>, động từ chia số ít: <span class="en">Everyone <b>knows</b> him. My family <b>lives</b> in Can Tho.</span></div>
+  </section>
+
+  <!-- 4 -->
+  <section id="dau-hieu">
+    <div class="sec-n">Phần 4</div>
+    <h2>Dấu hiệu nhận biết và vị trí trạng từ</h2>
+    <div class="grid2">
+      <div class="card">
+        <h3>Trạng từ chỉ tần suất</h3>
+        <div class="freq" aria-label="Mức độ thường xuyên ước lượng của các trạng từ">
+          <div class="fr"><b>always</b><div class="bar"><i style="width:100%"></i></div><span>100%</span></div>
+          <div class="fr"><b>usually</b><div class="bar"><i style="width:90%"></i></div><span>≈ 90%</span></div>
+          <div class="fr"><b>often</b><div class="bar"><i style="width:70%"></i></div><span>≈ 70%</span></div>
+          <div class="fr"><b>sometimes</b><div class="bar"><i style="width:50%"></i></div><span>≈ 50%</span></div>
+          <div class="fr"><b>rarely</b><div class="bar"><i style="width:10%"></i></div><span>≈ 10%</span></div>
+          <div class="fr"><b>never</b><div class="bar"><i style="width:0"></i></div><span>0%</span></div>
+        </div>
+        <p style="margin-top:10px;font-size:14px;color:var(--muted)">Các con số chỉ để bạn dễ hình dung, không phải quy định chính xác.</p>
+      </div>
+      <div class="card">
+        <h3>Cụm từ chỉ thời gian</h3>
+        <ul class="ex">
+          <li><span class="en">every day, every week, every summer</span></li>
+          <li><span class="en">once a week, twice a month, three times a year</span></li>
+          <li><span class="en">on Mondays, at weekends, in the morning</span></li>
+        </ul>
+        <h3 style="margin-top:16px">Vị trí trạng từ tần suất</h3>
+        <ul class="ex">
+          <li><b>Trước</b> động từ thường: <span class="en">She <u>often</u> walks to work.</span></li>
+          <li><b>Sau</b> to be: <span class="en">She is <u>often</u> late.</span></li>
+          <li>Cụm từ thời gian thường đứng <b>cuối câu</b>: <span class="en">I call my parents twice a week.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section id="so-sanh">
+    <div class="sec-n">Phần 5</div>
+    <h2>So sánh với hiện tại tiếp diễn</h2>
+    <p class="intro">Hai thì này dễ nhầm nhất. Hãy tự hỏi: việc này <b>lặp lại, ổn định</b> hay <b>đang diễn ra, tạm thời</b>?</p>
+    <div class="grid2">
+      <figure class="tlc" style="margin:0">
+        <svg viewBox="0 0 360 110" role="img" aria-label="Hiện tại đơn: các dấu X lặp lại trên trục thời gian">
+          <line class="ax" x1="14" y1="64" x2="340" y2="64"/><path class="axh" d="M346 64 l-10 -6 v12z"/>
+          <line class="now" x1="180" y1="20" x2="180" y2="88"/>
+          <text class="lbln" x="180" y="13" text-anchor="middle">NOW</text>
+          <g class="xm"><path d="M44 56 l14 16 M58 56 l-14 16"/><path d="M100 56 l14 16 M114 56 l-14 16"/><path d="M240 56 l14 16 M254 56 l-14 16"/><path d="M296 56 l14 16 M310 56 l-14 16"/></g>
+        </svg>
+        <h3>Hiện tại đơn</h3>
+        <p class="en">I usually work at the office.</p>
+        <p>Thường ngày, lặp lại, ổn định.</p>
+      </figure>
+      <figure class="tlc" style="margin:0">
+        <svg viewBox="0 0 360 110" role="img" aria-label="Hiện tại tiếp diễn: một dải màu ngắn bao quanh thời điểm hiện tại">
+          <rect class="bandc" x="130" y="52" width="100" height="24" rx="12"/>
+          <line class="ax" x1="14" y1="64" x2="340" y2="64"/><path class="axh" d="M346 64 l-10 -6 v12z"/>
+          <line class="now" x1="180" y1="20" x2="180" y2="88"/>
+          <text class="lbln" x="180" y="13" text-anchor="middle">NOW</text>
+          <text class="lbl" x="180" y="104" text-anchor="middle">this week</text>
+        </svg>
+        <h3>Hiện tại tiếp diễn</h3>
+        <p class="en">But this week I am working from home.</p>
+        <p>Đang diễn ra quanh lúc này, tạm thời.</p>
+      </figure>
+    </div>
+    <div class="card">
+      <div class="scroll"><table class="ftab cmp">
+        <tr><th>Hiện tại đơn</th><th>Hiện tại tiếp diễn</th></tr>
+        <tr><td style="font-weight:400" class="en">My brother lives in Can Tho.</td><td class="en">He is staying with us for a few days.</td></tr>
+        <tr><td style="font-weight:400" class="en">I don't usually drink coffee at night.</td><td class="en">Why are you drinking coffee now?</td></tr>
+        <tr><td style="font-weight:400" class="en">What do you do? (Bạn làm nghề gì?)</td><td class="en">What are you doing? (Bạn đang làm gì?)</td></tr>
+      </table></div>
+    </div>
+    <p style="margin-top:12px;font-size:15px">Hiện tại tiếp diễn sẽ được học kỹ ở Bài 2.</p>
+  </section>
+
+  <!-- 6 -->
+  <section id="loi-sai">
+    <div class="sec-n">Phần 6</div>
+    <h2>Lỗi người Việt hay mắc</h2>
+    <p class="intro">Tiếng Việt không chia động từ theo chủ ngữ và dùng từ như <b>đã, đang, sẽ</b> để chỉ thời gian. Vì vậy, các lỗi dưới đây rất phổ biến.</p>
+    <div class="mist">
+      <div class="mi"><span class="w en">She go to work by bus.</span><span class="r en">She goes to work by bus.</span><span class="y">Chủ ngữ ngôi thứ ba số ít cần thêm s hoặc es.</span></div>
+      <div class="mi"><span class="w en">He not understand the question.</span><span class="r en">He doesn't understand the question.</span><span class="y">Câu phủ định cần trợ động từ do hoặc does.</span></div>
+      <div class="mi"><span class="w en">Does she likes music?</span><span class="r en">Does she like music?</span><span class="y">Đã có does thì động từ chính ở dạng nguyên mẫu.</span></div>
+      <div class="mi"><span class="w en">I am agree with you.</span><span class="r en">I agree with you.</span><span class="y">Agree là động từ, không phải tính từ, nên không cần am.</span></div>
+      <div class="mi"><span class="w en">She very friendly.</span><span class="r en">She is very friendly.</span><span class="y">Trước tính từ cần động từ to be. Tiếng Việt nói cô ấy rất thân thiện, nhưng tiếng Anh phải có is.</span></div>
+      <div class="mi"><span class="w en">I will tell you when I will finish.</span><span class="r en">I will tell you when I finish.</span><span class="y">Sau when, if, as soon as, dùng hiện tại đơn để nói về tương lai.</span></div>
+    </div>
+  </section>
+
+  <!-- 7 -->
+  <section id="bi-dong">
+    <div class="sec-n">Phần 7</div>
+    <h2>Câu bị động ở hiện tại đơn</h2>
+    <p class="intro">Câu bị động giúp bạn tập trung vào <b>sự việc</b> hoặc <b>kết quả</b>, khi người làm không quan trọng, không rõ, hoặc ai cũng biết.</p>
+    <div class="card">
+      <h3>Công thức</h3>
+      <p style="margin-top:8px"><span class="formula">S + am / is / are + V3 (quá khứ phân từ) + (by + người làm)</span></p>
+      <div class="pd" aria-label="Sơ đồ chuyển câu chủ động sang bị động">
+        <div class="prow"><span class="lab">Chủ động</span><span class="chip c-s">They</span><span class="chip c-v">clean</span><span class="chip c-o">the rooms</span><span class="chip c-v">every day</span></div>
+        <div class="parr">↓ tân ngữ <b class="hl">the rooms</b> lên làm chủ ngữ, động từ thành <b>are + cleaned</b></div>
+        <div class="prow"><span class="lab">Bị động</span><span class="chip c-o">The rooms</span><span class="chip c-v">are cleaned</span><span class="chip c-v">every day</span><span class="chip c-a">(by them)</span></div>
+      </div>
+      <p style="margin-top:12px;font-size:15.5px">Phần <b>by them</b> nên bỏ vì không thêm thông tin. Chỉ giữ <b>by</b> khi người làm quan trọng: <span class="en">This song is sung by a famous Vietnamese singer.</span></p>
+    </div>
+    <div class="card">
+      <div class="scroll"><table class="ftab">
+        <tr><th>Dạng câu</th><th>Công thức</th><th>Ví dụ</th></tr>
+        <tr><td>Khẳng định</td><td>S + am / is / are + V3</td><td class="en">English is spoken in many countries.<br>Rice is grown in the Mekong Delta.</td></tr>
+        <tr><td>Phủ định</td><td>S + am / is / are + <b>not</b> + V3</td><td class="en">Phones aren't allowed in the exam room.</td></tr>
+        <tr><td>Câu hỏi</td><td><b>Am / Is / Are</b> + S + V3?</td><td class="en">Is breakfast included in the price?</td></tr>
+      </table></div>
+    </div>
+    <div class="mist">
+      <div class="mi"><span class="w en">The room clean every day.</span><span class="r en">The room is cleaned every day.</span><span class="y">Câu bị động bắt buộc có to be và V3. Căn phòng không tự lau.</span></div>
+      <div class="mi"><span class="w en">This phone is make in Vietnam.</span><span class="r en">This phone is made in Vietnam.</span><span class="y">Sau to be phải dùng V3, không dùng nguyên mẫu.</span></div>
+      <div class="mi"><span class="w en">Does English spoken here?</span><span class="r en">Is English spoken here?</span><span class="y">Câu hỏi bị động đảo to be, không dùng do hoặc does.</span></div>
+    </div>
+    <div class="note adv"><b>Ứng dụng nâng cao</b>Trong IELTS Writing Task 1 dạng quy trình, câu bị động hiện tại đơn xuất hiện liên tục: <span class="en">First, the fruit is collected. Next, it is washed and sorted. Finally, it is packed and sent to shops.</span></div>
+  </section>
+
+  <!-- 8 -->
+  <section id="luyen-tap">
+    <div class="sec-n">Phần 8</div>
+    <h2>Luyện tập tự chấm</h2>
+    <p class="intro">Làm theo thứ tự từ Dễ đến Khó. Mỗi câu có giải thích sau khi bạn trả lời.</p>
+    <div id="practice"></div>
+    <div class="score" id="scoreBar"><span>Điểm của bạn: <b id="scoreNum">0 / 20</b></span><button type="button" class="btn" id="resetBtn">Làm lại</button></div>
+  </section>
+
+  <!-- 9 -->
+  <section id="tom-tat">
+    <div class="sec-n">Phần 9</div>
+    <h2>Tóm tắt</h2>
+    <div class="sum">
+      <div><b>Dùng khi</b>Thói quen, sự thật, trạng thái, lịch trình, sau when và if.</div>
+      <div><b>Khẳng định</b>he, she, it + V s / es</div>
+      <div><b>Phủ định, câu hỏi</b>do / does + V nguyên mẫu</div>
+      <div><b>Bị động</b>am / is / are + V3</div>
+      <div><b>Cảnh giác</b>Không bỏ s. Không bỏ to be. Không dùng will sau when.</div>
+    </div>
+    <div class="note"><b>Tự luyện thêm</b>Viết 5 câu về một ngày bình thường của bạn, dùng 3 trạng từ tần suất khác nhau. Sau đó viết 2 câu bị động về một món ăn hoặc sản phẩm ở quê bạn (ví dụ: <span class="en">Coffee is grown in Dak Lak.</span>). Đọc to cả 7 câu và chú ý âm s cuối.</div>
+    <div class="next">
+      <a class="pill" href="../route-map.html">← Về Lộ trình học</a>
+      <span class="pill" aria-disabled="true">Bài 2: Hiện tại tiếp diễn (sắp có) →</span>
+    </div>
+
+    <h3 style="margin-top:32px;font-size:16px">Tài liệu tham khảo</h3>
+    <ul class="refs">
+      <li>Dutwin, P. (2023). <i>Easy English grammar step-by-step</i> (2nd ed.). McGraw Hill.</li>
+      <li>Nguyễn, H. H. (n.d.). <i>Practical English grammar and vocabulary mastery</i> [Tài liệu lý thuyết]. The Forum Center.</li>
+      <li>Woodward, S. W. (1997). <i>Fun with grammar: Communicative activities for the Azar grammar series</i>. Prentice Hall Regents.</li>
+    </ul>
+    <p style="font-size:14px;color:var(--muted);margin-top:6px">Nội dung được biên soạn lại và có ví dụ mới, dựa trên các tài liệu trên.</p>
+  </section>
+
+  <footer>© 2026 The Standard · Lê Hoàng · Lộ trình 12 thì, Bài 1</footer>
+</main>
+
+<script>
+(function(){
+  "use strict";
+  var $ = function(s, r){ return (r || document).querySelector(s); };
+
+  /* logo fallback */
+  var mark = $("#mark");
+  mark.querySelectorAll("img").forEach(function(img){
+    img.addEventListener("error", function(){ mark.classList.add("noimg"); });
+  });
+
+  /* theme, shared key with the site */
+  var THEME_KEY = "standardRouteMap.v1.theme";
+  var store = {
+    get: function(k){ try { return localStorage.getItem(k); } catch(e){ return null; } },
+    set: function(k, v){ try { localStorage.setItem(k, v); } catch(e){} }
+  };
+  var theme = store.get(THEME_KEY) || "auto";
+  if (["auto","light","dark"].indexOf(theme) < 0) theme = "auto";
+  var THEME_LABEL = { auto: "Giao diện: Tự động", light: "Giao diện: Sáng", dark: "Giao diện: Tối" };
+  function applyTheme(){
+    if (theme === "auto") document.documentElement.removeAttribute("data-theme");
+    else document.documentElement.setAttribute("data-theme", theme);
+    $("#themeBtn").textContent = THEME_LABEL[theme];
+  }
+  $("#themeBtn").addEventListener("click", function(){
+    theme = { auto: "light", light: "dark", dark: "auto" }[theme];
+    store.set(THEME_KEY, theme); applyTheme();
+  });
+  applyTheme();
+
+  /* table of contents highlight */
+  var links = Array.prototype.slice.call(document.querySelectorAll("#toc a"));
+  if ("IntersectionObserver" in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting){
+          links.forEach(function(a){
+            var on = a.getAttribute("href") === "#" + en.target.id;
+            a.classList.toggle("on", on);
+            if (on && a.scrollIntoView) { a.parentNode.scrollLeft = a.offsetLeft - 16; }
+          });
+        }
+      });
+    }, { rootMargin: "-40% 0px -55% 0px" });
+    document.querySelectorAll("main section").forEach(function(s){ io.observe(s); });
+  }
+
+  /* answer normalisation */
+  var CONTR = { "don't":"do not", "doesn't":"does not", "isn't":"is not", "aren't":"are not", "i'm":"i am", "it's":"it is", "he's":"he is", "she's":"she is", "they're":"they are", "we're":"we are", "you're":"you are" };
+  function norm(s){
+    s = (s || "").toLowerCase().replace(/[‘’ʼ]/g, "'").replace(/\s+/g, " ").trim();
+    s = s.replace(/[.!?]+$/, "").trim();
+    s = s.split(" ").map(function(w){ return CONTR[w] || w; }).join(" ");
+    return s;
+  }
+
+  /* data */
+  var USES = ["Thói quen", "Sự thật", "Lịch trình", "Trạng thái"];
+  var LEVELS = [
+    { key: "easy", badge: "b1", name: "Dễ", title: "Chọn đáp án đúng", items: [
+      { t: "mcq", q: "My sister ___ in a bank in Da Nang.", o: ["work", "works", "working"], a: 1, why: "My sister là ngôi thứ ba số ít, nên work thêm s." },
+      { t: "mcq", q: "___ your father drink coffee every morning?", o: ["Do", "Does", "Is"], a: 1, why: "Your father là ngôi thứ ba số ít, động từ thường, nên dùng Does." },
+      { t: "mcq", q: "We ___ have classes on Sundays.", o: ["don't", "doesn't", "aren't"], a: 0, why: "Chủ ngữ we đi với don't. Have là động từ thường nên không dùng aren't." },
+      { t: "mcq", q: "Water ___ at 100 degrees Celsius.", o: ["boil", "boils", "is boil"], a: 1, why: "Sự thật khoa học, chủ ngữ water số ít, nên boils." },
+      { t: "mcq", q: "English ___ in many countries around the world.", o: ["speaks", "is spoken", "is speak"], a: 1, why: "Tiếng Anh không tự nói, người ta nói tiếng Anh. Bị động: is + V3 (spoken)." }
+    ]},
+    { key: "match", badge: "b1", name: "Dễ", title: "Nối câu với cách dùng", items: [
+      { t: "match", q: "I check my email every morning.", a: 0, why: "Every morning cho thấy việc lặp lại." },
+      { t: "match", q: "The sun rises in the east.", a: 1, why: "Đây là sự thật luôn đúng." },
+      { t: "match", q: "The bus leaves at 6:15 tomorrow.", a: 2, why: "Giờ xe chạy nằm trên lịch cố định." },
+      { t: "match", q: "I know the answer.", a: 3, why: "Know là động từ chỉ trạng thái, không dùng dạng ing." }
+    ]},
+    { key: "medium", badge: "b2", name: "Trung bình", title: "Điền dạng đúng của động từ", items: [
+      { t: "fill", q: "My father ___ (watch) the news every evening.", a: [["watches"]], why: "Watch tận cùng là ch, nên thêm es: watches." },
+      { t: "fill", q: "She usually ___ (study) in the library after class.", a: [["studies"]], why: "Phụ âm + y: bỏ y, thêm ies." },
+      { t: "fill", q: "My brother ___ (not / like) spicy food.", a: [["does not like"]], why: "Phủ định với ngôi thứ ba số ít: doesn't + V nguyên mẫu." },
+      { t: "fill", q: "What time ___ the film ___ (start)?", a: [["does"], ["start"]], why: "Câu hỏi Wh: What time + does + S + V nguyên mẫu." },
+      { t: "fill", q: "This classroom ___ (clean) every afternoon.", a: [["is cleaned"]], why: "Phòng học không tự lau. Bị động: is + V3." },
+      { t: "fill", q: "I will text you as soon as I ___ (arrive).", a: [["arrive"]], why: "Sau as soon as, dùng hiện tại đơn để nói về tương lai." }
+    ]},
+    { key: "hard", badge: "b3", name: "Khó", title: "Viết câu", items: [
+      { t: "write", q: "Sửa lỗi sai: She don't have breakfast before work.", a: ["she does not have breakfast before work"], model: "She doesn't have breakfast before work.", why: "She đi với doesn't, và have giữ nguyên mẫu." },
+      { t: "write", q: "Sửa lỗi sai: I am agree with your idea.", a: ["i agree with your idea"], model: "I agree with your idea.", why: "Agree là động từ, không đi với am." },
+      { t: "write", q: "Chuyển sang câu bị động: People grow coffee in Dak Lak.", a: ["coffee is grown in dak lak", "coffee is grown in dak lak by people", "in dak lak, coffee is grown", "coffee is grown in đắk lắk"], model: "Coffee is grown in Dak Lak.", why: "Coffee lên làm chủ ngữ, động từ thành is grown. Bỏ by people vì không cần thiết." },
+      { t: "write", q: "Viết câu hỏi cho câu trả lời: Yes, she does. (gợi ý: your sister / speak French)", a: ["does your sister speak french"], model: "Does your sister speak French?", why: "Câu trả lời dùng does, nên câu hỏi bắt đầu bằng Does + S + V nguyên mẫu." },
+      { t: "open", q: "Viết một câu đúng về chính bạn, dùng usually và hiện tại đơn.", model: "I usually go to bed at eleven. / My mother usually cooks dinner for the family.", check: ["Câu có chủ ngữ và động từ.", "Usually đứng trước động từ thường, hoặc sau to be.", "Nếu chủ ngữ là he, she, it hoặc một người, động từ có s hoặc es."] }
+    ]}
+  ];
+
+  var TOTAL = 0; LEVELS.forEach(function(l){ TOTAL += l.items.length; });
+  var score = 0, n = 0;
+  function bump(ok){ if (ok) score++; $("#scoreNum").textContent = score + " / " + TOTAL; }
+
+  function el(tag, cls, txt){ var e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; }
+  function feedback(box, ok, why, extra){
+    var f = box.querySelector(".fb") || box.appendChild(el("p", "fb"));
+    f.className = "fb " + (ok ? "ok" : "bad");
+    f.textContent = (ok ? "✓ Chính xác. " : "✗ Chưa đúng. ") + (extra || "");
+    if (why) f.appendChild(el("span", "why", why));
+  }
+  function qhead(box, text){
+    n++;
+    var qt = el("p", "qt");
+    qt.appendChild(el("span", "n", n + "."));
+    qt.appendChild(document.createTextNode(text));
+    box.appendChild(qt);
+  }
+
+  function render(){
+    var root = $("#practice"); root.innerHTML = ""; score = 0; n = 0; bump(false);
+    LEVELS.forEach(function(lv){
+      var wrap = el("div", "lvl");
+      var h = el("div", "lvl-h"); h.appendChild(el("span", "badge " + lv.badge, lv.name)); h.appendChild(el("h3", null, lv.title));
+      wrap.appendChild(h);
+      lv.items.forEach(function(it){
+        var box = el("div", "q"); qhead(box, it.q);
+        if (it.t === "mcq"){
+          var opts = el("div", "opts");
+          it.o.forEach(function(o, i){
+            var b = el("button", "opt", o); b.type = "button";
+            b.addEventListener("click", function(){
+              var all = opts.querySelectorAll("button");
+              all.forEach(function(x){ x.disabled = true; });
+              all[it.a].classList.add("ok");
+              if (i !== it.a) b.classList.add("bad");
+              feedback(box, i === it.a, it.why, i === it.a ? "" : "Đáp án: " + it.o[it.a] + ".");
+              bump(i === it.a);
+            });
+            opts.appendChild(b);
+          });
+          box.appendChild(opts);
+        } else if (it.t === "match"){
+          var row = el("div", "inrow");
+          var sel = el("select", "inp"); sel.setAttribute("aria-label", "Chọn cách dùng");
+          sel.appendChild(new Option("Chọn cách dùng…", ""));
+          USES.forEach(function(u, i){ sel.appendChild(new Option(u, String(i))); });
+          sel.addEventListener("change", function(){
+            if (sel.value === "") return;
+            var ok = Number(sel.value) === it.a; sel.disabled = true;
+            sel.classList.add(ok ? "ok" : "bad");
+            feedback(box, ok, it.why, ok ? "" : "Đáp án: " + USES[it.a] + ".");
+            bump(ok);
+          });
+          row.appendChild(sel); box.appendChild(row);
+        } else if (it.t === "fill" || it.t === "write"){
+          var r = el("div", "inrow"), inputs = [];
+          var count = it.t === "fill" ? it.a.length : 1;
+          for (var k = 0; k < count; k++){
+            var inp = el("input", "inp" + (it.t === "fill" && count > 1 ? " sm" : ""));
+            inp.type = "text"; inp.autocomplete = "off"; inp.spellcheck = false;
+            inp.setAttribute("autocapitalize", "off");
+            inp.setAttribute("aria-label", count > 1 ? "Chỗ trống " + (k + 1) : "Câu trả lời");
+            inp.placeholder = it.t === "write" ? "Viết câu của bạn" : (count > 1 ? "Chỗ trống " + (k + 1) : "Đáp án");
+            inputs.push(inp); r.appendChild(inp);
+          }
+          var btn = el("button", "btn", "Kiểm tra"); btn.type = "button";
+          var check = function(){
+            if (inputs.some(function(x){ return !x.value.trim(); })) { feedback(box, false, null, "Hãy điền đủ chỗ trống trước khi kiểm tra."); return; }
+            var ok;
+            if (it.t === "fill") ok = inputs.every(function(x, j){ return it.a[j].map(norm).indexOf(norm(x.value)) >= 0; });
+            else ok = it.a.map(norm).indexOf(norm(inputs[0].value)) >= 0;
+            inputs.forEach(function(x){ x.disabled = true; x.classList.add(ok ? "ok" : "bad"); });
+            btn.disabled = true;
+            var ans = it.t === "fill" ? it.a.map(function(v){ return v[0]; }).join(" … ") : it.model;
+            feedback(box, ok, it.why, ok ? "" : "Đáp án gợi ý: " + ans);
+            bump(ok);
+          };
+          btn.addEventListener("click", check);
+          inputs.forEach(function(x){ x.addEventListener("keydown", function(e){ if (e.key === "Enter") check(); }); });
+          r.appendChild(btn); box.appendChild(r);
+        } else if (it.t === "open"){
+          var r2 = el("div", "inrow");
+          var inp2 = el("input", "inp"); inp2.type = "text"; inp2.placeholder = "Viết câu của bạn"; inp2.setAttribute("aria-label", "Câu của bạn");
+          var b2 = el("button", "btn ghost", "Xem câu mẫu và tự chấm"); b2.type = "button";
+          r2.appendChild(inp2); r2.appendChild(b2); box.appendChild(r2);
+          var panel = el("div"); panel.hidden = true;
+          panel.appendChild(el("p", "fb", "Câu mẫu: " + it.model));
+          panel.appendChild(el("p", "fb", "Tự kiểm tra câu của bạn:"));
+          var ul = el("ul", "checklist"); it.check.forEach(function(c){ ul.appendChild(el("li", null, c)); }); panel.appendChild(ul);
+          var r3 = el("div", "inrow");
+          var yes = el("button", "btn", "Câu của tôi đạt cả 3 ý"), no = el("button", "btn ghost", "Chưa đạt"); yes.type = no.type = "button";
+          var done = function(ok){ yes.disabled = no.disabled = true; inp2.disabled = true; bump(ok); r3.appendChild(el("span", "fb " + (ok ? "ok" : "bad"), ok ? "✓ Tốt lắm." : "Hãy sửa lại câu theo 3 ý trên.")); };
+          yes.addEventListener("click", function(){ done(true); });
+          no.addEventListener("click", function(){ done(false); });
+          r3.appendChild(yes); r3.appendChild(no); panel.appendChild(r3);
+          b2.addEventListener("click", function(){ panel.hidden = false; b2.disabled = true; });
+          box.appendChild(panel);
+        }
+        wrap.appendChild(box);
+      });
+      root.appendChild(wrap);
+    });
+  }
+  $("#resetBtn").addEventListener("click", function(){ render(); $("#luyen-tap").scrollIntoView(); });
+  render();
+})();
+</script>
+</body>
+</html>
