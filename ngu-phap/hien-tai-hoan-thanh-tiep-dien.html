@@ -1,0 +1,483 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hiện tại hoàn thành tiếp diễn · The Standard</title>
+<meta name="description" content="Bài 9 trong 12 thì của The Standard: hiện tại hoàn thành tiếp diễn, có trục thời gian, hình minh họa, câu bị động và bài tập tự chấm.">
+<meta name="theme-color" content="#f4e6cf" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#2a1813" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<style>
+@font-face{font-family:"Barlow";src:url(../fonts/barlow-400.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Barlow";src:url(../fonts/barlow-600.woff2) format("woff2");font-weight:500 700;font-style:normal;font-display:swap}
+@font-face{font-family:"Barlow Condensed";src:url(../fonts/barlow-condensed-700.woff2) format("woff2");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"Barlow Condensed";src:url(../fonts/barlow-condensed-800.woff2) format("woff2");font-weight:800;font-style:normal;font-display:swap}
+
+/* The Standard site palette: cocoa, cream and cobalt, with a yellow accent */
+:root{
+  --coral:#1f5bb5; --coral-text:#1f5bb5; --coral-fill:#1f5bb5; --coral-soft:rgba(31,91,181,.12);
+  --teal:#7a5648; --teal-text:#7a5648; --teal-soft:rgba(122,86,72,.14);
+  --amber:#ffd23f; --amber-soft:rgba(255,210,63,.22);
+  --ink:#4b2a22; --body-strong:#4b2a22; --body:#4b2a22; --muted:#6b4a3e;
+  --canvas:#f4e6cf; --surface-soft:#efdcbf; --surface-card:#fffaf2; --cream-strong:#ead6b6;
+  --hairline:#d9c3a3; --hairline-soft:#e4cfae;
+  --on-primary:#fffaf2; --ok-text:#2e6b1f; --ok-soft:rgba(46,107,31,.12); --err-text:#b3261e; --err-soft:rgba(179,38,30,.09);
+  --sans:Barlow,Arial,sans-serif; --display:"Barlow Condensed","Arial Narrow",sans-serif;
+  --ease:cubic-bezier(.2,0,0,1);
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]){
+  --coral:#9dbdf2; --coral-text:#9dbdf2; --coral-fill:#9dbdf2; --coral-soft:rgba(157,189,242,.16); --on-primary:#2a1813;
+  --teal:#d9c3a3; --teal-text:#d9c3a3; --teal-soft:rgba(217,195,163,.14);
+  --ink:#f4e6cf; --body-strong:#f4e6cf; --body:#ecdcc4; --muted:#d9c3a3;
+  --canvas:#2a1813; --surface-soft:#43281f; --surface-card:#3a221b; --cream-strong:#4f3027;
+  --hairline:#6b4a3e; --hairline-soft:#4f3027; --ok-text:#a6dc87; --ok-soft:rgba(143,208,106,.16); --err-text:#f2a39b; --err-soft:rgba(242,163,155,.16);
+  color-scheme:dark;
+} }
+:root[data-theme="dark"]{
+  --coral:#9dbdf2; --coral-text:#9dbdf2; --coral-fill:#9dbdf2; --coral-soft:rgba(157,189,242,.16); --on-primary:#2a1813;
+  --teal:#d9c3a3; --teal-text:#d9c3a3; --teal-soft:rgba(217,195,163,.14);
+  --ink:#f4e6cf; --body-strong:#f4e6cf; --body:#ecdcc4; --muted:#d9c3a3;
+  --canvas:#2a1813; --surface-soft:#43281f; --surface-card:#3a221b; --cream-strong:#4f3027;
+  --hairline:#6b4a3e; --hairline-soft:#4f3027; --ok-text:#a6dc87; --ok-soft:rgba(143,208,106,.16); --err-text:#f2a39b; --err-soft:rgba(242,163,155,.16);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth; scroll-padding-top:120px}
+body{margin:0; background:var(--canvas); color:var(--body); font-family:var(--sans); font-size:17px; line-height:1.65; -webkit-font-smoothing:antialiased}
+h1,h2{font-family:var(--display); font-weight:800; text-transform:uppercase; letter-spacing:.2px}
+h1,h2,h3{ color:var(--ink); margin:0; line-height:1.25; text-wrap:balance}
+p{margin:0; text-wrap:pretty}
+button,input,select{font:inherit; color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:none; box-shadow:0 0 0 3px rgba(31,91,181,.4); border-radius:8px}
+.en{font-style:italic; color:var(--body-strong)}
+.hl{color:var(--coral-text); font-weight:700}
+.tl{color:var(--teal-text); font-weight:700}
+
+/* top bar */
+.top{position:sticky; top:0; z-index:10; background:var(--canvas); border-bottom:1px solid var(--hairline-soft)}
+.top-in{max-width:880px; margin:0 auto; padding:12px 16px; display:flex; align-items:center; justify-content:space-between; gap:12px}
+.mark{display:flex; align-items:center; text-decoration:none; color:var(--ink); font-weight:700; font-size:18px; min-width:0}
+.mark img{height:22px; width:auto; display:block}
+.mark .dark{display:none}
+:root[data-theme="dark"] .mark .light{display:none} :root[data-theme="dark"] .mark .dark{display:block}
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .mark .light{display:none} :root:not([data-theme="light"]) .mark .dark{display:block} }
+.mark .txt{display:none}
+.mark.noimg img{display:none!important} .mark.noimg .txt{display:inline}
+.tools{display:flex; gap:8px; align-items:center; flex:none}
+.pill{display:inline-flex; align-items:center; gap:6px; border:0; background:var(--cream-strong); color:var(--ink); border-radius:999px; padding:8px 14px; font-size:14px; font-weight:600; text-decoration:none; white-space:nowrap}
+.toc{max-width:880px; margin:0 auto; padding:0 16px 10px; display:flex; gap:6px; overflow-x:auto; scrollbar-width:none}
+.toc::-webkit-scrollbar{display:none}
+.toc a{flex:none; font-size:13px; font-weight:600; color:var(--muted); text-decoration:none; padding:5px 11px; border-radius:999px; border:1px solid var(--hairline-soft)}
+.toc a.on{color:var(--on-primary); background:var(--coral-fill); border-color:var(--coral-fill)}
+
+.wrap{max-width:880px; margin:0 auto; padding:0 16px 80px}
+
+/* hero */
+.hero{padding:40px 0 28px}
+.crumb{font-size:13px; font-weight:600; letter-spacing:1.2px; text-transform:uppercase; color:var(--muted)}
+.crumb a{color:inherit}
+.hero h1{font-size:clamp(40px,7vw,64px); margin-top:10px; line-height:1.05}
+.hero h1 small{display:block; font-family:var(--sans); text-transform:none; font-size:.42em; font-weight:600; color:var(--coral-text); letter-spacing:0; margin-top:6px}
+.lede{font-size:19px; color:var(--body-strong); margin-top:14px; max-width:62ch}
+.meta{display:flex; flex-wrap:wrap; gap:8px; margin-top:18px}
+.tag{font-size:13px; font-weight:600; padding:5px 12px; border-radius:999px; background:var(--surface-card); border:1px solid var(--hairline-soft); color:var(--body-strong)}
+.goals{margin-top:22px; background:var(--surface-card); border:1px solid var(--hairline-soft); border-radius:16px; padding:18px 20px}
+.goals h2{font-size:15px; text-transform:uppercase; letter-spacing:1.2px; color:var(--muted)}
+.goals ul{margin:10px 0 0; padding-left:20px}
+.goals li{margin:4px 0}
+
+/* sections */
+section{padding:40px 0 8px; border-top:1px solid var(--hairline-soft)}
+.sec-n{font-size:13px; font-weight:700; color:var(--coral-text); letter-spacing:1.2px; text-transform:uppercase}
+section > h2{font-size:clamp(25px,4vw,32px); margin-top:6px}
+.intro{margin-top:12px; max-width:66ch}
+.card{background:var(--surface-card); border:1px solid var(--hairline-soft); border-radius:16px; padding:18px 20px; margin-top:16px}
+.card h3{font-size:18px}
+.grid2{display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,330px),1fr)); gap:14px; margin-top:16px}
+.grid2 .card{margin-top:0}
+.ex{margin:8px 0 0; padding-left:0; list-style:none}
+.ex li{padding:6px 0 6px 14px; border-left:3px solid var(--hairline); margin:6px 0}
+.ex li .vi{display:block; font-size:15px; color:var(--muted)}
+.note{margin-top:16px; border-radius:14px; padding:14px 18px; background:var(--amber-soft); border:1px solid rgba(201,160,30,.5); color:var(--body-strong)}
+.note > b:first-child{display:block; font-size:13px; letter-spacing:1px; text-transform:uppercase; color:var(--ink); margin-bottom:4px}
+.note.vn{background:var(--coral-soft); border-color:rgba(31,91,181,.35)}
+.note.adv{background:var(--teal-soft); border-color:rgba(122,86,72,.35)}
+
+/* timeline illustrations */
+.tlc{background:var(--surface-card); border:1px solid var(--hairline-soft); border-radius:16px; padding:14px 16px 16px}
+.tlc svg{display:block; width:100%; max-width:420px; height:auto; margin:0 auto}
+.tlc h3{font-size:17px; margin-top:6px}
+.tlc p{font-size:15.5px; margin-top:4px}
+.ax{stroke:var(--muted); stroke-width:2; fill:none}
+.axh{fill:var(--muted)}
+.now{stroke:var(--coral); stroke-width:2; stroke-dasharray:4 4}
+.lbl{fill:var(--muted); font:600 12px var(--sans)}
+.lbln{fill:var(--coral-text); font:700 12px var(--sans)}
+.xm{stroke:var(--coral); stroke-width:3; stroke-linecap:round}
+.band{fill:var(--teal); opacity:.35}
+.bandc{fill:var(--amber); opacity:.55}
+.dot{fill:var(--teal-text)}
+.dtxt{fill:var(--teal-text); font:700 12px var(--sans)}
+
+/* week calendar */
+.week{display:grid; grid-template-columns:repeat(7,1fr); gap:6px; margin-top:12px}
+.day{border:1px solid var(--hairline-soft); border-radius:10px; padding:8px 2px; text-align:center; font-size:13px; font-weight:600; color:var(--muted); background:var(--canvas)}
+.day i{display:block; font-style:normal; font-size:18px; height:24px; line-height:24px; color:var(--coral-text)}
+.day.on{background:var(--coral-soft); border-color:rgba(31,91,181,.45); color:var(--ink)}
+
+/* formula tables */
+.ftab{width:100%; border-collapse:collapse; margin-top:10px; font-size:15.5px}
+.ftab th,.ftab td{text-align:left; padding:9px 10px; border-bottom:1px solid var(--hairline-soft); vertical-align:top}
+.ftab th{font-size:13px; text-transform:uppercase; letter-spacing:.8px; color:var(--muted); font-weight:700}
+.ftab td:first-child{font-weight:700; color:var(--ink); white-space:nowrap}
+.formula{display:inline-block; font-weight:700; color:var(--ink); background:var(--cream-strong); padding:2px 8px; border-radius:6px}
+.scroll{overflow-x:auto}
+
+/* frequency bars */
+.freq{margin-top:12px; display:grid; gap:7px}
+.fr{display:grid; grid-template-columns:96px 1fr 44px; align-items:center; gap:10px; font-size:15px}
+.fr b{color:var(--ink)}
+.fr .bar{height:12px; border-radius:6px; background:var(--cream-strong); overflow:hidden}
+.fr .bar i{display:block; height:100%; background:var(--coral); border-radius:6px}
+.fr span{font-size:13px; color:var(--muted); text-align:right}
+
+/* passive diagram */
+.pd{display:grid; gap:10px; margin-top:12px}
+.prow{display:flex; flex-wrap:wrap; gap:8px; align-items:center}
+.prow .lab{width:84px; font-size:13px; font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:.8px}
+.chip{padding:6px 12px; border-radius:10px; font-weight:700; font-size:15.5px; border:1px solid transparent}
+.c-s{background:var(--teal-soft); border-color:rgba(122,86,72,.45); color:var(--teal-text)}
+.c-v{background:var(--cream-strong); color:var(--ink)}
+.c-o{background:var(--coral-soft); border-color:rgba(31,91,181,.5); color:var(--coral-text)}
+.c-a{background:transparent; border:1px dashed var(--hairline); color:var(--muted)}
+.parr{font-size:14px; color:var(--muted); padding-left:92px}
+
+/* mistakes */
+.mist{display:grid; gap:10px; margin-top:16px}
+.mi{background:var(--surface-card); border:1px solid var(--hairline-soft); border-radius:14px; padding:12px 16px; display:grid; gap:4px}
+.mi .w{color:var(--err-text); text-decoration:line-through; text-decoration-thickness:1.5px}
+.mi .w::before{content:"✗  "; text-decoration:none; display:inline-block}
+.mi .r{color:var(--ok-text); font-weight:700}
+.mi .r::before{content:"✓  "}
+.mi .y{font-size:15px; color:var(--muted)}
+
+/* compare */
+.cmp td,.cmp th{width:50%}
+
+/* practice */
+.lvl{margin-top:22px}
+.lvl-h{display:flex; align-items:center; gap:10px; flex-wrap:wrap}
+.lvl-h h3{font-size:20px}
+.badge{font-size:12px; font-weight:700; letter-spacing:1px; text-transform:uppercase; padding:4px 10px; border-radius:999px}
+.b1{background:var(--teal-soft); color:var(--teal-text)} .b2{background:var(--amber-soft); color:var(--body-strong)} .b3{background:var(--coral-soft); color:var(--coral-text)}
+.q{background:var(--surface-card); border:1px solid var(--hairline-soft); border-radius:14px; padding:14px 16px; margin-top:10px}
+.q .qt{font-weight:600; color:var(--ink)}
+.q .qt .n{color:var(--coral-text); margin-right:6px}
+.opts{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px}
+.opt{border:1px solid var(--hairline); background:var(--canvas); border-radius:10px; padding:8px 14px; font-weight:600; min-height:42px}
+.opt:hover{border-color:var(--coral)}
+.opt.ok{background:var(--ok-soft); border-color:var(--ok-text); color:var(--ok-text)}
+.opt.bad{background:var(--err-soft); border-color:var(--err-text); color:var(--err-text)}
+.opt:disabled{cursor:default}
+.inrow{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; align-items:center}
+.inp{flex:1 1 220px; min-width:0; border:1px solid var(--hairline); background:var(--canvas); border-radius:10px; padding:9px 12px; font-size:16px}
+.inp.sm{flex:0 1 150px}
+.inp.ok{border-color:var(--ok-text); background:var(--ok-soft)}
+.inp.bad{border-color:var(--err-text); background:var(--err-soft)}
+select.inp{flex:1 1 200px}
+.btn{border:1px solid var(--coral-fill); background:var(--coral-fill); color:var(--on-primary); border-radius:10px; padding:9px 16px; font-weight:600; font-size:15px; min-height:42px}
+.btn.ghost{background:transparent; color:var(--coral-text)}
+.fb{margin-top:8px; font-size:15px}
+.fb.ok{color:var(--ok-text)} .fb.bad{color:var(--err-text)}
+.fb .why{display:block; color:var(--muted)}
+.score{position:sticky; bottom:12px; z-index:5; margin-top:24px; display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; background:var(--ink); color:var(--canvas); border-radius:14px; padding:12px 16px}
+.score b{font-size:20px}
+.score .btn{background:var(--canvas); color:var(--ink); border-color:var(--canvas)}
+.checklist{margin:8px 0 0; padding-left:20px; font-size:15px}
+
+/* summary */
+.sum{display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:10px; margin-top:16px}
+.sum div{background:var(--surface-card); border:1px solid var(--hairline-soft); border-radius:14px; padding:14px 16px}
+.sum b{display:block; color:var(--coral-text); font-size:13px; text-transform:uppercase; letter-spacing:1px}
+.next{display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; margin-top:24px}
+.next .pill[aria-disabled="true"]{opacity:.55; cursor:not-allowed}
+.refs{font-size:14.5px; color:var(--muted); margin-top:12px; padding-left:0; list-style:none}
+.refs li{padding-left:28px; text-indent:-28px; margin:6px 0}
+footer{border-top:1px solid var(--hairline-soft); margin-top:48px; padding-top:18px; font-size:14px; color:var(--muted)}
+
+@media (max-width:560px){
+  body{font-size:16px}
+  .hero{padding-top:28px}
+  .prow .lab{width:100%}
+  .parr{padding-left:0}
+  .fr{grid-template-columns:84px 1fr 40px}
+  .day{font-size:11px}
+  .pill.hide-sm{display:none}
+}
+@media print{ .top,.score{display:none} section{break-inside:avoid-page} }
+
+.zig{fill:none; stroke:var(--coral); stroke-width:2.6; stroke-linejoin:round}
+.tk{stroke:var(--ink); stroke-width:2}
+.tkt{fill:var(--ink); font:600 12px var(--sans)}
+.arc{fill:none; stroke:var(--muted); stroke-width:1.8; stroke-dasharray:4 4}
+.arch{fill:var(--muted)}
+.rare{font-size:13px; font-weight:700; letter-spacing:.6px; text-transform:uppercase; color:var(--muted); border:1px dashed var(--hairline); border-radius:999px; padding:2px 10px; margin-left:6px; vertical-align:middle}
+.ftab td:first-child{white-space:normal}
+.ftab.cmp td:first-child{font-weight:400; white-space:normal; color:var(--body-strong)}
+.ftab.cmp td{width:50%}
+.lessonnav{display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; margin-top:24px}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="top-in">
+    <a class="mark" id="mark" href="../" aria-label="The Standard, trang chủ">
+      <img class="light" src="../assets/logo-black.png" alt="The Standard" width="174" height="22">
+      <img class="dark" src="../assets/logo-white.png" alt="The Standard" width="174" height="22">
+      <span class="txt">The Standard</span>
+    </a>
+    <div class="tools">
+      <a class="pill hide-sm" href="../learning-hub.html">← Tự học</a>
+      <button type="button" class="pill" id="themeBtn" aria-label="Đổi giao diện sáng tối"></button>
+    </div>
+  </div>
+  <nav class="toc" id="toc" aria-label="Mục lục bài học">
+    <a href="#hinh-dung">1 Hình dung</a>
+    <a href="#cong-thuc">2 Công thức</a>
+    <a href="#cach-dung">3 Cách dùng</a>
+    <a href="#dau-hieu">4 Dấu hiệu</a>
+    <a href="#so-sanh">5 So sánh</a>
+    <a href="#loi-sai">6 Lỗi thường gặp</a>
+    <a href="#bi-dong">7 Bị động</a>
+    <a href="#luyen-tap">8 Luyện tập</a>
+    <a href="#tom-tat">9 Tóm tắt</a>
+  </nav>
+</header>
+
+<main class="wrap">
+
+  <div class="hero">
+    <div class="crumb"><a href="../learning-hub.html">Tự học</a> · 12 thì · Bài 9 / 12 · Cấp Nâng cao</div>
+    <h1>Hiện tại hoàn thành tiếp diễn <small>Present perfect continuous</small></h1>
+    <p class="lede">Thì nhấn mạnh <b>hoạt động kéo dài</b> từ quá khứ đến bây giờ, và trả lời câu hỏi <b>bao lâu rồi</b>. Thì này rất hay dùng khi nói về bản thân và trong IELTS Speaking.</p>
+    <div class="meta">
+      <span class="tag">⏱ Khoảng 30 phút</span>
+      <span class="tag">B1 → B2</span>
+      <span class="tag">20 câu tự chấm</span>
+    </div>
+    <div class="goals">
+      <h2>Sau bài này, bạn có thể</h2>
+      <ul><li>Viết đúng <b>have, has been + V ing</b>.</li><li>Nói việc đã kéo dài bao lâu với <b>for, since, how long</b>.</li><li>Phân biệt với hiện tại hoàn thành (kết quả) và hiện tại hoàn thành tiếp diễn (hoạt động).</li><li>Biết vì sao dạng bị động của thì này hầu như không dùng.</li></ul>
+    </div>
+  </div>
+
+  <section id="hinh-dung"><div class="sec-n">Phần 1</div><h2>Hình dung hiện tại hoàn thành tiếp diễn</h2><p class="intro">Một <b>đường liên tục</b> bắt đầu ở quá khứ và chạy đến tận lúc này.</p><div class="grid2"><figure class="tlc" style="margin:0"><svg viewBox="0 0 360 140" role="img" aria-label="Một hoạt động liên tục từ 9 giờ sáng đến bây giờ"><rect class="bandc" x="80" y="64" width="102" height="24" rx="12"/><line class="ax" x1="14" y1="76" x2="340" y2="76"/><path class="axh" d="M346 76 l-10 -6 v12z"/><line class="now" x1="180" y1="26" x2="180" y2="100"/><text class="lbln" x="180" y="18" text-anchor="middle">NOW · Bây giờ</text><polyline class="zig" points="82,70 90,82 98,70 106,82 114,70 122,82 130,70 138,82 146,70 154,82 162,70 170,82 178,70"/><line class="tk" x1="80" y1="62" x2="80" y2="90"/><text class="tkt" x="80" y="108" text-anchor="middle">9 a.m.</text><text class="lbl" x="14" y="128">Past · Quá khứ</text><text class="lbl" x="346" y="128" text-anchor="end">Future · Tương lai</text></svg><h3>Kéo dài đến bây giờ</h3><p class="en">I have been studying for three hours.</p><p>Bắt đầu lúc 9 giờ, đến giờ vẫn học.</p></figure><figure class="tlc" style="margin:0"><svg viewBox="0 0 360 140" role="img" aria-label="Một hoạt động vừa dừng, kết quả còn thấy ở hiện tại"><rect class="bandc" x="90" y="64" width="75" height="24" rx="12"/><line class="ax" x1="14" y1="76" x2="340" y2="76"/><path class="axh" d="M346 76 l-10 -6 v12z"/><line class="now" x1="180" y1="26" x2="180" y2="100"/><text class="lbln" x="180" y="18" text-anchor="middle">NOW · Bây giờ</text><polyline class="zig" points="92,70 100,82 108,70 116,82 124,70 132,82 140,70 148,82 156,70"/><circle class="dot" cx="176" cy="76" r="8"/><text class="dtxt" x="176" y="106" text-anchor="middle">wet</text><text class="lbl" x="14" y="128">Past · Quá khứ</text><text class="lbl" x="346" y="128" text-anchor="end">Future · Tương lai</text></svg><h3>Vừa dừng, còn dấu vết</h3><p class="en">It has been raining. The street is wet.</p><p>Mưa vừa tạnh, đường vẫn còn ướt.</p></figure><figure class="tlc" style="margin:0"><svg viewBox="0 0 360 140" role="img" aria-label="Một việc lặp lại nhiều lần trong thời gian gần đây"><rect class="band" x="100" y="64" width="82" height="24" rx="12"/><line class="ax" x1="14" y1="76" x2="340" y2="76"/><path class="axh" d="M346 76 l-10 -6 v12z"/><line class="now" x1="180" y1="26" x2="180" y2="100"/><text class="lbln" x="180" y="18" text-anchor="middle">NOW · Bây giờ</text><g class="xm"><path d="M103 68 l14 16 M117 68 l-14 16"/><path d="M121 68 l14 16 M135 68 l-14 16"/><path d="M139 68 l14 16 M153 68 l-14 16"/><path d="M157 68 l14 16 M171 68 l-14 16"/></g><text class="lbl" x="14" y="128">Past · Quá khứ</text><text class="lbl" x="346" y="128" text-anchor="end">Future · Tương lai</text></svg><h3>Lặp lại gần đây</h3><p class="en">I've been going to the gym a lot lately.</p><p>Dạo này thường xuyên đi tập.</p></figure><div class="tlc"><h3 style="margin-top:0">Hỏi bao lâu</h3><p class="en">A: How long have you been waiting?<br>B: For about twenty minutes.</p><p style="margin-top:8px">Câu hỏi <b>How long</b> và câu trả lời <b>for, since</b> là cặp quen thuộc nhất của thì này.</p></div></div></section>
+  <section id="cong-thuc"><div class="sec-n">Phần 2</div><h2>Công thức</h2><p class="intro">Gồm <b>have been</b> hoặc <b>has been</b> và động từ thêm <b>ing</b>.</p><div class="card"><h3>Bảng công thức</h3><div class="scroll"><table class="ftab "><tr><th>Dạng câu</th><th>Công thức</th><th>Ví dụ</th></tr><tr><td>Khẳng định</td><td>I, you, we, they + have been + V ing<br>he, she, it + has been + V ing</td><td class="en">We have been waiting. She has been working.</td></tr><tr><td>Phủ định</td><td>S + haven't / hasn't been + V ing</td><td class="en">I haven't been sleeping well.</td></tr><tr><td>Câu hỏi</td><td><b>Have / Has</b> + S + been + V ing?</td><td class="en">Have you been crying?<br>Yes, I have.</td></tr><tr><td>Câu hỏi Wh</td><td>How long + have / has + S + been + V ing?</td><td class="en">How long has she been teaching?</td></tr></table></div></div></section>
+  <section id="cach-dung"><div class="sec-n">Phần 3</div><h2>Cách dùng chính</h2><div class="grid2"><div class="card"><h3><span class="hl">1</span> Kéo dài từ quá khứ đến nay</h3><ul class="ex"><li><span class="en">We have been living here since 2019.</span><span class="vi">Chúng tôi sống ở đây từ năm 2019.</span></li><li><span class="en">He has been learning the guitar for two years.</span><span class="vi">Anh ấy học đàn hai năm rồi.</span></li></ul></div><div class="card"><h3><span class="hl">2</span> Vừa dừng, còn dấu vết ở hiện tại</h3><ul class="ex"><li><span class="en">Your eyes are red. Have you been crying?</span><span class="vi">Mắt bạn đỏ. Bạn vừa khóc à?</span></li></ul></div><div class="card"><h3><span class="hl">3</span> Việc lặp lại trong thời gian gần đây</h3><ul class="ex"><li><span class="en">I've been eating out a lot lately.</span><span class="vi">Dạo này tôi hay ăn ngoài.</span></li></ul></div><div class="card"><h3><span class="hl">4</span> Hỏi và trả lời bao lâu</h3><ul class="ex"><li><span class="en">How long has she been teaching?</span><span class="vi">Cô ấy dạy được bao lâu rồi?</span></li></ul></div></div><div class="note adv"><b>Ghi chú nâng cao</b>Không dùng thì này với <b>động từ trạng thái</b>: <span class="en">I have known her for years</span>, không nói <span class="en">have been knowing</span>. Với <b>live, work, study, teach</b>, cả hai thì đều đúng và nghĩa gần như nhau: <span class="en">I have lived / have been living here for five years.</span></div></section>
+  <section id="dau-hieu"><div class="sec-n">Phần 4</div><h2>Dấu hiệu nhận biết</h2><div class="grid2"><div class="card"><h3>Từ hay đi kèm</h3><ul class="ex"><li><span class="en">for, since, how long</span></li><li><span class="en">all day, all morning, all week</span></li><li><span class="en">lately, recently</span></li></ul></div><div class="card"><h3>Mẹo dùng trong IELTS Speaking</h3><p style="margin-top:8px">Khi được hỏi về sở thích hay công việc, câu <span class="en">I have been playing badminton since I was at university</span> nghe tự nhiên và cho thấy bạn kiểm soát được thì.</p></div></div></section>
+  <section id="so-sanh"><div class="sec-n">Phần 5</div><h2>So sánh với hiện tại hoàn thành</h2><p class="intro">Hiện tại hoàn thành trả lời <b>bao nhiêu, xong chưa</b>. Hiện tại hoàn thành tiếp diễn trả lời <b>bao lâu, đang làm gì</b>.</p><div class="card"><h3>Đặt cạnh nhau</h3><div class="scroll"><table class="ftab cmp"><tr><th>Hiện tại hoàn thành</th><th>Hiện tại hoàn thành tiếp diễn</th></tr><tr><td><span class="en">I have read 50 pages.</span> (số lượng, kết quả)</td><td><span class="en">I have been reading for two hours.</span> (thời gian, hoạt động)</td></tr><tr><td><span class="en">She has painted the room.</span> (đã sơn xong)</td><td><span class="en">She has been painting the room.</span> (có thể chưa xong, áo còn dính sơn)</td></tr><tr><td><span class="en">I have known him for years.</span> (động từ trạng thái)</td><td><span class="en">Không dùng: have been knowing</span></td></tr></table></div></div></section>
+  <section id="loi-sai"><div class="sec-n">Phần 6</div><h2>Lỗi người Việt hay mắc</h2><div class="mist"><div class="mi"><span class="w en">I am studying English for five years.</span><span class="r en">I have been studying English for five years.</span><span class="y">Kéo dài từ quá khứ đến nay: không dùng hiện tại tiếp diễn. Đây là lỗi dịch từ câu tôi học tiếng Anh được năm năm.</span></div><div class="mi"><span class="w en">I have been knowing him for years.</span><span class="r en">I have known him for years.</span><span class="y">Know là động từ trạng thái.</span></div><div class="mi"><span class="w en">She has been work all day.</span><span class="r en">She has been working all day.</span><span class="y">Sau been phải là V ing.</span></div><div class="mi"><span class="w en">How long are you waiting?</span><span class="r en">How long have you been waiting?</span><span class="y">How long hỏi thời gian kéo dài đến nay.</span></div><div class="mi"><span class="w en">I have been read three books this month.</span><span class="r en">I have read three books this month.</span><span class="y">Có số lượng thì dùng hiện tại hoàn thành.</span></div></div></section>
+  <section id="bi-dong"><div class="sec-n">Phần 7</div><h2>Câu bị động ở hiện tại hoàn thành tiếp diễn</h2><p class="intro">Dạng bị động <b>has been being + V3</b> gần như không xuất hiện trong tiếng Anh tự nhiên.</p><div class="card"><h3>Nhận biết <span class="rare">Hiếm dùng</span></h3><p style="margin-top:8px"><span class="formula">S + have / has been being + V3</span></p><ul class="ex"><li><span class="en">The bridge has been being repaired for months.</span><span class="vi">Đúng ngữ pháp nhưng nặng nề, gần như không ai nói.</span></li><li><span class="en">They have been repairing the bridge for months.</span><span class="vi">Tự nhiên hơn: dùng câu chủ động.</span></li><li><span class="en">The bridge has been closed for repairs for months.</span><span class="vi">Hoặc dùng bị động hiện tại hoàn thành (Bài 5).</span></li></ul></div><div class="note vn"><b>Lời khuyên</b>Bạn chỉ cần <b>nhận ra</b> dạng này khi đọc. Khi nói và viết, hãy chọn câu chủ động hoặc dạng bị động đơn giản hơn.</div></section>
+
+  <section id="luyen-tap">
+    <div class="sec-n">Phần 8</div>
+    <h2>Luyện tập tự chấm</h2>
+    <p class="intro">Làm theo thứ tự từ Dễ đến Khó. Mỗi câu có giải thích sau khi bạn trả lời.</p>
+    <div id="practice"></div>
+    <div class="score" id="scoreBar"><span>Điểm của bạn: <b id="scoreNum">0 / 20</b></span><button type="button" class="btn" id="resetBtn">Làm lại</button></div>
+  </section>
+
+  <section id="tom-tat">
+    <div class="sec-n">Phần 9</div>
+    <h2>Tóm tắt</h2>
+    <div class="sum"><div><b>Dùng khi</b>Kéo dài đến nay, vừa dừng còn dấu vết, lặp lại gần đây, hỏi bao lâu.</div><div><b>Khẳng định</b>have / has been + V ing</div><div><b>So với hiện tại hoàn thành</b>Hoạt động, thời gian (tiếp diễn) và kết quả, số lượng (hoàn thành)</div><div><b>Bị động</b>has been being + V3, hầu như không dùng</div><div><b>Cảnh giác</b>Không nói I am learning … for five years. Không dùng ing với know.</div></div>
+    <div class="note"><b>Tự luyện thêm</b>Trả lời 4 câu hỏi bằng câu đầy đủ: How long have you been studying English? How long have you been living in your city? What have you been doing lately? What have you been watching recently?</div>
+    <div class="lessonnav"><a class="pill" href="qua-khu-hoan-thanh.html">← Bài 8: Quá khứ hoàn thành</a><a class="pill" href="qua-khu-hoan-thanh-tiep-dien.html">Bài 10: Quá khứ hoàn thành tiếp diễn →</a></div>
+    <h3 style="margin-top:32px;font-size:16px">Tài liệu tham khảo</h3>
+    <ul class="refs">
+      <li>Dutwin, P. (2023). <i>Easy English grammar step-by-step</i> (2nd ed.). McGraw Hill.</li>
+      <li>Nguyễn, H. H. (n.d.). <i>Practical English grammar and vocabulary mastery</i> [Tài liệu lý thuyết]. The Forum Center.</li>
+      <li>Woodward, S. W. (1997). <i>Fun with grammar: Communicative activities for the Azar grammar series</i>. Prentice Hall Regents.</li>
+    </ul>
+    <p style="font-size:14px;color:var(--muted);margin-top:6px">Nội dung được biên soạn lại và có ví dụ mới, dựa trên các tài liệu trên.</p>
+  </section>
+
+  <footer>© 2026 The Standard · Lê Hoàng · Lộ trình 12 thì, Bài 9</footer>
+</main>
+
+<script>
+(function(){
+  "use strict";
+  var $ = function(s, r){ return (r || document).querySelector(s); };
+
+  /* logo fallback */
+  var mark = $("#mark");
+  mark.querySelectorAll("img").forEach(function(img){
+    img.addEventListener("error", function(){ mark.classList.add("noimg"); });
+  });
+
+  /* theme, shared key with the site */
+  var THEME_KEY = "standardRouteMap.v1.theme";
+  var store = {
+    get: function(k){ try { return localStorage.getItem(k); } catch(e){ return null; } },
+    set: function(k, v){ try { localStorage.setItem(k, v); } catch(e){} }
+  };
+  var theme = store.get(THEME_KEY) || "auto";
+  if (["auto","light","dark"].indexOf(theme) < 0) theme = "auto";
+  var THEME_LABEL = { auto: "Giao diện: Tự động", light: "Giao diện: Sáng", dark: "Giao diện: Tối" };
+  function applyTheme(){
+    if (theme === "auto") document.documentElement.removeAttribute("data-theme");
+    else document.documentElement.setAttribute("data-theme", theme);
+    $("#themeBtn").textContent = THEME_LABEL[theme];
+  }
+  $("#themeBtn").addEventListener("click", function(){
+    theme = { auto: "light", light: "dark", dark: "auto" }[theme];
+    store.set(THEME_KEY, theme); applyTheme();
+  });
+  applyTheme();
+
+  /* table of contents highlight */
+  var links = Array.prototype.slice.call(document.querySelectorAll("#toc a"));
+  if ("IntersectionObserver" in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting){
+          links.forEach(function(a){
+            var on = a.getAttribute("href") === "#" + en.target.id;
+            a.classList.toggle("on", on);
+            if (on && a.scrollIntoView) { a.parentNode.scrollLeft = a.offsetLeft - 16; }
+          });
+        }
+      });
+    }, { rootMargin: "-40% 0px -55% 0px" });
+    document.querySelectorAll("main section").forEach(function(s){ io.observe(s); });
+  }
+
+  /* answer normalisation */
+  var CONTR = { "don't":"do not", "doesn't":"does not", "didn't":"did not", "isn't":"is not", "aren't":"are not", "wasn't":"was not", "weren't":"were not", "won't":"will not", "haven't":"have not", "hasn't":"has not", "hadn't":"had not", "can't":"cannot", "i'm":"i am", "it's":"it is", "he's":"he is", "she's":"she is", "they're":"they are", "we're":"we are", "you're":"you are", "i'll":"i will", "you'll":"you will", "he'll":"he will", "she'll":"she will", "we'll":"we will", "they'll":"they will", "it'll":"it will", "i've":"i have", "you've":"you have", "we've":"we have", "they've":"they have", "i'd":"i had" };
+  function norm(s){
+    s = (s || "").toLowerCase().replace(/[‘’ʼ]/g, "'").replace(/\s+/g, " ").trim();
+    s = s.replace(/[.!?]+$/, "").replace(/,/g, "").replace(/\s+/g, " ").trim();
+    s = s.split(" ").map(function(w){ return CONTR[w] || w; }).join(" ");
+    return s;
+  }
+
+  /* data */
+  var USES = [];
+  var LEVELS = [{"name": "Dễ", "badge": "b1", "title": "Chọn đáp án đúng", "items": [{"t": "mcq", "q": "I ___ for you for over an hour!", "o": ["wait", "have been waiting", "am waiting"], "a": 1, "why": "Kéo dài từ quá khứ đến bây giờ."}, {"t": "mcq", "q": "She is tired because she ___ all day.", "o": ["has been working", "works", "is worked"], "a": 0, "why": "Hoạt động kéo dài giải thích sự mệt mỏi."}, {"t": "mcq", "q": "How long ___ you been learning English?", "o": ["have", "did", "are"], "a": 0, "why": "How long + have + S + been + V ing."}, {"t": "mcq", "q": "I ___ three cups of coffee today.", "o": ["have been drinking", "have drunk", "drink"], "a": 1, "why": "Có số lượng: hiện tại hoàn thành."}, {"t": "mcq", "q": "Which sentence sounds most natural?", "o": ["The bridge has been being repaired for months.", "They have been repairing the bridge for months.", "The bridge has repairing for months."], "a": 1, "why": "Câu chủ động tự nhiên hơn."}]}, {"name": "Dễ", "badge": "b1", "title": "Nối câu với cách dùng", "uses": ["Kéo dài đến hiện tại", "Vừa dừng, còn dấu vết", "Lặp lại gần đây", "Hỏi bao lâu"], "items": [{"t": "match", "q": "We have been living here since 2019.", "a": 0, "why": "Since 2019 đến nay."}, {"t": "match", "q": "Your hands are dirty. Have you been gardening?", "a": 1, "why": "Tay bẩn là dấu vết."}, {"t": "match", "q": "I've been eating out a lot lately.", "a": 2, "why": "Lately: việc lặp lại gần đây."}, {"t": "match", "q": "How long has she been teaching?", "a": 3, "why": "Câu hỏi How long."}]}, {"name": "Trung bình", "badge": "b2", "title": "Điền dạng đúng của động từ", "items": [{"t": "fill", "q": "It ___ (rain) all morning.", "a": [["has been raining"]], "why": "All morning: kéo dài."}, {"t": "fill", "q": "They ___ (not / sleep) well recently.", "a": [["have not been sleeping"]], "why": "Phủ định: haven't been + V ing."}, {"t": "fill", "q": "How long ___ you ___ (wait)?", "a": [["have"], ["been waiting"]], "why": "How long + have + you + been + V ing."}, {"t": "fill", "q": "I ___ (know) him since primary school.", "a": [["have known"]], "why": "Know là động từ trạng thái: hiện tại hoàn thành."}, {"t": "fill", "q": "She ___ (write) emails for two hours.", "a": [["has been writing"]], "why": "Nhấn mạnh thời gian kéo dài."}, {"t": "fill", "q": "He ___ (work) here since March.", "a": [["has been working", "has worked"]], "why": "Với work, cả hai thì đều đúng."}]}, {"name": "Khó", "badge": "b3", "title": "Viết câu", "items": [{"t": "write", "q": "Sửa lỗi sai: I am learning English for five years.", "a": ["i have been learning english for five years", "i have learned english for five years", "i have learnt english for five years"], "model": "I have been learning English for five years.", "why": "For five years tính đến nay: không dùng hiện tại tiếp diễn."}, {"t": "write", "q": "Sửa lỗi sai: I have been knowing her since 2015.", "a": ["i have known her since 2015"], "model": "I have known her since 2015.", "why": "Know không dùng dạng ing."}, {"t": "write", "q": "Viết câu từ gợi ý: She / play / the piano / since / she / be / six", "a": ["she has been playing the piano since she was six", "she has played the piano since she was six"], "model": "She has been playing the piano since she was six.", "why": "Mệnh đề chính dùng hiện tại hoàn thành tiếp diễn, sau since dùng quá khứ đơn."}, {"t": "write", "q": "Viết câu hỏi cho câu trả lời: For about twenty minutes. (gợi ý: How long / you / wait)", "a": ["how long have you been waiting"], "model": "How long have you been waiting?", "why": "How long + have + you + been + waiting."}, {"t": "open", "q": "Viết một câu về một việc bạn làm liên tục gần đây, dùng lately hoặc recently.", "model": "I've been reading a lot of English news lately. / Recently I have been going to bed too late.", "check": ["Có have been hoặc has been.", "Động từ chính có ing.", "Có lately hoặc recently."]}]}];
+
+  var TOTAL = 0; LEVELS.forEach(function(l){ TOTAL += l.items.length; });
+  var score = 0, n = 0;
+  function bump(ok){ if (ok) score++; $("#scoreNum").textContent = score + " / " + TOTAL; }
+
+  function el(tag, cls, txt){ var e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; }
+  function feedback(box, ok, why, extra){
+    var f = box.querySelector(".fb") || box.appendChild(el("p", "fb"));
+    f.className = "fb " + (ok ? "ok" : "bad");
+    f.textContent = (ok ? "✓ Chính xác. " : "✗ Chưa đúng. ") + (extra || "");
+    if (why) f.appendChild(el("span", "why", why));
+  }
+  function qhead(box, text){
+    n++;
+    var qt = el("p", "qt");
+    qt.appendChild(el("span", "n", n + "."));
+    qt.appendChild(document.createTextNode(text));
+    box.appendChild(qt);
+  }
+
+  function render(){
+    var root = $("#practice"); root.innerHTML = ""; score = 0; n = 0; bump(false);
+    LEVELS.forEach(function(lv){
+      var wrap = el("div", "lvl");
+      var h = el("div", "lvl-h"); h.appendChild(el("span", "badge " + lv.badge, lv.name)); h.appendChild(el("h3", null, lv.title));
+      wrap.appendChild(h);
+      lv.items.forEach(function(it){
+        var box = el("div", "q"); qhead(box, it.q);
+        if (it.t === "mcq"){
+          var opts = el("div", "opts");
+          it.o.forEach(function(o, i){
+            var b = el("button", "opt", o); b.type = "button";
+            b.addEventListener("click", function(){
+              var all = opts.querySelectorAll("button");
+              all.forEach(function(x){ x.disabled = true; });
+              all[it.a].classList.add("ok");
+              if (i !== it.a) b.classList.add("bad");
+              feedback(box, i === it.a, it.why, i === it.a ? "" : "Đáp án: " + it.o[it.a] + ".");
+              bump(i === it.a);
+            });
+            opts.appendChild(b);
+          });
+          box.appendChild(opts);
+        } else if (it.t === "match"){
+          var row = el("div", "inrow");
+          var sel = el("select", "inp"); sel.setAttribute("aria-label", "Chọn cách dùng");
+          sel.appendChild(new Option("Chọn cách dùng…", ""));
+          (lv.uses || USES).forEach(function(u, i){ sel.appendChild(new Option(u, String(i))); });
+          sel.addEventListener("change", function(){
+            if (sel.value === "") return;
+            var ok = Number(sel.value) === it.a; sel.disabled = true;
+            sel.classList.add(ok ? "ok" : "bad");
+            feedback(box, ok, it.why, ok ? "" : "Đáp án: " + (lv.uses || USES)[it.a] + ".");
+            bump(ok);
+          });
+          row.appendChild(sel); box.appendChild(row);
+        } else if (it.t === "fill" || it.t === "write"){
+          var r = el("div", "inrow"), inputs = [];
+          var count = it.t === "fill" ? it.a.length : 1;
+          for (var k = 0; k < count; k++){
+            var inp = el("input", "inp" + (it.t === "fill" && count > 1 ? " sm" : ""));
+            inp.type = "text"; inp.autocomplete = "off"; inp.spellcheck = false;
+            inp.setAttribute("autocapitalize", "off");
+            inp.setAttribute("aria-label", count > 1 ? "Chỗ trống " + (k + 1) : "Câu trả lời");
+            inp.placeholder = it.t === "write" ? "Viết câu của bạn" : (count > 1 ? "Chỗ trống " + (k + 1) : "Đáp án");
+            inputs.push(inp); r.appendChild(inp);
+          }
+          var btn = el("button", "btn", "Kiểm tra"); btn.type = "button";
+          var check = function(){
+            if (inputs.some(function(x){ return !x.value.trim(); })) { feedback(box, false, null, "Hãy điền đủ chỗ trống trước khi kiểm tra."); return; }
+            var ok;
+            if (it.t === "fill") ok = inputs.every(function(x, j){ return it.a[j].map(norm).indexOf(norm(x.value)) >= 0; });
+            else ok = it.a.map(norm).indexOf(norm(inputs[0].value)) >= 0;
+            inputs.forEach(function(x){ x.disabled = true; x.classList.add(ok ? "ok" : "bad"); });
+            btn.disabled = true;
+            var ans = it.t === "fill" ? it.a.map(function(v){ return v[0]; }).join(" … ") : it.model;
+            feedback(box, ok, it.why, ok ? "" : "Đáp án gợi ý: " + ans);
+            bump(ok);
+          };
+          btn.addEventListener("click", check);
+          inputs.forEach(function(x){ x.addEventListener("keydown", function(e){ if (e.key === "Enter") check(); }); });
+          r.appendChild(btn); box.appendChild(r);
+        } else if (it.t === "open"){
+          var r2 = el("div", "inrow");
+          var inp2 = el("input", "inp"); inp2.type = "text"; inp2.placeholder = "Viết câu của bạn"; inp2.setAttribute("aria-label", "Câu của bạn");
+          var b2 = el("button", "btn ghost", "Xem câu mẫu và tự chấm"); b2.type = "button";
+          r2.appendChild(inp2); r2.appendChild(b2); box.appendChild(r2);
+          var panel = el("div"); panel.hidden = true;
+          panel.appendChild(el("p", "fb", "Câu mẫu: " + it.model));
+          panel.appendChild(el("p", "fb", "Tự kiểm tra câu của bạn:"));
+          var ul = el("ul", "checklist"); it.check.forEach(function(c){ ul.appendChild(el("li", null, c)); }); panel.appendChild(ul);
+          var r3 = el("div", "inrow");
+          var yes = el("button", "btn", "Câu của tôi đạt cả 3 ý"), no = el("button", "btn ghost", "Chưa đạt"); yes.type = no.type = "button";
+          var done = function(ok){ yes.disabled = no.disabled = true; inp2.disabled = true; bump(ok); r3.appendChild(el("span", "fb " + (ok ? "ok" : "bad"), ok ? "✓ Tốt lắm." : "Hãy sửa lại câu theo 3 ý trên.")); };
+          yes.addEventListener("click", function(){ done(true); });
+          no.addEventListener("click", function(){ done(false); });
+          r3.appendChild(yes); r3.appendChild(no); panel.appendChild(r3);
+          b2.addEventListener("click", function(){ panel.hidden = false; b2.disabled = true; });
+          box.appendChild(panel);
+        }
+        wrap.appendChild(box);
+      });
+      root.appendChild(wrap);
+    });
+  }
+  $("#resetBtn").addEventListener("click", function(){ render(); $("#luyen-tap").scrollIntoView(); });
+  render();
+})();
+</script>
+</body>
+</html>
