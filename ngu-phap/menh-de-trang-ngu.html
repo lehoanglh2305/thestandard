@@ -1,0 +1,498 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mệnh đề trạng ngữ · The Standard</title>
+<meta name="description" content="Ngữ pháp nâng cao, bài 6 của The Standard: mệnh đề trạng ngữ, có sơ đồ, lỗi người Việt hay mắc và bài tập tự chấm.">
+<meta name="theme-color" content="#f4e6cf" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#2a1813" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<style>
+@font-face{font-family:"Barlow";src:url(../fonts/barlow-400.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Barlow";src:url(../fonts/barlow-600.woff2) format("woff2");font-weight:500 700;font-style:normal;font-display:swap}
+@font-face{font-family:"Barlow Condensed";src:url(../fonts/barlow-condensed-700.woff2) format("woff2");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"Barlow Condensed";src:url(../fonts/barlow-condensed-800.woff2) format("woff2");font-weight:800;font-style:normal;font-display:swap}
+
+/* The Standard site palette: cocoa, cream and cobalt, with a yellow accent */
+:root{
+  --coral:#1f5bb5; --coral-text:#1f5bb5; --coral-fill:#1f5bb5; --coral-soft:rgba(31,91,181,.12);
+  --teal:#7a5648; --teal-text:#7a5648; --teal-soft:rgba(122,86,72,.14);
+  --amber:#ffd23f; --amber-soft:rgba(255,210,63,.22);
+  --ink:#4b2a22; --body-strong:#4b2a22; --body:#4b2a22; --muted:#6b4a3e;
+  --canvas:#f4e6cf; --surface-soft:#efdcbf; --surface-card:#fffaf2; --cream-strong:#ead6b6;
+  --hairline:#d9c3a3; --hairline-soft:#e4cfae;
+  --on-primary:#fffaf2; --ok-text:#2e6b1f; --ok-soft:rgba(46,107,31,.12); --err-text:#b3261e; --err-soft:rgba(179,38,30,.09);
+  --sans:Barlow,Arial,sans-serif; --display:"Barlow Condensed","Arial Narrow",sans-serif;
+  --ease:cubic-bezier(.2,0,0,1);
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]){
+  --coral:#9dbdf2; --coral-text:#9dbdf2; --coral-fill:#9dbdf2; --coral-soft:rgba(157,189,242,.16); --on-primary:#2a1813;
+  --teal:#d9c3a3; --teal-text:#d9c3a3; --teal-soft:rgba(217,195,163,.14);
+  --ink:#f4e6cf; --body-strong:#f4e6cf; --body:#ecdcc4; --muted:#d9c3a3;
+  --canvas:#2a1813; --surface-soft:#43281f; --surface-card:#3a221b; --cream-strong:#4f3027;
+  --hairline:#6b4a3e; --hairline-soft:#4f3027; --ok-text:#a6dc87; --ok-soft:rgba(143,208,106,.16); --err-text:#f2a39b; --err-soft:rgba(242,163,155,.16);
+  color-scheme:dark;
+} }
+:root[data-theme="dark"]{
+  --coral:#9dbdf2; --coral-text:#9dbdf2; --coral-fill:#9dbdf2; --coral-soft:rgba(157,189,242,.16); --on-primary:#2a1813;
+  --teal:#d9c3a3; --teal-text:#d9c3a3; --teal-soft:rgba(217,195,163,.14);
+  --ink:#f4e6cf; --body-strong:#f4e6cf; --body:#ecdcc4; --muted:#d9c3a3;
+  --canvas:#2a1813; --surface-soft:#43281f; --surface-card:#3a221b; --cream-strong:#4f3027;
+  --hairline:#6b4a3e; --hairline-soft:#4f3027; --ok-text:#a6dc87; --ok-soft:rgba(143,208,106,.16); --err-text:#f2a39b; --err-soft:rgba(242,163,155,.16);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth; scroll-padding-top:120px}
+body{margin:0; background:var(--canvas); color:var(--body); font-family:var(--sans); font-size:17px; line-height:1.65; -webkit-font-smoothing:antialiased}
+h1,h2{font-family:var(--display); font-weight:800; text-transform:uppercase; letter-spacing:.2px}
+h1,h2,h3{ color:var(--ink); margin:0; line-height:1.25; text-wrap:balance}
+p{margin:0; text-wrap:pretty}
+button,input,select{font:inherit; color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:none; box-shadow:0 0 0 3px rgba(31,91,181,.4); border-radius:8px}
+.en{font-style:italic; color:var(--body-strong)}
+.hl{color:var(--coral-text); font-weight:700}
+.tl{color:var(--teal-text); font-weight:700}
+
+/* top bar */
+.top{position:sticky; top:0; z-index:10; background:var(--canvas); border-bottom:1px solid var(--hairline-soft)}
+.top-in{max-width:880px; margin:0 auto; padding:12px 16px; display:flex; align-items:center; justify-content:space-between; gap:12px}
+.mark{display:flex; align-items:center; text-decoration:none; color:var(--ink); font-weight:700; font-size:18px; min-width:0}
+.mark img{height:22px; width:auto; display:block}
+.mark .dark{display:none}
+:root[data-theme="dark"] .mark .light{display:none} :root[data-theme="dark"] .mark .dark{display:block}
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .mark .light{display:none} :root:not([data-theme="light"]) .mark .dark{display:block} }
+.mark .txt{display:none}
+.mark.noimg img{display:none!important} .mark.noimg .txt{display:inline}
+.tools{display:flex; gap:8px; align-items:center; flex:none}
+.pill{display:inline-flex; align-items:center; gap:6px; border:0; background:var(--cream-strong); color:var(--ink); border-radius:999px; padding:8px 14px; font-size:14px; font-weight:600; text-decoration:none; white-space:nowrap}
+.toc{max-width:880px; margin:0 auto; padding:0 16px 10px; display:flex; gap:6px; overflow-x:auto; scrollbar-width:none}
+.toc::-webkit-scrollbar{display:none}
+.toc a{flex:none; font-size:13px; font-weight:600; color:var(--muted); text-decoration:none; padding:5px 11px; border-radius:999px; border:1px solid var(--hairline-soft)}
+.toc a.on{color:var(--on-primary); background:var(--coral-fill); border-color:var(--coral-fill)}
+
+.wrap{max-width:880px; margin:0 auto; padding:0 16px 80px}
+
+/* hero */
+.hero{padding:40px 0 28px}
+.crumb{font-size:13px; font-weight:600; letter-spacing:1.2px; text-transform:uppercase; color:var(--muted)}
+.crumb a{color:inherit}
+.hero h1{font-size:clamp(40px,7vw,64px); margin-top:10px; line-height:1.05}
+.hero h1 small{display:block; font-family:var(--sans); text-transform:none; font-size:.42em; font-weight:600; color:var(--coral-text); letter-spacing:0; margin-top:6px}
+.lede{font-size:19px; color:var(--body-strong); margin-top:14px; max-width:62ch}
+.meta{display:flex; flex-wrap:wrap; gap:8px; margin-top:18px}
+.tag{font-size:13px; font-weight:600; padding:5px 12px; border-radius:999px; background:var(--surface-card); border:1px solid var(--hairline-soft); color:var(--body-strong)}
+.goals{margin-top:22px; background:var(--surface-card); border:1px solid var(--hairline-soft); border-radius:16px; padding:18px 20px}
+.goals h2{font-size:15px; text-transform:uppercase; letter-spacing:1.2px; color:var(--muted)}
+.goals ul{margin:10px 0 0; padding-left:20px}
+.goals li{margin:4px 0}
+
+/* sections */
+section{padding:40px 0 8px; border-top:1px solid var(--hairline-soft)}
+.sec-n{font-size:13px; font-weight:700; color:var(--coral-text); letter-spacing:1.2px; text-transform:uppercase}
+section > h2{font-size:clamp(25px,4vw,32px); margin-top:6px}
+.intro{margin-top:12px; max-width:66ch}
+.card{background:var(--surface-card); border:1px solid var(--hairline-soft); border-radius:16px; padding:18px 20px; margin-top:16px}
+.card h3{font-size:18px}
+.grid2{display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,330px),1fr)); gap:14px; margin-top:16px}
+.grid2 .card{margin-top:0}
+.ex{margin:8px 0 0; padding-left:0; list-style:none}
+.ex li{padding:6px 0 6px 14px; border-left:3px solid var(--hairline); margin:6px 0}
+.ex li .vi{display:block; font-size:15px; color:var(--muted)}
+.note{margin-top:16px; border-radius:14px; padding:14px 18px; background:var(--amber-soft); border:1px solid rgba(201,160,30,.5); color:var(--body-strong)}
+.note > b:first-child{display:block; font-size:13px; letter-spacing:1px; text-transform:uppercase; color:var(--ink); margin-bottom:4px}
+.note.vn{background:var(--coral-soft); border-color:rgba(31,91,181,.35)}
+.note.adv{background:var(--teal-soft); border-color:rgba(122,86,72,.35)}
+
+/* timeline illustrations */
+.tlc{background:var(--surface-card); border:1px solid var(--hairline-soft); border-radius:16px; padding:14px 16px 16px}
+.tlc svg{display:block; width:100%; max-width:420px; height:auto; margin:0 auto}
+.tlc h3{font-size:17px; margin-top:6px}
+.tlc p{font-size:15.5px; margin-top:4px}
+.ax{stroke:var(--muted); stroke-width:2; fill:none}
+.axh{fill:var(--muted)}
+.now{stroke:var(--coral); stroke-width:2; stroke-dasharray:4 4}
+.lbl{fill:var(--muted); font:600 12px var(--sans)}
+.lbln{fill:var(--coral-text); font:700 12px var(--sans)}
+.xm{stroke:var(--coral); stroke-width:3; stroke-linecap:round}
+.band{fill:var(--teal); opacity:.35}
+.bandc{fill:var(--amber); opacity:.55}
+.dot{fill:var(--teal-text)}
+.dtxt{fill:var(--teal-text); font:700 12px var(--sans)}
+
+/* week calendar */
+.week{display:grid; grid-template-columns:repeat(7,1fr); gap:6px; margin-top:12px}
+.day{border:1px solid var(--hairline-soft); border-radius:10px; padding:8px 2px; text-align:center; font-size:13px; font-weight:600; color:var(--muted); background:var(--canvas)}
+.day i{display:block; font-style:normal; font-size:18px; height:24px; line-height:24px; color:var(--coral-text)}
+.day.on{background:var(--coral-soft); border-color:rgba(31,91,181,.45); color:var(--ink)}
+
+/* formula tables */
+.ftab{width:100%; border-collapse:collapse; margin-top:10px; font-size:15.5px}
+.ftab th,.ftab td{text-align:left; padding:9px 10px; border-bottom:1px solid var(--hairline-soft); vertical-align:top}
+.ftab th{font-size:13px; text-transform:uppercase; letter-spacing:.8px; color:var(--muted); font-weight:700}
+.ftab td:first-child{font-weight:700; color:var(--ink); white-space:nowrap}
+.formula{display:inline-block; font-weight:700; color:var(--ink); background:var(--cream-strong); padding:2px 8px; border-radius:6px}
+.scroll{overflow-x:auto}
+
+/* frequency bars */
+.freq{margin-top:12px; display:grid; gap:7px}
+.fr{display:grid; grid-template-columns:96px 1fr 44px; align-items:center; gap:10px; font-size:15px}
+.fr b{color:var(--ink)}
+.fr .bar{height:12px; border-radius:6px; background:var(--cream-strong); overflow:hidden}
+.fr .bar i{display:block; height:100%; background:var(--coral); border-radius:6px}
+.fr span{font-size:13px; color:var(--muted); text-align:right}
+
+/* passive diagram */
+.pd{display:grid; gap:10px; margin-top:12px}
+.prow{display:flex; flex-wrap:wrap; gap:8px; align-items:center}
+.prow .lab{width:84px; font-size:13px; font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:.8px}
+.chip{padding:6px 12px; border-radius:10px; font-weight:700; font-size:15.5px; border:1px solid transparent}
+.c-s{background:var(--teal-soft); border-color:rgba(122,86,72,.45); color:var(--teal-text)}
+.c-v{background:var(--cream-strong); color:var(--ink)}
+.c-o{background:var(--coral-soft); border-color:rgba(31,91,181,.5); color:var(--coral-text)}
+.c-a{background:transparent; border:1px dashed var(--hairline); color:var(--muted)}
+.parr{font-size:14px; color:var(--muted); padding-left:92px}
+
+/* mistakes */
+.mist{display:grid; gap:10px; margin-top:16px}
+.mi{background:var(--surface-card); border:1px solid var(--hairline-soft); border-radius:14px; padding:12px 16px; display:grid; gap:4px}
+.mi .w{color:var(--err-text); text-decoration:line-through; text-decoration-thickness:1.5px}
+.mi .w::before{content:"✗  "; text-decoration:none; display:inline-block}
+.mi .r{color:var(--ok-text); font-weight:700}
+.mi .r::before{content:"✓  "}
+.mi .y{font-size:15px; color:var(--muted)}
+
+/* compare */
+.cmp td,.cmp th{width:50%}
+
+/* practice */
+.lvl{margin-top:22px}
+.lvl-h{display:flex; align-items:center; gap:10px; flex-wrap:wrap}
+.lvl-h h3{font-size:20px}
+.badge{font-size:12px; font-weight:700; letter-spacing:1px; text-transform:uppercase; padding:4px 10px; border-radius:999px}
+.b1{background:var(--teal-soft); color:var(--teal-text)} .b2{background:var(--amber-soft); color:var(--body-strong)} .b3{background:var(--coral-soft); color:var(--coral-text)}
+.q{background:var(--surface-card); border:1px solid var(--hairline-soft); border-radius:14px; padding:14px 16px; margin-top:10px}
+.q .qt{font-weight:600; color:var(--ink)}
+.q .qt .n{color:var(--coral-text); margin-right:6px}
+.opts{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px}
+.opt{border:1px solid var(--hairline); background:var(--canvas); border-radius:10px; padding:8px 14px; font-weight:600; min-height:42px}
+.opt:hover{border-color:var(--coral)}
+.opt.ok{background:var(--ok-soft); border-color:var(--ok-text); color:var(--ok-text)}
+.opt.bad{background:var(--err-soft); border-color:var(--err-text); color:var(--err-text)}
+.opt:disabled{cursor:default}
+.inrow{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; align-items:center}
+.inp{flex:1 1 220px; min-width:0; border:1px solid var(--hairline); background:var(--canvas); border-radius:10px; padding:9px 12px; font-size:16px}
+.inp.sm{flex:0 1 150px}
+.inp.ok{border-color:var(--ok-text); background:var(--ok-soft)}
+.inp.bad{border-color:var(--err-text); background:var(--err-soft)}
+select.inp{flex:1 1 200px}
+.btn{border:1px solid var(--coral-fill); background:var(--coral-fill); color:var(--on-primary); border-radius:10px; padding:9px 16px; font-weight:600; font-size:15px; min-height:42px}
+.btn.ghost{background:transparent; color:var(--coral-text)}
+.fb{margin-top:8px; font-size:15px}
+.fb.ok{color:var(--ok-text)} .fb.bad{color:var(--err-text)}
+.fb .why{display:block; color:var(--muted)}
+.score{position:sticky; bottom:12px; z-index:5; margin-top:24px; display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; background:var(--ink); color:var(--canvas); border-radius:14px; padding:12px 16px}
+.score b{font-size:20px}
+.score .btn{background:var(--canvas); color:var(--ink); border-color:var(--canvas)}
+.checklist{margin:8px 0 0; padding-left:20px; font-size:15px}
+
+/* summary */
+.sum{display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:10px; margin-top:16px}
+.sum div{background:var(--surface-card); border:1px solid var(--hairline-soft); border-radius:14px; padding:14px 16px}
+.sum b{display:block; color:var(--coral-text); font-size:13px; text-transform:uppercase; letter-spacing:1px}
+.next{display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; margin-top:24px}
+.next .pill[aria-disabled="true"]{opacity:.55; cursor:not-allowed}
+.refs{font-size:14.5px; color:var(--muted); margin-top:12px; padding-left:0; list-style:none}
+.refs li{padding-left:28px; text-indent:-28px; margin:6px 0}
+footer{border-top:1px solid var(--hairline-soft); margin-top:48px; padding-top:18px; font-size:14px; color:var(--muted)}
+
+@media (max-width:560px){
+  body{font-size:16px}
+  .hero{padding-top:28px}
+  .prow .lab{width:100%}
+  .parr{padding-left:0}
+  .fr{grid-template-columns:84px 1fr 40px}
+  .day{font-size:11px}
+  .pill.hide-sm{display:none}
+}
+@media print{ .top,.score{display:none} section{break-inside:avoid-page} }
+
+.zig{fill:none; stroke:var(--coral); stroke-width:2.6; stroke-linejoin:round}
+.tk{stroke:var(--ink); stroke-width:2}
+.tkt{fill:var(--ink); font:600 12px var(--sans)}
+.arc{fill:none; stroke:var(--muted); stroke-width:1.8; stroke-dasharray:4 4}
+.arch{fill:var(--muted)}
+.rare{font-size:13px; font-weight:700; letter-spacing:.6px; text-transform:uppercase; color:var(--muted); border:1px dashed var(--hairline); border-radius:999px; padding:2px 10px; margin-left:6px; vertical-align:middle}
+.ftab td:first-child{white-space:normal}
+.ftab.cmp td:first-child{font-weight:400; white-space:normal; color:var(--body-strong)}
+.ftab.cmp td{width:50%}
+.lessonnav{display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; margin-top:24px}
+
+.zig{fill:none; stroke:var(--coral); stroke-width:2.6; stroke-linejoin:round}
+.tk{stroke:var(--ink); stroke-width:2}
+.tkt{fill:var(--ink); font:600 12px var(--sans)}
+.arc{fill:none; stroke:var(--muted); stroke-width:1.8; stroke-dasharray:4 4}
+.arch{fill:var(--muted)}
+.rare{font-size:13px; font-weight:700; letter-spacing:.6px; text-transform:uppercase; color:var(--muted); border:1px dashed var(--hairline); border-radius:999px; padding:2px 10px; margin-left:6px; vertical-align:middle}
+.ftab td:first-child{white-space:normal}
+.ftab.cmp td:first-child{font-weight:400; white-space:normal; color:var(--body-strong)}
+.ftab.cmp td{width:50%}
+.lessonnav{display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; margin-top:24px}
+
+.bars{display:grid; gap:8px; margin-top:12px}
+.br{display:grid; grid-template-columns:120px 1fr 52px; align-items:center; gap:10px; font-size:15px}
+.br b{color:var(--ink)} .br .bar{height:14px; border-radius:7px; background:var(--cream-strong); overflow:hidden} .br .bar i{display:block; height:100%; background:var(--coral); border-radius:7px} .br span{font-size:13px; color:var(--muted); text-align:right}
+.brk{color:var(--muted); font-weight:700}
+@media (max-width:560px){ .br{grid-template-columns:96px 1fr 44px} }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="top-in">
+    <a class="mark" id="mark" href="../" aria-label="The Standard, trang chủ">
+      <img class="light" src="../assets/logo-black.png" alt="The Standard" width="174" height="22">
+      <img class="dark" src="../assets/logo-white.png" alt="The Standard" width="174" height="22">
+      <span class="txt">The Standard</span>
+    </a>
+    <div class="tools">
+      <a class="pill hide-sm" href="../learning-hub.html">← Tự học</a>
+      <button type="button" class="pill" id="themeBtn" aria-label="Đổi giao diện sáng tối"></button>
+    </div>
+  </div>
+  <nav class="toc" id="toc" aria-label="Mục lục bài học">
+    <a href="#hinh-dung">1 Hình dung</a>
+    <a href="#cau-truc">2 Cấu trúc</a>
+    <a href="#cach-dung">3 Cách dùng</a>
+    <a href="#nhan-biet">4 Nhận biết</a>
+    <a href="#so-sanh">5 So sánh</a>
+    <a href="#loi-sai">6 Lỗi thường gặp</a>
+    <a href="#mo-rong">7 Mở rộng</a>
+    <a href="#luyen-tap">8 Luyện tập</a>
+    <a href="#tom-tat">9 Tóm tắt</a>
+  </nav>
+</header>
+
+<main class="wrap">
+
+  <div class="hero">
+    <div class="crumb"><a href="../learning-hub.html">Tự học</a> · Ngữ pháp nâng cao · Bài 6 / 12 · Cấp Trung cấp</div>
+    <h1>Mệnh đề trạng ngữ <small>Adverbial clauses</small></h1>
+    <p class="lede">Mệnh đề trạng ngữ cho biết <b>khi nào, vì sao, ở đâu, với điều kiện gì</b> một việc xảy ra. Ghép nó với mệnh đề chính, bạn có một câu phức, loại câu rất được coi trọng trong bài viết học thuật.</p>
+    <div class="meta">
+      <span class="tag">⏱ Khoảng 30 phút</span>
+      <span class="tag">B1 → B2</span>
+      <span class="tag">20 câu tự chấm</span>
+    </div>
+    <div class="goals"><h2>Sau bài này, bạn có thể</h2><ul><li>Nhận biết mệnh đề chính và mệnh đề phụ.</li><li>Dùng liên từ chỉ thời gian, lý do, nhượng bộ, mục đích, điều kiện.</li><li>Đặt dấu phẩy đúng.</li><li>Phân biệt <b>although</b> và <b>despite</b>, <b>because</b> và <b>because of</b>.</li></ul></div>
+  </div>
+
+  <section id="hinh-dung"><div class="sec-n">Phần 1</div><h2>Hình dung câu phức</h2><p class="intro">Mệnh đề phụ <b>không đứng một mình</b> được. Nó luôn bắt đầu bằng một liên từ và gắn vào mệnh đề chính.</p><div class="card"><h3>Hai vị trí của mệnh đề phụ</h3><div class="pd"><div class="prow"><span class="lab">Cách 1</span><span class="chip c-s">The cat sat on the mat</span><span class="chip c-a">while</span><span class="chip c-o">the dog looked out of the window.</span></div><div class="parr">↓ đảo mệnh đề phụ lên đầu thì thêm dấu phẩy</div><div class="prow"><span class="lab">Cách 2</span><span class="chip c-a">While</span><span class="chip c-o">the dog looked out of the window,</span><span class="chip c-s">the cat sat on the mat.</span></div></div></div><div class="note"><b>Chú thích màu</b>Ô màu nâu: mệnh đề chính. Ô nét đứt: liên từ. Ô màu xanh: mệnh đề phụ.</div></section>
+  <section id="cau-truc"><div class="sec-n">Phần 2</div><h2>Liên từ phụ thuộc</h2><p class="intro">Mỗi liên từ mang một nghĩa. Học theo nhóm.</p><div class="card"><h3>Liên từ theo nhóm</h3><div class="scroll"><table class="ftab "><tr><th>Nhóm</th><th>Liên từ</th><th>Ví dụ</th></tr><tr><td>Thời gian</td><td>when, while, before, after, until, as soon as, once, since</td><td class="en">I'll call you as soon as I arrive.</td></tr><tr><td>Lý do</td><td>because, since, as</td><td class="en">As it was raining, we stayed in.</td></tr><tr><td>Nhượng bộ, tương phản</td><td>although, even though, while, whereas</td><td class="en">Although he was tired, he kept working.</td></tr><tr><td>Mục đích</td><td>so that, in order that</td><td class="en">Speak louder so that everyone can hear.</td></tr><tr><td>Điều kiện</td><td>if, unless, as long as, provided that</td><td class="en">You can go out as long as you finish your homework.</td></tr><tr><td>Cách thức</td><td>as, as if, as though</td><td class="en">He talks as if he knows everything.</td></tr><tr><td>Nơi chốn</td><td>where, wherever</td><td class="en">Sit wherever you like.</td></tr></table></div></div></section>
+  <section id="cach-dung"><div class="sec-n">Phần 3</div><h2>Bảy loại mệnh đề</h2><div class="grid2"><div class="card"><h3><span class="hl">1</span> Thời gian</h3><ul class="ex"><li><span class="en">After I finished work, I went to the gym.</span><span class="vi">Sau khi làm xong, tôi đi tập.</span></li></ul></div><div class="card"><h3><span class="hl">2</span> Lý do</h3><ul class="ex"><li><span class="en">I stayed at home because I was sick.</span><span class="vi">Tôi ở nhà vì bị ốm.</span></li></ul></div><div class="card"><h3><span class="hl">3</span> Nhượng bộ</h3><ul class="ex"><li><span class="en">Even though it was expensive, she bought it.</span><span class="vi">Dù đắt, cô ấy vẫn mua.</span></li></ul></div><div class="card"><h3><span class="hl">4</span> Tương phản</h3><ul class="ex"><li><span class="en">My brother loves sport, whereas I prefer reading.</span><span class="vi">Anh tôi thích thể thao, còn tôi thích đọc.</span></li></ul></div><div class="card"><h3><span class="hl">5</span> Mục đích</h3><ul class="ex"><li><span class="en">I saved money so that I could travel.</span><span class="vi">Tôi để dành tiền để có thể đi du lịch.</span></li></ul></div><div class="card"><h3><span class="hl">6</span> Điều kiện với unless</h3><ul class="ex"><li><span class="en">You won't pass unless you study.</span><span class="vi">Bạn sẽ không đậu nếu không học.</span></li></ul></div></div></section>
+  <section id="nhan-biet"><div class="sec-n">Phần 4</div><h2>Quy tắc dấu phẩy</h2><p class="intro">Quy tắc dấu phẩy, đúng như tài liệu NSW mô tả.</p><div class="grid2"><div class="card"><h3>Mệnh đề phụ đứng đầu</h3><ul class="ex"><li><span class="en">Because it was late, we took a taxi.</span><span class="vi">Có dấu phẩy sau mệnh đề phụ.</span></li></ul></div><div class="card"><h3>Mệnh đề phụ đứng sau</h3><ul class="ex"><li><span class="en">We took a taxi because it was late.</span><span class="vi">Thường không có dấu phẩy. Ngoại lệ: whereas, although ở giữa câu thường có dấu phẩy phía trước.</span></li></ul></div></div></section>
+  <section id="so-sanh"><div class="sec-n">Phần 5</div><h2>Dễ nhầm</h2><p class="intro">Liên từ đi với <b>mệnh đề</b> (có chủ ngữ và động từ). Giới từ đi với <b>danh từ</b> hoặc <b>V ing</b>.</p><div class="card"><h3>Đặt cạnh nhau</h3><div class="scroll"><table class="ftab cmp"><tr><th>Liên từ + mệnh đề</th><th>Giới từ + danh từ</th></tr><tr><td><span class="en">Although it rained, we went out.</span></td><td><span class="en">Despite the rain, we went out.</span> / <span class="en">In spite of the rain…</span></td></tr><tr><td><span class="en">Because the traffic was heavy, I was late.</span></td><td><span class="en">Because of the heavy traffic, I was late.</span></td></tr><tr><td><span class="en">While I was cooking, …</span></td><td><span class="en">During the lesson, …</span></td></tr></table></div></div></section>
+  <section id="loi-sai"><div class="sec-n">Phần 6</div><h2>Lỗi người Việt hay mắc</h2><div class="mist"><div class="mi"><span class="w en">Although it was late but we kept working.</span><span class="r en">Although it was late, we kept working.</span><span class="y">Không dùng although và but cùng lúc. Tiếng Việt nói tuy… nhưng, tiếng Anh chỉ chọn một.</span></div><div class="mi"><span class="w en">Because I was tired so I went to bed.</span><span class="r en">Because I was tired, I went to bed.</span><span class="y">Không dùng because và so cùng lúc.</span></div><div class="mi"><span class="w en">Despite it rained, we went out.</span><span class="r en">Although it rained, we went out.</span><span class="y">Despite đi với danh từ, không đi với mệnh đề.</span></div><div class="mi"><span class="w en">Because I was tired.</span><span class="r en">I went to bed early because I was tired.</span><span class="y">Mệnh đề phụ không đứng một mình.</span></div><div class="mi"><span class="w en">I'll call you when I will arrive.</span><span class="r en">I'll call you when I arrive.</span><span class="y">Sau liên từ thời gian, dùng hiện tại đơn cho tương lai.</span></div></div></section>
+  <section id="mo-rong"><div class="sec-n">Phần 7</div><h2>Rút gọn mệnh đề trạng ngữ</h2><p class="intro">Khi hai mệnh đề cùng chủ ngữ, có thể rút gọn mệnh đề phụ.</p><div class="grid2"><div class="card"><h3>Rút gọn bằng V ing</h3><ul class="ex"><li><span class="en">After I finished work, I went home.</span><span class="vi">→ After finishing work, I went home.</span></li><li><span class="en">While she was walking home, she met Lan.</span><span class="vi">→ While walking home, she met Lan.</span></li></ul></div><div class="card"><h3>Rút gọn bằng Having + V3</h3><ul class="ex"><li><span class="en">Because I had finished my work, I went home.</span><span class="vi">→ Having finished my work, I went home.</span></li></ul><p style="margin-top:6px;font-size:15px">Hai mệnh đề phải <b>cùng chủ ngữ</b>, nếu không câu sẽ sai nghĩa.</p></div></div></section>
+
+  <section id="luyen-tap">
+    <div class="sec-n">Phần 8</div>
+    <h2>Luyện tập tự chấm</h2>
+    <p class="intro">Làm theo thứ tự từ Dễ đến Khó. Mỗi câu có giải thích sau khi bạn trả lời.</p>
+    <div id="practice"></div>
+    <div class="score" id="scoreBar"><span>Điểm của bạn: <b id="scoreNum">0 / 20</b></span><button type="button" class="btn" id="resetBtn">Làm lại</button></div>
+  </section>
+
+  <section id="tom-tat">
+    <div class="sec-n">Phần 9</div>
+    <h2>Tóm tắt</h2>
+    <div class="sum"><div><b>Câu phức</b>Mệnh đề chính + liên từ + mệnh đề phụ</div><div><b>Dấu phẩy</b>Mệnh đề phụ đứng đầu thì có dấu phẩy</div><div><b>Liên từ và giới từ</b>although, because + mệnh đề; despite, because of + danh từ</div><div><b>Không ghép</b>although với but; because với so</div><div><b>Rút gọn</b>After + V ing; Having + V3 (cùng chủ ngữ)</div></div>
+    <div class="note"><b>Tự luyện thêm</b>Viết một đoạn 5 câu về ngày hôm qua, mỗi câu dùng một liên từ khác nhau: when, because, although, so that, unless.</div>
+    <div class="lessonnav"><a class="pill" href="menh-de-quan-he.html">← Bài 5: Mệnh đề quan hệ</a><a class="pill" href="cau-dieu-kien.html">Bài 7: Câu điều kiện →</a></div>
+    <h3 style="margin-top:32px;font-size:16px">Tài liệu tham khảo</h3>
+    <ul class="refs">
+      <li>Forsyth, C. (n.d.). <i>Instagrammar PRO: English grammar through examples, C1/C2</i>. Archer Editions.</li>
+      <li>NSW Department of Education. (n.d.). <i>Complex sentences with an adverbial clause</i> [Fact sheet].</li>
+      <li>Nguyễn, H. H. (n.d.). <i>Practical English grammar and vocabulary mastery</i> [Tài liệu lý thuyết]. The Forum Center.</li>
+      <li>Woodward, S. W. (1997). <i>Fun with grammar: Communicative activities for the Azar grammar series</i>. Prentice Hall Regents.</li>
+    </ul>
+    <p style="font-size:14px;color:var(--muted);margin-top:6px">Nội dung được biên soạn lại và có ví dụ mới, dựa trên các tài liệu trên.</p>
+  </section>
+
+  <footer>© 2026 The Standard · Lê Hoàng · Ngữ pháp nâng cao, Bài 6</footer>
+</main>
+
+<script>
+(function(){
+  "use strict";
+  var $ = function(s, r){ return (r || document).querySelector(s); };
+
+  /* logo fallback */
+  var mark = $("#mark");
+  mark.querySelectorAll("img").forEach(function(img){
+    img.addEventListener("error", function(){ mark.classList.add("noimg"); });
+  });
+
+  /* theme, shared key with the site */
+  var THEME_KEY = "standardRouteMap.v1.theme";
+  var store = {
+    get: function(k){ try { return localStorage.getItem(k); } catch(e){ return null; } },
+    set: function(k, v){ try { localStorage.setItem(k, v); } catch(e){} }
+  };
+  var theme = store.get(THEME_KEY) || "auto";
+  if (["auto","light","dark"].indexOf(theme) < 0) theme = "auto";
+  var THEME_LABEL = { auto: "Giao diện: Tự động", light: "Giao diện: Sáng", dark: "Giao diện: Tối" };
+  function applyTheme(){
+    if (theme === "auto") document.documentElement.removeAttribute("data-theme");
+    else document.documentElement.setAttribute("data-theme", theme);
+    $("#themeBtn").textContent = THEME_LABEL[theme];
+  }
+  $("#themeBtn").addEventListener("click", function(){
+    theme = { auto: "light", light: "dark", dark: "auto" }[theme];
+    store.set(THEME_KEY, theme); applyTheme();
+  });
+  applyTheme();
+
+  /* table of contents highlight */
+  var links = Array.prototype.slice.call(document.querySelectorAll("#toc a"));
+  if ("IntersectionObserver" in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting){
+          links.forEach(function(a){
+            var on = a.getAttribute("href") === "#" + en.target.id;
+            a.classList.toggle("on", on);
+            if (on && a.scrollIntoView) { a.parentNode.scrollLeft = a.offsetLeft - 16; }
+          });
+        }
+      });
+    }, { rootMargin: "-40% 0px -55% 0px" });
+    document.querySelectorAll("main section").forEach(function(s){ io.observe(s); });
+  }
+
+  /* answer normalisation */
+  var CONTR = { "don't":"do not", "doesn't":"does not", "didn't":"did not", "isn't":"is not", "aren't":"are not", "wasn't":"was not", "weren't":"were not", "won't":"will not", "haven't":"have not", "hasn't":"has not", "hadn't":"had not", "can't":"cannot", "i'm":"i am", "it's":"it is", "he's":"he is", "she's":"she is", "they're":"they are", "we're":"we are", "you're":"you are", "i'll":"i will", "you'll":"you will", "he'll":"he will", "she'll":"she will", "we'll":"we will", "they'll":"they will", "it'll":"it will", "i've":"i have", "you've":"you have", "we've":"we have", "they've":"they have", "i'd":"i had" };
+  function norm(s){
+    s = (s || "").toLowerCase().replace(/[‘’ʼ]/g, "'").replace(/\s+/g, " ").trim();
+    s = s.replace(/[.!?]+$/, "").replace(/,/g, "").replace(/\s+/g, " ").trim();
+    s = s.split(" ").map(function(w){ return CONTR[w] || w; }).join(" ");
+    return s;
+  }
+
+  /* data */
+  var USES = [];
+  var LEVELS = [{"name": "Dễ", "badge": "b1", "title": "Chọn đáp án đúng", "items": [{"t": "mcq", "q": "___ it was raining, we went for a walk.", "o": ["Although", "Because", "Despite"], "a": 0, "why": "Nhượng bộ + mệnh đề: although."}, {"t": "mcq", "q": "I'll wait here ___ you come back.", "o": ["until", "unless", "so that"], "a": 0, "why": "Chờ đến khi: until."}, {"t": "mcq", "q": "She was late ___ the traffic.", "o": ["because", "because of", "although"], "a": 1, "why": "Danh từ: because of."}, {"t": "mcq", "q": "Take an umbrella ___ you get wet.", "o": ["so that", "in case", "unless"], "a": 1, "why": "Phòng khi: in case."}, {"t": "mcq", "q": "You can borrow my car ___ you drive carefully.", "o": ["as long as", "although", "whereas"], "a": 0, "why": "Với điều kiện: as long as."}]}, {"name": "Dễ", "badge": "b1", "title": "Nối câu với loại mệnh đề", "uses": ["Thời gian", "Lý do", "Nhượng bộ", "Mục đích"], "items": [{"t": "match", "q": "As soon as the bell rang, the students left.", "a": 0, "why": "As soon as."}, {"t": "match", "q": "Since you're here, you can help me.", "a": 1, "why": "Since mang nghĩa vì."}, {"t": "match", "q": "Even though she was ill, she came to class.", "a": 2, "why": "Even though."}, {"t": "match", "q": "I study hard so that I can get a scholarship.", "a": 3, "why": "So that."}]}, {"name": "Trung bình", "badge": "b2", "title": "Điền liên từ hoặc giới từ", "items": [{"t": "fill", "q": "___ the bad weather, the flight left on time. (giới từ)", "a": [["despite", "in spite of"]], "why": "Danh từ đi sau giới từ."}, {"t": "fill", "q": "You won't get better ___ you take the medicine.", "a": [["unless"]], "why": "Nếu không: unless."}, {"t": "fill", "q": "I enjoy cooking, ___ my husband hates it.", "a": [["whereas", "while"]], "why": "Tương phản hai người."}, {"t": "fill", "q": "He speaks ___ he were the boss.", "a": [["as if", "as though"]], "why": "Cách thức: as if."}, {"t": "fill", "q": "I've lived here ___ I was born.", "a": [["since"]], "why": "Từ khi."}, {"t": "fill", "q": "___ finishing the report, she sent it to her manager.", "a": [["after"]], "why": "Rút gọn: After + V ing."}]}, {"name": "Khó", "badge": "b3", "title": "Viết câu", "items": [{"t": "write", "q": "Sửa lỗi sai: Although the test was hard but I passed.", "a": ["although the test was hard i passed", "the test was hard but i passed", "i passed although the test was hard"], "model": "Although the test was hard, I passed.", "why": "Bỏ but."}, {"t": "write", "q": "Viết lại dùng despite: Although he was injured, he finished the race.", "a": ["despite being injured he finished the race", "despite his injury he finished the race", "despite the injury he finished the race", "he finished the race despite being injured", "he finished the race despite his injury"], "model": "Despite being injured, he finished the race.", "why": "Despite + V ing hoặc danh từ."}, {"t": "write", "q": "Nối hai câu, mệnh đề phụ đứng đầu, dùng because: We cancelled the trip. The weather was terrible.", "a": ["because the weather was terrible we cancelled the trip"], "model": "Because the weather was terrible, we cancelled the trip.", "why": "Mệnh đề phụ đứng đầu, có dấu phẩy."}, {"t": "write", "q": "Rút gọn mệnh đề trạng ngữ: After she had read the letter, she started to cry.", "a": ["after reading the letter she started to cry", "having read the letter she started to cry", "after having read the letter she started to cry"], "model": "Having read the letter, she started to cry.", "why": "Cùng chủ ngữ: Having + V3 hoặc After + V ing."}, {"t": "open", "q": "Viết một câu phức về việc học tiếng Anh của bạn, dùng even though.", "model": "Even though I don't have much time, I practise English for 20 minutes every day.", "check": ["Có even though và một mệnh đề đầy đủ.", "Có mệnh đề chính.", "Nếu mệnh đề phụ đứng đầu, có dấu phẩy."]}]}];
+
+  var TOTAL = 0; LEVELS.forEach(function(l){ TOTAL += l.items.length; });
+  var score = 0, n = 0;
+  function bump(ok){ if (ok) score++; $("#scoreNum").textContent = score + " / " + TOTAL; }
+
+  function el(tag, cls, txt){ var e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; }
+  function feedback(box, ok, why, extra){
+    var f = box.querySelector(".fb") || box.appendChild(el("p", "fb"));
+    f.className = "fb " + (ok ? "ok" : "bad");
+    f.textContent = (ok ? "✓ Chính xác. " : "✗ Chưa đúng. ") + (extra || "");
+    if (why) f.appendChild(el("span", "why", why));
+  }
+  function qhead(box, text){
+    n++;
+    var qt = el("p", "qt");
+    qt.appendChild(el("span", "n", n + "."));
+    qt.appendChild(document.createTextNode(text));
+    box.appendChild(qt);
+  }
+
+  function render(){
+    var root = $("#practice"); root.innerHTML = ""; score = 0; n = 0; bump(false);
+    LEVELS.forEach(function(lv){
+      var wrap = el("div", "lvl");
+      var h = el("div", "lvl-h"); h.appendChild(el("span", "badge " + lv.badge, lv.name)); h.appendChild(el("h3", null, lv.title));
+      wrap.appendChild(h);
+      lv.items.forEach(function(it){
+        var box = el("div", "q"); qhead(box, it.q);
+        if (it.t === "mcq"){
+          var opts = el("div", "opts");
+          it.o.forEach(function(o, i){
+            var b = el("button", "opt", o); b.type = "button";
+            b.addEventListener("click", function(){
+              var all = opts.querySelectorAll("button");
+              all.forEach(function(x){ x.disabled = true; });
+              all[it.a].classList.add("ok");
+              if (i !== it.a) b.classList.add("bad");
+              feedback(box, i === it.a, it.why, i === it.a ? "" : "Đáp án: " + it.o[it.a] + ".");
+              bump(i === it.a);
+            });
+            opts.appendChild(b);
+          });
+          box.appendChild(opts);
+        } else if (it.t === "match"){
+          var row = el("div", "inrow");
+          var sel = el("select", "inp"); sel.setAttribute("aria-label", "Chọn cách dùng");
+          sel.appendChild(new Option("Chọn cách dùng…", ""));
+          (lv.uses || USES).forEach(function(u, i){ sel.appendChild(new Option(u, String(i))); });
+          sel.addEventListener("change", function(){
+            if (sel.value === "") return;
+            var ok = Number(sel.value) === it.a; sel.disabled = true;
+            sel.classList.add(ok ? "ok" : "bad");
+            feedback(box, ok, it.why, ok ? "" : "Đáp án: " + (lv.uses || USES)[it.a] + ".");
+            bump(ok);
+          });
+          row.appendChild(sel); box.appendChild(row);
+        } else if (it.t === "fill" || it.t === "write"){
+          var r = el("div", "inrow"), inputs = [];
+          var count = it.t === "fill" ? it.a.length : 1;
+          for (var k = 0; k < count; k++){
+            var inp = el("input", "inp" + (it.t === "fill" && count > 1 ? " sm" : ""));
+            inp.type = "text"; inp.autocomplete = "off"; inp.spellcheck = false;
+            inp.setAttribute("autocapitalize", "off");
+            inp.setAttribute("aria-label", count > 1 ? "Chỗ trống " + (k + 1) : "Câu trả lời");
+            inp.placeholder = it.t === "write" ? "Viết câu của bạn" : (count > 1 ? "Chỗ trống " + (k + 1) : "Đáp án");
+            inputs.push(inp); r.appendChild(inp);
+          }
+          var btn = el("button", "btn", "Kiểm tra"); btn.type = "button";
+          var check = function(){
+            if (inputs.some(function(x){ return !x.value.trim(); })) { feedback(box, false, null, "Hãy điền đủ chỗ trống trước khi kiểm tra."); return; }
+            var ok;
+            if (it.t === "fill") ok = inputs.every(function(x, j){ return it.a[j].map(norm).indexOf(norm(x.value)) >= 0; });
+            else ok = it.a.map(norm).indexOf(norm(inputs[0].value)) >= 0;
+            inputs.forEach(function(x){ x.disabled = true; x.classList.add(ok ? "ok" : "bad"); });
+            btn.disabled = true;
+            var ans = it.t === "fill" ? it.a.map(function(v){ return v[0]; }).join(" … ") : it.model;
+            feedback(box, ok, it.why, ok ? "" : "Đáp án gợi ý: " + ans);
+            bump(ok);
+          };
+          btn.addEventListener("click", check);
+          inputs.forEach(function(x){ x.addEventListener("keydown", function(e){ if (e.key === "Enter") check(); }); });
+          r.appendChild(btn); box.appendChild(r);
+        } else if (it.t === "open"){
+          var r2 = el("div", "inrow");
+          var inp2 = el("input", "inp"); inp2.type = "text"; inp2.placeholder = "Viết câu của bạn"; inp2.setAttribute("aria-label", "Câu của bạn");
+          var b2 = el("button", "btn ghost", "Xem câu mẫu và tự chấm"); b2.type = "button";
+          r2.appendChild(inp2); r2.appendChild(b2); box.appendChild(r2);
+          var panel = el("div"); panel.hidden = true;
+          panel.appendChild(el("p", "fb", "Câu mẫu: " + it.model));
+          panel.appendChild(el("p", "fb", "Tự kiểm tra câu của bạn:"));
+          var ul = el("ul", "checklist"); it.check.forEach(function(c){ ul.appendChild(el("li", null, c)); }); panel.appendChild(ul);
+          var r3 = el("div", "inrow");
+          var yes = el("button", "btn", "Câu của tôi đạt cả 3 ý"), no = el("button", "btn ghost", "Chưa đạt"); yes.type = no.type = "button";
+          var done = function(ok){ yes.disabled = no.disabled = true; inp2.disabled = true; bump(ok); r3.appendChild(el("span", "fb " + (ok ? "ok" : "bad"), ok ? "✓ Tốt lắm." : "Hãy sửa lại câu theo 3 ý trên.")); };
+          yes.addEventListener("click", function(){ done(true); });
+          no.addEventListener("click", function(){ done(false); });
+          r3.appendChild(yes); r3.appendChild(no); panel.appendChild(r3);
+          b2.addEventListener("click", function(){ panel.hidden = false; b2.disabled = true; });
+          box.appendChild(panel);
+        }
+        wrap.appendChild(box);
+      });
+      root.appendChild(wrap);
+    });
+  }
+  $("#resetBtn").addEventListener("click", function(){ render(); $("#luyen-tap").scrollIntoView(); });
+  render();
+})();
+</script>
+</body>
+</html>

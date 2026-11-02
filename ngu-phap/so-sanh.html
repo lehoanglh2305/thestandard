@@ -1,0 +1,498 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>So sánh · The Standard</title>
+<meta name="description" content="Ngữ pháp nâng cao, bài 4 của The Standard: so sánh, có sơ đồ, lỗi người Việt hay mắc và bài tập tự chấm.">
+<meta name="theme-color" content="#f4e6cf" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#2a1813" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<style>
+@font-face{font-family:"Barlow";src:url(../fonts/barlow-400.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Barlow";src:url(../fonts/barlow-600.woff2) format("woff2");font-weight:500 700;font-style:normal;font-display:swap}
+@font-face{font-family:"Barlow Condensed";src:url(../fonts/barlow-condensed-700.woff2) format("woff2");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"Barlow Condensed";src:url(../fonts/barlow-condensed-800.woff2) format("woff2");font-weight:800;font-style:normal;font-display:swap}
+
+/* The Standard site palette: cocoa, cream and cobalt, with a yellow accent */
+:root{
+  --coral:#1f5bb5; --coral-text:#1f5bb5; --coral-fill:#1f5bb5; --coral-soft:rgba(31,91,181,.12);
+  --teal:#7a5648; --teal-text:#7a5648; --teal-soft:rgba(122,86,72,.14);
+  --amber:#ffd23f; --amber-soft:rgba(255,210,63,.22);
+  --ink:#4b2a22; --body-strong:#4b2a22; --body:#4b2a22; --muted:#6b4a3e;
+  --canvas:#f4e6cf; --surface-soft:#efdcbf; --surface-card:#fffaf2; --cream-strong:#ead6b6;
+  --hairline:#d9c3a3; --hairline-soft:#e4cfae;
+  --on-primary:#fffaf2; --ok-text:#2e6b1f; --ok-soft:rgba(46,107,31,.12); --err-text:#b3261e; --err-soft:rgba(179,38,30,.09);
+  --sans:Barlow,Arial,sans-serif; --display:"Barlow Condensed","Arial Narrow",sans-serif;
+  --ease:cubic-bezier(.2,0,0,1);
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]){
+  --coral:#9dbdf2; --coral-text:#9dbdf2; --coral-fill:#9dbdf2; --coral-soft:rgba(157,189,242,.16); --on-primary:#2a1813;
+  --teal:#d9c3a3; --teal-text:#d9c3a3; --teal-soft:rgba(217,195,163,.14);
+  --ink:#f4e6cf; --body-strong:#f4e6cf; --body:#ecdcc4; --muted:#d9c3a3;
+  --canvas:#2a1813; --surface-soft:#43281f; --surface-card:#3a221b; --cream-strong:#4f3027;
+  --hairline:#6b4a3e; --hairline-soft:#4f3027; --ok-text:#a6dc87; --ok-soft:rgba(143,208,106,.16); --err-text:#f2a39b; --err-soft:rgba(242,163,155,.16);
+  color-scheme:dark;
+} }
+:root[data-theme="dark"]{
+  --coral:#9dbdf2; --coral-text:#9dbdf2; --coral-fill:#9dbdf2; --coral-soft:rgba(157,189,242,.16); --on-primary:#2a1813;
+  --teal:#d9c3a3; --teal-text:#d9c3a3; --teal-soft:rgba(217,195,163,.14);
+  --ink:#f4e6cf; --body-strong:#f4e6cf; --body:#ecdcc4; --muted:#d9c3a3;
+  --canvas:#2a1813; --surface-soft:#43281f; --surface-card:#3a221b; --cream-strong:#4f3027;
+  --hairline:#6b4a3e; --hairline-soft:#4f3027; --ok-text:#a6dc87; --ok-soft:rgba(143,208,106,.16); --err-text:#f2a39b; --err-soft:rgba(242,163,155,.16);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth; scroll-padding-top:120px}
+body{margin:0; background:var(--canvas); color:var(--body); font-family:var(--sans); font-size:17px; line-height:1.65; -webkit-font-smoothing:antialiased}
+h1,h2{font-family:var(--display); font-weight:800; text-transform:uppercase; letter-spacing:.2px}
+h1,h2,h3{ color:var(--ink); margin:0; line-height:1.25; text-wrap:balance}
+p{margin:0; text-wrap:pretty}
+button,input,select{font:inherit; color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:none; box-shadow:0 0 0 3px rgba(31,91,181,.4); border-radius:8px}
+.en{font-style:italic; color:var(--body-strong)}
+.hl{color:var(--coral-text); font-weight:700}
+.tl{color:var(--teal-text); font-weight:700}
+
+/* top bar */
+.top{position:sticky; top:0; z-index:10; background:var(--canvas); border-bottom:1px solid var(--hairline-soft)}
+.top-in{max-width:880px; margin:0 auto; padding:12px 16px; display:flex; align-items:center; justify-content:space-between; gap:12px}
+.mark{display:flex; align-items:center; text-decoration:none; color:var(--ink); font-weight:700; font-size:18px; min-width:0}
+.mark img{height:22px; width:auto; display:block}
+.mark .dark{display:none}
+:root[data-theme="dark"] .mark .light{display:none} :root[data-theme="dark"] .mark .dark{display:block}
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .mark .light{display:none} :root:not([data-theme="light"]) .mark .dark{display:block} }
+.mark .txt{display:none}
+.mark.noimg img{display:none!important} .mark.noimg .txt{display:inline}
+.tools{display:flex; gap:8px; align-items:center; flex:none}
+.pill{display:inline-flex; align-items:center; gap:6px; border:0; background:var(--cream-strong); color:var(--ink); border-radius:999px; padding:8px 14px; font-size:14px; font-weight:600; text-decoration:none; white-space:nowrap}
+.toc{max-width:880px; margin:0 auto; padding:0 16px 10px; display:flex; gap:6px; overflow-x:auto; scrollbar-width:none}
+.toc::-webkit-scrollbar{display:none}
+.toc a{flex:none; font-size:13px; font-weight:600; color:var(--muted); text-decoration:none; padding:5px 11px; border-radius:999px; border:1px solid var(--hairline-soft)}
+.toc a.on{color:var(--on-primary); background:var(--coral-fill); border-color:var(--coral-fill)}
+
+.wrap{max-width:880px; margin:0 auto; padding:0 16px 80px}
+
+/* hero */
+.hero{padding:40px 0 28px}
+.crumb{font-size:13px; font-weight:600; letter-spacing:1.2px; text-transform:uppercase; color:var(--muted)}
+.crumb a{color:inherit}
+.hero h1{font-size:clamp(40px,7vw,64px); margin-top:10px; line-height:1.05}
+.hero h1 small{display:block; font-family:var(--sans); text-transform:none; font-size:.42em; font-weight:600; color:var(--coral-text); letter-spacing:0; margin-top:6px}
+.lede{font-size:19px; color:var(--body-strong); margin-top:14px; max-width:62ch}
+.meta{display:flex; flex-wrap:wrap; gap:8px; margin-top:18px}
+.tag{font-size:13px; font-weight:600; padding:5px 12px; border-radius:999px; background:var(--surface-card); border:1px solid var(--hairline-soft); color:var(--body-strong)}
+.goals{margin-top:22px; background:var(--surface-card); border:1px solid var(--hairline-soft); border-radius:16px; padding:18px 20px}
+.goals h2{font-size:15px; text-transform:uppercase; letter-spacing:1.2px; color:var(--muted)}
+.goals ul{margin:10px 0 0; padding-left:20px}
+.goals li{margin:4px 0}
+
+/* sections */
+section{padding:40px 0 8px; border-top:1px solid var(--hairline-soft)}
+.sec-n{font-size:13px; font-weight:700; color:var(--coral-text); letter-spacing:1.2px; text-transform:uppercase}
+section > h2{font-size:clamp(25px,4vw,32px); margin-top:6px}
+.intro{margin-top:12px; max-width:66ch}
+.card{background:var(--surface-card); border:1px solid var(--hairline-soft); border-radius:16px; padding:18px 20px; margin-top:16px}
+.card h3{font-size:18px}
+.grid2{display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,330px),1fr)); gap:14px; margin-top:16px}
+.grid2 .card{margin-top:0}
+.ex{margin:8px 0 0; padding-left:0; list-style:none}
+.ex li{padding:6px 0 6px 14px; border-left:3px solid var(--hairline); margin:6px 0}
+.ex li .vi{display:block; font-size:15px; color:var(--muted)}
+.note{margin-top:16px; border-radius:14px; padding:14px 18px; background:var(--amber-soft); border:1px solid rgba(201,160,30,.5); color:var(--body-strong)}
+.note > b:first-child{display:block; font-size:13px; letter-spacing:1px; text-transform:uppercase; color:var(--ink); margin-bottom:4px}
+.note.vn{background:var(--coral-soft); border-color:rgba(31,91,181,.35)}
+.note.adv{background:var(--teal-soft); border-color:rgba(122,86,72,.35)}
+
+/* timeline illustrations */
+.tlc{background:var(--surface-card); border:1px solid var(--hairline-soft); border-radius:16px; padding:14px 16px 16px}
+.tlc svg{display:block; width:100%; max-width:420px; height:auto; margin:0 auto}
+.tlc h3{font-size:17px; margin-top:6px}
+.tlc p{font-size:15.5px; margin-top:4px}
+.ax{stroke:var(--muted); stroke-width:2; fill:none}
+.axh{fill:var(--muted)}
+.now{stroke:var(--coral); stroke-width:2; stroke-dasharray:4 4}
+.lbl{fill:var(--muted); font:600 12px var(--sans)}
+.lbln{fill:var(--coral-text); font:700 12px var(--sans)}
+.xm{stroke:var(--coral); stroke-width:3; stroke-linecap:round}
+.band{fill:var(--teal); opacity:.35}
+.bandc{fill:var(--amber); opacity:.55}
+.dot{fill:var(--teal-text)}
+.dtxt{fill:var(--teal-text); font:700 12px var(--sans)}
+
+/* week calendar */
+.week{display:grid; grid-template-columns:repeat(7,1fr); gap:6px; margin-top:12px}
+.day{border:1px solid var(--hairline-soft); border-radius:10px; padding:8px 2px; text-align:center; font-size:13px; font-weight:600; color:var(--muted); background:var(--canvas)}
+.day i{display:block; font-style:normal; font-size:18px; height:24px; line-height:24px; color:var(--coral-text)}
+.day.on{background:var(--coral-soft); border-color:rgba(31,91,181,.45); color:var(--ink)}
+
+/* formula tables */
+.ftab{width:100%; border-collapse:collapse; margin-top:10px; font-size:15.5px}
+.ftab th,.ftab td{text-align:left; padding:9px 10px; border-bottom:1px solid var(--hairline-soft); vertical-align:top}
+.ftab th{font-size:13px; text-transform:uppercase; letter-spacing:.8px; color:var(--muted); font-weight:700}
+.ftab td:first-child{font-weight:700; color:var(--ink); white-space:nowrap}
+.formula{display:inline-block; font-weight:700; color:var(--ink); background:var(--cream-strong); padding:2px 8px; border-radius:6px}
+.scroll{overflow-x:auto}
+
+/* frequency bars */
+.freq{margin-top:12px; display:grid; gap:7px}
+.fr{display:grid; grid-template-columns:96px 1fr 44px; align-items:center; gap:10px; font-size:15px}
+.fr b{color:var(--ink)}
+.fr .bar{height:12px; border-radius:6px; background:var(--cream-strong); overflow:hidden}
+.fr .bar i{display:block; height:100%; background:var(--coral); border-radius:6px}
+.fr span{font-size:13px; color:var(--muted); text-align:right}
+
+/* passive diagram */
+.pd{display:grid; gap:10px; margin-top:12px}
+.prow{display:flex; flex-wrap:wrap; gap:8px; align-items:center}
+.prow .lab{width:84px; font-size:13px; font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:.8px}
+.chip{padding:6px 12px; border-radius:10px; font-weight:700; font-size:15.5px; border:1px solid transparent}
+.c-s{background:var(--teal-soft); border-color:rgba(122,86,72,.45); color:var(--teal-text)}
+.c-v{background:var(--cream-strong); color:var(--ink)}
+.c-o{background:var(--coral-soft); border-color:rgba(31,91,181,.5); color:var(--coral-text)}
+.c-a{background:transparent; border:1px dashed var(--hairline); color:var(--muted)}
+.parr{font-size:14px; color:var(--muted); padding-left:92px}
+
+/* mistakes */
+.mist{display:grid; gap:10px; margin-top:16px}
+.mi{background:var(--surface-card); border:1px solid var(--hairline-soft); border-radius:14px; padding:12px 16px; display:grid; gap:4px}
+.mi .w{color:var(--err-text); text-decoration:line-through; text-decoration-thickness:1.5px}
+.mi .w::before{content:"✗  "; text-decoration:none; display:inline-block}
+.mi .r{color:var(--ok-text); font-weight:700}
+.mi .r::before{content:"✓  "}
+.mi .y{font-size:15px; color:var(--muted)}
+
+/* compare */
+.cmp td,.cmp th{width:50%}
+
+/* practice */
+.lvl{margin-top:22px}
+.lvl-h{display:flex; align-items:center; gap:10px; flex-wrap:wrap}
+.lvl-h h3{font-size:20px}
+.badge{font-size:12px; font-weight:700; letter-spacing:1px; text-transform:uppercase; padding:4px 10px; border-radius:999px}
+.b1{background:var(--teal-soft); color:var(--teal-text)} .b2{background:var(--amber-soft); color:var(--body-strong)} .b3{background:var(--coral-soft); color:var(--coral-text)}
+.q{background:var(--surface-card); border:1px solid var(--hairline-soft); border-radius:14px; padding:14px 16px; margin-top:10px}
+.q .qt{font-weight:600; color:var(--ink)}
+.q .qt .n{color:var(--coral-text); margin-right:6px}
+.opts{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px}
+.opt{border:1px solid var(--hairline); background:var(--canvas); border-radius:10px; padding:8px 14px; font-weight:600; min-height:42px}
+.opt:hover{border-color:var(--coral)}
+.opt.ok{background:var(--ok-soft); border-color:var(--ok-text); color:var(--ok-text)}
+.opt.bad{background:var(--err-soft); border-color:var(--err-text); color:var(--err-text)}
+.opt:disabled{cursor:default}
+.inrow{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; align-items:center}
+.inp{flex:1 1 220px; min-width:0; border:1px solid var(--hairline); background:var(--canvas); border-radius:10px; padding:9px 12px; font-size:16px}
+.inp.sm{flex:0 1 150px}
+.inp.ok{border-color:var(--ok-text); background:var(--ok-soft)}
+.inp.bad{border-color:var(--err-text); background:var(--err-soft)}
+select.inp{flex:1 1 200px}
+.btn{border:1px solid var(--coral-fill); background:var(--coral-fill); color:var(--on-primary); border-radius:10px; padding:9px 16px; font-weight:600; font-size:15px; min-height:42px}
+.btn.ghost{background:transparent; color:var(--coral-text)}
+.fb{margin-top:8px; font-size:15px}
+.fb.ok{color:var(--ok-text)} .fb.bad{color:var(--err-text)}
+.fb .why{display:block; color:var(--muted)}
+.score{position:sticky; bottom:12px; z-index:5; margin-top:24px; display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; background:var(--ink); color:var(--canvas); border-radius:14px; padding:12px 16px}
+.score b{font-size:20px}
+.score .btn{background:var(--canvas); color:var(--ink); border-color:var(--canvas)}
+.checklist{margin:8px 0 0; padding-left:20px; font-size:15px}
+
+/* summary */
+.sum{display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:10px; margin-top:16px}
+.sum div{background:var(--surface-card); border:1px solid var(--hairline-soft); border-radius:14px; padding:14px 16px}
+.sum b{display:block; color:var(--coral-text); font-size:13px; text-transform:uppercase; letter-spacing:1px}
+.next{display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; margin-top:24px}
+.next .pill[aria-disabled="true"]{opacity:.55; cursor:not-allowed}
+.refs{font-size:14.5px; color:var(--muted); margin-top:12px; padding-left:0; list-style:none}
+.refs li{padding-left:28px; text-indent:-28px; margin:6px 0}
+footer{border-top:1px solid var(--hairline-soft); margin-top:48px; padding-top:18px; font-size:14px; color:var(--muted)}
+
+@media (max-width:560px){
+  body{font-size:16px}
+  .hero{padding-top:28px}
+  .prow .lab{width:100%}
+  .parr{padding-left:0}
+  .fr{grid-template-columns:84px 1fr 40px}
+  .day{font-size:11px}
+  .pill.hide-sm{display:none}
+}
+@media print{ .top,.score{display:none} section{break-inside:avoid-page} }
+
+.zig{fill:none; stroke:var(--coral); stroke-width:2.6; stroke-linejoin:round}
+.tk{stroke:var(--ink); stroke-width:2}
+.tkt{fill:var(--ink); font:600 12px var(--sans)}
+.arc{fill:none; stroke:var(--muted); stroke-width:1.8; stroke-dasharray:4 4}
+.arch{fill:var(--muted)}
+.rare{font-size:13px; font-weight:700; letter-spacing:.6px; text-transform:uppercase; color:var(--muted); border:1px dashed var(--hairline); border-radius:999px; padding:2px 10px; margin-left:6px; vertical-align:middle}
+.ftab td:first-child{white-space:normal}
+.ftab.cmp td:first-child{font-weight:400; white-space:normal; color:var(--body-strong)}
+.ftab.cmp td{width:50%}
+.lessonnav{display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; margin-top:24px}
+
+.zig{fill:none; stroke:var(--coral); stroke-width:2.6; stroke-linejoin:round}
+.tk{stroke:var(--ink); stroke-width:2}
+.tkt{fill:var(--ink); font:600 12px var(--sans)}
+.arc{fill:none; stroke:var(--muted); stroke-width:1.8; stroke-dasharray:4 4}
+.arch{fill:var(--muted)}
+.rare{font-size:13px; font-weight:700; letter-spacing:.6px; text-transform:uppercase; color:var(--muted); border:1px dashed var(--hairline); border-radius:999px; padding:2px 10px; margin-left:6px; vertical-align:middle}
+.ftab td:first-child{white-space:normal}
+.ftab.cmp td:first-child{font-weight:400; white-space:normal; color:var(--body-strong)}
+.ftab.cmp td{width:50%}
+.lessonnav{display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; margin-top:24px}
+
+.bars{display:grid; gap:8px; margin-top:12px}
+.br{display:grid; grid-template-columns:120px 1fr 52px; align-items:center; gap:10px; font-size:15px}
+.br b{color:var(--ink)} .br .bar{height:14px; border-radius:7px; background:var(--cream-strong); overflow:hidden} .br .bar i{display:block; height:100%; background:var(--coral); border-radius:7px} .br span{font-size:13px; color:var(--muted); text-align:right}
+.brk{color:var(--muted); font-weight:700}
+@media (max-width:560px){ .br{grid-template-columns:96px 1fr 44px} }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="top-in">
+    <a class="mark" id="mark" href="../" aria-label="The Standard, trang chủ">
+      <img class="light" src="../assets/logo-black.png" alt="The Standard" width="174" height="22">
+      <img class="dark" src="../assets/logo-white.png" alt="The Standard" width="174" height="22">
+      <span class="txt">The Standard</span>
+    </a>
+    <div class="tools">
+      <a class="pill hide-sm" href="../learning-hub.html">← Tự học</a>
+      <button type="button" class="pill" id="themeBtn" aria-label="Đổi giao diện sáng tối"></button>
+    </div>
+  </div>
+  <nav class="toc" id="toc" aria-label="Mục lục bài học">
+    <a href="#hinh-dung">1 Hình dung</a>
+    <a href="#cau-truc">2 Cấu trúc</a>
+    <a href="#cach-dung">3 Cách dùng</a>
+    <a href="#nhan-biet">4 Nhận biết</a>
+    <a href="#so-sanh">5 So sánh</a>
+    <a href="#loi-sai">6 Lỗi thường gặp</a>
+    <a href="#mo-rong">7 Mở rộng</a>
+    <a href="#luyen-tap">8 Luyện tập</a>
+    <a href="#tom-tat">9 Tóm tắt</a>
+  </nav>
+</header>
+
+<main class="wrap">
+
+  <div class="hero">
+    <div class="crumb"><a href="../learning-hub.html">Tự học</a> · Ngữ pháp nâng cao · Bài 4 / 12 · Cấp Trung cấp</div>
+    <h1>So sánh <small>Comparatives and superlatives</small></h1>
+    <p class="lede">So sánh hơn, so sánh nhất và so sánh bằng là công cụ chính để mô tả biểu đồ và nêu quan điểm. Bài này ôn quy tắc và thêm các mẫu nâng cao như <b>the more… the more</b>.</p>
+    <div class="meta">
+      <span class="tag">⏱ Khoảng 25 phút</span>
+      <span class="tag">A2 → B2</span>
+      <span class="tag">20 câu tự chấm</span>
+    </div>
+    <div class="goals"><h2>Sau bài này, bạn có thể</h2><ul><li>Tạo dạng so sánh với <b>er, est</b> và <b>more, most</b>.</li><li>Dùng <b>as… as</b> và <b>not as… as</b>.</li><li>Bổ nghĩa cho so sánh: <b>much, far, slightly, a bit</b>.</li><li>Dùng <b>the more… the more</b> và <b>more and more</b>.</li></ul></div>
+  </div>
+
+  <section id="hinh-dung"><div class="sec-n">Phần 1</div><h2>Hình dung so sánh</h2><p class="intro">Ba chiếc điện thoại, ba mức giá.</p><div class="card"><h3>Phone A, B và C</h3><div class="bars" aria-label="Giá ba chiếc điện thoại"><div class="br"><b>Phone A</b><div class="bar"><i style="width:40%"></i></div><span>6 triệu</span></div><div class="br"><b>Phone B</b><div class="bar"><i style="width:60%"></i></div><span>9 triệu</span></div><div class="br"><b>Phone C</b><div class="bar"><i style="width:100%"></i></div><span>15 triệu</span></div></div><ul class="ex"><li><span class="en">Phone B is more expensive than Phone A.</span><span class="vi">So sánh hơn.</span></li><li><span class="en">Phone C is the most expensive.</span><span class="vi">So sánh nhất.</span></li><li><span class="en">Phone A is not as expensive as Phone B.</span><span class="vi">So sánh không bằng.</span></li><li><span class="en">Phone C is much more expensive than Phone A.</span><span class="vi">Hơn nhiều.</span></li></ul></div></section>
+  <section id="cau-truc"><div class="sec-n">Phần 2</div><h2>Cấu trúc</h2><p class="intro">Tính từ ngắn thêm <b>er, est</b>. Tính từ dài dùng <b>more, most</b>.</p><div class="card"><h3>Bảng quy tắc</h3><div class="scroll"><table class="ftab "><tr><th>Tính từ</th><th>Cách đổi</th><th>Ví dụ</th></tr><tr><td>Một âm tiết</td><td>+ er / + est</td><td class="en">cheap → cheaper → the cheapest</td></tr><tr><td>Tận cùng e</td><td>+ r / + st</td><td class="en">large → larger → the largest</td></tr><tr><td>Một nguyên âm + một phụ âm</td><td>gấp đôi phụ âm</td><td class="en">big → bigger → the biggest</td></tr><tr><td>Hai âm tiết tận cùng y</td><td>y → ier / iest</td><td class="en">busy → busier → the busiest</td></tr><tr><td>Hai âm tiết trở lên</td><td>more / most</td><td class="en">modern → more modern → the most modern</td></tr><tr><td>Bất quy tắc</td><td></td><td class="en">good → better → the best; bad → worse → the worst; far → further → the furthest</td></tr></table></div></div></section>
+  <section id="cach-dung"><div class="sec-n">Phần 3</div><h2>Cách dùng</h2><div class="grid2"><div class="card"><h3><span class="hl">1</span> So sánh hơn: than</h3><ul class="ex"><li><span class="en">Hanoi is colder than Saigon in winter.</span><span class="vi">Mùa đông Hà Nội lạnh hơn Sài Gòn.</span></li></ul></div><div class="card"><h3><span class="hl">2</span> So sánh nhất: the</h3><p style="font-size:15.5px;margin-top:6px">Hay đi với hiện tại hoàn thành và ever.</p><ul class="ex"><li><span class="en">This is the best pho I have ever eaten.</span><span class="vi">Đây là tô phở ngon nhất tôi từng ăn.</span></li></ul></div><div class="card"><h3><span class="hl">3</span> So sánh bằng: as… as</h3><ul class="ex"><li><span class="en">My English is as good as yours.</span><span class="vi">Tiếng Anh của tôi giỏi bằng bạn.</span></li></ul></div><div class="card"><h3><span class="hl">4</span> So sánh không bằng: not as… as</h3><ul class="ex"><li><span class="en">The bus is not as fast as the train.</span><span class="vi">Xe buýt không nhanh bằng tàu.</span></li></ul></div><div class="card"><h3><span class="hl">5</span> So sánh với trạng từ</h3><ul class="ex"><li><span class="en">She speaks more slowly than her brother.</span><span class="vi">Cô ấy nói chậm hơn anh trai.</span></li></ul></div></div></section>
+  <section id="nhan-biet"><div class="sec-n">Phần 4</div><h2>Từ bổ nghĩa</h2><p class="intro">Dùng các từ này để nói <b>hơn bao nhiêu</b>, rất có ích khi mô tả số liệu.</p><div class="card"><h3>Từ bổ nghĩa</h3><div class="scroll"><table class="ftab "><tr><th>Mức độ</th><th>Từ</th><th>Ví dụ</th></tr><tr><td>Hơn nhiều</td><td>much, far, a lot, considerably</td><td class="en">far more popular</td></tr><tr><td>Hơn một chút</td><td>slightly, a bit, a little</td><td class="en">slightly higher</td></tr><tr><td>Gấp mấy lần</td><td>twice as… as, three times as… as</td><td class="en">twice as expensive as</td></tr></table></div></div></section>
+  <section id="so-sanh"><div class="sec-n">Phần 5</div><h2>Dễ nhầm</h2><p class="intro">Một vài cặp hay nhầm.</p><div class="card"><h3>Đặt cạnh nhau</h3><div class="scroll"><table class="ftab cmp"><tr><th>Từ A</th><th>Từ B</th></tr><tr><td><span class="en">farther</span>: xa hơn về khoảng cách</td><td><span class="en">further</span>: xa hơn, cũng có nghĩa thêm nữa (further information)</td></tr><tr><td><span class="en">less</span>: với danh từ không đếm được (less time)</td><td><span class="en">fewer</span>: với danh từ đếm được (fewer people)</td></tr></table></div></div></section>
+  <section id="loi-sai"><div class="sec-n">Phần 6</div><h2>Lỗi người Việt hay mắc</h2><div class="mist"><div class="mi"><span class="w en">She is more taller than me.</span><span class="r en">She is taller than me.</span><span class="y">Không dùng more cùng er.</span></div><div class="mi"><span class="w en">This is the most cheap phone.</span><span class="r en">This is the cheapest phone.</span><span class="y">Tính từ ngắn dùng est.</span></div><div class="mi"><span class="w en">He is gooder than me.</span><span class="r en">He is better than me.</span><span class="y">Good là bất quy tắc.</span></div><div class="mi"><span class="w en">My house is bigger your house.</span><span class="r en">My house is bigger than yours.</span><span class="y">Thiếu than.</span></div><div class="mi"><span class="w en">It is the same like mine.</span><span class="r en">It is the same as mine.</span><span class="y">The same đi với as.</span></div><div class="mi"><span class="w en">Very more expensive.</span><span class="r en">Much more expensive.</span><span class="y">Không dùng very với so sánh hơn.</span></div></div></section>
+  <section id="mo-rong"><div class="sec-n">Phần 7</div><h2>Mẫu câu nâng cao</h2><p class="intro">Hai mẫu câu giúp câu văn tự nhiên và giàu ý hơn.</p><div class="grid2"><div class="card"><h3>the + so sánh hơn, the + so sánh hơn</h3><ul class="ex"><li><span class="en">The more you practise, the better you get.</span><span class="vi">Càng luyện, càng giỏi.</span></li><li><span class="en">The sooner, the better.</span><span class="vi">Càng sớm càng tốt.</span></li></ul></div><div class="card"><h3>so sánh hơn and so sánh hơn</h3><ul class="ex"><li><span class="en">It is getting hotter and hotter.</span><span class="vi">Trời càng ngày càng nóng.</span></li><li><span class="en">More and more people are working from home.</span><span class="vi">Ngày càng nhiều người làm việc ở nhà.</span></li></ul></div></div></section>
+
+  <section id="luyen-tap">
+    <div class="sec-n">Phần 8</div>
+    <h2>Luyện tập tự chấm</h2>
+    <p class="intro">Làm theo thứ tự từ Dễ đến Khó. Mỗi câu có giải thích sau khi bạn trả lời.</p>
+    <div id="practice"></div>
+    <div class="score" id="scoreBar"><span>Điểm của bạn: <b id="scoreNum">0 / 20</b></span><button type="button" class="btn" id="resetBtn">Làm lại</button></div>
+  </section>
+
+  <section id="tom-tat">
+    <div class="sec-n">Phần 9</div>
+    <h2>Tóm tắt</h2>
+    <div class="sum"><div><b>Ngắn</b>er, est</div><div><b>Dài</b>more, most</div><div><b>Bằng, không bằng</b>as… as; not as… as</div><div><b>Bổ nghĩa</b>much, far, slightly, twice as… as</div><div><b>Nâng cao</b>the more… the more; more and more</div></div>
+    <div class="note"><b>Tự luyện thêm</b>Tìm một biểu đồ cột bất kỳ (ví dụ giá vàng, nhiệt độ trong tuần) và viết 5 câu so sánh, có ít nhất 2 câu dùng từ bổ nghĩa.</div>
+    <div class="lessonnav"><a class="pill" href="danh-dong-tu-va-nguyen-mau.html">← Bài 3: Danh động từ và động từ nguyên mẫu</a><a class="pill" href="menh-de-quan-he.html">Bài 5: Mệnh đề quan hệ →</a></div>
+    <h3 style="margin-top:32px;font-size:16px">Tài liệu tham khảo</h3>
+    <ul class="refs">
+      <li>Forsyth, C. (n.d.). <i>Instagrammar PRO: English grammar through examples, C1/C2</i>. Archer Editions.</li>
+      <li>NSW Department of Education. (n.d.). <i>Complex sentences with an adverbial clause</i> [Fact sheet].</li>
+      <li>Nguyễn, H. H. (n.d.). <i>Practical English grammar and vocabulary mastery</i> [Tài liệu lý thuyết]. The Forum Center.</li>
+      <li>Woodward, S. W. (1997). <i>Fun with grammar: Communicative activities for the Azar grammar series</i>. Prentice Hall Regents.</li>
+    </ul>
+    <p style="font-size:14px;color:var(--muted);margin-top:6px">Nội dung được biên soạn lại và có ví dụ mới, dựa trên các tài liệu trên.</p>
+  </section>
+
+  <footer>© 2026 The Standard · Lê Hoàng · Ngữ pháp nâng cao, Bài 4</footer>
+</main>
+
+<script>
+(function(){
+  "use strict";
+  var $ = function(s, r){ return (r || document).querySelector(s); };
+
+  /* logo fallback */
+  var mark = $("#mark");
+  mark.querySelectorAll("img").forEach(function(img){
+    img.addEventListener("error", function(){ mark.classList.add("noimg"); });
+  });
+
+  /* theme, shared key with the site */
+  var THEME_KEY = "standardRouteMap.v1.theme";
+  var store = {
+    get: function(k){ try { return localStorage.getItem(k); } catch(e){ return null; } },
+    set: function(k, v){ try { localStorage.setItem(k, v); } catch(e){} }
+  };
+  var theme = store.get(THEME_KEY) || "auto";
+  if (["auto","light","dark"].indexOf(theme) < 0) theme = "auto";
+  var THEME_LABEL = { auto: "Giao diện: Tự động", light: "Giao diện: Sáng", dark: "Giao diện: Tối" };
+  function applyTheme(){
+    if (theme === "auto") document.documentElement.removeAttribute("data-theme");
+    else document.documentElement.setAttribute("data-theme", theme);
+    $("#themeBtn").textContent = THEME_LABEL[theme];
+  }
+  $("#themeBtn").addEventListener("click", function(){
+    theme = { auto: "light", light: "dark", dark: "auto" }[theme];
+    store.set(THEME_KEY, theme); applyTheme();
+  });
+  applyTheme();
+
+  /* table of contents highlight */
+  var links = Array.prototype.slice.call(document.querySelectorAll("#toc a"));
+  if ("IntersectionObserver" in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting){
+          links.forEach(function(a){
+            var on = a.getAttribute("href") === "#" + en.target.id;
+            a.classList.toggle("on", on);
+            if (on && a.scrollIntoView) { a.parentNode.scrollLeft = a.offsetLeft - 16; }
+          });
+        }
+      });
+    }, { rootMargin: "-40% 0px -55% 0px" });
+    document.querySelectorAll("main section").forEach(function(s){ io.observe(s); });
+  }
+
+  /* answer normalisation */
+  var CONTR = { "don't":"do not", "doesn't":"does not", "didn't":"did not", "isn't":"is not", "aren't":"are not", "wasn't":"was not", "weren't":"were not", "won't":"will not", "haven't":"have not", "hasn't":"has not", "hadn't":"had not", "can't":"cannot", "i'm":"i am", "it's":"it is", "he's":"he is", "she's":"she is", "they're":"they are", "we're":"we are", "you're":"you are", "i'll":"i will", "you'll":"you will", "he'll":"he will", "she'll":"she will", "we'll":"we will", "they'll":"they will", "it'll":"it will", "i've":"i have", "you've":"you have", "we've":"we have", "they've":"they have", "i'd":"i had" };
+  function norm(s){
+    s = (s || "").toLowerCase().replace(/[‘’ʼ]/g, "'").replace(/\s+/g, " ").trim();
+    s = s.replace(/[.!?]+$/, "").replace(/,/g, "").replace(/\s+/g, " ").trim();
+    s = s.split(" ").map(function(w){ return CONTR[w] || w; }).join(" ");
+    return s;
+  }
+
+  /* data */
+  var USES = [];
+  var LEVELS = [{"name": "Dễ", "badge": "b1", "title": "Chọn đáp án đúng", "items": [{"t": "mcq", "q": "Today is ___ than yesterday.", "o": ["hotter", "more hot", "hottest"], "a": 0, "why": "Hot: gấp đôi t, thêm er."}, {"t": "mcq", "q": "This is the ___ book I have ever read.", "o": ["more interesting", "most interesting", "interestingest"], "a": 1, "why": "Tính từ dài: the most."}, {"t": "mcq", "q": "My bag is not as heavy ___ yours.", "o": ["than", "as", "like"], "a": 1, "why": "Not as… as."}, {"t": "mcq", "q": "His English is ___ than mine.", "o": ["gooder", "better", "more good"], "a": 1, "why": "Good → better."}, {"t": "mcq", "q": "The ___ you sleep, the more tired you feel.", "o": ["less", "least", "fewer"], "a": 0, "why": "The less…, the more…"}]}, {"name": "Dễ", "badge": "b1", "title": "Nối câu với dạng so sánh", "uses": ["So sánh hơn", "So sánh nhất", "So sánh bằng", "Càng… càng"], "items": [{"t": "match", "q": "Gold is more valuable than silver.", "a": 0, "why": "Có than."}, {"t": "match", "q": "It was the worst day of my life.", "a": 1, "why": "The worst."}, {"t": "match", "q": "She is as tall as her mother.", "a": 2, "why": "As… as."}, {"t": "match", "q": "The harder you work, the more you earn.", "a": 3, "why": "The… the."}]}, {"name": "Trung bình", "badge": "b2", "title": "Điền dạng đúng", "items": [{"t": "fill", "q": "This exercise is ___ (easy) than the last one.", "a": [["easier"]], "why": "Easy → easier."}, {"t": "fill", "q": "Hue is one of the ___ (beautiful) cities in Vietnam.", "a": [["most beautiful"]], "why": "One of the + so sánh nhất."}, {"t": "fill", "q": "Phone C is ___ (far / expensive) than Phone A.", "a": [["far more expensive"]], "why": "Far bổ nghĩa cho more."}, {"t": "fill", "q": "There are ___ (few) students in class today than yesterday.", "a": [["fewer"]], "why": "Students đếm được: fewer."}, {"t": "fill", "q": "It's getting ___ (cold) and ___ (cold).", "a": [["colder"], ["colder"]], "why": "So sánh hơn and so sánh hơn."}, {"t": "fill", "q": "Her house is ___ (twice / big) as mine.", "a": [["twice as big"]], "why": "Twice as… as."}]}, {"name": "Khó", "badge": "b3", "title": "Viết câu", "items": [{"t": "write", "q": "Sửa lỗi sai: She is more taller than her sister.", "a": ["she is taller than her sister"], "model": "She is taller than her sister.", "why": "Không dùng more với er."}, {"t": "write", "q": "Viết lại dùng not as… as: The train is faster than the bus.", "a": ["the bus is not as fast as the train", "the bus isn't as fast as the train"], "model": "The bus is not as fast as the train.", "why": "Đảo hai vế và dùng not as… as."}, {"t": "write", "q": "Viết lại dùng the… the: If you read more, your vocabulary gets bigger.", "a": ["the more you read the bigger your vocabulary gets", "the more you read the bigger your vocabulary becomes", "the more you read the bigger your vocabulary"], "model": "The more you read, the bigger your vocabulary gets.", "why": "The + so sánh hơn, the + so sánh hơn."}, {"t": "write", "q": "Viết lại dùng ever: I have never seen such a big crowd.", "a": ["this is the biggest crowd i have ever seen", "it is the biggest crowd i have ever seen", "that is the biggest crowd i have ever seen", "it's the biggest crowd i've ever seen"], "model": "This is the biggest crowd I have ever seen.", "why": "So sánh nhất + have ever + V3."}, {"t": "open", "q": "So sánh hai thành phố bạn biết, dùng một từ bổ nghĩa (much, slightly, far).", "model": "Da Lat is much cooler than Ho Chi Minh City.", "check": ["Có than.", "Có much, slightly hoặc far trước so sánh hơn.", "Dạng so sánh đúng quy tắc."]}]}];
+
+  var TOTAL = 0; LEVELS.forEach(function(l){ TOTAL += l.items.length; });
+  var score = 0, n = 0;
+  function bump(ok){ if (ok) score++; $("#scoreNum").textContent = score + " / " + TOTAL; }
+
+  function el(tag, cls, txt){ var e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; }
+  function feedback(box, ok, why, extra){
+    var f = box.querySelector(".fb") || box.appendChild(el("p", "fb"));
+    f.className = "fb " + (ok ? "ok" : "bad");
+    f.textContent = (ok ? "✓ Chính xác. " : "✗ Chưa đúng. ") + (extra || "");
+    if (why) f.appendChild(el("span", "why", why));
+  }
+  function qhead(box, text){
+    n++;
+    var qt = el("p", "qt");
+    qt.appendChild(el("span", "n", n + "."));
+    qt.appendChild(document.createTextNode(text));
+    box.appendChild(qt);
+  }
+
+  function render(){
+    var root = $("#practice"); root.innerHTML = ""; score = 0; n = 0; bump(false);
+    LEVELS.forEach(function(lv){
+      var wrap = el("div", "lvl");
+      var h = el("div", "lvl-h"); h.appendChild(el("span", "badge " + lv.badge, lv.name)); h.appendChild(el("h3", null, lv.title));
+      wrap.appendChild(h);
+      lv.items.forEach(function(it){
+        var box = el("div", "q"); qhead(box, it.q);
+        if (it.t === "mcq"){
+          var opts = el("div", "opts");
+          it.o.forEach(function(o, i){
+            var b = el("button", "opt", o); b.type = "button";
+            b.addEventListener("click", function(){
+              var all = opts.querySelectorAll("button");
+              all.forEach(function(x){ x.disabled = true; });
+              all[it.a].classList.add("ok");
+              if (i !== it.a) b.classList.add("bad");
+              feedback(box, i === it.a, it.why, i === it.a ? "" : "Đáp án: " + it.o[it.a] + ".");
+              bump(i === it.a);
+            });
+            opts.appendChild(b);
+          });
+          box.appendChild(opts);
+        } else if (it.t === "match"){
+          var row = el("div", "inrow");
+          var sel = el("select", "inp"); sel.setAttribute("aria-label", "Chọn cách dùng");
+          sel.appendChild(new Option("Chọn cách dùng…", ""));
+          (lv.uses || USES).forEach(function(u, i){ sel.appendChild(new Option(u, String(i))); });
+          sel.addEventListener("change", function(){
+            if (sel.value === "") return;
+            var ok = Number(sel.value) === it.a; sel.disabled = true;
+            sel.classList.add(ok ? "ok" : "bad");
+            feedback(box, ok, it.why, ok ? "" : "Đáp án: " + (lv.uses || USES)[it.a] + ".");
+            bump(ok);
+          });
+          row.appendChild(sel); box.appendChild(row);
+        } else if (it.t === "fill" || it.t === "write"){
+          var r = el("div", "inrow"), inputs = [];
+          var count = it.t === "fill" ? it.a.length : 1;
+          for (var k = 0; k < count; k++){
+            var inp = el("input", "inp" + (it.t === "fill" && count > 1 ? " sm" : ""));
+            inp.type = "text"; inp.autocomplete = "off"; inp.spellcheck = false;
+            inp.setAttribute("autocapitalize", "off");
+            inp.setAttribute("aria-label", count > 1 ? "Chỗ trống " + (k + 1) : "Câu trả lời");
+            inp.placeholder = it.t === "write" ? "Viết câu của bạn" : (count > 1 ? "Chỗ trống " + (k + 1) : "Đáp án");
+            inputs.push(inp); r.appendChild(inp);
+          }
+          var btn = el("button", "btn", "Kiểm tra"); btn.type = "button";
+          var check = function(){
+            if (inputs.some(function(x){ return !x.value.trim(); })) { feedback(box, false, null, "Hãy điền đủ chỗ trống trước khi kiểm tra."); return; }
+            var ok;
+            if (it.t === "fill") ok = inputs.every(function(x, j){ return it.a[j].map(norm).indexOf(norm(x.value)) >= 0; });
+            else ok = it.a.map(norm).indexOf(norm(inputs[0].value)) >= 0;
+            inputs.forEach(function(x){ x.disabled = true; x.classList.add(ok ? "ok" : "bad"); });
+            btn.disabled = true;
+            var ans = it.t === "fill" ? it.a.map(function(v){ return v[0]; }).join(" … ") : it.model;
+            feedback(box, ok, it.why, ok ? "" : "Đáp án gợi ý: " + ans);
+            bump(ok);
+          };
+          btn.addEventListener("click", check);
+          inputs.forEach(function(x){ x.addEventListener("keydown", function(e){ if (e.key === "Enter") check(); }); });
+          r.appendChild(btn); box.appendChild(r);
+        } else if (it.t === "open"){
+          var r2 = el("div", "inrow");
+          var inp2 = el("input", "inp"); inp2.type = "text"; inp2.placeholder = "Viết câu của bạn"; inp2.setAttribute("aria-label", "Câu của bạn");
+          var b2 = el("button", "btn ghost", "Xem câu mẫu và tự chấm"); b2.type = "button";
+          r2.appendChild(inp2); r2.appendChild(b2); box.appendChild(r2);
+          var panel = el("div"); panel.hidden = true;
+          panel.appendChild(el("p", "fb", "Câu mẫu: " + it.model));
+          panel.appendChild(el("p", "fb", "Tự kiểm tra câu của bạn:"));
+          var ul = el("ul", "checklist"); it.check.forEach(function(c){ ul.appendChild(el("li", null, c)); }); panel.appendChild(ul);
+          var r3 = el("div", "inrow");
+          var yes = el("button", "btn", "Câu của tôi đạt cả 3 ý"), no = el("button", "btn ghost", "Chưa đạt"); yes.type = no.type = "button";
+          var done = function(ok){ yes.disabled = no.disabled = true; inp2.disabled = true; bump(ok); r3.appendChild(el("span", "fb " + (ok ? "ok" : "bad"), ok ? "✓ Tốt lắm." : "Hãy sửa lại câu theo 3 ý trên.")); };
+          yes.addEventListener("click", function(){ done(true); });
+          no.addEventListener("click", function(){ done(false); });
+          r3.appendChild(yes); r3.appendChild(no); panel.appendChild(r3);
+          b2.addEventListener("click", function(){ panel.hidden = false; b2.disabled = true; });
+          box.appendChild(panel);
+        }
+        wrap.appendChild(box);
+      });
+      root.appendChild(wrap);
+    });
+  }
+  $("#resetBtn").addEventListener("click", function(){ render(); $("#luyen-tap").scrollIntoView(); });
+  render();
+})();
+</script>
+</body>
+</html>
