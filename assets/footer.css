@@ -76,7 +76,7 @@ footer.sf.sf-ink-burgundy.sf-e-land{--sf-img:url(eng-burg-land.webp);--sf-x:50%}
 /* Engraving band under the page header on inner pages */
 .eng-band{display:block;width:100%;height:clamp(120px,15vw,220px);margin:0;border:0;background:var(--b-flat) var(--b-img) no-repeat 50% 82% / cover}
 .eng-band.eng-cobalt{--b-flat:#06378b}.eng-band.eng-burgundy{--b-flat:#6e2438}
-.eng-cobalt.eng-dome{--b-img:url(eng-cobalt-dome.webp)}.eng-cobalt.eng-land{--b-img:url(eng-cobalt-land.webp)}
+.eng-cobalt.eng-dome{--b-img:url(eng-cobalt-dome.webp)}.eng-cobalt.eng-land{--b-img:url(eng-cobalt-land.webp)}.eng-cobalt.eng-lake{--b-img:url(eng-cobalt-lake.webp)}.eng-cobalt.eng-field{--b-img:url(eng-cobalt-field.webp)}
 .eng-burgundy.eng-land{--b-img:url(eng-burg-land.webp)}.eng-burgundy.eng-dome{--b-img:url(eng-burg-dome.webp)}.eng-burgundy.eng-lake{--b-img:url(eng-burg-lake.webp)}
 @media print{.eng-band{display:none}}
 /* ===== Accent, ticker and scroll effects ===== */

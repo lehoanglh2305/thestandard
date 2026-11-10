@@ -735,6 +735,41 @@ html.anim-paused .hero .stamp::before{animation-play-state:paused}
 @media (prefers-reduced-motion:reduce){.ca-fly,.ca-st{display:none}.ca-heat{display:none}.ca-glint{opacity:.9}}
 @keyframes caZoom{from{transform:scale(1.1) translateY(10px)}to{transform:scale(1) translateY(-4px)}}
 @supports (animation-timeline:view()){@media (prefers-reduced-motion:no-preference){.ca-zoom{animation:caZoom linear both;animation-timeline:view();animation-range:entry 0% exit 60%}}}
+
+/* ---- Home layout v2: courses, then steps beside the form, then teacher with full profile, then free tools ---- */
+.start-grid{display:grid;gap:28px;align-items:start}
+.start-grid>*{min-width:0}
+@media (min-width:1024px){.start-grid{grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:48px}}
+.start .section-head{margin-bottom:24px}
+.start .section-head .lead{font-size:18px;max-width:46ch}
+.how.start .steps{grid-template-columns:1fr;gap:12px}
+.how.start .step{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:16px;row-gap:4px;align-items:start;padding:16px 18px;border-top:0;border-left:4px solid var(--cream)}
+.how.start .step::after{content:none}
+.how.start .step-top{grid-column:1;grid-row:1 / span 3;display:block}
+.how.start .step-ico{display:none}
+.how.start .step .num{width:44px;height:44px;font-size:26px}
+.how.start .step-tag{grid-column:2;justify-self:start;font-size:13px;padding:2px 10px}
+.how.start .step h3{grid-column:2;font-size:22px}
+.how.start .step p{grid-column:2;font-size:16px}
+.start .contact-zalo{margin-top:20px}
+.start .contact-zalo .btn.second{background:transparent;border-color:var(--cream);color:var(--cream)}
+.start .contact-zalo .btn.second:hover{background:var(--cream);color:var(--cobalt)}
+.start .contact-zalo-note{color:var(--cream);opacity:.9}
+.start .enrol-card{color:var(--cocoa);box-shadow:0 18px 40px -20px rgb(10 25 60 / .6)}
+.how.start{overflow:clip}
+@media (min-width:1024px){.start-copy{position:sticky;top:calc(var(--navH) + 24px)}}
+.enrol-open{display:none;align-self:flex-start}
+@media (max-width:1023px){
+  .enrol-open{display:inline-flex}
+  .enrol-embed,.enrol-alt{display:none}
+}
+.profile-wrap{margin-top:40px;scroll-margin-top:calc(var(--navH) + 16px)}
+@media (max-width:520px){
+  .stat{padding:16px 10px 12px}
+  .stat::after{width:64px;height:64px;right:-22px;top:-22px;opacity:.55}
+  .stat .n{font-size:34px}
+  .stat small{font-size:13px}
+}
 </style>
 <script type="application/ld+json">
 {
@@ -896,7 +931,8 @@ html.anim-paused .hero .stamp::before{animation-play-state:paused}
  ]
 }
 </script>
-<link rel="stylesheet" href="assets/footer.css?v=20261031g">
+<link rel="stylesheet" href="assets/footer.css?v=20261110a">
+<link rel="stylesheet" href="assets/shell.css?v=20261110a">
 </head>
 <body>
 
@@ -930,12 +966,12 @@ html.anim-paused .hero .stamp::before{animation-play-state:paused}
     <a class="brand" href="#home" aria-label="The Standard, về đầu trang" data-en-label="The Standard, back to top" data-vi-label="The Standard, về đầu trang"><img src="assets/logo-black.png" alt="The Standard" width="760" height="96"></a>
     <ul class="nav-links">
       <li class="nav-ink-li" aria-hidden="true"><span class="nav-ink"></span></li>
-      <li><a href="#about" data-vi="Giới thiệu" data-en="About">Giới thiệu</a></li>
       <li><a href="#services" data-vi="Khóa học" data-en="Courses">Khóa học</a></li>
       <li><a href="#contact" data-vi="Liên hệ" data-en="Contact">Liên hệ</a></li>
+      <li><a href="#about" data-vi="Giới thiệu" data-en="About">Giới thiệu</a></li>
+      <li><a href="#profile" data-vi="Hồ sơ" data-en="Profile">Hồ sơ</a></li>
       <li><a href="route-map.html" data-vi="Lộ trình" data-en="Route map">Lộ trình</a></li>
       <li><a href="learning-hub.html" data-vi="Tự học" data-en="Self study">Tự học</a></li>
-      <li><a href="#profile" data-vi="Hồ sơ" data-en="Profile">Hồ sơ</a></li>
     </ul>
     <a href="#apply" class="btn nav-apply" data-vi="Đăng ký" data-en="Apply">Đăng ký</a>
     <div class="lang-switch" role="group" aria-label="Ngôn ngữ" data-en-label="Language" data-vi-label="Ngôn ngữ">
@@ -946,16 +982,16 @@ html.anim-paused .hero .stamp::before{animation-play-state:paused}
   </div>
 </nav>
 <div class="mobile-panel" id="mobilePanel">
-  <a href="#about" data-vi="Giới thiệu" data-en="About">Giới thiệu</a>
   <a href="#services" data-vi="Khóa học" data-en="Courses">Khóa học</a>
   <a href="#how" data-vi="Cách bắt đầu" data-en="How it works">Cách bắt đầu</a>
   <a href="#contact" data-vi="Liên hệ" data-en="Contact">Liên hệ</a>
-  <a href="route-map.html" data-vi="Lộ trình" data-en="Route map">Lộ trình</a>
-  <a href="learning-hub.html" data-vi="Tự học" data-en="Self study">Tự học</a>
+  <a href="#about" data-vi="Giới thiệu" data-en="About">Giới thiệu</a>
   <a href="#profile" data-vi="Hồ sơ đầy đủ" data-en="Full profile">Hồ sơ đầy đủ</a>
   <a href="#experience" class="sub" data-vi="Kinh nghiệm" data-en="Experience">Kinh nghiệm</a>
   <a href="#education" class="sub" data-vi="Học vấn" data-en="Education">Học vấn</a>
   <a href="#skills" class="sub" data-vi="Kỹ năng" data-en="Skills">Kỹ năng</a>
+  <a href="route-map.html" data-vi="Lộ trình" data-en="Route map">Lộ trình</a>
+  <a href="learning-hub.html" data-vi="Tự học" data-en="Self study">Tự học</a>
   <a href="#apply" class="btn" data-vi="Đăng ký khóa học" data-en="Apply for a course">Đăng ký khóa học</a>
 </div>
 
@@ -986,36 +1022,13 @@ html.anim-paused .hero .stamp::before{animation-play-state:paused}
     </div>
     </div>
   </div>
-  <a class="scroll-cue" href="#about" aria-label="Cuộn xuống phần giới thiệu" data-vi-label="Cuộn xuống phần giới thiệu" data-en-label="Scroll to About"><svg class="ico" aria-hidden="true"><use href="#i-down"/></svg></a>
-</section>
-
-<section id="about">
-  <div class="inner">
-    <div class="section-head reveal">
-      <span class="stamp" data-vi="01 · Giới thiệu" data-en="01 · About">01 · Giới thiệu</span>
-      <h2 data-vi="Giới thiệu" data-en="About">Giới thiệu</h2>
-    </div>
-    <div class="about-grid">
-      <div class="photo-frame reveal">
-        <img decoding="async" loading="lazy" width="560" height="637" src="assets/le-hoang.webp" alt="Lê Hoàng đứng dưới bộ xương cá voi xanh tại Bảo tàng Lịch sử Tự nhiên, London" data-en-alt="Lê Hoàng standing beneath the blue whale skeleton at the Natural History Museum, London" data-vi-alt="Lê Hoàng đứng dưới bộ xương cá voi xanh tại Bảo tàng Lịch sử Tự nhiên, London">
-      </div>
-      <div class="about-body reveal">
-        <p data-vi="Lê Hoàng là giảng viên tiếng Anh có bằng Thạc sĩ TESOL của Đại học York, với kinh nghiệm giảng dạy thực tế ở bậc đại học, luyện thi và tiếng Anh tổng quát tại TP. Hồ Chí Minh." data-en="Lê Hoàng is a TESOL qualified English lecturer with an MA from the University of York and hands on teaching experience across university, exam preparation, and general English settings in Ho Chi Minh City.">Lê Hoàng là giảng viên tiếng Anh có bằng Thạc sĩ TESOL của Đại học York, với kinh nghiệm giảng dạy thực tế ở bậc đại học, luyện thi và tiếng Anh tổng quát tại TP. Hồ Chí Minh.</p>
-        <p data-vi="Việc giảng dạy trên lớp luôn đi cùng nghiên cứu học thuật, hướng tới những tiến bộ đo lường được về kỹ năng giao tiếp và kết quả thi của người học." data-en="Classroom practice is paired with ongoing academic research, working toward measurable gains in learners&#x27; communication skills and exam results.">Việc giảng dạy trên lớp luôn đi cùng nghiên cứu học thuật, hướng tới những tiến bộ đo lường được về kỹ năng giao tiếp và kết quả thi của người học.</p>
-        <div class="stat-row stagger">
-          <div class="stat" style="--i:0"><span class="n" data-count="7.5">7.5</span><small><span>IELTS</span> &middot; <span data-vi="Chứng chỉ 2026" data-en="Certified 2026">Chứng chỉ 2026</span></small></div>
-          <div class="stat" style="--i:1"><span class="n" data-count="965">965</span><small><span>TOEIC</span> &middot; <span data-vi="Chứng chỉ 2025" data-en="Certified 2025">Chứng chỉ 2025</span></small></div>
-          <div class="stat" style="--i:2"><span class="n">MA</span><small><span>TESOL</span> &middot; <span data-vi="Đại học York" data-en="University of York">Đại học York</span></small></div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <a class="scroll-cue" href="#services" aria-label="Cuộn xuống phần khóa học" data-vi-label="Cuộn xuống phần khóa học" data-en-label="Scroll to Courses"><svg class="ico" aria-hidden="true"><use href="#i-down"/></svg></a>
 </section>
 
 <section id="services">
   <div class="inner">
     <div class="section-head reveal">
-      <span class="stamp" data-vi="02 · Khóa học" data-en="02 · Courses">02 · Khóa học</span>
+      <span class="stamp" data-vi="01 · Khóa học" data-en="01 · Courses">01 · Khóa học</span>
       <h2 data-vi="Khóa học" data-en="Courses">Khóa học</h2>
     </div>
     <div class="course-grid">
@@ -1051,13 +1064,15 @@ html.anim-paused .hero .stamp::before{animation-play-state:paused}
   </div>
 </section>
 
-<section id="how" class="how">
-  <div class="inner">
-    <div class="section-head reveal">
-      <span class="stamp" data-vi="03 · Cách bắt đầu" data-en="03 · How it works">03 · Cách bắt đầu</span>
-      <h2 data-vi="Ba bước để bắt đầu" data-en="Three steps to start">Ba bước để bắt đầu</h2>
-    </div>
-    <ol class="steps">
+<section id="contact" class="how start">
+  <div class="inner start-grid">
+    <div class="start-copy">
+      <div class="section-head reveal">
+        <span class="stamp" data-vi="02 · Bắt đầu" data-en="02 · Get started">02 · Bắt đầu</span>
+        <h2 data-vi="Ba bước để bắt đầu" data-en="Three steps to start">Ba bước để bắt đầu</h2>
+        <p class="lead" data-vi="Nhận dạy 1 kèm 1 online và luyện thi, song song với công việc giảng viên đại học tại TP. Hồ Chí Minh." data-en="Available for 1 on 1 online tutoring and exam preparation, alongside university lecturing in Ho Chi Minh City.">Nhận dạy 1 kèm 1 online và luyện thi, song song với công việc giảng viên đại học tại TP. Hồ Chí Minh.</p>
+      </div>
+    <ol class="steps" id="how">
       <li class="step s1 reveal-lid">
         <div class="step-top"><span class="num" aria-hidden="true">1</span><span class="step-ico" aria-hidden="true"><svg class="ico"><use href="#i-form"/></svg></span></div>
         <span class="step-tag" data-vi="Bước 1 · 3 phút" data-en="Step 1 · 3 minutes">Bước 1 · 3 phút</span>
@@ -1077,25 +1092,10 @@ html.anim-paused .hero .stamp::before{animation-play-state:paused}
         <p data-vi="Học IELTS, TOEIC, APTIS hoặc Foundation theo lộ trình đã thống nhất." data-en="Study IELTS, TOEIC, APTIS, or Foundation on the path you agreed.">Học IELTS, TOEIC, APTIS hoặc Foundation theo lộ trình đã thống nhất.</p>
       </li>
     </ol>
-    <div class="actions">
-      <a href="#apply" class="btn cta-yellow"><span data-vi="Điền form ngay" data-en="Fill in the form">Điền form ngay</span><svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-      <p class="how-note" data-vi="Mất khoảng 3 phút. The Standard sẽ liên hệ lại để tư vấn." data-en="It takes about three minutes. The Standard will contact you with advice.">Mất khoảng 3 phút. The Standard sẽ liên hệ lại để tư vấn.</p>
-    </div>
-  </div>
-</section>
-
-<section id="contact" class="contact-section">
-  <div class="inner contact-grid">
-    <div class="contact-copy reveal">
-      <span class="stamp muted" data-vi="04 · Liên hệ" data-en="04 · Contact">04 · Liên hệ</span>
-      <h2 data-vi="Bắt đầu cùng the Standard" data-en="Start with the Standard">Bắt đầu cùng the Standard</h2>
-      <p class="lede" data-vi="Nhận dạy 1 kèm 1 online và luyện thi, song song với công việc giảng viên đại học tại TP. Hồ Chí Minh." data-en="Available for 1 on 1 online tutoring and exam preparation, alongside university lecturing in Ho Chi Minh City.">Nhận dạy 1 kèm 1 online và luyện thi, song song với công việc giảng viên đại học tại TP. Hồ Chí Minh.</p>
       <div class="contact-zalo">
         <a href="https://zalo.me/0382308059" class="btn second" target="_blank" rel="noopener" aria-label="Nhắn Zalo 0382308059 (mở trong thẻ mới)" data-vi-label="Nhắn Zalo 0382308059 (mở trong thẻ mới)" data-en-label="Message on Zalo 0382308059 (opens in a new tab)"><svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg><span data-vi="Nhắn Zalo 0382308059" data-en="Zalo 0382308059">Nhắn Zalo 0382308059</span></a>
         <p class="contact-zalo-note" data-vi="Muốn hỏi nhanh trước khi điền form? Nhắn Zalo." data-en="Prefer a quick question before the form? Message on Zalo.">Muốn hỏi nhanh trước khi điền form? Nhắn Zalo.</p>
       </div>
-      <figure class="contact-art" role="img" aria-label="Tranh khắc xanh cobalt: người cưỡi ngựa dừng trên sườn đồi nhìn ra thung lũng, như điểm bắt đầu của một hành trình" data-vi-label="Tranh khắc xanh cobalt: người cưỡi ngựa dừng trên sườn đồi nhìn ra thung lũng, như điểm bắt đầu của một hành trình" data-en-label="Cobalt engraving: a rider pauses on a ridge and looks over a valley, the start of a journey"><div class="ca-zoom"><div class="ca-pan"><img src="assets/contact-overlook.webp" alt="" width="822" height="456" loading="lazy" decoding="async"><div class="ca-heat" aria-hidden="true"></div><svg class="ca-fx" viewBox="0 0 822 456" preserveAspectRatio="none" aria-hidden="true" focusable="false"><defs><filter id="caHeat" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB"><feTurbulence type="fractalNoise" baseFrequency="0.01 0.07" numOctaves="1" seed="3" result="n"><animate attributeName="baseFrequency" dur="10s" values="0.01 0.07;0.016 0.09;0.01 0.07" repeatCount="indefinite"/></feTurbulence><feDisplacementMap in="SourceGraphic" in2="n" scale="6" xChannelSelector="R" yChannelSelector="G"/></filter></defs><g class="ca-streaks"><g class="ca-st s1" stroke="#f4e6cf" stroke-width="1.2" stroke-linecap="round" fill="none" opacity=".5"><path d="M0 70H120M14 76H96M-6 82H132M20 88H84"/></g><g class="ca-st s2" stroke="#f4e6cf" stroke-width="1.2" stroke-linecap="round" fill="none" opacity=".4"><path d="M0 128H90M10 134H70M-4 140H104"/></g><g class="ca-st s3" stroke="#f4e6cf" stroke-width="1.2" stroke-linecap="round" fill="none" opacity=".35"><path d="M0 40H100M18 46H80M4 52H116"/></g></g><g class="ca-fly f1"><g class="ca-flap"><path d="M0 0q6-8 12-1q6-7 12 1" fill="none" stroke="#f4e6cf" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></g></g><g class="ca-fly f2"><g class="ca-flap"><path d="M0 0q6-8 12-1q6-7 12 1" fill="none" stroke="#f4e6cf" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></g></g><g class="ca-fly f3"><g class="ca-flap"><path d="M0 0q6-8 12-1q6-7 12 1" fill="none" stroke="#f4e6cf" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></g></g><g class="ca-glint"><path d="M268 214l2.4 7.6 7.6 2.4-7.6 2.4-2.4 7.6-2.4-7.6-7.6-2.4 7.6-2.4z" fill="#f2c230"/></g></svg></div></div></figure>
-
     </div>
     <div class="enrol-card reveal" id="apply">
       <span class="stamp" data-vi="Đăng ký" data-en="Enrolment">Đăng ký</span>
@@ -1104,6 +1104,7 @@ html.anim-paused .hero .stamp::before{animation-play-state:paused}
       <ul class="enrol-courses" aria-label="Các khóa học" data-en-label="Courses offered" data-vi-label="Các khóa học">
         <li class="c-ielts">IELTS</li><li class="c-toeic">TOEIC</li><li class="c-aptis">APTIS</li><li class="c-found">Foundation</li>
       </ul>
+      <a class="btn enrol-open" href="https://docs.google.com/forms/d/e/1FAIpQLSfGWEipEsZr5GRUIIRxdKu7-KlHfduLwIL8_TNK8G9FbY0_YA/viewform?usp=pp_url&amp;entry.249182866=__other_option__&amp;entry.249182866.other_option_response=Website" target="_blank" rel="noopener"><span data-vi="Mở form đăng ký" data-en="Open the application form">Mở form đăng ký</span><svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
       <div class="enrol-embed" id="enrolEmbed">
         <iframe title="Course application form" src="https://docs.google.com/forms/d/e/1FAIpQLSfGWEipEsZr5GRUIIRxdKu7-KlHfduLwIL8_TNK8G9FbY0_YA/viewform?embedded=true&amp;usp=pp_url&amp;entry.249182866=__other_option__&amp;entry.249182866.other_option_response=Website" loading="lazy"></iframe>
       </div>
@@ -1113,38 +1114,27 @@ html.anim-paused .hero .stamp::before{animation-play-state:paused}
   </div>
 </section>
 
-<section id="learning">
+<section id="about">
   <div class="inner">
     <div class="section-head reveal">
-      <span class="stamp" data-vi="05 · Góc học tập" data-en="05 · Learning">05 · Góc học tập</span>
-      <h2 data-vi="Góc học tập" data-en="Learning">Góc học tập</h2>
+      <span class="stamp" data-vi="03 · Giảng viên" data-en="03 · Your teacher">03 · Giảng viên</span>
+      <h2 data-vi="Giới thiệu" data-en="About">Giới thiệu</h2>
     </div>
-    <p class="learn-intro reveal" data-vi="Công cụ học miễn phí. Tiến độ và lựa chọn của bạn được lưu ngay trong trình duyệt." data-en="Free study tools. Your progress and choices are saved in your own browser.">Công cụ học miễn phí. Tiến độ và lựa chọn của bạn được lưu ngay trong trình duyệt.</p>
-    <div class="learn-grid">
-      <a class="learn-card map reveal-lid" href="route-map.html">
-        <svg class="burst" viewBox="0 0 180 180" aria-hidden="true"><circle class="core" cx="90" cy="90" r="22"/><g class="rays"><line class="a" pathLength="1" x1="124.0" y1="90.0" x2="160.0" y2="90.0"/><line class="b" pathLength="1" x1="121.4" y1="103.0" x2="141.7" y2="111.4"/><line class="a" pathLength="1" x1="114.0" y1="114.0" x2="139.5" y2="139.5"/><line class="b" pathLength="1" x1="103.0" y1="121.4" x2="111.4" y2="141.7"/><line class="a" pathLength="1" x1="90.0" y1="124.0" x2="90.0" y2="160.0"/><line class="b" pathLength="1" x1="77.0" y1="121.4" x2="68.6" y2="141.7"/><line class="a" pathLength="1" x1="66.0" y1="114.0" x2="40.5" y2="139.5"/><line class="b" pathLength="1" x1="58.6" y1="103.0" x2="38.3" y2="111.4"/><line class="a" pathLength="1" x1="56.0" y1="90.0" x2="20.0" y2="90.0"/><line class="b" pathLength="1" x1="58.6" y1="77.0" x2="38.3" y2="68.6"/><line class="a" pathLength="1" x1="66.0" y1="66.0" x2="40.5" y2="40.5"/><line class="b" pathLength="1" x1="77.0" y1="58.6" x2="68.6" y2="38.3"/><line class="a" pathLength="1" x1="90.0" y1="56.0" x2="90.0" y2="20.0"/><line class="b" pathLength="1" x1="103.0" y1="58.6" x2="111.4" y2="38.3"/><line class="a" pathLength="1" x1="114.0" y1="66.0" x2="139.5" y2="40.5"/><line class="b" pathLength="1" x1="121.4" y1="77.0" x2="141.7" y2="68.6"/></g></svg>
-        <span class="stamp eyebrow" data-vi="Lộ trình" data-en="Route map">Lộ trình</span>
-        <h3 data-vi="Từng bước từ A1 đến C2" data-en="Every step from A1 to C2">Từng bước từ A1 đến C2</h3>
-        <p data-vi="Chọn trình độ, rồi làm theo bước tiếp theo. Ngữ pháp và bốn kỹ năng theo khung CEFR, kèm bài kiểm tra và thời gian học dự kiến." data-en="Choose your level, then follow your next step. Grammar and the four skills in CEFR order, with quizzes and study time estimates.">Chọn trình độ, rồi làm theo bước tiếp theo. Ngữ pháp và bốn kỹ năng theo khung CEFR, kèm bài kiểm tra và thời gian học dự kiến.</p>
-        <span class="learn-go"><span data-vi="Xem lộ trình" data-en="Open the route map">Xem lộ trình</span><svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></span>
-      </a>
-      <a class="learn-card hub reveal-lid" href="learning-hub.html">
-        <svg class="burst" viewBox="0 0 180 180" aria-hidden="true" style="color:var(--grammarInk)"><circle class="core" cx="90" cy="90" r="22"/><g class="rays"><line class="a" pathLength="1" x1="124.0" y1="90.0" x2="160.0" y2="90.0"/><line class="b" pathLength="1" x1="121.4" y1="103.0" x2="141.7" y2="111.4"/><line class="a" pathLength="1" x1="114.0" y1="114.0" x2="139.5" y2="139.5"/><line class="b" pathLength="1" x1="103.0" y1="121.4" x2="111.4" y2="141.7"/><line class="a" pathLength="1" x1="90.0" y1="124.0" x2="90.0" y2="160.0"/><line class="b" pathLength="1" x1="77.0" y1="121.4" x2="68.6" y2="141.7"/><line class="a" pathLength="1" x1="66.0" y1="114.0" x2="40.5" y2="139.5"/><line class="b" pathLength="1" x1="58.6" y1="103.0" x2="38.3" y2="111.4"/><line class="a" pathLength="1" x1="56.0" y1="90.0" x2="20.0" y2="90.0"/><line class="b" pathLength="1" x1="58.6" y1="77.0" x2="38.3" y2="68.6"/><line class="a" pathLength="1" x1="66.0" y1="66.0" x2="40.5" y2="40.5"/><line class="b" pathLength="1" x1="77.0" y1="58.6" x2="68.6" y2="38.3"/><line class="a" pathLength="1" x1="90.0" y1="56.0" x2="90.0" y2="20.0"/><line class="b" pathLength="1" x1="103.0" y1="58.6" x2="111.4" y2="38.3"/><line class="a" pathLength="1" x1="114.0" y1="66.0" x2="139.5" y2="40.5"/><line class="b" pathLength="1" x1="121.4" y1="77.0" x2="141.7" y2="68.6"/></g></svg>
-        <span class="stamp eyebrow" data-vi="Tự học" data-en="Self study">Tự học</span>
-        <h3 data-vi="Ngữ pháp nền tảng, 12 thì và IELTS" data-en="Grammar foundations, the 12 tenses and IELTS">Ngữ pháp nền tảng, 12 thì và IELTS</h3>
-        <p data-vi="Luyện cấu trúc câu, xem 12 thì trên một dòng thời gian, học bài chuyên sâu cho từng thì, và vào thẳng các công cụ IELTS." data-en="Practise sentence structure, see the 12 tenses on one timeline, study full lessons for each tense, and go straight to the IELTS tools.">Luyện cấu trúc câu, xem 12 thì trên một dòng thời gian, học bài chuyên sâu cho từng thì, và vào thẳng các công cụ IELTS.</p>
-        <span class="learn-go"><span data-vi="Vào tự học" data-en="Start self study">Vào tự học</span><svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></span>
-      </a>
+    <div class="about-grid">
+      <div class="photo-frame reveal">
+        <img decoding="async" loading="lazy" width="560" height="637" src="assets/le-hoang.webp" alt="Lê Hoàng đứng dưới bộ xương cá voi xanh tại Bảo tàng Lịch sử Tự nhiên, London" data-en-alt="Lê Hoàng standing beneath the blue whale skeleton at the Natural History Museum, London" data-vi-alt="Lê Hoàng đứng dưới bộ xương cá voi xanh tại Bảo tàng Lịch sử Tự nhiên, London">
+      </div>
+      <div class="about-body reveal">
+        <p data-vi="Lê Hoàng là giảng viên tiếng Anh có bằng Thạc sĩ TESOL của Đại học York, với kinh nghiệm giảng dạy thực tế ở bậc đại học, luyện thi và tiếng Anh tổng quát tại TP. Hồ Chí Minh." data-en="Lê Hoàng is a TESOL qualified English lecturer with an MA from the University of York and hands on teaching experience across university, exam preparation, and general English settings in Ho Chi Minh City.">Lê Hoàng là giảng viên tiếng Anh có bằng Thạc sĩ TESOL của Đại học York, với kinh nghiệm giảng dạy thực tế ở bậc đại học, luyện thi và tiếng Anh tổng quát tại TP. Hồ Chí Minh.</p>
+        <p data-vi="Việc giảng dạy trên lớp luôn đi cùng nghiên cứu học thuật, hướng tới những tiến bộ đo lường được về kỹ năng giao tiếp và kết quả thi của người học." data-en="Classroom practice is paired with ongoing academic research, working toward measurable gains in learners&#x27; communication skills and exam results.">Việc giảng dạy trên lớp luôn đi cùng nghiên cứu học thuật, hướng tới những tiến bộ đo lường được về kỹ năng giao tiếp và kết quả thi của người học.</p>
+        <div class="stat-row stagger">
+          <div class="stat" style="--i:0"><span class="n" data-count="7.5">7.5</span><small><span>IELTS</span> &middot; <span data-vi="Chứng chỉ 2026" data-en="Certified 2026">Chứng chỉ 2026</span></small></div>
+          <div class="stat" style="--i:1"><span class="n" data-count="965">965</span><small><span>TOEIC</span> &middot; <span data-vi="Chứng chỉ 2025" data-en="Certified 2025">Chứng chỉ 2025</span></small></div>
+          <div class="stat" style="--i:2"><span class="n">MA</span><small><span>TESOL</span> &middot; <span data-vi="Đại học York" data-en="University of York">Đại học York</span></small></div>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
-
-<section id="profile" class="profile-section">
-  <div class="inner">
-    <div class="section-head reveal">
-      <span class="stamp" data-vi="06 · Hồ sơ" data-en="06 · Profile">06 · Hồ sơ</span>
-      <h2 data-vi="Hồ sơ đầy đủ" data-en="Full profile">Hồ sơ đầy đủ</h2>
-    </div>
+    <div class="profile-wrap" id="profile">
     <details class="profile reveal" id="profileBox">
       <summary>
         <span class="profile-sum">
@@ -1156,7 +1146,7 @@ html.anim-paused .hero .stamp::before{animation-play-state:paused}
       <div class="profile-body">
       <div class="profile-part" id="experience">
         <div class="part-head reveal">
-          <span class="stamp" data-vi="06.1 · Kinh nghiệm" data-en="06.1 · Experience">06.1 · Kinh nghiệm</span>
+          <span class="stamp" data-vi="03.1 · Kinh nghiệm" data-en="03.1 · Experience">03.1 · Kinh nghiệm</span>
           <h3 class="part-title" data-vi="Kinh nghiệm" data-en="Experience">Kinh nghiệm</h3>
         </div>
         <div class="timeline" id="timeline">
@@ -1253,7 +1243,7 @@ html.anim-paused .hero .stamp::before{animation-play-state:paused}
       </div>
       <div class="profile-part" id="education">
         <div class="part-head reveal">
-          <span class="stamp" data-vi="06.2 · Học vấn" data-en="06.2 · Education">06.2 · Học vấn</span>
+          <span class="stamp" data-vi="03.2 · Học vấn" data-en="03.2 · Education">03.2 · Học vấn</span>
           <h3 class="part-title" data-vi="Học vấn &amp; Chứng chỉ" data-en="Education &amp;amp; Certifications">Học vấn &amp; Chứng chỉ</h3>
         </div>
         <div class="split">
@@ -1307,7 +1297,7 @@ html.anim-paused .hero .stamp::before{animation-play-state:paused}
       </div>
       <div class="profile-part" id="skills">
         <div class="part-head reveal">
-          <span class="stamp" data-vi="06.3 · Kỹ năng" data-en="06.3 · Skills">06.3 · Kỹ năng</span>
+          <span class="stamp" data-vi="03.3 · Kỹ năng" data-en="03.3 · Skills">03.3 · Kỹ năng</span>
           <h3 class="part-title" data-vi="Kỹ năng" data-en="Skills">Kỹ năng</h3>
         </div>
         <div class="skill-groups">
@@ -1346,6 +1336,33 @@ html.anim-paused .hero .stamp::before{animation-play-state:paused}
       </div>
       </div>
     </details>
+    </div>
+  </div>
+</section>
+
+<section id="learning">
+  <div class="inner">
+    <div class="section-head reveal">
+      <span class="stamp" data-vi="04 · Học liệu miễn phí" data-en="04 · Free study tools">04 · Học liệu miễn phí</span>
+      <h2 data-vi="Góc học tập" data-en="Learning">Góc học tập</h2>
+    </div>
+    <p class="learn-intro reveal" data-vi="Công cụ học miễn phí. Tiến độ và lựa chọn của bạn được lưu ngay trong trình duyệt." data-en="Free study tools. Your progress and choices are saved in your own browser.">Công cụ học miễn phí. Tiến độ và lựa chọn của bạn được lưu ngay trong trình duyệt.</p>
+    <div class="learn-grid">
+      <a class="learn-card map reveal-lid" href="route-map.html">
+        <svg class="burst" viewBox="0 0 180 180" aria-hidden="true"><circle class="core" cx="90" cy="90" r="22"/><g class="rays"><line class="a" pathLength="1" x1="124.0" y1="90.0" x2="160.0" y2="90.0"/><line class="b" pathLength="1" x1="121.4" y1="103.0" x2="141.7" y2="111.4"/><line class="a" pathLength="1" x1="114.0" y1="114.0" x2="139.5" y2="139.5"/><line class="b" pathLength="1" x1="103.0" y1="121.4" x2="111.4" y2="141.7"/><line class="a" pathLength="1" x1="90.0" y1="124.0" x2="90.0" y2="160.0"/><line class="b" pathLength="1" x1="77.0" y1="121.4" x2="68.6" y2="141.7"/><line class="a" pathLength="1" x1="66.0" y1="114.0" x2="40.5" y2="139.5"/><line class="b" pathLength="1" x1="58.6" y1="103.0" x2="38.3" y2="111.4"/><line class="a" pathLength="1" x1="56.0" y1="90.0" x2="20.0" y2="90.0"/><line class="b" pathLength="1" x1="58.6" y1="77.0" x2="38.3" y2="68.6"/><line class="a" pathLength="1" x1="66.0" y1="66.0" x2="40.5" y2="40.5"/><line class="b" pathLength="1" x1="77.0" y1="58.6" x2="68.6" y2="38.3"/><line class="a" pathLength="1" x1="90.0" y1="56.0" x2="90.0" y2="20.0"/><line class="b" pathLength="1" x1="103.0" y1="58.6" x2="111.4" y2="38.3"/><line class="a" pathLength="1" x1="114.0" y1="66.0" x2="139.5" y2="40.5"/><line class="b" pathLength="1" x1="121.4" y1="77.0" x2="141.7" y2="68.6"/></g></svg>
+        <span class="stamp eyebrow" data-vi="Lộ trình" data-en="Route map">Lộ trình</span>
+        <h3 data-vi="Từng bước từ A1 đến C2" data-en="Every step from A1 to C2">Từng bước từ A1 đến C2</h3>
+        <p data-vi="Chọn trình độ, rồi làm theo bước tiếp theo. Ngữ pháp và bốn kỹ năng theo khung CEFR, kèm bài kiểm tra và thời gian học dự kiến." data-en="Choose your level, then follow your next step. Grammar and the four skills in CEFR order, with quizzes and study time estimates.">Chọn trình độ, rồi làm theo bước tiếp theo. Ngữ pháp và bốn kỹ năng theo khung CEFR, kèm bài kiểm tra và thời gian học dự kiến.</p>
+        <span class="learn-go"><span data-vi="Xem lộ trình" data-en="Open the route map">Xem lộ trình</span><svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+      </a>
+      <a class="learn-card hub reveal-lid" href="learning-hub.html">
+        <svg class="burst" viewBox="0 0 180 180" aria-hidden="true" style="color:var(--grammarInk)"><circle class="core" cx="90" cy="90" r="22"/><g class="rays"><line class="a" pathLength="1" x1="124.0" y1="90.0" x2="160.0" y2="90.0"/><line class="b" pathLength="1" x1="121.4" y1="103.0" x2="141.7" y2="111.4"/><line class="a" pathLength="1" x1="114.0" y1="114.0" x2="139.5" y2="139.5"/><line class="b" pathLength="1" x1="103.0" y1="121.4" x2="111.4" y2="141.7"/><line class="a" pathLength="1" x1="90.0" y1="124.0" x2="90.0" y2="160.0"/><line class="b" pathLength="1" x1="77.0" y1="121.4" x2="68.6" y2="141.7"/><line class="a" pathLength="1" x1="66.0" y1="114.0" x2="40.5" y2="139.5"/><line class="b" pathLength="1" x1="58.6" y1="103.0" x2="38.3" y2="111.4"/><line class="a" pathLength="1" x1="56.0" y1="90.0" x2="20.0" y2="90.0"/><line class="b" pathLength="1" x1="58.6" y1="77.0" x2="38.3" y2="68.6"/><line class="a" pathLength="1" x1="66.0" y1="66.0" x2="40.5" y2="40.5"/><line class="b" pathLength="1" x1="77.0" y1="58.6" x2="68.6" y2="38.3"/><line class="a" pathLength="1" x1="90.0" y1="56.0" x2="90.0" y2="20.0"/><line class="b" pathLength="1" x1="103.0" y1="58.6" x2="111.4" y2="38.3"/><line class="a" pathLength="1" x1="114.0" y1="66.0" x2="139.5" y2="40.5"/><line class="b" pathLength="1" x1="121.4" y1="77.0" x2="141.7" y2="68.6"/></g></svg>
+        <span class="stamp eyebrow" data-vi="Tự học" data-en="Self study">Tự học</span>
+        <h3 data-vi="Ngữ pháp nền tảng, 12 thì và IELTS" data-en="Grammar foundations, the 12 tenses and IELTS">Ngữ pháp nền tảng, 12 thì và IELTS</h3>
+        <p data-vi="Luyện cấu trúc câu, xem 12 thì trên một dòng thời gian, học bài chuyên sâu cho từng thì, và vào thẳng các công cụ IELTS." data-en="Practise sentence structure, see the 12 tenses on one timeline, study full lessons for each tense, and go straight to the IELTS tools.">Luyện cấu trúc câu, xem 12 thì trên một dòng thời gian, học bài chuyên sâu cho từng thì, và vào thẳng các công cụ IELTS.</p>
+        <span class="learn-go"><span data-vi="Vào tự học" data-en="Start self study">Vào tự học</span><svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+      </a>
+    </div>
   </div>
 </section>
 </main>
@@ -1407,7 +1424,7 @@ html.anim-paused .hero .stamp::before{animation-play-state:paused}
     <p data-fvi="Lê Hoàng, Thạc sĩ TESOL, Đại học York" data-fen="Lê Hoàng, MA TESOL, University of York">Lê Hoàng, Thạc sĩ TESOL, Đại học York</p>
   </div>
 </footer>
-<script src="assets/footer.js?v=20261031g" defer></script>
+<script src="assets/footer.js?v=20261110a" defer></script>
 
 <script>
 (function(){
@@ -1511,7 +1528,7 @@ if ('IntersectionObserver' in window){
       navLinks.forEach(function(a){ a.setAttribute('aria-current', a.getAttribute('href') === '#' + e.target.id ? 'true' : 'false'); });
     });
   }, { rootMargin: '-45% 0px -50% 0px' });
-  ['about','services','contact','learning','profile'].forEach(function(id){ var s = document.getElementById(id); if(s) spy.observe(s); });
+  ['services','contact','about','learning','profile'].forEach(function(id){ var s = document.getElementById(id); if(s) spy.observe(s); });
 }
 
 /* ---------- Scroll: nav shadow, progress (fallback), timeline fill, to top ---------- */

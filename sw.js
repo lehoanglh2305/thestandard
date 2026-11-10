@@ -1,9 +1,9 @@
 /* The Standard: lets the route map and learning hub open without internet.
    Pages: newest copy from the internet when online, saved copy when offline.
    Change VERSION after an update to clear old saved files. */
-const VERSION = "ts-2026-11-02d";
+const VERSION = "ts-2026-11-10b";
 const FONTS = "ts-fonts";
-const CORE = ["./route-map.html", "./learning-hub.html", "./writing.html", "./lo-trinh-ielts.html", "./ngu-phap/hien-tai-don.html", "./404.html", "./manifest.webmanifest", "./icon-192.png", "./icon-512.png", "./assets/logo-black.png", "./assets/logo-letters.svg", "./assets/logo-dot.svg", "./assets/logo-white.png", "./assets/footer.css", "./assets/footer.js", "./fonts/playfair-400.woff2",
+const CORE = ["./route-map.html", "./learning-hub.html", "./writing.html", "./lo-trinh-ielts.html", "./ngu-phap/hien-tai-don.html", "./404.html", "./manifest.webmanifest", "./icon-192.png", "./icon-512.png", "./assets/logo-black.png", "./assets/logo-letters.svg", "./assets/logo-dot.svg", "./assets/logo-white.png", "./assets/footer.css", "./assets/shell.css", "./assets/footer.js", "./fonts/playfair-400.woff2",
   "./NotoSans-Regular.woff2", "./NotoSans-Medium.woff2", "./NotoSans-SemiBold.woff2", "./NotoSans-Bold.woff2",
   "./fonts/barlow-400.woff2", "./fonts/barlow-600.woff2", "./fonts/barlow-condensed-700.woff2", "./fonts/barlow-condensed-800.woff2"];
 

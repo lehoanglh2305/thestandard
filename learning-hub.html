@@ -877,7 +877,8 @@ h1,.hero h1{font-weight:800;text-transform:uppercase;line-height:1.16;letter-spa
 @media (max-width:820px){ .lgrid.two{grid-template-columns:1fr} }
 .lessons + .lessons{margin-top:16px}
 </style>
-<link rel="stylesheet" href="assets/footer.css?v=20261031g">
+<link rel="stylesheet" href="assets/footer.css?v=20261110a">
+<link rel="stylesheet" href="assets/shell.css?v=20261110a">
 </head>
 <body>
 <div class="wrap">
@@ -885,12 +886,12 @@ h1,.hero h1{font-weight:800;text-transform:uppercase;line-height:1.16;letter-spa
     <a class="mark" href="./" aria-label="The Standard, home"><img class="mark-logo mark-light" src="assets/logo-black.png" alt="" width="760" height="96"><img class="mark-logo mark-dark" src="assets/logo-white.png" alt="" width="760" height="96"></a>
     <nav class="sitenav" aria-label="Site">
       <ul id="navList">
-        <li><a href="./#about" data-i="navAbout">Giới thiệu</a></li>
         <li><a href="./#services" data-i="navCourses">Khóa học</a></li>
         <li><a href="./#contact" data-i="navContact">Liên hệ</a></li>
+        <li><a href="./#about" data-i="navAbout">Giới thiệu</a></li>
+        <li><a href="./#profile" data-i="navProfile">Hồ sơ</a></li>
         <li><a href="route-map.html" data-i="navRoute">Lộ trình</a></li>
         <li><a href="learning-hub.html" aria-current="page" data-i="navHub">Tự học</a></li>
-        <li><a href="./#profile" data-i="navProfile">Hồ sơ</a></li>
         <li><a href="./#apply" class="navapply" data-i="navApply">Đăng ký</a></li>
       </ul>
     </nav>
@@ -903,15 +904,12 @@ h1,.hero h1{font-weight:800;text-transform:uppercase;line-height:1.16;letter-spa
     <button type="button" class="navtoggle" id="navToggle" aria-expanded="false" aria-controls="navList" aria-label="Open menu">☰</button>
     </div>
   </div>
+  <nav class="pageswitch" aria-label="Các trang học tập" data-il="pgL"><a href="route-map.html" data-i="pgRoute">Lộ trình A1 đến C2</a><a href="learning-hub.html" aria-current="page" data-i="pgHub">Tự học</a><a href="writing.html" data-i="pgWriting">IELTS Writing</a><a href="lo-trinh-ielts.html" data-i="pgIelts">Lộ trình IELTS</a></nav>
 
   <main id="main" style="display:contents">
-  <div class="eng-band eng-burgundy eng-land" role="presentation"></div>
+  <div class="eng-band eng-cobalt eng-land" role="presentation"></div>
 <header class="hero">
     <div id="heroText">
-      <nav class="pageswitch two" aria-label="Các trang học tập" data-il="pgL">
-        <a href="route-map.html" data-i="pgRoute">Lộ trình</a>
-        <a href="learning-hub.html" aria-current="page" data-i="pgHub">Tự học</a>
-      </nav>
       <div class="eyebrow" data-i="eyebrow"></div>
       <h1 data-i="h1"></h1>
       <p class="lede" data-i="lede"></p>
@@ -1032,7 +1030,7 @@ h1,.hero h1{font-weight:800;text-transform:uppercase;line-height:1.16;letter-spa
   </footer>
 </div>
 
-<footer class="sf sf-eng sf-ink-burgundy sf-e-dome">
+<footer class="sf sf-eng sf-ink-cobalt sf-e-dome">
   <div class="sf-ticker" aria-hidden="true"><div class="sf-ticker-track"><div class="sf-ticker-group"><span>IELTS</span><i></i><span>TOEIC</span><i></i><span>APTIS</span><i></i><span>Foundation</span><i></i><span data-fvi="1 kèm 1" data-fen="1 on 1">1 kèm 1</span><i></i><span>Online</span><i></i><span>Lê Hoàng</span><i></i></div><div class="sf-ticker-group"><span>IELTS</span><i></i><span>TOEIC</span><i></i><span>APTIS</span><i></i><span>Foundation</span><i></i><span data-fvi="1 kèm 1" data-fen="1 on 1">1 kèm 1</span><i></i><span>Online</span><i></i><span>Lê Hoàng</span><i></i></div></div></div>
   <div class="sf-inner">
     <div class="sf-cta">
@@ -1080,7 +1078,7 @@ h1,.hero h1{font-weight:800;text-transform:uppercase;line-height:1.16;letter-spa
     <p data-fvi="Lê Hoàng, Thạc sĩ TESOL, Đại học York" data-fen="Lê Hoàng, MA TESOL, University of York">Lê Hoàng, Thạc sĩ TESOL, Đại học York</p>
   </div>
 </footer>
-<script src="assets/footer.js?v=20261031g" defer></script>
+<script src="assets/footer.js?v=20261110a" defer></script>
 
 <dialog id="sheet" aria-labelledby="sTitle">
   <div class="shead">
@@ -1505,7 +1503,7 @@ const UI = {
   ssEye:"Tool 01 · A1 to C1", ssLede:"Each topic explains one rule, shows coloured examples you can tap, and ends with practice. Tick a topic when you feel sure of it.",
   ttName:"Tense timeline", ttDesc:"The twelve tenses on one timeline, with form, use, common mistakes and a quiz for each.",
   ttEye:"Tool 02 · Twelve tenses", ttLede:"Columns show the time, rows show the aspect. Open a tense to learn it, or pick a signal word to see which tenses use it.",
-  ctName:"Class tools", ctDesc:"A speaking wheel, speaking pairs and a seat plan for the classroom.", ctFor:"For teachers", ctTitle:"Class tools · The Standard", ctEyebrow:"Class tools · For teachers", ctH1:"Speaking activities for the classroom", ctDataT:"Your data", ctData:"Class lists, topics and seat plans are saved in this browser on this device only and are never sent anywhere. Bookmark this page to come back to it.", pgRoute:"Route map", pgHub:"Self study", ieltsT:"IELTS practice", lessonsT:"The 12 tenses: full lessons", advT:"Advanced grammar", advP:"Study these after the 12 tenses. Each lesson has diagrams, forms, common mistakes and self checking practice.", lessonsP:"Each lesson has timelines, forms, common mistakes, the passive and self checking practice. Start from lesson 1.", ieltsW:"Vocabulary, sentence patterns and annotated model answers", ieltsR:"IELTS roadmap", ieltsRd:"How long to reach your target band", fullLesson:"Full lesson", pgWriting:"IELTS Writing", pgIelts:"IELTS roadmap", pgL:"Learning pages", navLearn:"Learning",
+  ctName:"Class tools", ctDesc:"A speaking wheel, speaking pairs and a seat plan for the classroom.", ctFor:"For teachers", ctTitle:"Class tools · The Standard", ctEyebrow:"Class tools · For teachers", ctH1:"Speaking activities for the classroom", ctDataT:"Your data", ctData:"Class lists, topics and seat plans are saved in this browser on this device only and are never sent anywhere. Bookmark this page to come back to it.", pgRoute:"A1 to C2 route map", pgWriting:"IELTS Writing", pgIelts:"IELTS roadmap", pgHub:"Self study", ieltsT:"IELTS practice", lessonsT:"The 12 tenses: full lessons", advT:"Advanced grammar", advP:"Study these after the 12 tenses. Each lesson has diagrams, forms, common mistakes and self checking practice.", lessonsP:"Each lesson has timelines, forms, common mistakes, the passive and self checking practice. Start from lesson 1.", ieltsW:"Vocabulary, sentence patterns and annotated model answers", ieltsR:"IELTS roadmap", ieltsRd:"How long to reach your target band", fullLesson:"Full lesson", pgWriting:"IELTS Writing", pgIelts:"IELTS roadmap", pgL:"Learning pages", navLearn:"Learning",
   ctLede:"Three small tools for speaking lessons. Names, topics and plans stay in this browser and are never sent anywhere.",
   countTop:(d,n)=>`${d} / ${n} learned`, countTen:(d,n)=>`${d} / ${n} learned`,
   hide:"Hide learned", allAreas:"All areas", shown:n=>`${n} shown`, noTopics:"No topics match these filters.",
@@ -1596,7 +1594,7 @@ const UI = {
   ssEye:"Công cụ 01 · A1 đến C1", ssLede:"Mỗi chủ đề giải thích một quy tắc, có ví dụ tô màu để bạn chạm vào, và kết thúc bằng phần luyện tập. Hãy đánh dấu chủ đề khi bạn đã chắc chắn.",
   ttName:"Dòng thời gian các thì", ttDesc:"Mười hai thì trên cùng một dòng thời gian, kèm cấu trúc, cách dùng, lỗi thường gặp và câu đố cho từng thì.",
   ttEye:"Công cụ 02 · Mười hai thì", ttLede:"Cột cho biết thời gian, hàng cho biết dạng thì. Mở một thì để học, hoặc chọn một từ dấu hiệu để xem những thì nào dùng nó.",
-  ctName:"Công cụ lớp học", ctDesc:"Vòng quay nói, ghép cặp nói và sơ đồ chỗ ngồi cho lớp học.", ctFor:"Dành cho giáo viên", ctTitle:"Công cụ lớp học · The Standard", ctEyebrow:"Công cụ lớp học · Dành cho giáo viên", ctH1:"Hoạt động nói cho lớp học", ctDataT:"Dữ liệu của bạn", ctData:"Danh sách lớp, chủ đề và sơ đồ chỗ ngồi chỉ được lưu trong trình duyệt trên thiết bị này và không được gửi đi đâu. Hãy lưu trang này vào dấu trang để quay lại.", pgRoute:"Lộ trình", pgHub:"Tự học", ieltsT:"Luyện IELTS", lessonsT:"12 thì: bài học chuyên sâu", advT:"Ngữ pháp nâng cao", advP:"Học sau khi xong 12 thì. Mỗi bài có sơ đồ, cấu trúc, lỗi người Việt hay mắc và bài tập tự chấm.", lessonsP:"Mỗi bài có trục thời gian, công thức, lỗi hay gặp, câu bị động và bài tập tự chấm. Học theo thứ tự từ bài 1.", ieltsW:"Từ vựng, cấu trúc câu và bài mẫu có chú giải", ieltsR:"Lộ trình IELTS", ieltsRd:"Cần học bao lâu để đạt band mục tiêu", fullLesson:"Bài học chuyên sâu", pgWriting:"IELTS Writing", pgIelts:"Lộ trình IELTS", pgL:"Các trang học tập", navLearn:"Góc học tập",
+  ctName:"Công cụ lớp học", ctDesc:"Vòng quay nói, ghép cặp nói và sơ đồ chỗ ngồi cho lớp học.", ctFor:"Dành cho giáo viên", ctTitle:"Công cụ lớp học · The Standard", ctEyebrow:"Công cụ lớp học · Dành cho giáo viên", ctH1:"Hoạt động nói cho lớp học", ctDataT:"Dữ liệu của bạn", ctData:"Danh sách lớp, chủ đề và sơ đồ chỗ ngồi chỉ được lưu trong trình duyệt trên thiết bị này và không được gửi đi đâu. Hãy lưu trang này vào dấu trang để quay lại.", pgRoute:"Lộ trình A1 đến C2", pgWriting:"IELTS Writing", pgIelts:"Lộ trình IELTS", pgHub:"Tự học", ieltsT:"Luyện IELTS", lessonsT:"12 thì: bài học chuyên sâu", advT:"Ngữ pháp nâng cao", advP:"Học sau khi xong 12 thì. Mỗi bài có sơ đồ, cấu trúc, lỗi người Việt hay mắc và bài tập tự chấm.", lessonsP:"Mỗi bài có trục thời gian, công thức, lỗi hay gặp, câu bị động và bài tập tự chấm. Học theo thứ tự từ bài 1.", ieltsW:"Từ vựng, cấu trúc câu và bài mẫu có chú giải", ieltsR:"Lộ trình IELTS", ieltsRd:"Cần học bao lâu để đạt band mục tiêu", fullLesson:"Bài học chuyên sâu", pgWriting:"IELTS Writing", pgIelts:"Lộ trình IELTS", pgL:"Các trang học tập", navLearn:"Góc học tập",
   ctLede:"Ba công cụ nhỏ cho giờ học nói. Tên học sinh, chủ đề và sơ đồ chỉ lưu trong trình duyệt này và không được gửi đi đâu.",
   countTop:(d,n)=>`Đã học ${d} / ${n}`, countTen:(d,n)=>`Đã học ${d} / ${n}`,
   hide:"Ẩn mục đã học", allAreas:"Tất cả", shown:n=>`${n} mục`, noTopics:"Không có chủ đề nào khớp bộ lọc.",
