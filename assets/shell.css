@@ -1,0 +1,24 @@
+/* The Standard: shared shell.
+   One header, one study menu, one title scale and one button shape across pages.
+   Loaded after each page's own styles, so these rules win where they overlap. */
+
+/* 1. Header on Route map and Self study: same height, logo size and order as the other pages */
+.wrap{padding-top:0}
+.mark-logo{height:30px}
+@media (max-width:1023px){.mark-logo{height:24px}}
+@media (max-width:480px){.mark-logo{height:20px}}
+@media (max-width:360px){.mark-logo{height:15px}.sitebar{gap:6px}.sitebar .lang button{padding-inline:7px;min-width:36px}.sitebar .themeb{padding:6px;min-width:36px}.sitebar .navtoggle{width:40px}}
+@media (min-width:1101px){.sitebar .sitenav{margin-left:auto}}
+
+/* 2. Apply button in every header */
+.tsn-apply,.sitenav a.navapply{border-radius:10px;font-size:17px;color:#f4e6cf}
+
+/* 3. Study menu: the same four pages, in the same order, on every study page */
+.pageswitch{display:flex;flex-wrap:nowrap;gap:6px;margin:0;padding:0 0 12px;overflow-x:auto;scrollbar-width:none;background:transparent;border:0;border-radius:0}
+.pageswitch::-webkit-scrollbar{display:none}
+.pageswitch a{flex:none;min-height:36px;padding:0 14px;white-space:nowrap}
+
+/* 4. Page titles on study pages share one scale: 40px on phones up to 64px on desktop */
+.lid h1{font-size:clamp(40px,6vw,64px)}
+.intro h1{font-size:clamp(28px,3.6vw,44px);line-height:1}
+@media (max-width:1023px){.sitebar{padding-block:12px;min-height:68px}}
