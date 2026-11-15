@@ -22,3 +22,96 @@
 .lid h1{font-size:clamp(40px,6vw,64px)}
 .intro h1{font-size:clamp(28px,3.6vw,44px);line-height:1}
 @media (max-width:1023px){.sitebar{padding-block:12px;min-height:68px}}
+
+/* ===== Dark theme: midnight navy with rose gold =====
+   Applies when the learner picks Dark, or picks Auto and the device is dark. */
+:root[data-ts="study"][data-theme="dark"]{color-scheme:dark}
+@media (prefers-color-scheme:dark){:root[data-ts="study"]:not([data-theme="light"]){color-scheme:dark}}
+
+/* Writing and IELTS roadmap use the brand variables: remap them */
+:root[data-ts="study"][data-theme="dark"]{
+  --cream:#0f1c33; --paper:#16264a; --cocoa:#f4e6cf; --mocha:#a9b6d0; --sand:#2b3f6b;
+  --cobalt:#d9a08f; --vocab:#e8bfae; --vocabInk:#0f1c33; --markError:#e8a0a8;
+  --grammar:#d9a08f; --grammarInk:#e8bfae; --review:#3d1a24; --reviewInk:#f4e6cf;
+  --speaking:#b76e79; --speakingInk:#f4e6cf; --okBg:#2f5744; --ok:#bfe3c9; --chartWarm:#e8a56f;
+  --shadow:0 2px 0 rgb(0 0 0 / .35),0 10px 20px -10px rgb(0 0 0 / .6);
+}
+@media (prefers-color-scheme:dark){:root[data-ts="study"]:not([data-theme="light"]){
+  --cream:#0f1c33; --paper:#16264a; --cocoa:#f4e6cf; --mocha:#a9b6d0; --sand:#2b3f6b;
+  --cobalt:#d9a08f; --vocab:#e8bfae; --vocabInk:#0f1c33; --markError:#e8a0a8;
+  --grammar:#d9a08f; --grammarInk:#e8bfae; --review:#3d1a24; --reviewInk:#f4e6cf;
+  --speaking:#b76e79; --speakingInk:#f4e6cf; --okBg:#2f5744; --ok:#bfe3c9; --chartWarm:#e8a56f;
+  --shadow:0 2px 0 rgb(0 0 0 / .35),0 10px 20px -10px rgb(0 0 0 / .6);
+}}
+
+/* Self study, Route map, Class tools and grammar lessons use their own variable names: navy and rose gold */
+:root[data-ts="study"][data-theme="dark"]{
+  --coral:#e8bfae; --coral-active:#f4e6cf; --coral-text:#e8bfae; --coral-fill:#d9a08f; --on-primary:#0f1c33; --on-cream:#a9b6d0; --teal:#e8bfae; --amber:#e8bfae;
+  --teal-text:#e8bfae; --teal-fill:#d9a08f;
+  --ink:#f4e6cf; --body-strong:#f4e6cf; --body:#e6dccb; --muted:#a9b6d0; --muted-soft:#93a2c2;
+  --canvas:#0f1c33; --surface-soft:#1b2d54; --surface-card:#16264a; --cream-strong:#223564;
+  --hairline:#2b3f6b; --hairline-soft:#223564;
+  --panel:#1b2d54; --on-panel:#f4e6cf; --on-panel-soft:#c3cbdb; --btn-dk:#d9a08f; --btn-dk-soft:#c98f7e;
+  --success:#6fbf93; --error:#e8a0a8; --ok-text:#a6dcb9; --err-text:#f0b4ba;
+  --formula-soft:rgba(244,230,207,.07); --backdrop:rgba(4,9,20,.72);
+  --line-accent:#d9a08f; --ring:rgba(217,160,143,.5); --glow:rgba(217,160,143,.25);
+  --ok-tint:rgba(111,191,147,.16); --err-tint:rgba(232,160,168,.16);
+  --stage:#16264a; --stage-floor:#223564;
+  --wheel-a:#d9a08f; --wheel-b:#223564; --wheel-c:#f4e6cf; --wheel-ta:#0f1c33; --wheel-tb:#f4e6cf; --wheel-tc:#0f1c33; --wheel-ring:#f4e6cf; --wheel-hub:#0f1c33;
+}
+@media (prefers-color-scheme:dark){:root[data-ts="study"]:not([data-theme="light"]){
+  --coral:#e8bfae; --coral-active:#f4e6cf; --coral-text:#e8bfae; --coral-fill:#d9a08f; --on-primary:#0f1c33; --on-cream:#a9b6d0; --teal:#e8bfae; --amber:#e8bfae;
+  --teal-text:#e8bfae; --teal-fill:#d9a08f;
+  --ink:#f4e6cf; --body-strong:#f4e6cf; --body:#e6dccb; --muted:#a9b6d0; --muted-soft:#93a2c2;
+  --canvas:#0f1c33; --surface-soft:#1b2d54; --surface-card:#16264a; --cream-strong:#223564;
+  --hairline:#2b3f6b; --hairline-soft:#223564;
+  --panel:#1b2d54; --on-panel:#f4e6cf; --on-panel-soft:#c3cbdb; --btn-dk:#d9a08f; --btn-dk-soft:#c98f7e;
+  --success:#6fbf93; --error:#e8a0a8; --ok-text:#a6dcb9; --err-text:#f0b4ba;
+  --formula-soft:rgba(244,230,207,.07); --backdrop:rgba(4,9,20,.72);
+  --line-accent:#d9a08f; --ring:rgba(217,160,143,.5); --glow:rgba(217,160,143,.25);
+  --ok-tint:rgba(111,191,147,.16); --err-tint:rgba(232,160,168,.16);
+  --stage:#16264a; --stage-floor:#223564;
+  --wheel-a:#d9a08f; --wheel-b:#223564; --wheel-c:#f4e6cf; --wheel-ta:#0f1c33; --wheel-tb:#f4e6cf; --wheel-tc:#0f1c33; --wheel-ring:#f4e6cf; --wheel-hub:#0f1c33;
+}}
+
+/* ===== Student header on Writing and IELTS roadmap: five links, theme button, language ===== */
+.tsn-links a{font-size:15px;padding:0 11px;white-space:nowrap}
+.tsn-links a[aria-current="page"]{background:var(--cocoa);color:var(--cream)}
+.tsn .langsw button[aria-pressed="true"]{color:var(--cream)}
+.tsn .themeb{display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 12px;border:1.5px solid var(--cocoa);border-radius:999px;background:transparent;color:var(--cocoa);font:600 14px/1 var(--font-sans);cursor:pointer;flex:none}
+.tsn .themeb svg{width:16px;height:16px;flex:none}
+.tsn .themeb:hover{background:var(--paper)}
+.tsn-panel a[aria-current="page"]{color:var(--cobalt)}
+@media (max-width:1179px){.tsn .themeb .tb-t{display:none}.tsn .themeb{width:44px;min-height:44px;padding:0;justify-content:center}}
+@media (min-width:1024px) and (max-width:1179px){
+  .tsn-main{display:none!important}
+  .tsn-toggle{display:inline-flex!important}
+  .tsn-panel:not([hidden]){display:block!important}
+}
+@media (min-width:1180px){.tsn-main{display:block}.tsn-toggle,.tsn-panel{display:none!important}}
+.tsn-brand .mark-dark{display:none}
+:root[data-ts="study"][data-theme="dark"] .tsn-brand .mark-light{display:none}
+:root[data-ts="study"][data-theme="dark"] .tsn-brand .mark-dark{display:block}
+@media (prefers-color-scheme:dark){
+  :root[data-ts="study"]:not([data-theme="light"]) .tsn-brand .mark-light{display:none}
+  :root[data-ts="study"]:not([data-theme="light"]) .tsn-brand .mark-dark{display:block}
+}
+
+/* Dark theme: fixes for filled accents and small details */
+html[data-ts="study"][data-theme="dark"] .bc .sep{color:var(--mocha)}
+html[data-ts="study"][data-theme="dark"] .ln.link{color:#0f1c33}
+html[data-ts="study"][data-theme="dark"] .result .btn,html[data-ts="study"][data-theme="dark"] .btn.cta{color:#0f1c33}
+html[data-ts="study"][data-theme="dark"] .s1,html[data-ts="study"][data-theme="dark"] .s2,html[data-ts="study"][data-theme="dark"] .s3{color:#0f1c33}
+html[data-ts="study"][data-theme="dark"] .flag span{color:#e8a0a8}
+html[data-ts="study"][data-theme="dark"] .flag{border-left-color:#e8a0a8}
+@media (prefers-color-scheme:dark){
+html[data-ts="study"]:not([data-theme="light"]) .bc .sep{color:var(--mocha)}
+html[data-ts="study"]:not([data-theme="light"]) .ln.link{color:#0f1c33}
+html[data-ts="study"]:not([data-theme="light"]) .result .btn,html[data-ts="study"]:not([data-theme="light"]) .btn.cta{color:#0f1c33}
+html[data-ts="study"]:not([data-theme="light"]) .s1,html[data-ts="study"]:not([data-theme="light"]) .s2,html[data-ts="study"]:not([data-theme="light"]) .s3{color:#0f1c33}
+html[data-ts="study"]:not([data-theme="light"]) .flag span{color:#e8a0a8}
+html[data-ts="study"]:not([data-theme="light"]) .flag{border-left-color:#e8a0a8}
+}
+:root[data-ts="study"][data-theme="dark"]{--grammar:#d9a08f;--grammarInk:#0f1c33;--speaking:#e0a6b0;--speakingInk:#0f1c33;--btn-dk-soft:#223564}
+@media (prefers-color-scheme:dark){:root[data-ts="study"]:not([data-theme="light"]){--grammar:#d9a08f;--grammarInk:#0f1c33;--speaking:#e0a6b0;--speakingInk:#0f1c33;--btn-dk-soft:#223564}}
+@media (max-width:380px){.tsn-brand img{height:20px}.tsn-row{gap:8px}.tsn .themeb,.tsn-toggle{width:40px;min-height:40px;height:40px}}
