@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Task 1 Process: tái chế lon nhôm (3D) · The Standard</title>
+<meta name="description" content="Bài học IELTS Writing Task 1 dạng quy trình: mô hình 3D mười hai bước tái chế lon nhôm, từ vựng, kỹ thuật viết, bài luyện và bài mẫu có chú giải.">
+<link rel="canonical" href="https://lehoanglh2305.github.io/thestandard/task1-tai-che-lon-nhom.html">
+<meta property="og:site_name" content="The Standard">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://lehoanglh2305.github.io/thestandard/task1-tai-che-lon-nhom.html">
+<meta property="og:title" content="Task 1 Process: tái chế lon nhôm (3D) · The Standard">
+<meta property="og:description" content="Bài học IELTS Writing Task 1 dạng quy trình: mô hình 3D mười hai bước tái chế lon nhôm, từ vựng, kỹ thuật viết, bài luyện và bài mẫu có chú giải.">
+<meta property="og:image" content="https://lehoanglh2305.github.io/thestandard/og-learning-hub.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#f4e6cf">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="preload" href="fonts/barlow-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/barlow-condensed-800.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"Barlow Condensed";src:url(fonts/barlow-condensed-700.woff2) format("woff2");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"Barlow Condensed";src:url(fonts/barlow-condensed-800.woff2) format("woff2");font-weight:800;font-style:normal;font-display:swap}
+@font-face{font-family:"Barlow";src:url(fonts/barlow-400.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Barlow";src:url(fonts/barlow-600.woff2) format("woff2");font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:"Playfair Display";src:url(fonts/playfair-400.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
+/* Shelf Pop tokens (the Standard design system) */
+:root{
+  --cocoa:#4b2a22; --cream:#f4e6cf; --cobalt:#1f5bb5; --paper:#fffaf2; --mocha:#7a5648; --sand:#d9c3a3;
+  --grammar:#ffd23a; --grammarInk:#1f47b8; --vocab:#7b3cbf; --vocabInk:#f4e6cf; --review:#6e2438; --reviewInk:#f4e6cf;
+  --p1:#9fd63c; --p2:#ffd23a; --p3:#f07ccb;
+  --display:"Barlow Condensed","Arial Narrow",sans-serif; --sans:Barlow,Arial,sans-serif; --serif:"Playfair Display",Georgia,serif;
+  --rSm:6px; --rMd:16px; --rLid:48px; --rPill:999px;
+  --elev1:0 1px 0 rgba(75,42,34,.08),0 3px 8px -4px rgba(75,42,34,.14);
+  --elev2:0 2px 0 rgba(75,42,34,.10),0 10px 20px -10px rgba(75,42,34,.24);
+  --elev3:0 4px 0 rgba(75,42,34,.12),0 18px 32px -14px rgba(75,42,34,.32);
+  --press:0 4px 0 rgba(75,42,34,.28); --pressed:0 1px 0 rgba(75,42,34,.28);
+  --ease:cubic-bezier(0.2,0,0,1); --spring:cubic-bezier(0.34,1.56,0.64,1);
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--cream);color:var(--cocoa);font-family:var(--sans);font-size:18px;line-height:1.55}
+h1,h2,h3{font-family:var(--display);font-weight:700;margin:0;line-height:1.05}
+button,select{font-family:var(--sans)}
+button{cursor:pointer}
+:focus-visible{outline:3px solid var(--cobalt);outline-offset:2px}
+.app{display:flex;flex-direction:column;height:100vh}
+/* header */
+header{position:relative;z-index:5;display:flex;align-items:center;gap:24px;min-height:70px;padding:10px 32px;background:var(--cream);border-bottom:1px solid var(--sand);box-shadow:var(--elev2);flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:16px;min-width:0}
+.brand img{height:30px;width:auto;display:block}
+.brand .home{display:block;flex:none}
+.brand .back{text-decoration:none}
+.brand .back:hover{color:var(--cobalt)}
+.brand .divider{width:1px;height:34px;background:var(--sand)}
+.brand .ttl{display:flex;flex-direction:column}
+.stamp{font-family:var(--display);font-weight:700;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--mocha);line-height:1.2}
+.brand h1{font-size:26px;font-weight:800;color:var(--cocoa)}
+.tabs{display:flex;gap:4px;margin-left:auto;padding:4px;background:var(--paper);border-radius:var(--rPill);box-shadow:var(--elev1);flex-wrap:wrap}
+.tab{min-height:44px;border:none;background:transparent;color:var(--cocoa);font-weight:600;font-size:16px;padding:8px 18px;border-radius:var(--rPill);transition:background .25s var(--ease),color .25s var(--ease),transform .1s}
+.tab:hover{background:var(--cream)}
+.tab:active{transform:scale(.97)}
+.tab.active{background:var(--cobalt);color:var(--cream)}
+main{flex:1;display:flex;min-height:0}
+.stage-wrap{position:relative;flex:1;min-width:0}
+#scene{position:absolute;inset:0;display:block;width:100%;height:100%;touch-action:none;cursor:grab}
+#scene.dragging{cursor:grabbing}
+#scene.hover{cursor:pointer}
+.card{background:var(--paper);border-radius:var(--rMd);box-shadow:var(--elev2)}
+.hint{position:absolute;left:16px;top:16px;padding:10px 14px;font-size:15px;color:var(--mocha);max-width:340px}
+.hint b{color:var(--cocoa)}
+.legend{position:absolute;right:16px;top:16px;padding:8px 14px;font-size:14px;display:flex;gap:14px;align-items:center;flex-wrap:wrap;max-width:calc(100% - 380px)}
+.legend div{display:flex;align-items:center;gap:6px;line-height:1.4}
+.legend .stamp{margin:0}
+.dot{width:14px;height:14px;border-radius:50%;display:inline-block;flex:none;border:1.5px solid var(--cocoa)}
+.view-btns{position:absolute;left:16px;bottom:72px;display:flex;gap:8px}
+.view-btns button{min-height:44px;background:var(--paper);border:1.5px solid var(--mocha);border-radius:var(--rMd);padding:6px 14px;color:var(--cocoa);font-weight:600;font-size:15px;box-shadow:var(--elev1)}
+.view-btns button:hover{border-color:var(--cobalt);color:var(--cobalt)}
+.strip{pointer-events:none;position:absolute;left:0;right:0;bottom:0;display:flex;gap:8px;padding:12px 16px;overflow-x:auto;background:linear-gradient(transparent,rgba(244,230,207,.96) 35%)}
+.chip{pointer-events:auto;flex:none;min-height:44px;border:2px solid transparent;background:var(--paper);border-radius:var(--rPill);padding:4px 14px 4px 6px;font-size:15px;font-weight:600;color:var(--cocoa);white-space:nowrap;box-shadow:var(--elev1);transition:transform .45s var(--spring),box-shadow .25s}
+.chip:hover{transform:translateY(-2px);box-shadow:var(--elev3)}
+.chip .n{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;font-family:var(--display);font-size:15px;margin-right:8px;border:1.5px solid var(--cocoa)}
+.chip.active{border-color:var(--cobalt);background:#eaf0fa}
+/* side panel */
+aside{width:460px;max-width:46vw;background:var(--paper);border-left:1px solid var(--sand);overflow-y:auto;padding:24px 24px 48px}
+aside h2{font-size:40px;font-weight:700;color:var(--cocoa);margin:4px 0 8px}
+aside h3{font-size:24px;color:var(--cocoa);margin:32px 0 8px}
+aside p{margin:8px 0}
+.stagehead{border-left:10px solid var(--ph);padding-left:14px;margin-bottom:8px}
+.pill{display:inline-flex;align-items:center;gap:8px;font-family:var(--display);font-weight:700;font-size:14px;letter-spacing:.12em;text-transform:uppercase;border:1.5px solid var(--cocoa);border-radius:var(--rPill);padding:3px 12px;margin:4px 0 8px}
+.box{background:var(--cream);border-radius:var(--rMd);padding:14px 16px;margin:8px 0}
+.box.note{background:var(--paper);border:1.5px dashed var(--mocha)}
+.box.write{background:var(--paper);border:1.5px solid var(--mocha);border-left:6px solid var(--cobalt)}
+.box.warn{background:var(--cream);border-left:6px solid var(--cocoa);font-size:16px}
+.label{font-family:var(--display);font-weight:700;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--mocha);margin-bottom:4px}
+.lid{border-radius:var(--rLid) var(--rLid) var(--rMd) var(--rMd);padding:18px 24px 16px;margin:32px 0 12px}
+.lid h3{margin:2px 0 0;font-size:30px;font-weight:800;text-transform:uppercase}
+.lid.vocab{background:var(--vocab);color:var(--vocabInk)} .lid.vocab .stamp{color:var(--vocabInk)} .lid.vocab h3{color:var(--vocabInk)}
+.lid.grammar{background:var(--grammar)} .lid.grammar .stamp{color:var(--cocoa)} .lid.grammar h3{color:var(--grammarInk)}
+.lid.review{background:var(--review);color:var(--reviewInk)} .lid.review .stamp,.lid.review h3{color:var(--reviewInk)}
+.lid .inner{background:var(--paper);color:var(--cocoa);border-radius:var(--rMd);padding:6px 12px;margin-top:12px}
+table{border-collapse:collapse;width:100%;font-size:16px}
+th,td{text-align:left;padding:8px 6px;border-bottom:1px solid var(--sand);vertical-align:top}
+th{font-family:var(--display);font-weight:700;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--mocha)}
+td.w{font-weight:600;color:var(--cobalt);white-space:nowrap}
+td.pos{color:var(--mocha);font-style:italic;white-space:nowrap}
+td.vi{color:var(--mocha)}
+/* teaching marks */
+.seq{font-weight:600;background:linear-gradient(transparent 55%,var(--sand) 55%);padding:0 2px}
+.pas{color:var(--cobalt);font-weight:600}
+.ov{background:var(--cream);border-radius:4px;padding:0 2px;box-shadow:inset 0 0 0 1.5px var(--mocha)}
+.exp{font-style:italic;text-decoration:underline;text-decoration-color:var(--mocha);text-decoration-thickness:2px;text-underline-offset:4px}
+.exbox .seq{background:none;font-weight:inherit;padding:0}
+.keyrow{display:flex;flex-wrap:wrap;gap:8px;font-size:15px;margin:8px 0 12px}
+.keyrow span{padding:2px 10px;border-radius:var(--rPill);background:var(--cream)}
+/* buttons */
+.navrow{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
+.btn{min-height:44px;border:none;border-radius:var(--rMd);padding:9px 18px;font-weight:600;font-size:16px;background:var(--cobalt);color:var(--cream);box-shadow:var(--press);transition:transform .1s,box-shadow .1s}
+.btn:active{transform:translateY(3px);box-shadow:var(--pressed)}
+.btn.alt{background:var(--paper);color:var(--cocoa);border:1.5px solid var(--mocha)}
+.btn:disabled{opacity:.4;cursor:default;transform:none;box-shadow:none}
+.progress{height:8px;background:var(--sand);border-radius:var(--rPill);overflow:hidden;margin:8px 0}
+.progress span{display:block;height:100%;background:var(--cobalt);transition:width .25s var(--ease)}
+.prog-text{font-size:15px;color:var(--mocha)}
+/* practice */
+.q{border:1.5px solid var(--sand);border-radius:var(--rMd);padding:12px 14px;margin:10px 0;background:var(--paper);transition:border-color .2s}
+.q select{font-size:17px;min-height:40px;padding:4px 8px;border:1.5px solid var(--mocha);border-radius:var(--rSm);background:var(--paper);color:var(--cocoa);margin:0 2px}
+.q .num{font-family:var(--display);font-weight:700;color:var(--mocha);margin-right:6px}
+.q .fb{font-size:15px;margin-top:8px;color:var(--mocha);display:none}
+.q.ok,.q.no{border-color:var(--cocoa)}
+.q.ok .fb,.q.no .fb{display:block}
+.fstamp{display:inline-flex;align-items:center;gap:6px;font-family:var(--display);font-weight:700;font-size:14px;letter-spacing:.1em;text-transform:uppercase;border-radius:var(--rPill);padding:2px 10px;margin-right:6px;color:var(--cream);animation:pop .45s var(--spring)}
+.fstamp.ok{background:var(--cobalt)} .fstamp.no{background:var(--review)}
+@keyframes pop{from{transform:scale(.9)}to{transform:scale(1)}}
+.score{font-family:var(--serif);font-size:44px;color:var(--cocoa);margin-top:12px;line-height:1}
+.score small{font-family:var(--sans);font-size:15px;color:var(--mocha);display:block;margin-top:4px}
+/* model answer */
+.model{background:var(--paper);border:1.5px solid var(--mocha);border-radius:var(--rMd);padding:16px 18px}
+.essay p{margin:0 0 12px}
+.essay span[data-stage]{cursor:pointer;border-radius:4px;transition:background .2s}
+.essay span[data-stage]:hover{background:var(--cream)}
+.essay:not(.show-seq) .seq{background:none;font-weight:inherit;padding:0}
+.essay:not(.show-pas) .pas{color:inherit;font-weight:inherit}
+.essay:not(.show-exp) .exp{font-style:inherit;text-decoration:none}
+.essay:not(.show-ov) .ov{background:none;box-shadow:none}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 12px}
+.filters button{min-height:40px;border:1.5px solid var(--mocha);background:var(--paper);color:var(--cocoa);border-radius:var(--rPill);padding:4px 14px;font-weight:600;font-size:15px}
+.filters button.on{background:var(--cobalt);border-color:var(--cobalt);color:var(--cream)}
+ul.tight{margin:6px 0;padding-left:20px}
+ul.tight li{margin:4px 0}
+.loading{position:absolute;inset:0;display:grid;place-items:center;color:var(--mocha);font-size:16px}
+@media (max-width:1024px){
+  header{padding:8px 16px;gap:10px}
+  .brand img{height:24px}
+  .brand h1{font-size:22px}
+  .tabs{margin-left:0;width:100%;justify-content:space-between}
+  .tab{padding:8px 10px;font-size:15px;flex:1}
+}
+@media (max-width:860px){
+  main{flex-direction:column}
+  .stage-wrap{flex:none;height:56vh}
+  aside{width:100%;max-width:none;border-left:none;border-top:1px solid var(--sand);padding:20px 16px 48px}
+  .legend{display:none}
+  .hint{font-size:14px;max-width:250px}
+  .brand .divider{display:none}
+}
+@media (max-width:640px){
+  header{padding:8px 12px 10px}
+  .brand{flex-direction:column;align-items:flex-start;gap:8px;width:100%}
+  .brand img{height:22px}
+  .brand .ttl .stamp{display:none}
+  .brand h1{font-size:20px}
+  .tabs{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;scrollbar-width:none}
+  .tab{flex:none;padding:8px 12px}
+  aside h2{font-size:32px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="app">
+  <header>
+    <div class="brand">
+      <a class="home" href="writing.html" aria-label="Back to IELTS Writing"><img src="assets/logo-black.png" alt="The Standard" width="760" height="96"></a>
+      <span class="divider"></span>
+      <div class="ttl"><a class="stamp back" href="writing.html">&larr; IELTS Writing · Task 1 · Process</a><h1>How aluminium cans are recycled</h1></div>
+    </div>
+    <nav class="tabs" aria-label="Modes">
+      <button class="tab active" data-mode="explore">Explore</button>
+      <button class="tab" data-mode="tour">Guided tour</button>
+      <button class="tab" data-mode="tech">Techniques</button>
+      <button class="tab" data-mode="practice">Practice</button>
+      <button class="tab" data-mode="model">Model answer</button>
+    </nav>
+  </header>
+  <main>
+    <div class="stage-wrap">
+      <div class="loading" id="loading">Loading 3D scene…</div>
+      <canvas id="scene" aria-label="3D model of the twelve stages of aluminium can recycling"></canvas>
+      <div class="hint card" id="hint"><b>Drag</b> to rotate · <b>Scroll</b> or <b>pinch</b> to zoom · <b>Click</b> a machine to open its stage</div>
+      <div class="legend card"><div class="stamp">Three phases</div>
+        <div><span class="dot" style="background:var(--p1)"></span>Phase 1 (stages 1 to 5)</div>
+        <div><span class="dot" style="background:var(--p2)"></span>Phase 2 (6 to 9)</div>
+        <div><span class="dot" style="background:var(--p3)"></span>Phase 3 (10 to 12)</div>
+      </div>
+      <div class="view-btns">
+        <button id="btnOverview">Overview</button>
+        <button id="btnSpin">Auto rotate: off</button>
+      </div>
+      <div class="strip" id="strip"></div>
+    </div>
+    <aside id="panel"></aside>
+  </main>
+</div>
+
+<script src="assets/three-r128.min.js"></script>
+<script>
+/* ===================== CONTENT ===================== */
+const PHASES = {
+  1:{name:'Phase 1 · Collection and preparation', color:'#9fd63c', ink:'#4b2a22'},
+  2:{name:'Phase 2 · Melting and purification', color:'#ffd23a', ink:'#4b2a22'},
+  3:{name:'Phase 3 · Manufacturing', color:'#f07ccb', ink:'#4b2a22'}
+};
+const STAGES = [
+ {n:1,name:'Waste Collection',phase:1,
+  diagram:'A truck collects used aluminium cans.',
+  vocab:[['collect','v','to gather things from different places','thu gom'],
+         ['waste truck','n','a vehicle that carries rubbish or recycling','xe chở rác'],
+         ['used cans','n','cans that people have already emptied','lon đã qua sử dụng']],
+  write:'<span class="seq">First</span>, used aluminium cans <span class="pas">are collected</span> by a waste truck.',
+  real:'Cans usually come from household recycling bins and public collection points. Trucks then take them to a recycling centre.',
+  expand:'<span class="seq">First</span>, used aluminium cans <span class="pas">are collected</span> by a waste truck <span class="exp">and transported to a recycling centre</span>.'},
+ {n:2,name:'Consolidation',phase:1,
+  diagram:'The cans are brought together at a large facility.',
+  vocab:[['consolidate','v','to bring many small loads together into one large load','gom lại, tập kết'],
+         ['facility','n','a building used for a special purpose','cơ sở, nhà máy'],
+         ['transport','v','to move goods from one place to another','vận chuyển']],
+  write:'<span class="seq">Next</span>, the cans <span class="pas">are consolidated</span> at a recycling facility.',
+  real:'Bringing small loads together makes it cheaper and faster to move the metal to the processing plant.',
+  expand:'<span class="seq">Next</span>, the cans <span class="pas">are consolidated</span> at a recycling facility <span class="exp">so that they can be processed in large quantities</span>.'},
+ {n:3,name:'Advanced Sorting',phase:1,
+  diagram:'Machines sort the waste on a conveyor belt, and iron is taken out.',
+  vocab:[['sort','v','to put things into groups by type','phân loại'],
+         ['separate','v','to take one thing away from another','tách ra'],
+         ['magnet','n','an object that pulls iron and steel towards it','nam châm'],
+         ['conveyor belt','n','a moving band that carries objects','băng chuyền']],
+  write:'<span class="seq">After that</span>, the waste <span class="pas">is sorted</span> and iron <span class="pas">is removed</span>.',
+  real:'Magnets pull out iron and steel. Other machines (eddy current separators) push aluminium away from the rest of the waste.',
+  expand:'<span class="seq">After that</span>, the waste <span class="pas">is sorted</span>, and iron <span class="pas">is removed</span> <span class="exp">by magnets in order to leave only aluminium</span>.'},
+ {n:4,name:'Shredding',phase:1,
+  diagram:'The cans are cut into small pieces.',
+  vocab:[['shred','v','to cut or tear into small pieces','cắt vụn, băm nhỏ'],
+         ['shredder','n','a machine that cuts things into small pieces','máy băm'],
+         ['fragment','n','a small piece broken off something','mảnh vụn']],
+  write:'The sorted cans <span class="pas">are</span> <span class="seq">then</span> <span class="pas">shredded</span> into small pieces.',
+  real:'Pieces of a similar size melt faster and more evenly than whole cans.',
+  expand:'The sorted cans <span class="pas">are</span> <span class="seq">then</span> <span class="pas">shredded</span> into small pieces, <span class="exp">which makes them easier to handle</span>.'},
+ {n:5,name:'Baling',phase:1,
+  diagram:'The shredded metal is pressed into compact blocks called bales.',
+  vocab:[['bale','n / v','a large, tightly pressed block; to press into such a block','kiện; ép thành kiện'],
+         ['compress','v','to press something so it takes up less space','nén'],
+         ['compact','adj','closely packed together','chặt, gọn']],
+  write:'<span class="seq">Following this</span>, the shredded aluminium <span class="pas">is compressed</span> into bales.',
+  real:'Bales are easy to stack, store and move. In many real systems, cans are baled earlier, before they are shipped to the plant.',
+  expand:'<span class="seq">Following this</span>, the shredded aluminium <span class="pas">is compressed</span> into bales, <span class="exp">which can be stored and moved easily</span>.'},
+ {n:6,name:'Induction Melting',phase:2,
+  diagram:'The aluminium is melted in a furnace.',
+  vocab:[['melt','v','to change from solid to liquid by heating','nung chảy'],
+         ['furnace','n','a very hot oven used to heat metal','lò nung'],
+         ['molten','adj','melted; in liquid form because of great heat','nóng chảy'],
+         ['induction','n','heating with an electromagnetic field','cảm ứng (điện từ)']],
+  write:'<span class="seq">In the next stage</span>, the aluminium <span class="pas">is melted</span> in an induction furnace.',
+  real:'An induction furnace heats metal with an electromagnetic field. Aluminium melts at about 660°C.',
+  expand:'<span class="seq">In the next stage</span>, the aluminium <span class="pas">is melted</span> in an induction furnace, <span class="exp">where it turns into liquid metal</span>.'},
+ {n:7,name:'Thermal Decoating',phase:2,
+  diagram:'Heat is used to remove the coating from the metal.',
+  vocab:[['coating','n','a thin layer that covers a surface','lớp phủ'],
+         ['thermal','adj','connected with heat','thuộc về nhiệt'],
+         ['remove','v','to take something away','loại bỏ'],
+         ['lacquer','n','a clear liquid that forms a hard, shiny layer','lớp vecni, sơn bóng']],
+  write:'<span class="seq">Subsequently</span>, the coating <span class="pas">is removed</span> by heat.',
+  real:'Cans have paint on the outside and a thin plastic lining inside. In most real plants, this coating is burned off <b>before</b> melting, so stage 7 usually comes before stage 6. In the exam, describe the order the diagram shows.',
+  expand:'<span class="seq">Subsequently</span>, the coating <span class="pas">is removed</span> by heat <span class="exp">so that only clean metal remains</span>.'},
+ {n:8,name:'Ingot Casting',phase:2,
+  diagram:'Molten aluminium is poured into moulds to make ingots.',
+  vocab:[['ingot','n','a solid block of metal with a regular shape','thỏi kim loại'],
+         ['cast','v','to make a shape by pouring liquid metal into a mould (cast, cast, cast)','đúc'],
+         ['mould','n','a hollow container that gives a shape to liquid','khuôn'],
+         ['pour','v','to make a liquid flow out of a container','rót, đổ']],
+  write:'The molten aluminium <span class="pas">is</span> <span class="seq">then</span> <span class="pas">poured</span> into moulds and <span class="pas">cast</span> into ingots.',
+  real:'Ingots for can sheet are very large blocks. They are left to cool until they become solid.',
+  expand:'The molten aluminium <span class="pas">is</span> <span class="seq">then</span> <span class="pas">cast</span> into ingots, <span class="exp">which are left to cool and harden</span>.'},
+ {n:9,name:'Purification and Weighing',phase:2,
+  diagram:'The ingots are purified and weighed.',
+  vocab:[['purify','v','to make something clean by removing harmful parts','tinh chế, làm sạch'],
+         ['impurity','n','an unwanted substance mixed with something','tạp chất'],
+         ['weigh','v','to measure how heavy something is','cân'],
+         ['quality control','n','checking that products meet a standard','kiểm soát chất lượng']],
+  write:'<span class="seq">Next</span>, the ingots <span class="pas">are purified</span> and <span class="pas">weighed</span>.',
+  real:'In real plants, the liquid metal is usually cleaned and tested before casting. The diagram shows this step after casting, so follow the diagram.',
+  expand:'<span class="seq">Next</span>, the ingots <span class="pas">are purified</span> and <span class="pas">weighed</span> <span class="exp">to make sure they meet quality standards</span>.'},
+ {n:10,name:'Rolling Mills',phase:3,
+  diagram:'The ingots pass through rollers and become flat sheets.',
+  vocab:[['roll','v','to press metal flat between heavy turning cylinders','cán (kim loại)'],
+         ['rolling mill','n','a machine with rollers that makes metal thinner','máy cán'],
+         ['sheet','n','a thin, flat piece of material','tấm'],
+         ['flatten','v','to make something flat','làm phẳng']],
+  write:'<span class="seq">After this</span>, the ingots <span class="pas">are passed</span> through rolling mills to produce thin sheets.',
+  real:'Ingots are rolled hot and then cold, many times, until the sheet is very thin. The sheet is then wound into large coils.',
+  expand:'<span class="seq">After this</span>, the ingots <span class="pas">are passed</span> through rolling mills <span class="exp">in order to produce thin aluminium sheets</span>.'},
+ {n:11,name:'Can Forming and Shaping',phase:3,
+  diagram:'Machines cut and shape the sheets into cans.',
+  vocab:[['form','v','to give something a particular shape','tạo hình'],
+         ['shape','v','to make something into a certain form','định hình'],
+         ['press','v','to push hard on something to change its shape','dập, ép'],
+         ['cylinder','n','a shape with flat round ends and long straight sides','hình trụ']],
+  write:'The sheets <span class="pas">are</span> <span class="seq">then</span> <span class="pas">formed</span> and <span class="pas">shaped</span> into cans.',
+  real:'Round discs are cut from the sheet, pressed into cups, then stretched into tall can bodies. The tops are made separately.',
+  expand:'The sheets <span class="pas">are</span> <span class="seq">then</span> <span class="pas">cut</span> into discs, <span class="exp">which are pressed and stretched into the shape of a can</span>.'},
+ {n:12,name:'New Cans Ready',phase:3,
+  diagram:'New cans are ready, and the cycle can start again.',
+  vocab:[['finished product','n','an item that is complete and ready to use or sell','thành phẩm'],
+         ['cycle','n','a series of events that repeats','chu trình, vòng tuần hoàn'],
+         ['distribute','v','to send goods to shops or customers','phân phối']],
+  write:'<span class="seq">Finally</span>, the new cans <span class="pas">are</span> ready to <span class="pas">be used</span>.',
+  real:'Aluminium can be recycled again and again without losing quality, so the new cans can return to stage 1.',
+  expand:'<span class="seq">Finally</span>, the new cans <span class="pas">are</span> ready to <span class="pas">be used</span>, <span class="exp">and the cycle can begin again</span>.'}
+];
+const QUIZ = [
+ {s:1, pre:'', post:' by a waste truck.', lead:'Used cans', opts:['collect','are collected','are collecting'], a:1, why:'Present simple passive: are + past participle. The cans do not collect anything.'},
+ {s:2, pre:'', post:', the cans are consolidated at a facility.', lead:'', opts:['Next','Overall','In conclusion'], a:0, why:'Next is a sequencer. Overall belongs in the overview, not in the stages.'},
+ {s:3, pre:'Iron ', post:' from the aluminium using magnets.', lead:'', opts:['separates','is separated','is separate'], a:1, why:'Iron is singular and receives the action: is + separated.'},
+ {s:4, pre:'The cans are shredded ', post:' small pieces.', lead:'', opts:['into','onto','by'], a:0, why:'Cut, shred, press or form something into a new shape or size.'},
+ {s:5, pre:'The shredded metal ', post:' into compact bales.', lead:'', opts:['is pressed','pressed','is pressing'], a:0, why:'Passive: is + pressed. Without is, the sentence has no main verb.'},
+ {s:6, pre:'', post:', the bales are melted in an induction furnace.', lead:'', opts:['After that','Firstly','To sum up'], a:0, why:'Melting is a middle stage, so After that fits. Firstly is only for stage 1.'},
+ {s:7, pre:'The coating ', post:' by heat.', lead:'', opts:['removes','is removed','removed'], a:1, why:'The coating does not remove itself: is + removed.'},
+ {s:8, pre:'The molten aluminium is ', post:' into ingots.', lead:'', opts:['casted','cast','casting'], a:1, why:'Cast is irregular: cast, cast, cast. Casted is incorrect.'},
+ {s:10, pre:'The ingots pass through rolling mills ', post:' produce thin sheets.', lead:'', opts:['in order to','so that','because'], a:0, why:'In order to + base verb shows purpose. So that needs a full clause.'},
+ {s:12, pre:'', post:', the new cans are ready to be used.', lead:'', opts:['Finally','First','Overall'], a:0, why:'Finally introduces the last stage.'}
+];
+
+/* ===================== UI: PANEL ===================== */
+const panel = document.getElementById('panel');
+let mode = 'explore', current = 0, tourTimer = null;
+const esc = s => s;
+
+function vocabTable(v){
+  return `<table><thead><tr><th>Word</th><th>Type</th><th>Meaning</th><th>Tiếng Việt</th></tr></thead><tbody>${
+    v.map(r=>`<tr><td class="w">${r[0]}</td><td class="pos">${r[1]}</td><td>${r[2]}</td><td class="vi">${r[3]}</td></tr>`).join('')}</tbody></table>`;
+}
+const pad=n=>String(n).padStart(2,'0');
+function phasePill(ph){ return `<span class="pill" style="background:${PHASES[ph].color};color:${PHASES[ph].ink}">${PHASES[ph].name}</span>`; }
+function stageHTML(i){
+  const s = STAGES[i];
+  return `<div class="stagehead" style="--ph:${PHASES[s.phase].color}"><div class="stamp">Stage ${pad(s.n)} of 12</div>
+  <h2>${s.name}</h2>
+  ${phasePill(s.phase)}</div>
+  <div class="box"><div class="label">What the diagram shows</div>${s.diagram}</div>
+  <div class="lid vocab"><div class="stamp">${pad(s.n)} Vocabulary</div><h3>Key words</h3>
+    <div class="inner">${vocabTable(s.vocab)}</div></div>
+  <h3>Write it</h3>
+  <div class="box write"><div class="label">Task 1 sentence</div>${s.write}</div>
+  <div class="keyrow"><span class="seq">sequencer</span><span class="pas">passive verb</span></div>
+  <h3>Real life note</h3>
+  <div class="box note">${s.real}</div>
+  <h3>Expand the idea</h3>
+  <div class="box write exbox"><div class="label">Longer sentence</div>${s.expand}</div>
+  <div class="keyrow"><span class="pas">passive verb</span><span class="exp">added detail</span></div>
+  <div class="box warn">In Task 1, a short purpose or result clause is fine. Do not add outside facts, numbers or opinions that the diagram does not show.</div>`;
+}
+function renderExplore(){
+  if(current<0){
+    panel.innerHTML = `<div class="stamp">Start here</div><h2>Explore the process</h2>
+    <p>The 12 stages sit in the same grid as the exam diagram. Read each row from left to right and follow the blue arrows. The dashed path shows the new cans going back to stage 1.</p>
+    <div class="box" style="display:flex;gap:16px;align-items:center"><span style="font-family:var(--serif);font-size:56px;line-height:.9">6</span><div><b>weeks in total</b><br>12 stages, one cycle: it ends where it began, with cans.</div></div>
+    <h3>How to use</h3>
+    <ul class="tight"><li>Drag to rotate, scroll or pinch to zoom.</li>
+    <li>Click a machine or a numbered chip to open its stage.</li>
+    <li>Use the arrow keys ← → to move between stages.</li></ul>
+    <h3>The three phases</h3>
+    ${[1,2,3].map(k=>`<div style="display:flex;gap:10px;align-items:center;margin:8px 0"><span class="dot" style="background:${PHASES[k].color}"></span>${PHASES[k].name}</div>`).join('')}
+    <div class="navrow"><button class="btn" onclick="selectStage(0)">Start at stage 1</button><button class="btn alt" onclick="setMode('tour')">Take the guided tour</button></div>`;
+    return;
+  }
+  panel.innerHTML = stageHTML(current) + navRow();
+}
+function navRow(){
+  return `<div class="navrow">
+    <button class="btn alt" ${current<=0?'disabled':''} onclick="selectStage(current-1)">← Previous</button>
+    <button class="btn" ${current>=11?'disabled':''} onclick="selectStage(current+1)">Next →</button>
+  </div>`;
+}
+function renderTour(){
+  const i = Math.max(0,current);
+  panel.innerHTML = `<div class="prog-text">Stage ${i+1} of 12</div><div class="progress"><span style="width:${(i+1)/12*100}%"></span></div>
+  <div class="navrow" style="margin:0 0 16px">
+    <button class="btn alt" ${i<=0?'disabled':''} onclick="tourGo(${i-1})">← Back</button>
+    <button class="btn alt" onclick="toggleTourPlay()">${tourTimer?'❚❚ Pause':'▶ Auto play'}</button>
+    <button class="btn" ${i>=11?'disabled':''} onclick="tourGo(${i+1})">Next →</button>
+  </div>` + stageHTML(i);
+}
+function tourGo(i){ if(i<0||i>11) return; selectStage(i,true); }
+function toggleTourPlay(){
+  if(tourTimer){ clearInterval(tourTimer); tourTimer=null; renderTour(); return; }
+  if(current>=11||current<0) selectStage(0,true);
+  tourTimer = setInterval(()=>{
+    if(current>=11){ clearInterval(tourTimer); tourTimer=null; renderTour(); return; }
+    selectStage(current+1,true);
+  },7000);
+  renderTour();
+}
+function renderTech(){
+  const verbs = [['Waste Collection','cans are collected'],['Consolidation','cans are consolidated'],['Advanced Sorting','waste is sorted, iron is removed'],
+   ['Shredding','cans are shredded'],['Baling','metal is baled (compressed)'],['Induction Melting','aluminium is melted'],['Thermal Decoating','coating is removed by heat'],
+   ['Ingot Casting','metal is cast into ingots'],['Purification and Weighing','ingots are purified and weighed'],['Rolling Mills','ingots are rolled into sheets'],
+   ['Can Forming and Shaping','sheets are formed and shaped'],['New Cans Ready','new cans are ready to be used']];
+  panel.innerHTML = `<div class="stamp">Writing Task 1</div><h2>Techniques</h2>
+  <p>Each phase colour on the 3D model can become one body paragraph.</p>
+
+  <h3>1. Paragraph plan</h3>
+  <table><tbody>
+   <tr><td class="w">Introduction</td><td>Paraphrase the title in one sentence.</td></tr>
+   <tr><td class="w">Overview</td><td>Number of stages (12), start and end point, total time (6 weeks), cyclical and man made.</td></tr>
+   <tr style="background:color-mix(in srgb,var(--p1) 22%,transparent)"><td class="w"><span class="dot" style="background:var(--p1)"></span> Body 1</td><td>Stages 1 to 5: collection and preparation</td></tr>
+   <tr style="background:color-mix(in srgb,var(--p2) 22%,transparent)"><td class="w"><span class="dot" style="background:var(--p2)"></span> Body 2</td><td>Stages 6 to 9: melting and purification</td></tr>
+   <tr style="background:color-mix(in srgb,var(--p3) 22%,transparent)"><td class="w"><span class="dot" style="background:var(--p3)"></span> Body 3</td><td>Stages 10 to 12: manufacturing. (You may join Body 2 and 3 for two body paragraphs.)</td></tr>
+  </tbody></table>
+
+  <h3>2. Paraphrase the title</h3>
+  <div class="box write">The diagram illustrates how aluminium cans are recycled.<br>→ The diagram illustrates <span class="pas">the process by which used aluminium cans are recycled into new ones</span>.</div>
+
+  <h3>3. Write a clear overview</h3>
+  <div class="box write"><span class="ov">Overall, the process consists of twelve stages and takes six weeks in total, beginning with the collection of used cans and ending with new cans ready for use.</span></div>
+  <p style="font-size:15px;color:var(--mocha)">Useful words: <i>consists of, comprises, a cyclical process, a man made process, begins with, ends with, takes ... in total</i></p>
+
+  <div class="lid grammar"><div class="stamp">04 Grammar</div><h3>Present passive</h3>
+   <div class="inner"><p>Process essays describe what is done, not who does it.</p>
+   <p><b>is / are + past participle</b><br>The cans <span class="pas">are shredded</span>. The aluminium <span class="pas">is melted</span>.</p>
+   <p style="font-size:16px">Watch irregular forms: <b>cast → cast</b>, <b>shred → shredded</b>, <b>weigh → weighed</b>.</p></div></div>
+
+  <h3>5. Change labels into verbs</h3>
+  <table><thead><tr><th>Diagram label</th><th>Passive sentence</th></tr></thead><tbody>
+  ${verbs.map(v=>`<tr><td class="w">${v[0]}</td><td>${v[1]}</td></tr>`).join('')}</tbody></table>
+
+  <h3>6. Vary your sequencers</h3>
+  <div class="box"><b>Start:</b> <span class="seq">First, Firstly, To begin with</span><br>
+  <b>Middle:</b> <span class="seq">Next, Then, After that, Following this, Subsequently, Once ...</span><br>
+  <b>End:</b> <span class="seq">Finally, In the final stage, Lastly</span></div>
+
+  <h3>7. Expand and link ideas</h3>
+  <table><tbody>
+   <tr><td class="w">Purpose</td><td>in order to + verb, so that + clause<br><i>Iron is removed in order to leave pure aluminium.</i></td></tr>
+   <tr><td class="w">Means</td><td>by + noun, using + noun<br><i>Iron is removed using magnets.</i></td></tr>
+   <tr><td class="w">Relative clause</td><td>which, where<br><i>The cans are taken to a facility, where they are consolidated.</i></td></tr>
+   <tr><td class="w">Participle</td><td>Once + past participle<br><i>Once melted, the aluminium is cast into ingots.</i></td></tr>
+  </tbody></table>
+  <div class="box warn">Stay with the diagram. Short purpose clauses help, but outside facts and opinions can lower your Task Achievement score. Use the real life notes to understand the stages, not to copy facts into your essay.</div>
+  <div class="navrow"><button class="btn" onclick="setMode('practice')">Try the practice →</button></div>`;
+}
+let quizState = QUIZ.map(()=>-1), checked=false;
+function renderPractice(){
+  const done=quizState.filter(v=>v>=0).length, right=quizState.filter((v,k)=>v===QUIZ[k].a).length;
+  panel.innerHTML = `<div class="lid review" style="margin-top:0"><div class="stamp">Review</div><h3>Practice</h3>
+    <div class="inner" style="font-size:16px">Choose the correct sequencer, passive form or linking word. Click a sentence to see its stage on the model.</div></div>
+  <div class="prog-text">${done} of ${QUIZ.length} answered</div><div class="progress"><span style="width:${done/QUIZ.length*100}%"></span></div>
+  ${QUIZ.map((q,k)=>{
+     const sel = `<select data-q="${k}" aria-label="Question ${k+1}"><option value="-1">choose</option>${q.opts.map((o,j)=>`<option value="${j}" ${quizState[k]===j?'selected':''}>${o}</option>`).join('')}</select>`;
+     const ok = quizState[k]===q.a, cls = checked ? (ok?'ok':'no') : '';
+     const st = quizState[k]<0 ? '<span class="fstamp" style="background:var(--paper);color:var(--cocoa);border:1.5px dashed var(--mocha)">Not done</span>' : ok ? '<span class="fstamp ok">✓ Correct</span>' : '<span class="fstamp no">✗ Try again</span>';
+     return `<div class="q ${cls}" data-stage="${q.s}"><span class="num">${pad(k+1)}</span>${q.lead?q.lead+' ':''}${q.pre}${sel}${q.post}
+       <div class="fb">${st}${ok?'':'Answer: <b class="pas">'+q.opts[q.a]+'</b>. '}${q.why}</div></div>`;
+  }).join('')}
+  <div class="navrow"><button class="btn" id="chk">Check answers</button><button class="btn alt" id="rst">Reset</button></div>
+  ${checked?`<div class="score">${right} / ${QUIZ.length}<small>correct answers</small></div>`:''}`;
+  panel.querySelectorAll('select').forEach(s=>s.addEventListener('change',e=>{
+    const k=e.target.dataset.q;
+    quizState[+k] = +e.target.value; checked=false; renderPractice();
+    const el=panel.querySelector(`select[data-q="${k}"]`); if(el) el.focus();
+  }));
+  panel.querySelectorAll('.q').forEach(d=>d.addEventListener('click',()=>focusStage(+d.dataset.stage-1)));
+  document.getElementById('chk').onclick=()=>{checked=true;renderPractice();};
+  document.getElementById('rst').onclick=()=>{quizState=QUIZ.map(()=>-1);checked=false;renderPractice();};
+}
+let modelMark='pas';
+function renderModel(){
+  const S=(n,t)=>`<span data-stage="${n}">${t}</span>`;
+  const F=[['ov','Overview'],['seq','Sequencers'],['pas','Passive'],['exp','Expanded detail']];
+  panel.innerHTML = `<div class="stamp">Writing Task 1</div><h2>Model answer</h2>
+  <p style="font-size:16px;color:var(--mocha)">About 190 words. Choose one feature to highlight. Click any sentence to see its stage on the model.</p>
+  <div class="filters" role="group" aria-label="Highlight">${F.map(f=>`<button data-m="${f[0]}" class="${modelMark===f[0]?'on':''}" aria-pressed="${modelMark===f[0]}">${f[1]}</button>`).join('')}</div>
+  <div class="model"><div class="label">Model answer</div>
+  <div class="essay show-${modelMark}">
+  <p>The diagram illustrates the process by which used aluminium cans <span class="pas">are recycled</span> into new ones.</p>
+  <p><span class="ov">Overall, the process consists of twelve stages and takes six weeks in total. It begins with the collection of used cans and ends with new cans ready for use, which makes it a cyclical process.</span></p>
+  <p>${S(1,`<span class="seq">First</span>, used cans <span class="pas">are collected</span> by a waste truck <span class="exp">and taken to a facility</span>,`)} ${S(2,`<span class="exp">where</span> they <span class="pas">are consolidated</span>.`)} ${S(3,`<span class="seq">Next</span>, the waste <span class="pas">is sorted</span>, and iron <span class="pas">is removed</span> <span class="exp">so that only aluminium remains</span>.`)} ${S(4,`<span class="seq">After that</span>, the cans <span class="pas">are shredded</span> into small pieces,`)} ${S(5,`<span class="exp">which</span> <span class="pas">are</span> <span class="seq">then</span> <span class="pas">pressed</span> into compact bales.`)}</p>
+  <p>${S(6,`In the second phase, the bales <span class="pas">are melted</span> in an induction furnace,`)} ${S(7,`and <span class="seq">following this</span>, the coating <span class="pas">is removed</span> by heat.`)} ${S(8,`<span class="seq">Once</span> this <span class="pas">is done</span>, the molten aluminium <span class="pas">is cast</span> into ingots,`)} ${S(9,`<span class="exp">which</span> <span class="pas">are</span> <span class="seq">subsequently</span> <span class="pas">purified</span> and <span class="pas">weighed</span>.`)}</p>
+  <p>${S(10,`In the final phase, the ingots <span class="pas">are passed</span> through rolling mills <span class="exp">in order to produce thin sheets</span>.`)} ${S(11,`These sheets <span class="pas">are</span> <span class="seq">then</span> <span class="pas">formed</span> and <span class="pas">shaped</span> into cans,`)} ${S(12,`and <span class="seq">finally</span>, the new cans <span class="pas">are</span> ready <span class="exp">to be used again</span>.`)}</p>
+  </div></div>
+  <h3>Why it works</h3>
+  <ul class="tight">
+   <li>The introduction paraphrases the title instead of copying it.</li>
+   <li>The overview gives the big picture: stage count, time, start, end and cycle.</li>
+   <li>Each body paragraph matches one phase on the 3D model.</li>
+   <li>Every stage is included, and no outside facts are added.</li>
+   <li>Relative clauses (which, where) join stages, so the sentences are not all short and similar.</li>
+  </ul>`;
+  panel.querySelectorAll('.filters button').forEach(b=>b.onclick=()=>{modelMark=b.dataset.m;renderModel();});
+  panel.querySelectorAll('.essay span[data-stage]').forEach(sp=>sp.addEventListener('click',()=>focusStage(+sp.dataset.stage-1)));
+}
+function renderPanel(){
+  ({explore:renderExplore,tour:renderTour,tech:renderTech,practice:renderPractice,model:renderModel})[mode]();
+}
+function setMode(m){
+  mode=m;
+  if(tourTimer && m!=='tour'){clearInterval(tourTimer);tourTimer=null;}
+  document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t.dataset.mode===m));
+  if(m==='tour'){ if(current<0) current=0; focusStage(current); }
+  if(m==='tech'||m==='model'){ goOverview(); }
+  renderPanel(); panel.scrollTop=0;
+}
+document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>setMode(t.dataset.mode)));
+
+/* strip */
+const strip=document.getElementById('strip');
+STAGES.forEach((s,i)=>{
+  const b=document.createElement('button');b.className='chip';
+  b.innerHTML=`<span class="n" style="background:${PHASES[s.phase].color};color:${PHASES[s.phase].ink}">${s.n}</span>${s.name}`;
+  b.onclick=()=>selectStage(i,mode==='tour');strip.appendChild(b);
+});
+function updateStrip(){
+  [...strip.children].forEach((c,i)=>c.classList.toggle('active',i===current));
+  const a=strip.children[current]; if(a) a.scrollIntoView({block:'nearest',inline:'center',behavior:'smooth'});
+}
+function selectStage(i,keepMode){
+  if(i<0||i>11) return;
+  if(!keepMode && mode!=='explore' && mode!=='tour'){ mode='explore'; document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t.dataset.mode==='explore')); }
+  current=i; focusStage(i); renderPanel(); panel.scrollTop=0;
+}
+window.addEventListener('keydown',e=>{
+  if(e.target.tagName==='SELECT') return;
+  if(e.key==='ArrowRight') selectStage(Math.min(11,current+1),mode==='tour');
+  if(e.key==='ArrowLeft') selectStage(Math.max(0,current-1),mode==='tour');
+});
+
+/* ===================== 3D SCENE ===================== */
+let renderer,scene,camera,stations=[],selRing=null,hovered=-1,autoSpin=false;
+const GX=[-9.5,0,9.5], GZ=[-15,-5,5,15];
+function stagePos(i){ return new THREE.Vector3(GX[i%3],0,GZ[Math.floor(i/3)]); } // same grid as the exam diagram
+const view={theta:0,phi:0.62,radius:56,target:new THREE.Vector3(0,0,1)};
+const goal={theta:0,phi:0.62,radius:56,target:new THREE.Vector3(0,0,1)};
+function focusStage(i){
+  current=i; updateStrip(); highlight(i);
+  if(!stations[i]) return;
+  const p=stagePos(i);
+  goal.target.set(p.x,1.4,p.z);
+  goal.theta=nearestAngle(view.theta,0); goal.phi=1.0; goal.radius=14;
+}
+function overviewRadius(){ return camera && camera.aspect<1 ? 72 : (camera && camera.aspect<1.3 ? 54 : 45); }
+function goOverview(){ goal.theta=nearestAngle(view.theta,0); goal.target.set(0,0,1); goal.phi=0.62; goal.radius=overviewRadius(); }
+function nearestAngle(from,to){ let d=((to-from)%(Math.PI*2)+Math.PI*3)%(Math.PI*2)-Math.PI; return from+d; }
+
+function init3D(){
+  if(typeof THREE==='undefined'){ document.getElementById('loading').textContent='The 3D library could not load. Please check your internet connection and reload.'; return; }
+  const canvas=document.getElementById('scene');
+  renderer=new THREE.WebGLRenderer({canvas,antialias:true});
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
+  renderer.outputEncoding=THREE.sRGBEncoding;
+  renderer.shadowMap.enabled=true; renderer.shadowMap.type=THREE.PCFSoftShadowMap;
+  scene=new THREE.Scene(); scene.background=new THREE.Color('#f4e6cf');
+  scene.fog=new THREE.Fog('#f4e6cf',110,200);
+  camera=new THREE.PerspectiveCamera(45,1,0.1,300);
+
+  scene.add(new THREE.HemisphereLight(0xffffff,0xb8a68f,0.5));
+  const sun=new THREE.DirectionalLight(0xffffff,0.7); sun.position.set(20,35,18);
+  sun.castShadow=true; sun.shadow.mapSize.set(2048,2048);
+  Object.assign(sun.shadow.camera,{left:-32,right:32,top:32,bottom:-32,near:1,far:100});
+  scene.add(sun);
+
+  const ground=new THREE.Mesh(new THREE.PlaneGeometry(44,50),new THREE.MeshStandardMaterial({color:'#fffaf2',roughness:1}));
+  ground.rotation.x=-Math.PI/2; ground.receiveShadow=true; scene.add(ground);
+
+  buildTrack(); buildCenter();
+  STAGES.forEach((s,i)=>buildStation(s,i));
+  selRing=new THREE.Mesh(new THREE.TorusGeometry(3.3,0.12,8,48),new THREE.MeshBasicMaterial({color:'#1f5bb5'}));
+  selRing.rotation.x=-Math.PI/2; selRing.visible=false; scene.add(selRing);
+
+  setupControls(canvas);
+  window.addEventListener('resize',resize); resize(); view.radius=goal.radius=overviewRadius();
+  document.getElementById('loading').style.display='none';
+  animate();
+}
+
+/* ---------- helpers ---------- */
+const M={
+  body:new THREE.MeshStandardMaterial({color:'#fffaf2',roughness:.6,metalness:.05}),
+  dark:new THREE.MeshStandardMaterial({color:'#5a3a30',roughness:.65}),
+  mid:new THREE.MeshStandardMaterial({color:'#9AA5B4',roughness:.5,metalness:.3}),
+  metal:new THREE.MeshStandardMaterial({color:'#C9D0D9',roughness:.25,metalness:.8}),
+  glass:new THREE.MeshStandardMaterial({color:'#9FC3D9',roughness:.15,metalness:.2}),
+  glow:new THREE.MeshStandardMaterial({color:'#FF8A3D',emissive:'#FF5A1F',emissiveIntensity:1.1}),
+  smoke:new THREE.MeshStandardMaterial({color:'#B7BEC8',transparent:true,opacity:.55,roughness:1})
+};
+function mesh(geo,mat,x=0,y=0,z=0,parent){ const m=new THREE.Mesh(geo,mat); m.position.set(x,y,z); m.castShadow=true; m.receiveShadow=true; if(parent) parent.add(m); return m; }
+const box=(w,h,d,mat,x,y,z,p)=>mesh(new THREE.BoxGeometry(w,h,d),mat,x,y,z,p);
+const cyl=(rt,rb,h,mat,x,y,z,p,seg=20)=>mesh(new THREE.CylinderGeometry(rt,rb,h,seg),mat,x,y,z,p);
+function can(x,y,z,p,s=1){ const g=new THREE.Group(); cyl(.22*s,.22*s,.55*s,M.metal,0,.275*s,0,g,14); cyl(.18*s,.22*s,.06*s,M.mid,0,.58*s,0,g,14); g.position.set(x,y,z); p.add(g); return g; }
+let baleTex=null;
+function bale(x,y,z,p,rot=0){ // a bale: a compact rectangular block of crushed cans held by metal straps
+  if(!baleTex){
+    const c=document.createElement('canvas'); c.width=c.height=256; const g=c.getContext('2d');
+    g.fillStyle='#AEB6C1'; g.fillRect(0,0,256,256);
+    for(let k=0;k<260;k++){ const sh=150+Math.floor(Math.random()*90); g.fillStyle=`rgb(${sh},${sh+4},${sh+10})`;
+      g.save(); g.translate(Math.random()*256,Math.random()*256); g.rotate(Math.random()*3); g.fillRect(-14,-5,28+Math.random()*16,8+Math.random()*8); g.restore(); }
+    for(let k=0;k<40;k++){ g.fillStyle=['#C0504D','#3E6FB0','#2A9D8F','#D9A441'][k%4]; g.globalAlpha=.55;
+      g.save(); g.translate(Math.random()*256,Math.random()*256); g.rotate(Math.random()*3); g.fillRect(-8,-3,16,6); g.restore(); }
+    g.globalAlpha=1; baleTex=new THREE.CanvasTexture(c); baleTex.encoding=THREE.sRGBEncoding;
+  }
+  const b=new THREE.Group(); b.position.set(x,y,z); b.rotation.y=rot; p.add(b);
+  const mat=new THREE.MeshStandardMaterial({map:baleTex,roughness:.7,metalness:.35});
+  mesh(new THREE.BoxGeometry(1.1,.7,.8),mat,0,.35,0,b);
+  [-.3,.3].forEach(sx=>mesh(new THREE.BoxGeometry(.06,.72,.82),M.dark,sx,.35,0,b));
+  return b;
+}
+const _tints={};
+function bodyTint(ph){ if(!_tints[ph]){ const c=new THREE.Color('#fffaf2').lerp(new THREE.Color(PHASES[ph].color),.45); _tints[ph]=new THREE.MeshStandardMaterial({color:c,roughness:.6,metalness:.05,side:THREE.DoubleSide}); } return _tints[ph]; }
+function phaseMat(ph){ const c=new THREE.Color(PHASES[ph].color); return new THREE.MeshStandardMaterial({color:c,emissive:c.clone().multiplyScalar(.18),roughness:.6}); }
+
+function labelSprite(text,num,color){
+  const c=document.createElement('canvas'); let g=c.getContext('2d');
+  g.font='700 50px "Barlow Condensed", sans-serif';
+  const tw=g.measureText(text).width; const W=Math.ceil(tw+150);
+  c.width=W+20; c.height=128; g=c.getContext('2d'); g.font='700 50px "Barlow Condensed", sans-serif';
+  const x0=10;
+  g.fillStyle='#fffaf2'; roundRect(g,x0,14,W,100,50); g.fill();
+  g.lineWidth=4; g.strokeStyle='#4b2a22'; g.stroke();
+  g.fillStyle=color; g.beginPath(); g.arc(x0+56,64,36,0,Math.PI*2); g.fill(); g.lineWidth=3; g.stroke();
+  g.fillStyle='#4b2a22'; g.textAlign='center'; g.textBaseline='middle'; g.fillText(num,x0+56,66);
+  g.fillStyle='#4b2a22'; g.textAlign='left'; g.fillText(text,x0+106,66);
+  const tex=new THREE.CanvasTexture(c); tex.encoding=THREE.sRGBEncoding; tex.anisotropy=4;
+  const sp=new THREE.Sprite(new THREE.SpriteMaterial({map:tex,depthTest:false,transparent:true}));
+  const sx=1.85*c.width/128; sp.scale.set(sx,1.85,1); sp.userData.base=sx; sp.renderOrder=10; return sp;
+}
+function roundRect(g,x,y,w,h,r){ g.beginPath(); g.moveTo(x+r,y); g.arcTo(x+w,y,x+w,y+h,r); g.arcTo(x+w,y+h,x,y+h,r); g.arcTo(x,y+h,x,y,r); g.arcTo(x,y,x+w,y,r); g.closePath(); }
+
+/* ---------- conveyor path, cycle path and time bracket ---------- */
+let movers=[], loop=[], loopLen=0, signs=[], cum=[];
+const V=(x,z)=>new THREE.Vector3(x,0,z);
+function mainPath(){
+  const P=[];
+  for(let r=0;r<4;r++){
+    for(let c=0;c<3;c++) P.push(stagePos(r*3+c));
+    if(r<3){ const lane=(GZ[r]+GZ[r+1])/2; P.push(V(GX[2],lane),V(GX[0],lane)); }
+  }
+  return P;
+}
+const RET_X=15, RET_Z=-21;
+function cyclePath(){ return [stagePos(11),V(RET_X,GZ[3]),V(RET_X,RET_Z),V(GX[0],RET_Z),stagePos(0)]; }
+function belt(a,b,mat,w,dashed){
+  const d=b.clone().sub(a), L=d.length(), ang=Math.atan2(d.x,d.z);
+  if(!dashed){ const m=mesh(new THREE.BoxGeometry(w,.16,L+w),mat,(a.x+b.x)/2,.08,(a.z+b.z)/2,scene); m.rotation.y=ang; m.castShadow=false; return; }
+  const n=Math.floor(L/1.4);
+  for(let k=0;k<n;k++){ const t=(k+.5)/n; const m=mesh(new THREE.BoxGeometry(w,.12,.8),mat,a.x+d.x*t,.07,a.z+d.z*t,scene); m.rotation.y=ang; m.castShadow=false; }
+}
+function arrow(a,b,mat,size){
+  const d=b.clone().sub(a); const L=d.length(); d.normalize();
+  let pt=null;
+  for(const t of [.5,.75,.25,.85,.15]){ const q=a.clone().addScaledVector(d,L*t); if(STAGES.every((_,i)=>stagePos(i).distanceTo(q)>3.9)){pt=q;break;} }
+  if(!pt) return;
+  const c=mesh(new THREE.ConeGeometry(.75*size,1.6*size,3),mat,pt.x,.55,pt.z,scene);
+  c.quaternion.setFromUnitVectors(new THREE.Vector3(0,1,0),d); c.scale.z=.45;
+}
+function buildTrack(){
+  const P=mainPath(), C=cyclePath();
+  const beltMat=M.dark, arrowMat=new THREE.MeshLambertMaterial({color:'#1f5bb5',emissive:'#0d2a5c',emissiveIntensity:.6});
+  const cycMat=new THREE.MeshStandardMaterial({color:'#7a5648',roughness:.6});
+  for(let k=0;k<P.length-1;k++){ belt(P[k],P[k+1],beltMat,1.1); arrow(P[k],P[k+1],arrowMat,1); }
+  for(let k=0;k<C.length-1;k++){ belt(C[k],C[k+1],cycMat,.8,true); arrow(C[k],C[k+1],cycMat,.8); }
+  loop=P.concat(C.slice(1,-1)); loop.push(P[0].clone());
+  loopLen=0; for(let k=0;k<loop.length-1;k++) loopLen+=loop[k].distanceTo(loop[k+1]);
+  cum=[0]; for(let k=0;k<loop.length-1;k++) cum.push(cum[k]+loop[k].distanceTo(loop[k+1]));
+  const ingMat=M.metal, molten=M.glow;
+  for(let k=0;k<40;k++){
+    const g=new THREE.Group(); scene.add(g); g.userData.t=k/40;
+    const fm={can:can(0,0,0,g,.9), bale:bale(0,0,0,g), melt:mesh(new THREE.SphereGeometry(.35,12,10),molten,0,.3,0,g),
+      ingot:(()=>{const m=mesh(new THREE.CylinderGeometry(.3,.42,1.1,4),ingMat,0,.25,0,g); m.rotation.set(0,Math.PI/4,Math.PI/2); m.scale.set(1,1,.55); return m;})(),
+      sheet:box(1,.06,.8,M.metal,0,.1,0,g)};
+    fm.bale.scale.setScalar(.6);
+    g.userData.forms=fm; movers.push(g);
+  }
+  const cyc=textSprite(['↻ Cycle: back','to stage 1'],'#7a5648',2.6); cyc.position.set(RET_X+2.4,1.6,RET_Z+1); scene.add(cyc); signs.push(cyc);
+}
+function pointOnLoop(u){
+  let d=u*loopLen;
+  for(let k=0;k<loop.length-1;k++){ const L=loop[k].distanceTo(loop[k+1]); if(d<=L) return loop[k].clone().lerp(loop[k+1],d/L); d-=L; }
+  return loop[0].clone();
+}
+function textSprite(lines,color,h){
+  const c=document.createElement('canvas'); let g=c.getContext('2d'); const F='700 54px "Barlow Condensed", sans-serif'; g.font=F;
+  const W=Math.ceil(Math.max(...lines.map(l=>g.measureText(l).width))+70), H=lines.length*66+44;
+  c.width=W; c.height=H; g=c.getContext('2d'); g.font=F;
+  g.fillStyle='rgba(255,255,255,.96)'; roundRect(g,4,4,W-8,H-8,26); g.fill(); g.lineWidth=6; g.strokeStyle=color; g.stroke();
+  g.fillStyle=color; g.textAlign='center'; g.textBaseline='middle'; lines.forEach((l,k)=>g.fillText(l,W/2,22+33+k*66));
+  const tex=new THREE.CanvasTexture(c); tex.encoding=THREE.sRGBEncoding;
+  const sp=new THREE.Sprite(new THREE.SpriteMaterial({map:tex,depthTest:false,transparent:true})); sp.renderOrder=9;
+  sp.scale.set(h*W/H,h,1); return sp;
+}
+function buildCenter(){ // vertical bracket like the diagram: Total process 6 weeks
+  const x=-15.5, z0=GZ[0]-3, z1=GZ[3]+3, mat=new THREE.MeshStandardMaterial({color:'#4b2a22'});
+  box(.3,.3,z1-z0,mat,x,.15,(z0+z1)/2,scene);
+  box(1.6,.3,.3,mat,x+.65,.15,z0,scene); box(1.6,.3,.3,mat,x+.65,.15,z1,scene);
+  const sg=textSprite(['Total process','6 weeks'],'#4b2a22',3.0); sg.position.set(x-2.2,1.8,0); scene.add(sg); signs.push(sg);
+}
+/* ---------- stations ---------- */
+const anims=[];
+function buildStation(s,i){
+  const grp=new THREE.Group(); grp.position.copy(stagePos(i)); // local +z faces the viewer
+  const plat=cyl(3,3.1,.3,phaseMat(s.phase),0,.15,0,grp,40);
+  const top=cyl(2.75,2.75,.06,new THREE.MeshStandardMaterial({color:new THREE.Color(PHASES[s.phase].color),roughness:.8}),0,.32,0,grp,40);
+  const rim=mesh(new THREE.TorusGeometry(3.05,.06,6,56),M.dark,0,.3,0,grp); rim.rotation.x=Math.PI/2;
+  const m=new THREE.Group(); m.position.y=.35; grp.add(m);
+  MODELS[i](m);
+  // tint machine bodies with a light shade of the phase colour so each phase reads at a glance
+  const tint=bodyTint(s.phase); m.traverse(o=>{ if(o.isMesh&&o.material===M.body) o.material=tint; });
+  const lab=labelSprite(s.name,s.n,PHASES[s.phase].color); lab.position.set(0,5.2,0); grp.add(lab);
+  grp.traverse(o=>o.userData.stage=i);
+  scene.add(grp);
+  stations.push({group:grp,plat,label:lab});
+}
+const MODELS=[
+ // 1 truck
+ g=>{ const t=new THREE.Group(); g.add(t);
+   box(2.6,1.7,1.6,M.body,-.4,1.25,0,t); box(1.2,1.3,1.6,M.body,1.5,1.05,0,t);
+   box(.06,.6,1.3,M.glass,2.12,1.35,0,t);
+   [[-1.2,.8],[-1.2,-.8],[1.5,.8],[1.5,-.8]].forEach(([x,z])=>{const w=cyl(.38,.38,.3,M.dark,x,.38,z,t,16); w.rotation.x=Math.PI/2;});
+   const sym=cyl(.45,.45,.04,phaseMat(1),-.4,1.3,.82,t,6); sym.rotation.x=Math.PI/2;
+   const sym2=sym.clone(); sym2.position.z=-.82; t.add(sym2);
+   for(let k=0;k<3;k++) can(-1.2+k*.5,2.1,0,t,.8); },
+ // 2 consolidation plant
+ g=>{ box(3.6,1.3,2.2,M.body,0,.65,.2,g);
+   for(let k=0;k<4;k++){ const r=mesh(new THREE.CylinderGeometry(.5,.5,2.2,3,1,false),M.mid,-1.35+k*.9,1.5,.2,g); r.rotation.z=Math.PI/2; r.rotation.y=Math.PI/2; r.scale.set(1,1,.9); }
+   [-1.2,-.7].forEach(x=>cyl(.15,.18,2.4,M.mid,x,1.9,-.7,g,12));
+   cyl(.6,.6,2.2,M.body,1.3,1.1,-.9,g,20); cyl(.62,.62,.15,M.mid,1.3,2.25,-.9,g,20);
+   box(.8,.8,.05,M.dark,.4,.45,1.31,g); },
+ // 3 sorting
+ g=>{ box(3.8,.35,1.1,M.dark,0,.9,.3,g); [-1.6,1.6].forEach(x=>box(.15,.9,.9,M.mid,x,.45,.3,g));
+   for(let k=0;k<5;k++) can(-1.5+k*.7,1.07,.3,g,.8);
+   box(.2,2.4,.2,M.mid,-1.2,2.0,-.7,g); box(1.8,.2,.2,M.mid,-.4,3.15,-.7,g); box(.2,.2,1.2,M.mid,.4,3.15,-.2,g);
+   const mag=mesh(new THREE.TorusGeometry(.4,.14,10,20,Math.PI),phaseMat(1),.4,2.35,.3,g); mag.rotation.z=Math.PI;
+   anims.push(t=>{mag.position.y=2.35+Math.sin(t*2)*.25;});
+   const iron=box(.35,.35,.35,M.dark,.4,1.85,.3,g); anims.push(t=>{iron.position.y=1.85+Math.sin(t*2)*.25;});
+   box(.9,.5,.8,M.mid,1.6,.25,-1.1,g); },
+ // 4 shredder
+ g=>{ [[-.7,-.5],[.7,-.5],[-.7,.5],[.7,.5]].forEach(([x,z])=>box(.15,1.6,.15,M.mid,x,.8,z,g));
+   const hop=mesh(new THREE.CylinderGeometry(1.25,.6,1.3,4,1,true),M.body,0,2.25,0,g); hop.rotation.y=Math.PI/4;
+   box(1.1,.3,1.1,M.dark,0,1.55,0,g);
+   const bl=[]; for(let k=0;k<2;k++){ const r=cyl(.18,.18,1,M.metal,-.2+k*.4,1.55,0,g,10); r.rotation.x=Math.PI/2; bl.push(r);} anims.push(t=>{bl[0].rotation.y=t*4;bl[1].rotation.y=-t*4;});
+   for(let k=0;k<5;k++) box(.18,.08,.12,M.metal,(Math.random()-.5)*.8,2.5+Math.random()*.3,(Math.random()-.5)*.8,g).rotation.set(Math.random(),Math.random(),0);
+   box(1.6,.6,1,M.mid,1.6,.3,.8,g); const sl=box(1.4,.12,.4,M.dark,1,1,.6,g); sl.rotation.z=-.55; },
+ // 5 baler: machine presses shredded metal into rectangular bales (blocks with straps)
+ g=>{ box(1.6,2.4,1.5,M.body,-1.3,1.2,-.4,g); box(.5,.4,.06,M.glass,-1.3,1.9,.36,g); box(.6,.35,.08,phaseMat(1),-1.3,2.25,.36,g);
+   box(1.2,.9,.06,M.dark,-1.3,.6,.36,g);
+   const ram=box(1.2,.2,1.1,M.mid,-1.3,2.1,-.4,g); anims.push(t=>{ram.position.y=1.6+Math.abs(Math.sin(t*1.5))*.6;});
+   const out=bale(-1.3,0,.95,g); anims.push(t=>{out.position.z=.6+((t*.25)%1)*.9;});
+   bale(.9,0,-.55,g); bale(.9,0,.55,g); bale(.9,.72,0,g,.08); bale(2.1,0,0,g,-.1); },
+ // 6 induction furnace
+ g=>{ box(2.6,.9,2.2,M.body,0,.45,0,g); cyl(1.15,1,1.4,M.mid,0,1.6,0,g,28); cyl(1.18,1.18,.15,M.dark,0,2.32,0,g,28);
+   const melt=cyl(.95,.95,.06,M.glow,0,2.38,0,g,28); anims.push(t=>{melt.material.emissiveIntensity=.9+Math.sin(t*3)*.3;});
+   for(let k=0;k<3;k++){ const coil=mesh(new THREE.TorusGeometry(1.12,.06,6,28),phaseMat(2),0,1.2+k*.35,0,g); coil.rotation.x=Math.PI/2; }
+   box(.9,.6,.08,M.dark,.6,.55,1.12,g); box(.5,.3,.02,M.glass,.6,.6,1.17,g);
+   bale(-1.9,0,.9,g,.3); },
+ // 7 thermal decoating
+ g=>{ box(3.6,.3,1,M.dark,0,.75,.6,g); box(2.4,1.4,1.5,M.body,0,1.5,.4,g);
+   box(1.6,.6,.05,M.glow,0,1.2,1.16,g);
+   [-.7,0,.7].forEach(x=>cyl(.2,.22,1.3,M.mid,x,2.85,.1,g,12));
+   const puffs=[]; [-.7,0,.7].forEach((x,k)=>{ const p=mesh(new THREE.SphereGeometry(.3,10,8),M.smoke,x,3.7,.1,g); p.userData.o=k; puffs.push(p); });
+   anims.push(t=>puffs.forEach(p=>{const f=((t*.5+p.userData.o*.33)%1); p.position.y=3.5+f*1.3; p.scale.setScalar(.6+f*.9);}));
+   [-1.6,1.6].forEach(x=>{can(x,.9,.6,g,.8);}); [-1.6,1.6].forEach(x=>box(.15,.75,.8,M.mid,x,.37,.6,g)); },
+ // 8 ingot casting
+ g=>{ box(.25,3.6,.25,M.mid,-1.3,1.8,-.8,g); box(1.8,.22,.22,M.mid,-.5,3.5,-.8,g); box(.08,.9,.08,M.dark,.3,3,-.8,g);
+   const lad=new THREE.Group(); lad.position.set(.3,2.4,-.6); g.add(lad);
+   cyl(.45,.35,.7,M.dark,0,0,0,lad,18); cyl(.38,.38,.03,M.glow,0,.34,0,lad,18);
+   anims.push(t=>{lad.rotation.z=-.35+Math.sin(t)*.15;});
+   const st=cyl(.06,.06,1.2,M.glow,.65,1.5,-.6,g,8);
+   box(1.6,.4,1.2,M.dark,.5,.2,-.3,g);
+   const ing=(x,y,z)=>{ const m=mesh(new THREE.CylinderGeometry(.35,.5,1.3,4),M.metal,x,y,z,g); m.rotation.set(0,Math.PI/4,Math.PI/2); m.scale.set(1,1,.55); };
+   for(let r=0;r<3;r++)for(let c=0;c<2-Math.floor(r/2);c++) ing(-.6+c*.0,.3+r*.36,.9-c*.75+r*.0);
+   ing(1.4,.25,1.2); ing(1.4,.25,.6); ing(1.4,.62,.9); },
+ // 9 purification and weighing
+ g=>{ box(1.6,2.2,1.4,M.body,-.8,1.1,-.3,g); box(1.1,.7,.05,M.glass,-.8,1.4,.42,g); box(.25,.6,.25,M.mid,-.8,2.5,-.3,g);
+   box(.6,.12,.6,phaseMat(2),-.8,2.86,-.3,g);
+   box(1.6,.5,1.2,M.dark,1.1,.25,.5,g); box(1.4,.08,1,M.metal,1.1,.55,.5,g); box(.6,.3,.06,M.glass,1.1,.3,1.11,g);
+   const ing=(x,y,z)=>{ const m=mesh(new THREE.CylinderGeometry(.3,.42,1.1,4),M.metal,x,y,z,g); m.rotation.set(0,Math.PI/4,Math.PI/2); m.scale.set(1,1,.55); };
+   ing(1.1,.75,.3); ing(1.1,.75,.75); },
+ // 10 rolling mills
+ g=>{ [-1,1].forEach(z=>box(3.2,2.2,.3,M.mid,0,1.1,z*.9,g));
+   const rs=[]; [[-.9,1.2],[0,1.2],[.9,1.2],[-.9,.55],[0,.55],[.9,.55]].forEach(([x,y])=>{const r=cyl(.3,.3,1.5,M.metal,x,y,0,g,18); r.rotation.x=Math.PI/2; rs.push({r,d:y>1?1:-1});});
+   anims.push(t=>rs.forEach(o=>o.r.rotation.y=o.d*t*2));
+   const sh=box(4.2,.05,1.2,M.metal,.3,.88,0,g); sh.castShadow=false;
+   const ing=mesh(new THREE.BoxGeometry(.9,.45,.7),M.metal,-2.3,.9,0,g);
+   box(.5,.5,.5,phaseMat(3),1.3,2.45,-.9,g); },
+ // 11 can forming
+ g=>{ box(3.8,.3,1,M.dark,0,.75,.7,g); [-1.7,1.7].forEach(x=>box(.15,.75,.8,M.mid,x,.37,.7,g));
+   const arch=mesh(new THREE.CylinderGeometry(1.1,1.1,1.6,24,1,true,0,Math.PI),M.body,-.6,.9,.7,g); arch.rotation.z=Math.PI/2; arch.rotation.y=Math.PI/2;
+   box(1.3,2.6,1.4,M.body,1.1,1.3,-.6,g); box(.8,.5,.05,M.glass,1.1,1.9,.12,g); box(.4,.4,.06,phaseMat(3),1.1,1.2,.12,g);
+   const press=box(.5,.6,.5,M.mid,1.1,2.9,-.6,g); anims.push(t=>{press.position.y=2.9+Math.abs(Math.sin(t*3))*.3;});
+   const cs=[]; for(let k=0;k<4;k++){ cs.push(can(-1.6+k*.8,.9,.7,g,.85)); }
+   anims.push(t=>cs.forEach((c,k)=>{c.position.x=-1.6+(((t*.4)+k/4)%1)*3.2;})); },
+ // 12 new cans pallet
+ g=>{ box(3,.25,3,M.mid,0,.12,0,g); for(let x=-1;x<=1;x++) box(.25,.15,3,M.dark,x*1.2,-.0,0,g);
+   for(let x=0;x<4;x++)for(let z=0;z<4;z++){ const c=can(-1.05+x*.7,.25,-1.05+z*.7,g,1.5); }
+   const ring=mesh(new THREE.TorusGeometry(.5,.06,8,30,Math.PI*1.6),phaseMat(3),0,3,0,g);
+   anims.push(t=>{ring.rotation.y=t;});
+ }
+];
+
+function highlight(i){
+  if(!selRing) return;
+  if(i<0){ selRing.visible=false; return; }
+  const st=stations[i]; selRing.visible=true;
+  selRing.position.set(st.group.position.x,.35,st.group.position.z);
+}
+
+/* ---------- controls ---------- */
+function setupControls(canvas){
+  const pts=new Map(); let downPos=null, moved=false, pinch0=0, rad0=0;
+  const ray=new THREE.Raycaster(), mv=new THREE.Vector2();
+  function pick(e){
+    const r=canvas.getBoundingClientRect();
+    mv.set(((e.clientX-r.left)/r.width)*2-1,-((e.clientY-r.top)/r.height)*2+1);
+    ray.setFromCamera(mv,camera);
+    const hits=ray.intersectObjects(stations.map(s=>s.group),true);
+    for(const h of hits){ if(h.object.userData.stage!==undefined) return h.object.userData.stage; }
+    return -1;
+  }
+  canvas.addEventListener('pointerdown',e=>{
+    document.getElementById('hint').style.display='none';
+    canvas.setPointerCapture(e.pointerId); pts.set(e.pointerId,{x:e.clientX,y:e.clientY});
+    downPos={x:e.clientX,y:e.clientY}; moved=false;
+    if(pts.size===2){ const [a,b]=[...pts.values()]; pinch0=Math.hypot(a.x-b.x,a.y-b.y); rad0=goal.radius; }
+  });
+  canvas.addEventListener('pointermove',e=>{
+    if(!pts.has(e.pointerId)){
+      if(e.pointerType==='mouse'){ hovered=pick(e); canvas.classList.toggle('hover',hovered>=0); }
+      return;
+    }
+    const p=pts.get(e.pointerId); const dx=e.clientX-p.x, dy=e.clientY-p.y;
+    p.x=e.clientX; p.y=e.clientY;
+    if(Math.hypot(e.clientX-downPos.x,e.clientY-downPos.y)>5) moved=true;
+    if(pts.size===2){ const [a,b]=[...pts.values()]; const d=Math.hypot(a.x-b.x,a.y-b.y); if(pinch0>0) goal.radius=clamp(rad0*pinch0/d,7,75); return; }
+    if(moved){ canvas.classList.add('dragging');
+      goal.theta-=dx*0.006; goal.phi=clamp(goal.phi-dy*0.005,0.25,1.45); }
+  });
+  const end=e=>{
+    if(!pts.has(e.pointerId)) return;
+    pts.delete(e.pointerId); canvas.classList.remove('dragging');
+    if(!moved && pts.size===0 && e.type==='pointerup'){
+      const s=pick(e); if(s>=0) selectStage(s,mode==='tour');
+    }
+    if(pts.size<2) pinch0=0;
+  };
+  canvas.addEventListener('pointerup',end); canvas.addEventListener('pointercancel',end);
+  canvas.addEventListener('wheel',e=>{ e.preventDefault(); goal.radius=clamp(goal.radius*(1+Math.sign(e.deltaY)*0.1),7,75); },{passive:false});
+  document.getElementById('btnOverview').onclick=()=>{goOverview(); highlight(-1);};
+  document.getElementById('btnSpin').onclick=e=>{autoSpin=!autoSpin; e.target.textContent='Auto rotate: '+(autoSpin?'on':'off');};
+}
+const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+function resize(){
+  const c=renderer.domElement, w=c.parentElement.clientWidth, h=c.parentElement.clientHeight;
+  renderer.setSize(w,h,false); camera.aspect=w/h; camera.updateProjectionMatrix();
+}
+const clock=new THREE.Clock();
+function animate(){
+  requestAnimationFrame(animate);
+  const dt=Math.min(clock.getDelta(),0.1); const t=clock.elapsedTime;
+  if(autoSpin) goal.theta+=0.15*dt;
+  const k=1-Math.pow(0.006,dt);
+  view.theta+=(goal.theta-view.theta)*k; view.phi+=(goal.phi-view.phi)*k; view.radius+=(goal.radius-view.radius)*k;
+  view.target.lerp(goal.target,k);
+  camera.position.set(
+    view.target.x+view.radius*Math.sin(view.phi)*Math.sin(view.theta),
+    view.target.y+view.radius*Math.cos(view.phi),
+    view.target.z+view.radius*Math.sin(view.phi)*Math.cos(view.theta));
+  camera.lookAt(view.target);
+  anims.forEach(f=>f(t));
+  movers.forEach(m=>{ const u=(m.userData.t+t*0.008)%1; const q=pointOnLoop(u); m.position.set(q.x,.18,q.z);
+    const d=u*loopLen; // what the material looks like on this part of the belt
+    const f = d>=cum[6]&&d<cum[7]?'bale' : d>=cum[7]&&d<cum[11]?'melt' : d>=cum[11]&&d<cum[15]?'ingot' : d>=cum[15]&&d<cum[16]?'sheet' : 'can';
+    const fm=m.userData.forms; for(const k in fm) fm[k].visible=(k===f); });
+  const zoomed=view.radius<26;
+  signs.forEach(sp=>{ if(!sp.userData.b) sp.userData.b=sp.scale.clone(); const f=zoomed?0.35:1; sp.scale.set(sp.userData.b.x*f,sp.userData.b.y*f,1); });
+  stations.forEach((s,i)=>{ const on=i===hovered||i===current; s.plat.scale.y=on?1.6:1;
+    const f=zoomed?(i===current?0.48:0.34):1; s.label.scale.set(s.label.userData.base*f,1.85*f,1); s.label.material.opacity=(zoomed&&i!==current)?0.75:1; });
+  if(selRing&&selRing.visible){ selRing.scale.setScalar(1+Math.sin(t*4)*.04); }
+  renderer.render(scene,camera);
+}
+
+/* start */
+current=-1; renderPanel();
+if(window.innerWidth<860) setTimeout(()=>{const h=document.getElementById('hint'); if(h) h.style.display='none';},5000);
+(document.fonts&&document.fonts.load ? Promise.all(['700 50px "Barlow Condensed"','400 40px "Playfair Display"','400 18px Barlow'].map(f=>document.fonts.load(f))).catch(()=>{}) : Promise.resolve()).then(init3D);
+</script>
+</body>
+</html>
