@@ -3599,7 +3599,7 @@ function doAct(el){
   else if(act==='goto'){p=v.split('|');S.tab=p[0];S.menu=false;
     if(p[0]==='sent'&&p[1])S.sub=p[1];
     if(p[0]==='vocab'&&p[1])S.vsub=p[1];
-    if(p[0]==='model'&&p[1]){S.msub=p[1];S.ms=0;S.task=(p[1]==='line'||p[1]==='bar')?'T1':(p[1]==='plan'?S.task:'T2');}
+    if(p[0]==='model'&&p[1]){S.msub=p[1];S.ms=0;S.task=(p[1]==='line'||p[1]==='bar'||p[1]==='process')?'T1':(p[1]==='plan'?S.task:'T2');}
     fx='full';toTop();}
   else if(act==='band'){S.band=v;S.mv=v;S.au=0;S.demo=0;S.step=null;S.affix=0;S.word=0;S.form=0;S.st=null;resetSent();fx='full';}
   else if(act==='task'){S.task=v;S.word=0;S.form=0;S.ms=0;resetSent();fx='full';}
